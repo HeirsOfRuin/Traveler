@@ -35,6 +35,15 @@
 - A woman's route is its own route where the era demands it, not the man's
   with the pronouns changed. Every scene written for one sex of hero is read
   against the other before it is committed.
+- The author on the prose, 2026-11-22: "Keep the ai feel out of the prose, I
+  beg you", and of the first Gate A draft, "It did not have enough dry wit, but
+  I liked the way it was narrated." So: the narrator reports, drily, and the
+  wit is understatement in the reporting and in what people say. Never a short
+  line alone at the end of a paragraph for effect; never telling the reader
+  what they have just worked out; no lists of three for rhythm; no echoed
+  closing line; no joke that knows it is one. `docs/GATE-A.md` has the table
+  of habits with the lines that were cut. Read every scene against it before
+  it is committed.
 - Before writing Norway, read Vikingr's `content/style-guide.md` and
   `docs/DESIGN.md`. This game's own guide is `content/style-guide.md`.
 - Decisions go in the SPEC's dated table with the author's words quoted.

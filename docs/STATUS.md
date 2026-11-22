@@ -9,7 +9,7 @@ waiting on whom.
 |---|---|
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved by the author, 2026-11-22 (`SPEC.md`) |
-| **2 Gate A, the read** | **Written. Waiting on the author** (`GATE-A.md`) |
+| **2 Gate A, the read** | **First draft not passed (not enough dry wit; the narration liked; "keep the ai feel out"). Second draft written, waiting on the author** (`GATE-A.md`) |
 | 2 Gate B, the numbers | Not started. Starts when Gate A passes |
 | 3 Phase 0 design | Not started (`DESIGN.md` is a stub) |
 | 4 Engine and instruments | The kit is laid and proven; none of this game's own rules exist |
@@ -54,7 +54,8 @@ numbers say the kit works. They say nothing about this game.
 
 ## Waiting on the author
 
-1. **Gate A:** read `GATE-A.md` and answer its three questions.
+1. **Gate A:** read the second draft in `GATE-A.md` and answer its three
+   questions.
 2. The table at the top of `GATE-A.md`: seven things the sample chose that
    are not decided.
 3. The open list in `SPEC.md`: a title, love scenes, the Vesuvius season.
