@@ -1,0 +1,39 @@
+{
+  "name": "traveler",
+  "private": true,
+  "type": "module",
+  "description": "An accidental time traveller: Norway about 870, Japan in the 1560s, Rome in AD 79. Three visits, one life.",
+  "scripts": {
+    "content": "tsx tools/build-content.ts",
+    "dev": "npm run content && vite",
+    "build": "npm run content && tsc --noEmit && vite build && node tools/stamp.mjs dist",
+    "preview": "vite preview",
+    "test": "npm run content && vitest run",
+    "typecheck": "tsc --noEmit",
+    "bot": "tsx tools/bot.ts",
+    "smoke": "node tools/smoke.mjs dist",
+    "check-bundle": "node tools/check-bundle.mjs",
+    "icons": "node tools/make-icons.mjs",
+    "check": "npm run build && vitest run && npm run validate && npm run lint:style && npm run continuity -- --strict && npm run scan -- --strict && npm run bot -- --runs 100 && node tools/check-bundle.mjs && node tools/smoke.mjs dist",
+    "validate": "tsx tools/validate.ts",
+    "lint:style": "tsx tools/narrative/lint-style.ts",
+    "continuity": "tsx tools/narrative/continuity.ts",
+    "scan": "tsx tools/narrative/render-scan.ts",
+    "audit": "tsx tools/narrative/audit-choices.ts",
+    "transcript": "tsx tools/transcript.ts",
+    "fixture": "tsx tools/make-fixture.ts"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.3"
+  },
+  "dependencies": {
+    "preact": "^10.29.8",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
+  }
+}
