@@ -44,6 +44,17 @@
   closing line; no joke that knows it is one. `docs/GATE-A.md` has the table
   of habits with the lines that were cut. Read every scene against it before
   it is committed.
+- The author on choices, 2026-11-22: "Make sure the choices are actually
+  worth choosing. Every choice should lead in 3 different paths of the same
+  story, not interruptive of those choices... I don't want it to ever feel
+  predetermined". So: every choice is three roads through the same story.
+  None is a refusal, a delay, a wrong answer or flavour. No later scene folds
+  a road back into the one the story had planned: the same places and people
+  come round and meet a different person. A choice that cannot be written as
+  three roads is not offered. The second Gate A draft failed on this in three
+  choices out of four (`docs/GATE-A.md` has the table). `npm run audit` lists
+  choices that do nothing; it becomes a failing check when this game's content
+  starts.
 - Before writing Norway, read Vikingr's `content/style-guide.md` and
   `docs/DESIGN.md`. This game's own guide is `content/style-guide.md`.
 - Decisions go in the SPEC's dated table with the author's words quoted.

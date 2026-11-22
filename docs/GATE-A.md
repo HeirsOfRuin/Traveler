@@ -5,23 +5,63 @@ work on this game's own rules, the author reads about 3,000 words and answers
 three questions. Divine Mismanagement used the same gate. No instrument can
 judge it.
 
-**Status: second draft, 2026-11-22, waiting on the author.** The first draft
-did not pass. The author: "It did not have enough dry wit, but I liked the way
-it was narrated. Keep the ai feel out of the prose, I beg you."
+**Status: third draft, 2026-11-22, waiting on the author.** Two verdicts so
+far, neither a pass.
 
-## What the second draft changed
+- On the first draft: "It did not have enough dry wit, but I liked the way it
+  was narrated. Keep the ai feel out of the prose, I beg you."
+- On the second: "Make sure the choices are actually worth choosing. Every
+  choice should lead in 3 different paths of the same story, not interruptive
+  of those choices. And the first choice where you go into the door and choose
+  starting kit should give 3 different approaches. This may be a choose your
+  own adventure narrative, but I don't want it to ever feel predetermined".
+
+## What the third draft changed: the choices
+
+The second draft had four choices and followed one answer to each. Read
+against the author's words, three of the four were not worth choosing:
+
+| Choice in the second draft | What was wrong with it |
+|---|---|
+| The shed: fill your pockets / go now / drive back and call someone | One real answer, one the same with less in it, and one that refuses the story |
+| The hill: what to tell the boy | All three led to the same fire and the same boy. Flavour |
+| The hall: can you build it | Real, but only one answer was written, so it read as the right one |
+| Aud: the note | Never answered |
+
+The rule now, for every choice in the game (`CLAUDE.md`):
+
+1. **Three roads through the same story.** Each answer is a way of going on.
+   None is a refusal, a delay, a wrong answer or the same answer said rudely.
+2. **Nothing later cancels it.** A road is not folded back into the others by
+   the next scene. The same places and people come round, and they meet a
+   different person: one with a trade, one who knows too much, one with
+   something to give.
+3. **No choice is offered where three roads cannot be written.** The hill has
+   no choice in this draft. What happens there comes from what was carried.
+
+This is read as "not interruptive": the story does not interrupt a road to
+put the hero back on the one it had planned. If that is not what was meant,
+the rule is wrong and should be said again.
+
+How the sample shows it: there are two choices, and **all three answers to
+each are written.** Nothing is in bold. The text that every road shares is
+written once; where the roads part, each is headed by what was chosen.
+
+**What this costs.** Three written roads at every choice is about three times
+the prose at that point, and the roads cannot multiply for ever: two choices
+here would be nine halls if nothing were shared. The sample shares the place
+and the people and varies who the hero is to them, which is the only way 150
+scenes stays 150 scenes. The SPEC's count was made before this rule and is now
+too low by an amount not yet measured. The kit has a tool for the other half
+(`npm run audit` lists every choice whose effect is flavour or nothing); it
+goes into `npm run check` as a failure when this game's content starts.
+
+## What the second draft changed: the prose
 
 The narration is kept: second person, present tense, a narrator who stands
-beside the hero and reports. The scenes, the people and the order are the
-same. Two things changed.
-
-**Dry wit.** The first draft was dry in about six places and plain in the
-rest. The wit now sits in the narrator's reporting and in what people say,
-as understatement: the uncle's letters, his welds, the boots, the lintel, the
-dog, Thorgrim's account of his guest. Nothing is set up as a joke.
-
-**The machine habits, cut.** These are what the first draft did that reads
-as generated, and the second does not do:
+beside the hero and reports. The wit sits in the reporting and in what people
+say, as understatement. These habits of the first draft read as generated and
+are cut:
 
 | Habit | From the first draft |
 |---|---|
@@ -33,18 +73,8 @@ as generated, and the second does not do:
 | "The way you would", again and again | Five times in 2,700 words |
 | A line that is a joke and knows it | "Unkel once tried to milk the ram." |
 
-They are now rules for all prose in this game (`CLAUDE.md`), and go into the
+They are rules for all prose in this game (`CLAUDE.md`), and go into the
 style guide's lint lists when it is written.
-
-## The three questions
-
-1. Is it funny without trying?
-2. Is there wonder?
-3. Do you want the next scene?
-
-A yes, a no, or "these parts" are all useful answers. If it is a no, there is
-no tuning that fixes it (the SPEC says so), and the build stops here at the
-cost of one evening.
 
 ## What was chosen to write it, and is not decided
 
@@ -67,8 +97,8 @@ a woman of the house carrying its keys are from memory of well-attested
 things and are not yet in `docs/HISTORY.md`. The king is mentioned once and
 not named, because where Harald's power lay is disputed.
 
-The quoted lists are choices as the game would show them. The bold one is the
-one the sample follows.
+Sugar was not known in Norway in 870 and pepper was a rare thing from far
+away; both from memory, not yet checked.
 
 ---
 
@@ -125,21 +155,31 @@ three days' drive from here.
 The cat has taken the far wall, and from the state of the blanket it has had
 the far wall for some time.
 
-> - **Take the ear, fill your pockets from the bench, and go through.**
-> - Go through now, before you think about it.
-> - Drive back to where there is a signal and call someone.
+There is more tape on the frame itself, at eye height. ONE HAND'S WORTH. ASK
+ME HOW I KNOW.
 
-*(What goes in the pockets is the hero's starting kit. The third choice is
-honoured, and costs a day.)*
+So you are going, it seems, and the question is what the hand is for. Your
+tool bag is in the truck, since he asked for the helmet and you do not travel
+with half of it. His notebook is on the bench beside the note, a black one
+gone fat with use, with a rubber band round it. And over the kettle is a shelf
+he has labelled TRADE, which holds a bag of sugar, a tin of pepper and three
+cards of steel needles from the fabric shop in town. You had taken that for
+groceries and a hobby.
+
+> - Fetch the tool bag from the truck.
+> - Take the notebook.
+> - Empty the TRADE shelf into a feed sack.
+
+*(Three ways to be a stranger: with a trade, with what he knew, or with
+something to give. Each is written below.)*
 
 You hook the brass thing behind your ear and find it warm, as if it had lately
-been behind somebody else's. His lighter goes into your jacket with a folding
-knife and a roll of electrical tape, and then the note, since a person should
-have something to show the police. Your phone is in your pocket already, where
-it lives.
+been behind somebody else's. The note goes into your jacket, since a person
+should have something to show the police. Your phone and your lighter are in
+your pockets already, where they live.
 
 You step through the frame as you would over an air hose, without looking
-down.
+down, with your one hand's worth.
 
 ## 2. The hill
 
@@ -178,10 +218,10 @@ away.
 
 By now you are cold enough to notice. You get into the lee of the boulder and
 collect sticks, with some confidence, since setting things alight is the
-better part of your trade. Wet heather held over your uncle's lighter gives
-off steam. The bark of a small bent birch does no more. You take out the note
-and consider it, and decide your uncle would want it kept. By the time the
-lighter is too hot to hold you have produced a smell.
+better part of your trade. Wet heather held over the lighter gives off steam.
+The bark of a small bent birch does no more. You take out the note and
+consider it, and decide your uncle would want it kept. By the time the lighter
+is too hot to hold you have produced a smell.
 
 "Hvat ertu?"
 
@@ -195,13 +235,9 @@ The brass thing clicks twice behind your ear, like a relay closing.
 "What are you?" he says again. This time it reaches you in English, half a
 beat after his mouth has finished. He has asked what, you notice, and not who.
 
-> - Tell him the truth: you are looking for your uncle.
-> - **Tell him you are cold.**
-> - Say nothing, and show him your empty hands.
-
-"I'm cold," you tell him, and your throat does something to the words on their
-way out that you had no part in. He frowns as people do at a heavy accent.
-Then he looks at your sticks, and at the lighter, which you are slow to cover.
+"Cold," you tell him, and your throat does something to the word on its way
+out that you had no part in. He frowns as people do at a heavy accent. Then he
+looks at your sticks, and at the lighter, which you are slow to cover.
 
 He crouches down. Out of the pouch on his belt come a curl of steel, a flake
 of stone and a pinch of black felted stuff, and with his back to the wind and
@@ -219,19 +255,74 @@ own fire.
 
 "You know my uncle?"
 
-"Everyone knows Unkel." He stands up and whistles for the dog. "He owes
-Thorgrim a ship."
+"Everyone knows Unkel. He owes Thorgrim a ship."
+
+After that he gets round to what you are carrying.
+
+### If you brought the tool bag
+
+He has it open before you can decide whether to stop him. The helmet he puts
+on, and takes off again directly, having found that it makes the world dark.
+The gloves he approves of. Then he comes to the file. He tries its edge with
+his thumb and draws it once along the back of his fire-steel, where it lifts a
+bright curl and leaves a flat, and he looks at the flat for some time.
+
+"You are a smith," he says.
+
+"More or less."
+
+"Hrapp is our smith." He puts the file back with more care than he took it
+out. "Hrapp is going to hate you."
+
+He appears to be looking forward to it. He says he is called Kol, and he
+carries the bag down the hill himself, shouting before the yard is in earshot
+that there was a smith on the mountain and that it was he who found it.
+
+### If you brought the notebook
+
+It is open on your knee, where you had been hunting for a page about fire. The
+page you have instead is headed PEOPLE, and the third line of it reads: *KOL.
+Boy, about 11. Dog. Finds everything first, tells everyone.*
+
+"You're Kol," you say.
+
+The boy stops with his hand on the dog's neck. "Who gave you my name?"
+
+You have no answer he would like, so you hold up the book. He looks at the
+marks on the page as he might at the tracks of an animal he had only been told
+about, and he does not come any nearer to them. Further down it says
+*THORGRIM. Runs the place. Fair.* and *AUD. His sister. Do not bother lying to
+her.* At the foot, in a box drawn twice round: *DON'T SHOW THEM THE LIGHTER.*
+
+Kol goes down the hill well ahead of you and does not wait at the turns. When
+you reach the yard on your own, a good while after him, a number of people
+have found work to do near the door, and it is clear that the news has arrived
+and that it was about the names.
+
+### If you brought the feed sack
+
+He looks into it and is not much struck. You tear a corner off the sugar and
+shake some into his palm, and he takes it for salt and licks it up out of
+manners.
+
+He stands quite still. Then he cleans the palm thoroughly, looks into the sack
+to see how much more of it there is, and ties the neck himself, with a knot
+you would not care to have to undo.
+
+"Do not give that to anybody on the way down," he says. "They will only want
+it."
+
+He lets you know that he is called Kol and that you may walk behind him. In
+the yard he informs a woman carrying buckets, and after her the hens, that the
+stranger is his, that he found him, and that nobody is to touch the sack.
 
 ## 3. Unkel's water
 
-The boy is called Kol, and he goes down the hill at a trot, stopping at each
-turn to look at the weather until you arrive. Your boots are rated for a
-dropped girder. Nobody rated them for wet moss, and you make most of the
-descent sitting.
+Your boots are rated for a dropped girder. Nobody rated them for wet moss, and
+you make most of the descent sitting.
 
-The yard has hens in it, and a woman who stops with a bucket in either hand to
-watch you go by. The door of the long building is cut for people who know
-where the lintel is. You find out where it is.
+The door of the long building is cut for people who know where the lintel is.
+You find out where it is.
 
 Inside it is dark and far bigger than it looked from the hill. A fire burns in
 a trench down the middle of the floor, a truck-length of it, and its light
@@ -273,17 +364,28 @@ he fought the man from Sogn."
 
 At the head of the fire, in the only seat with a back, a man of about fifty
 has watched your arrival without moving anything but his eyes. He is built
-along the same lines as the posts. He lifts one finger, and Kol walks you up
-the hall.
+along the same lines as the posts. He lifts one finger, and you go up the
+hall.
 
-"You are Unkel's kin," says Thorgrim. "You have his clothes, and you came
-through my door head first, as he did." There is some laughing at this. "He
-ate at my fire from hay-time until the leaves turned, and he ate well. He kept
-Bjorn's leg on, and reminded us of it most evenings. I liked him. He said he
-could build me a ship that would sail into the wind. I asked how, and he drew
-it in the ashes, and it was a handsome drawing. I gave him half a pound of
-silver to buy iron. Six nights ago he went up that hill with it and has not
-come down."
+*(His first words depend on what was carried.)*
+
+- **The tool bag.** "Kol tells me he has found a smith," Thorgrim says. "The
+  last man off that hill told me he was a smith as well."
+- **The notebook.** "Kol tells me you had his name before he gave it,"
+  Thorgrim says. "Have you mine?" You have, and you say it, and the people on
+  the bench nearest you discover that there is room further along.
+- **The feed sack.** You put the pepper and a card of needles on the board in
+  front of him. He opens the tin and sneezes, and is pleased with it. "Unkel
+  came with his hands empty and went away with them full," Thorgrim says. "You
+  have it the other way about."
+
+"You are his kin, though. You have his clothes, and you came through my door
+head first, as he did." There is some laughing at this. "He ate at my fire
+from hay-time until the leaves turned, and he ate well. He kept Bjorn's leg
+on, and reminded us of it most evenings. I liked him. He said he could build
+me a ship that would sail into the wind. I asked how, and he drew it in the
+ashes, and it was a handsome drawing. I gave him half a pound of silver to buy
+iron. Six nights ago he went up that hill with it and has not come down."
 
 "What do you want with a ship that sails into the wind?"
 
@@ -292,27 +394,32 @@ has the wind behind him. Tonight you are my guest. Tomorrow you are Unkel's
 kin, and you have what Unkel owes. So tell me now, while I am still feeding
 you. Can you build it?"
 
-> - **Tell him you work iron. You have never built a ship.**
-> - Tell him it can be built. You have seen boats that do it.
-> - Tell him your uncle is a liar, and you are sorry for it.
+While he was speaking a woman has come down the hall and stopped at your
+shoulder, and you did not hear her do it. She is about your age, in a dress of
+the dark red that a gate goes when it has rusted properly, with the sleeves
+shoved back from work she has not finished. A ring of keys hangs at her belt,
+a dozen or more. People along the benches drew in their feet as she came. She
+seems to want the answer as well.
 
-*(This is the game's one decision, small. The second answer is true, raises
-the hero fastest, and starts the hall wondering where he saw such boats.)*
+> - Tell him you work iron and have never built a ship. Offer to work the debt off.
+> - Tell him it can be built. You have seen boats that do it.
+> - Tell him you will bring back his silver, and your uncle with it.
+
+*(This is the game's standing decision, small: the era's own way, what you
+know, or the uncle's trail. Any hero can give any answer. Each is written
+below, and each is a different first meeting with her.)*
 
 ## 4. The keys
 
-"I work iron," you say. "I have never built a ship."
+### If you offer to work it off
+
+"I work iron," you say. "I have never built a ship. I will work off what he
+owes."
 
 "Hm," says Thorgrim, past your shoulder. "Is that true?"
 
-A woman has come up behind you, and you did not hear her do it. She is about
-your age, in a dress of the dark red that a gate goes when it has rusted
-properly, with the sleeves shoved back from work she has not finished. A ring
-of keys hangs at her belt, a dozen or more. People along the benches drew in
-their feet as she came.
-
-She leaves Thorgrim's question where it is, takes your right hand and turns it
-palm up, as she might a fish somebody was asking too much for.
+She leaves the question where it is, takes your right hand and turns it palm
+up, as she might a fish somebody was asking too much for.
 
 She studies the callus. Then she pushes up your sleeve, a thing nobody has
 done to you since you were six, and goes over the forearm: the shiny patches,
@@ -353,7 +460,7 @@ You wash. She puts you on the bench nearest the door, among the dogs, where a
 man sits until the hall has made up its mind about him. A bowl arrives with
 something grey and hot in it, and barley in that. No spoon arrives. Along both
 benches people are taking spoons out of belts and sleeves, having brought
-their own, as people evidently do. You have brought a roll of electrical tape.
+their own, as people evidently do. You have brought no spoon.
 
 She has noticed that as well. She unhooks a spoon of pale horn from her belt,
 worn thin along one edge, and holds it out to you, and keeps hold of her end
@@ -370,6 +477,75 @@ you bleeding?"
 
 The note is in your jacket, with his thumb on it.
 
-> - **Show her the note.**
-> - Tell her he got home safe.
-> - Ask her whose knife it was.
+### If you say it can be built
+
+"It can be built," you say. "I have seen boats that do it."
+
+Thorgrim brings his hand down on the arm of his seat and has you moved four
+places up the bench, into the warm. This costs a man with burned forearms his
+seat, and he takes it quietly and badly. A horn of something is put into your
+hand. Thorgrim wants to know how soon, and how much iron, and whether the
+king's ships can do the same, and you answer him as well as a person can who
+has watched sailing on television.
+
+The woman lets him finish.
+
+"Where?" she says.
+
+"Where what?"
+
+"Where have you seen them? I have stood on that shore every summer of my life
+and seen every keel that came up this water, and my husband saw the ones in
+the west and told me about them at length. Neither of us saw a ship do that."
+She waits until she is satisfied that you have nothing ready. "It will keep.
+Eat."
+
+That is Aud, the man beside you says, who is Thorgrim's sister and holds the
+keys. He adds, meaning it kindly, that he has never known her to forget to
+come back to a thing.
+
+### If you say you will bring him back
+
+"I can't build it," you say. "I will bring back your silver, though, and him
+with it."
+
+"His family are great promisers," Thorgrim tells the hall, and the hall
+enjoys it. "Where will you look? He went up and he did not come down. Kol has
+been over that hill like a dog after a hare."
+
+"He was bleeding," the woman says.
+
+She has not raised her voice, and the benches go quiet for her faster than
+they did for you. "It was his hand. He had it wrapped in his shirt. He went
+by me in the yard at a walk that would rather have been a run, and when I
+asked who had done it he said he had caught it on a nail. We do not leave
+nails about."
+
+Thorgrim asks the hall, pleasantly, whose knife it was, and gets no answer.
+Toward the back a man with burned forearms has taken an interest in his bowl.
+
+"You may have the boy, and you may have until the first snow," Thorgrim says.
+"After that I will have my ship or the worth of it, and I will have it from
+you."
+
+Kol tells you, on the way to the bench by the door, that the woman was Aud,
+Thorgrim's sister, who holds the keys, and that in six nights she had not said
+one word of that to anybody.
+
+---
+
+## Where each road leaves the hero
+
+Nothing here is a system yet; it is what the prose above already did.
+
+| | The hall thinks you are | You have | You do not have |
+|---|---|---|---|
+| Tool bag | A smith, and Hrapp's problem | A trade on the first night | Anything to give, or any idea who these people are |
+| Notebook | Something that knows names | The uncle's own account of the place | The hall's ease. They moved along the bench |
+| Feed sack | Kol's find, and a guest who gives | Thorgrim's good humour and a boy who guards you | A use, once the sack is empty |
+
+| | Where you sit | Aud | The uncle's trail |
+|---|---|---|---|
+| Work it off | By the door, with the dogs | Has read your hands, lent you her spoon, and told you privately | You know he bled. Nobody else knows you know |
+| It can be built | Four places up, in the warm | Has a question and will come back to it | Nothing. She did not tell you |
+| Bring him back | By the door | Said it to the whole hall, on your account | A man with burned forearms, a boy, and until the first snow |

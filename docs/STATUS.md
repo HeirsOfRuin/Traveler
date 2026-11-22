@@ -9,7 +9,7 @@ waiting on whom.
 |---|---|
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved by the author, 2026-11-22 (`SPEC.md`) |
-| **2 Gate A, the read** | **First draft not passed (not enough dry wit; the narration liked; "keep the ai feel out"). Second draft written, waiting on the author** (`GATE-A.md`) |
+| **2 Gate A, the read** | **Two drafts not passed (dry wit and the machine feel; then choices not worth choosing). Third draft written, waiting on the author** (`GATE-A.md`) |
 | 2 Gate B, the numbers | Not started. Starts when Gate A passes |
 | 3 Phase 0 design | Not started (`DESIGN.md` is a stub) |
 | 4 Engine and instruments | The kit is laid and proven; none of this game's own rules exist |
@@ -29,7 +29,7 @@ work on this game: nothing in it knows about belonging, the door or the uncle.
   the four text tools in `tools/narrative/`, and the kit's example game, "The
   Crossing" (8 scenes, 2 starts), in `content/` and `src/game/`. It is a
   placeholder. It is what `npm run check` plays today.
-- **Documents:** `SPEC.md`, `GATE-A.md` (the sample, about 2,700 words),
+- **Documents:** `SPEC.md`, `GATE-A.md` (the sample, third draft, with every answer to both of its choices written),
   `HISTORY.md` (a first check of the four things the SPEC marked "from
   memory"), this page. `CONTENT.md`, `ECONOMY.md` and the `FRAME-*` files are
   the kit's templates and references.
@@ -54,7 +54,7 @@ numbers say the kit works. They say nothing about this game.
 
 ## Waiting on the author
 
-1. **Gate A:** read the second draft in `GATE-A.md` and answer its three
+1. **Gate A:** read the third draft in `GATE-A.md` and answer its three
    questions.
 2. The table at the top of `GATE-A.md`: seven things the sample chose that
    are not decided.
