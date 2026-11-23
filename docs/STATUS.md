@@ -10,7 +10,7 @@ waiting on whom.
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved by the author, 2026-11-22 (`SPEC.md`) |
 | **2 Gate A, the read** | **Two drafts not passed (dry wit and the machine feel; then choices not worth choosing). Third draft written, waiting on the author** (`GATE-A.md`) |
-| 2 Gate B, the numbers | Not started. Starts when Gate A passes |
+| **2 Gate B, the numbers** | **Run 2026-11-23 at the author's word, Gate A still open. The three claims hold at 16 seasons; six faults open** (`KILLGATE.md`) |
 | 3 Phase 0 design | Not started (`DESIGN.md` is a stub) |
 | 4 Engine and instruments | The kit is laid and proven; none of this game's own rules exist |
 | 5 to 8 | Not started |
@@ -29,7 +29,10 @@ work on this game: nothing in it knows about belonging, the door or the uncle.
   the four text tools in `tools/narrative/`, and the kit's example game, "The
   Crossing" (8 scenes, 2 starts), in `content/` and `src/game/`. It is a
   placeholder. It is what `npm run check` plays today.
-- **Documents:** `SPEC.md`, `GATE-A.md` (the sample, third draft, with every answer to both of its choices written),
+- **The Gate B model** (`prototypes/killgate/`): data, rules, eleven policies,
+  the gate tables, a switch ablation and an invariant check that runs in
+  `npm run check`. Numbers only; tuned placeholders.
+- **Documents:** `SPEC.md`, `KILLGATE.md`, `GATE-A.md` (the sample, third draft, with every answer to both of its choices written),
   `HISTORY.md` (a first check of the four things the SPEC marked "from
   memory"), this page. `CONTENT.md`, `ECONOMY.md` and the `FRAME-*` files are
   the kit's templates and references.
@@ -45,14 +48,15 @@ numbers say the kit works. They say nothing about this game.
   `src/engine/deck.js`). It goes in with the first content system, after the
   gates. The story engine's own once-only rules for scenes need reading
   against it first.
-- **The measurement kit's adapter** for Gate B. Gate B is a numbers-only model
-  in `prototypes/`, written when Gate A passes.
 - **This game's style guide.** `content/style-guide.md` is the example's.
   Vikingr's guide is the model for Norway; it bans modern idiom outright, and
   this game's narrator stands beside a modern person, so it cannot be copied
   whole. The Gate A verdict on voice decides how it is written.
 
 ## Waiting on the author
+
+0. **Gate B's questions** (`KILLGATE.md`, open faults): is there meant to be
+   a slow, safe road to a name (fault 3); and is four years the wait.
 
 1. **Gate A:** read the third draft in `GATE-A.md` and answer its three
    questions.

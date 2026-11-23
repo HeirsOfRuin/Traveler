@@ -14,14 +14,17 @@
     "smoke": "node tools/smoke.mjs dist",
     "check-bundle": "node tools/check-bundle.mjs",
     "icons": "node tools/make-icons.mjs",
-    "check": "npm run build && vitest run && npm run validate && npm run lint:style && npm run continuity -- --strict && npm run scan -- --strict && npm run bot -- --runs 100 && node tools/check-bundle.mjs && node tools/smoke.mjs dist",
+    "check": "npm run build && vitest run && npm run gate:check && npm run validate && npm run lint:style && npm run continuity -- --strict && npm run scan -- --strict && npm run bot -- --runs 100 && node tools/check-bundle.mjs && node tools/smoke.mjs dist",
     "validate": "tsx tools/validate.ts",
     "lint:style": "tsx tools/narrative/lint-style.ts",
     "continuity": "tsx tools/narrative/continuity.ts",
     "scan": "tsx tools/narrative/render-scan.ts",
     "audit": "tsx tools/narrative/audit-choices.ts",
     "transcript": "tsx tools/transcript.ts",
-    "fixture": "tsx tools/make-fixture.ts"
+    "fixture": "tsx tools/make-fixture.ts",
+    "gate": "node prototypes/killgate/gate.js",
+    "gate:check": "node prototypes/killgate/check.js",
+    "gate:switches": "node prototypes/killgate/ablate.js prototypes/killgate/ablations/switches.js --adapter=prototypes/killgate/adapter.js --inert --runs=10"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",

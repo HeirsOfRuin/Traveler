@@ -11,8 +11,17 @@
 - Two gates stand before any game code. Gate A (`docs/GATE-A.md`): the author
   reads the sample and says whether it is funny without trying, whether there
   is wonder, and whether he wants the next scene. Nothing measures it but him.
-  Gate B: bot policies on the same seeds, numbers only. No engine work on the
-  game's own rules before Gate A is passed.
+  Gate B (`docs/KILLGATE.md`): bot policies on the same seeds, numbers only.
+  It was run on 2026-11-23 at the author's word while Gate A was still open:
+  the SPEC's three claims hold at a door of 16 seasons, and six design faults
+  are open. Read them before designing any system they touch, and do not tune
+  one away without measuring it. No engine work on the game's own rules
+  before Gate A is passed.
+- The Gate B model is `prototypes/killgate/`. Its numbers are tuned
+  placeholders, not the design. Re-run `npm run gate` after any change to it
+  and put the numbers, with their run counts, in the commit message. The kit
+  files in it (`run.js`, `ablate.js`, `stats.js`, `measure-lib.js`, `rng.js`)
+  are copies from Game-Workshop and are not edited here.
 - What is in `content/` and `src/game/` today is the story kit's example game
   ("The Crossing"). It is there so every instrument has something to prove. It
   is replaced chapter by chapter after the gates, never extended.
