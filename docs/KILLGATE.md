@@ -300,6 +300,60 @@ real numbers will be made the same way and will need the same table. **Open
 5: a history teacher is the worst occupation in eleven rows of twelve, and
 four of the eight traits are best nowhere.**
 
+## Round 5: the faults of the wider hero (2026-11-23)
+
+The author: "Fix the prototype faults you need to get it working." Round 4
+left three: everything by the dangerous way had risen to 12.5%, a place plus
+a courtship to 92.5%, and the new options were lopsided (a history teacher
+worst in eleven rows of twelve; four traits best nowhere).
+
+Changed, all in `data.js` and three lines of `model.js`:
+
+- **Each occupation and trait got a corner of its own.** A teacher reads the
+  hall better (the guess at its room is off by less than half as much). An
+  engineer gets more from a need. Easy to like courts faster and hears more.
+  Martial arts makes the dangerous way safer and longer. Sails and rode as a
+  child both make a journey pay, differently. Raised on a farm was cut back.
+- **The timer was tightened**: the trail gains 18 a season, not 20; the
+  dangerous way 30% more ground, not 45%; an untended bond fades by 3.
+
+Measured, 1,344 heroes x 8 seeds = 10,752 runs per policy:
+
+| | Round 4 | Round 5 |
+|---|---|---|
+| Explaining everything: finally exposed | 93.3% ±0.2 | 92.9% ±0.2 |
+| Suiting it to the room: exposed / named | 6.5% / 86.3% | 5.8% ±0.2 / 88.8% ±0.3 |
+| A place and a courtship | 92.5% ±0.3 | 93.9% ±0.2 |
+| The other pair plans | 71.9%, 47.1% | 74.6% ±0.4, 51.0% ±0.5 |
+| All three, safely (best policy) | 6.6% ±0.2 | 8.9% ±0.3 |
+| All three, the dangerous way | 12.5% ±0.3 | 10.1% ±0.3 |
+| Timer, best pair at 12 / 16 / 20 seasons | 49.8% / 92.4% / 93.3% | 52.8% / 93.8% / 94.0% |
+| Worst hero for any of the four people (20 seeds) | 50.0% ±11.2 | 50.0% ±11.2 |
+| Occupations best in at least one policy row | 2 of 4 | **4 of 4** (welder 4, engineer 4, nurse 1, teacher 1; two rows have no clear best) |
+| Traits best in at least one row | 4 of 8 | **6 of 8** (used to a room 4, raised on a farm 3, fenced 2, easy to like 1, hunts 1, sails 1) |
+
+One thing tried and taken back: courting at 7.5 a season instead of 8 pulled
+a place plus a courtship down by 0.3 points and put four heroes under 25% for
+one of the four people (worst 10.0% ±6.7). It cost the claim and bought
+nothing, so it is 8.
+
+**Fixed:** every occupation is now the best choice for some way of playing.
+**Better, not fixed:** everything by the dangerous way, 12.5% to 10.1%.
+**Not fixed, and said plainly:**
+
+- A place plus a courtship is 93.9%. The lever that moves it (courting speed)
+  breaks reachability first. It needs a rule, not a number: something a
+  courtship costs besides seasons.
+- Everything is reachable safely in 8.9% (the trail, then courting). It was
+  3.9% on the narrower hero. Options that help the trail and options that
+  help courting can now be held by one hero.
+- Martial arts and rode as a child are best in no row. Martial arts is worst
+  in six. Danger is one policy's business in this model, so a trait about
+  danger has one place to matter.
+
+These are placeholder numbers. The prototype does not read them; it will have
+its own, made the same way and checked with the same tables.
+
 ## What this does not show
 
 - Whether any of it is fun. Gate A is the only test of that, and it is open.

@@ -9,8 +9,8 @@ waiting on whom.
 |---|---|
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved by the author, 2026-11-22 (`SPEC.md`) |
-| 2 Gate A, the read | Usable for the prototype (the author, 2026-11-23, on the third draft). `GATE-A.md` |
-| **2 Gate B, the numbers** | **Four rounds, 2026-11-23 (the fourth on the wider hero). The three claims hold at 16 seasons (accepted by the author); round 2's six faults closed; four smaller things open** (`KILLGATE.md`) |
+| **2 Gate A, the read** | **Third draft accepted as usable for the prototype; rewritten as a fourth draft on everything decided since, at his word. The fourth waits on the author** (`GATE-A.md`) |
+| **2 Gate B, the numbers** | **Five rounds, 2026-11-23 (the fourth and fifth on the wider hero). The three claims hold at 16 seasons (accepted by the author); round 2's six faults closed; four smaller things open** (`KILLGATE.md`) |
 | **3 Phase 0 design** | **Not written. The next thing owed** (`DESIGN.md` is a stub) |
 | 4 Engine and instruments | The kit is laid. Character creation is built, ahead of Phase 0 (`FRAME-creation.md`). Nothing else of the game's own |
 | 5 to 8 | Not started |
@@ -58,6 +58,9 @@ numbers say the kit works. They say nothing about this game.
   whole. The Gate A verdict on voice decides how it is written.
 
 ## Waiting on the author
+
+- **Gate A, fourth draft:** the same three questions, and whether the
+  choking scene is the right modern thing for the hall.
 
 0. **Gate B, open after round 3** (`KILLGATE.md`): whether one bold life in
    twelve should be able to have everything.

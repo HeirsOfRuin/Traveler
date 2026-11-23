@@ -11,7 +11,10 @@
 - Two gates stood before any game code. Gate A (`docs/GATE-A.md`): the author
   reads a sample. On the third draft, 2026-11-23: "Gate a is fine for now,
   call it usable for the prototype." That clears it for building; it is not a
-  final word on the voice.
+  final word on the voice. The file now holds a fourth draft, rewritten at his
+  word on everything decided since, which he has not yet read. It is the
+  model for how one scene serves every hero: plain text for all, a labelled
+  version where occupation, trait, look, manner or sex changes a passage.
   Gate B (`docs/KILLGATE.md`): bot policies on the same seeds, numbers only.
   It was run on 2026-11-23 at the author's word while Gate A was still open:
   the SPEC's three claims hold at a door of 16 seasons (the author: "Four

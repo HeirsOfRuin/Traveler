@@ -21,7 +21,7 @@ export function newLife(seed, o = {}) {
   const mul = (k) => mods.reduce((a, m) => a * (m[k] ?? 1), 1);
   const sex = o.sex || 'm';
   const hero = {
-    sex, courts: o.courts || 'women', kit: o.kit || 'tools', job, traits, bond: sum('bond'),
+    sex, courts: o.courts || 'women', kit: o.kit || 'tools', job, traits, bond: sum('bond'), need: sum('need'), press: sum('press'), readMul: mul('readMul'),
     work: sum('work'), trail: sum('trail'), know: sum('know'), workKnow: sum('workKnow'),
     travelPlace: sum('travelPlace'), travelTrail: sum('travelTrail'), openTrail: sum('openTrail') > 0,
     gifts: sum('gifts'), giftBond: sum('giftBond'),
@@ -52,7 +52,7 @@ function look(s) {
   const { D, o } = s;
   const r = streamFor(s.seed, s.season, 'look');
   s.need = !o.noNeeds && r.chance(D.needChance);
-  const blur = o.clearSight ? 0 : D.readNoise * (1 - D.bondTells * Math.max(...s.bond) / 100);
+  const blur = o.clearSight ? 0 : D.readNoise * s.hero.readMul * (1 - D.bondTells * Math.max(...s.bond) / 100);
   s.seen = tolerance(s) - s.strange + r.normal(0, blur);
 }
 
@@ -90,7 +90,7 @@ export function step(s, input) {
   const answered = need && know >= 2;                    // a need is met by doing the thing, in the open
 
   let gainMul = 1 + (D.knowGain[know] - 1) * (1 + hero.know);
-  if (answered) gainMul *= D.needGain;
+  if (answered) gainMul *= D.needGain + hero.need;
   const steep = (g) => g * Math.max(0.15, 1 - s.place / D.ladderTop);   // each rung is harder than the last
   // strangeness: a craft is covered by knowing their ways; an explanation is not
   const cover = 1 - Math.min(0.9, s.skill * D.skillCovers[know]);
@@ -128,7 +128,7 @@ export function step(s, input) {
     if (lastYear(s)) { s.ending = 'dead'; return; }
     s.hurts++; s.skip += D.hurtSeasons; line.hurt = true;
   };
-  const pressMul = press ? D.pressGain : 1;
+  const pressMul = press ? D.pressGain + hero.press : 1;
 
   if (focus === 'trail') {
     let cap = 100;

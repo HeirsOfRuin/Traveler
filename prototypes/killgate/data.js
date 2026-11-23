@@ -66,10 +66,10 @@ export const D = {
   truthBond: [0, 5, 10],        // extra bond in a season when you tell part, or all
   truthStrangeAt: 60,   // telling the truth below this bond is a risk
   truthStrange: 0.28,   // strangeness per point the bond is short of it
-  bondFade: 2.5,        // a bond you do not tend loses this a season
+  bondFade: 3,        // a bond you do not tend loses this a season
 
   // --- the uncle's trail, 0..100
-  trailGain: 20,
+  trailGain: 18,
   trailWall1: 45,       // the trail leaves the fjord: nothing past this until you have travelled
   trailWall2: 75,       // people only tell a household man the rest: needs place >= trailPlace
   trailPlace: 30,
@@ -83,7 +83,7 @@ export const D = {
   awayStrange: 0.45,    // but what you do out there comes home as a story, this much of it
 
   // --- the dangerous way: a named risk the hero chooses, on the trail or a journey
-  pressGain: 1.45,
+  pressGain: 1.3,
   pressDanger: 0.05,    // in the last year it kills; before that it costs seasons
   hurtSeasons: 2,
 };
@@ -105,20 +105,20 @@ export const KITS = {
 export const OCCUPATIONS = {
   welder:   { skill0: 10, work: 0.5 },                       // hands: the nearest thing to a trade they have
   nurse:    { workKnow: 0.25, strangeMul: 0.88 },            // healing is a use people understand
-  teacher:  { know: 0.3, strangeMul: 1.05, trail: 3 },       // knows what happened here, and says so
-  engineer: { know: 0.2, work: 0.3 },                        // knows why it works; has never built it
+  teacher:  { know: 0.25, trail: 4, readMul: 0.45 },         // knows what these people believe, so reads the room well
+  engineer: { know: 0.2, work: 0.3, need: 0.35 },            // the one to have about when something breaks
 };
 
 // Other things a person can do. Each touches one corner of the model.
 export const TRAITS = {
-  rider:   { dangerMul: 0.6, travelPlace: 3, travelTrail: 8 }, // a journey is also a search
-  charm:   { bond: 2.5 },                                     // people tell you things
-  martial: { dangerMul: 0.5 },                                // the dangerous way is less so
-  fencer:  { dangerMul: 0.7, place0: 5 },                     // carries himself like someone who has held one
+  rider:   { dangerMul: 0.6, travelPlace: 2.5, travelTrail: 8 }, // a journey is also a search
+  charm:   { bond: 4, readMul: 0.8 },                         // people tell you things
+  martial: { dangerMul: 0.35, press: 0.3 },                   // the dangerous way is less so, and goes further
+  fencer:  { dangerMul: 0.7, place0: 8 },                     // carries himself like someone who has held one
   speaker: { know: 0.12, strangeMul: 0.93 },                  // explains it and is believed a little longer
   hunter:  { work: 0.6, trail: 1.5 },                         // earns his keep, and can follow a track
-  sailor:  { travelPlace: 2.5, travelTrail: 5 },              // in a country that goes everywhere by water
-  farm:    { skill0: 9, work: 0.3 },                          // already knows half of how they live
+  sailor:  { travelPlace: 4.5, travelTrail: 7 },                // in a country that goes everywhere by water
+  farm:    { skill0: 6, work: 0.2 },                          // already knows half of how they live
 };
 export const TRAIT_PAIRS = (() => {
   const k = Object.keys(TRAITS), out = [];
