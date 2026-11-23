@@ -1,14 +1,16 @@
 // Does each rule matter, and is any switch decoration?
-//   node prototypes/killgate/ablate.js prototypes/killgate/ablations/switches.js --adapter=prototypes/killgate/adapter.js --inert
+//   npm run gate:switches
 export default {
-  runs: 25, by: ['policy'], pool: ['sex', 'courts', 'kit', 'traits'],
+  runs: 10, by: ['policy'], pool: ['sex', 'courts', 'kit', 'traits'],
   base: {},
   variants: {
     noKnow: { noKnow: true },         // what you know can never be used
     noTruth: { noTruth: true },       // the truth can never be told
-    forgetful: { forgetful: true },   // nothing you showed is remembered
+    noNeeds: { noNeeds: true },       // no season ever brings a need
+    clearSight: { clearSight: true }, // the hero reads the hall's room exactly
+    noPress: { noPress: true },       // the dangerous way cannot be taken
     hardLoss: { hardLoss: true },     // exposure is final in any year
     sexless: { sexless: true },       // a woman's route is the man's
   },
-  metrics: ['grade', 'named', 'partner', 'uncle', 'exposed', 'castOut'],
+  metrics: ['grade', 'named', 'partner', 'uncle', 'exposed', 'castOut', 'dead'],
 };

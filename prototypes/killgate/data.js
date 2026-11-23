@@ -23,11 +23,22 @@ export const D = {
   trainPlace: 1,
   trainCalms: 4,        // extra strangeness lost in a season spent learning their way
 
-  // --- knowledge: 0 keep quiet, 1 a little and deniable, 2 openly
-  knowGain: [1, 1.8, 3],     // multiplies the season's gain
-  knowStrange: [0, 6, 14],      // strangeness it adds
-  skillCovers: 0.004,           // each point of skill hides this share of it
-  remember: [0, 1.5, 4],        // what you showed is not forgotten: strangeness can never fall below the sum of these
+  // --- knowledge. The hero is expected to use it (the author, 2026-11-23); the
+  //     choice is how it is presented:
+  //     0 nothing | 1 as a craft of your people | 2 done openly, unexplained | 3 explained
+  knowGain: [1, 1.5, 2.3, 3.2],       // multiplies the season's gain
+  knowStrange: [0, 3, 9, 20],         // strangeness it adds: explaining germs is what gets you burnt
+  skillCovers: [0, 0.011, 0.005, 0.001], // share hidden per point of skill: their ways cover a craft well, a lecture not at all
+
+  // --- a need: a season when somebody is hurt or something is broken
+  needChance: 0.35,
+  needGain: 1.5,        // meeting it openly (know 2 or 3) multiplies the gain again
+  needStrange: 1.3,     // and everyone was watching
+  needIgnored: 3,       // place lost for standing by with your hands in your pockets
+
+  // --- reading the room
+  readNoise: 9,         // the hero's guess at the hall's room is off by about this (1 sd)
+  bondTells: 0.7,       // a full bond removes this share of the error: someone tells you what is said
 
   // --- strangeness: how much the hall wonders about you, 0..100
   strangeDecay: 3,
@@ -44,33 +55,37 @@ export const D = {
   // --- a soft loss (any year but the last): the harder road
   castOutPlace: 0.5,    // place is multiplied by this
   castOutStrange: 28,   // and strangeness falls to this: the worst has been said
-  castOutForget: 0.6,   // and this share of what is remembered stays remembered
   castOutBond: 18,      // every bond loses this
   castOutSeasons: 1,    // seasons lost getting back in
 
   // --- courting
-  courtBond: 12,
+  courtBond: 8,
   courtPlace: 0.05,     // per point of place: a person of standing is listened to
   bondCapSilent: 70,    // a bond cannot pass this while the truth is untold
   partnerAt: 80,
   truthBond: [0, 5, 10],        // extra bond in a season when you tell part, or all
   truthStrangeAt: 60,   // telling the truth below this bond is a risk
   truthStrange: 0.28,   // strangeness per point the bond is short of it
-  bondFade: 1.5,        // a bond you do not tend loses this a season
+  bondFade: 2.5,        // a bond you do not tend loses this a season
 
   // --- the uncle's trail, 0..100
   trailGain: 20,
   trailWall1: 45,       // the trail leaves the fjord: nothing past this until you have travelled
   trailWall2: 75,       // people only tell a household man the rest: needs place >= trailPlace
   trailPlace: 30,
-  trailDanger: 0.02,
   uncleAt: 100,
 
-  // --- travel
-  travelPlace: 2,       // news of you
-  travelStrange: 4,     // nobody out there vouches for you
-  travelDanger: 0.04,
-  hurtSeasons: 1,       // a danger that lands, in any year but the last
+  // --- travel: where nobody knows you
+  travelPlace: 4,       // news of you
+  renownTop: 150,       // renown abroad steepens far more slowly than the hall's ladder
+  travelTrail: 6,       // every journey turns up something of him
+  travelStrange: 2,     // nobody out there vouches for you
+  awayStrange: 0.45,    // but what you do out there comes home as a story, this much of it
+
+  // --- the dangerous way: a named risk the hero chooses, on the trail or a journey
+  pressGain: 1.45,
+  pressDanger: 0.05,    // in the last year it kills; before that it costs seasons
+  hurtSeasons: 2,
 };
 
 // The player makes the hero: sex, who they court, a kit of one hand's worth
@@ -79,9 +94,9 @@ export const SEXES = ['m', 'f'];
 export const COURTS = ['women', 'men'];
 
 export const KITS = {
-  tools:    { skill0: 12, work: 0.4 },                       // arrive with a trade
+  tools:    { skill0: 9, work: 0.4 },                        // arrive with a trade
   notebook: { trail: 5, know: 0.35, strange0: 4, openTrail: 1 }, // he wrote down where it leads and who to ask        // arrive with what he knew
-  sack:     { place0: 10, gifts: 4, giftBond: 4 },           // arrive with something to give
+  sack:     { place0: 12, gifts: 5, giftBond: 7 },           // arrive with something to give
 };
 
 export const TRAITS = {

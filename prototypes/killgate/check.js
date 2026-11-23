@@ -14,7 +14,8 @@ for (const policy of Object.keys(POLICIES)) for (const sex of SEXES) for (const 
     if (digest(a) !== digest(b)) bad.push(`${where}: two plays of one seed differ`);
     for (const m of progress(a)) bad.push(`${where}: ${m}`);
     if (![a.place, a.skill, a.strange, a.trail, ...a.bond].every(in100)) bad.push(`${where}: a value left 0..100`);
-    if (a.strange < a.remembered - 1e-9 && a.ending === 'door') bad.push(`${where}: strangeness fell below what is remembered`);
+    if (a.ending === 'dead' && !a.pressed) bad.push(`${where}: died without choosing the dangerous way`);
+    if (a.hurts && !a.pressed) bad.push(`${where}: hurt without choosing the dangerous way`);
     if (!['door', 'exposed', 'dead'].includes(a.ending)) bad.push(`${where}: ending ${a.ending}`);
     if (a.ending !== 'door' && a.season <= a.D.seasons - a.D.yearLength) bad.push(`${where}: a final loss before the last year (season ${a.season})`);
     if (a.bond.some((v, k) => v > a.D.bondCapSilent + 1e-9 && !a.told[k])) bad.push(`${where}: a bond passed the cap with nothing told`);

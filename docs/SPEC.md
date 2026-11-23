@@ -54,8 +54,10 @@ Act 1 is authored scenes in sequence. In Act 2, one turn is a season:
    or follow the uncle's trail.
 2. **Scenes come from where you are and who you know.** Choices, with checks
    against what you can do.
-3. **Decide what to do with what you know.** Boil the water, set the bone,
-   predict the eclipse, or keep your mouth shut.
+3. **Decide how to present what you know.** Boil the water, set the bone,
+   predict the eclipse: as a trick of your people, as a thing you simply do,
+   or with the reason given. (Amended 2026-11-23; it read "or keep your mouth
+   shut".)
 4. **The season closes:** your place in the household moves, people remember,
    the door is a season nearer.
 
@@ -71,9 +73,18 @@ trusted, but there the player starts with a name.
 
 ## Per-turn decision
 
-Use what you know and rise fast and exposed, or learn the era's own way and
-rise slowly and safe. The same choice sits under the romance: how much of the
-truth do you tell the one person you want to tell.
+*As first written:* use what you know and rise fast and exposed, or learn the
+era's own way and rise slowly and safe.
+
+*As decided on 2026-11-23:* the hero uses what they know. That is what the
+player came for. The decision is **how it is presented**: as a craft of your
+people, done openly and left unexplained, or explained, which is what gets a
+person burnt. Learning the era's own way is no longer the other road. It is
+the cover: the better you know how they do things, the more of yours passes.
+The author's words are in the Decisions table.
+
+The same choice sits under the romance: how much of the truth do you tell the
+one person you want to tell.
 
 ## The hero
 
@@ -238,3 +249,6 @@ This page is the whole brief; the chat it came from is gone. In order:
 | 2026-11-22 | **Gate A, first draft: not passed.** The author: "It did not have enough dry wit, but I liked the way it was narrated. Keep the ai feel out of the prose, I beg you." The narration (second person, present tense, a narrator beside the hero who reports) is kept. The sample was rewritten with the wit in the reporting, and the habits that read as generated were listed with the lines that showed them and made rules (`docs/GATE-A.md`, `CLAUDE.md`). The second draft waits on the author. |
 | 2026-11-22 | **Gate A, second draft: not passed, on the choices.** The author: "Make sure the choices are actually worth choosing. Every choice should lead in 3 different paths of the same story, not interruptive of those choices. And the first choice where you go into the door and choose starting kit should give 3 different approaches. This may be a choose your own adventure narrative, but I don't want it to ever feel predetermined". Three of the draft's four choices failed that (a refusal, a flavour choice, one never answered). Rule: every choice is three roads through the same story, nothing later cancels a road, and a choice that cannot be three roads is not offered. Third draft: the starting kit is a trade, the uncle's notebook or goods to give; the hill has no choice; all three answers to both choices are written. "Not interruptive" was read as "the story does not put the hero back on the road it had planned"; the author has not confirmed that reading. **The scene estimate (150 for the first playable) predates this rule and is now too low; not re-estimated.** |
 | 2026-11-23 | **Gate B run, with Gate A still open.** The author: "Let's build gate B now". He gave no verdict on the third draft of Gate A, so that gate is not recorded as passed. Measured (72 heroes x 30 seeds = 2,160 runs per policy, `docs/KILLGATE.md`): always using what you know rises fastest (place 43.1 after a year against 38.0) and is finally exposed in 73.5% ±0.9; never using it is never exposed and never named; reading the room beats both. **Two of the three things (a name, a partner, the uncle) fit at 16 seasons and not at 12; all three fit for nobody at 16 and for 28.8% at 20.** Both people are reachable from every hero (worst 80.0% ±7.3). Six faults open, the first being that a careful player is exposed in only 1.9%. The SPEC does not yet say how long the door stays shut; 16 seasons is the model's answer, not the author's. |
+| 2026-11-23 | **The door stays shut four years.** Gate B found that two of the three things fit at 16 seasons and not at 12. The author: "Four years is fine". |
+| 2026-11-23 | **The game is using what you know without being taken for a lunatic.** Gate B's fault 3 asked whether a hero who never uses modern knowledge should be able to earn a name. The author: "Players aren't going to pick this game up to not feel like they are a modern human with vast knowledge. They are going to want to use it and feel smart and powerful. Rather than playing it as a local, I think it should be more about making sure they don't come across as a lunatic or heretic. Running around explaining germs, the internet, and cars will get you burnt at the stake lol." The per-turn decision changes from whether to use it to how it is presented (craft, done openly, explained); the era's own way becomes the cover for it. The "Per-turn decision" and "Core loop" sections are amended above with the old wording kept. |
+| 2026-11-23 | **Gate B, round 3: the six faults.** The author: "now fix the six faults." Measured, 2,160 runs per policy (`docs/KILLGATE.md`): a careful player is now cast out in 9.8% ±0.6 (was 1.4%), because the hall's tolerance is a guess and needs tempt; the "people remember" floor was rebuilt, measured inert a second time and cut; a place plus a courtship fell from 98.9% to 88.9%; death is a chosen risk (6.2% for the one policy that takes it in the last year, 0.0% otherwise); a journey has its own worth (a life of journeys is named in 77.9%). Explaining everything ends finally exposed in 93.5%. Four smaller things are open. |

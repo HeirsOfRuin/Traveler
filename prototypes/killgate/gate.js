@@ -44,11 +44,11 @@ console.log(`\nGate B. ${HEROES.length} heroes x ${per} seeds = ${HEROES.length 
 const all = Object.fromEntries(MAIN.map((p) => [p, runs(p)]));
 const W = [10, 9];
 console.log('1. EVERY POLICY');
-console.log(row(['policy', 'place Y1', 'peak', 'place end', 'cast out', 'exposed', 'dead', 'door', 'nobody', 'named', 'partner', 'uncle', 'two of 3', 'all 3', 'grade'], W));
+console.log(row(['policy', 'place Y1', 'peak', 'place end', 'cast out', 'exposed', 'dead', 'hurt', 'door', 'nobody', 'named', 'partner', 'uncle', 'two of 3', 'all 3', 'grade'], W));
 for (const p of MAIN) {
   const r = all[p];
   console.log(row([p, ms(r.map((s) => s.log[3]?.place ?? s.place)), ms(r.map((s) => s.peakPlace)), ms(r.filter(door).map((s) => s.place)),
-    rate(r, (s) => s.setbacks > 0), rate(r, (s) => s.ending === 'exposed'), rate(r, (s) => s.ending === 'dead'), rate(r, door),
+    rate(r, (s) => s.setbacks > 0), rate(r, (s) => s.ending === 'exposed'), rate(r, (s) => s.ending === 'dead'), rate(r, (s) => s.hurts > 0), rate(r, door),
     rate(r, (s) => door(s) && s.place < s.D.nobodyBelow), rate(r, named), rate(r, partner), rate(r, uncle),
     rate(r, (s) => count3(s) >= 2), rate(r, (s) => count3(s) === 3), ms(r.map(grade))], W));
 }
@@ -56,7 +56,7 @@ for (const p of MAIN) {
 // ---- 2. the door's timer
 console.log('\n2. THE TIMER: two of three, and all three, by how long the door stays shut');
 const TIMES = [8, 10, 12, 14, 16, 20];
-const T2 = ['placeLove', 'placeUncle', 'loveUncle', 'everything'];
+const T2 = ['placeLove', 'placeUncle', 'loveUncle', 'everything', 'bold'];
 console.log(row(['seasons', ...T2.flatMap((p) => [`${p} 2of3`, 'all 3'])], [8, 16, 9]));
 for (const t of TIMES) {
   const cells = T2.flatMap((p) => { const r = runs(p, { data: { seasons: t } }, Math.max(6, Math.round(per / 3))); return [rate(r, (s) => count3(s) >= 2), rate(r, (s) => count3(s) === 3)]; });

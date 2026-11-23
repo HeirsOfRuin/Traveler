@@ -5,16 +5,29 @@ the life: one hero waiting in one era for the door to open, season by season.
 No prose, no screens. It answers one question: are the SPEC's three claims
 true as a table of numbers?
 
-**Verdict: the three claims hold, at a door that stays shut for 16 seasons,
-not 12. Six design faults are open** (below). Two rounds, 2026-11-23.
+**Verdict after round 3 (2026-11-23): the three claims hold at a door of 16
+seasons, and the six faults round 2 left open are closed: five by a rule that
+was measured, one by cutting a rule that did nothing.** Four smaller things
+are open (below).
 
 Gate B was built at the author's word, "Let's build gate B now", while the
 third draft of Gate A had no verdict recorded. Gate A is still open.
 
+Round 3 follows two decisions of the author's. On the wait: "Four years is
+fine". On the faults, and on what the game is: "now fix the six faults. 3.
+Players aren't going to pick this game up to not feel like they are a modern
+human with vast knowledge. They are going to want to use it and feel smart
+and powerful. Rather than playing it as a local, I think it should be more
+about making sure they don't come across as a lunatic or heretic. Running
+around explaining germs, the internet, and cars will get you burnt at the
+stake lol."
+
+So the decision at the centre of the model changed. It was *whether* to use
+what you know. It is now *how you present it*.
+
 Every number in the model is a tuned placeholder. Nothing in it is sourced,
 and nothing in it is a design until the Phase 0 proposal says so. What the
-gate shows is that a model of this shape *can* make the claims true, and
-where it strains.
+gate shows is that a model of this shape *can* make the claims true.
 
 ## How it was measured
 
@@ -26,11 +39,11 @@ game-scaffold's.
 |---|---|---|
 | `data.js` | Every tunable number | |
 | `model.js` | The rules. Deterministic: named random streams, no clock | |
-| `policies.js` | Eleven fixed policies, each a written rule | |
+| `policies.js` | Fourteen fixed policies, each a written rule | |
 | `adapter.js` | Connects the model to the kit | |
 | `gate.js` | The tables below | `npm run gate` |
 | `ablations/switches.js` | Each rule switched off; the inert check | `npm run gate:switches` |
-| `check.js` | Determinism and invariants, 4,752 runs | `npm run gate:check` (in `npm run check`) |
+| `check.js` | Determinism and invariants, 6,048 runs | `npm run gate:check` (in `npm run check`) |
 
 The player makes the hero: sex, who they court, one hand's worth of kit (tool
 bag, notebook, sack: `GATE-A.md`), and two of four modern traits. That is 72
@@ -40,189 +53,196 @@ when the gap is over about 3 points.
 
 ## The model in one screen
 
-A turn is a season. The hero chooses what the season is for (work, train,
-court, the uncle's trail, travel) and how much of what they know to use (none,
-a little, openly).
+A turn is a season; the door opens after 16. The hero chooses what the season
+is for (work, train, court, the uncle's trail, a journey) and **how to present
+what they know**:
 
-- **Place** (0 to 100) is where the hero stands on the hall's ladder: stranger,
-  tolerated (20), household (40), named (60), somebody (80). Work raises it,
-  each rung is harder than the last, and a stranger who stops working for his
-  keep slides back.
-- **Skill** is the era's own way of doing things. Training raises it. It adds
-  to work and hides some of the hero's strangeness.
-- **Knowledge** multiplies a season's gain (1.8 times for a little, 3 times
-  openly) and adds strangeness.
-- **Strangeness** is how much the hall wonders. It fades. Place and a close
-  bond make the hall tolerate more. Above the hall's tolerance, each season
-  carries a chance of exposure. Talk feeds on itself by an amount the hero
-  does not control.
-- **Exposure in any year but the last is a soft loss** (SPEC): the hero is
-  cast out, keeps half their place, loses a season and some of every bond.
-  In the last year it is final.
+| Presentation | Gain | Strangeness | What hides it |
+|---|---|---|---|
+| Nothing | x1 | 0 | |
+| As a craft of your people | x1.5 | 3 | Skill in their ways hides most of it |
+| Done openly, unexplained | x2.3 | 9 | Skill hides some |
+| Explained | x3.2 | 20 | Almost nothing |
+
+- **Place** (0 to 100) is the hall's ladder: stranger, tolerated (20),
+  household (40), named (60), somebody (80). Each rung is harder than the last.
+- **Skill** is the era's own way. It no longer competes with knowledge. It is
+  the cover for it: the better you know how they do things, the more of yours
+  passes as a craft.
+- **Strangeness** is how much the hall wonders. Place and a close bond make
+  the hall tolerate more. Above its tolerance, each season carries a chance of
+  exposure.
+- **The hero does not see the hall's tolerance.** They get a guess, off by
+  about 9 points, and a close bond narrows it: someone tells you what is being
+  said. (Fault 1.)
+- **A need** arrives in about one season in three: somebody is hurt, something
+  is broken. Meeting it openly pays half as much again and everyone is
+  watching. Standing by costs place. (Fault 1.)
+- **Exposure in any year but the last is a soft loss**: cast out, half the
+  place kept, a season and some of every bond gone. In the last year it is
+  final.
 - **Courting** raises a bond with one of two people. A bond cannot pass 70
-  while the truth is untold, and telling it early is itself strange. Each of
-  the two also needs one thing before they will stand beside the hero.
-- **The trail** has two walls: it leaves the fjord (the hero must travel), and
-  nobody tells a stranger the rest (the hero needs a foothold).
+  while the truth is untold, and telling it early is itself strange.
+- **The trail** has two walls: it leaves the fjord, and nobody tells a
+  stranger the rest.
+- **A journey** is where nobody knows you: what you do there is news, renown
+  climbs a much longer ladder than the hall's, less than half the strangeness
+  follows you home, and every journey turns up something of the uncle.
+  (Fault 6.)
+- **The dangerous way** can be chosen on the trail or a journey: 45% more
+  ground for a 5% risk, named before it is taken. Before the last year the
+  risk costs two seasons. In the last year it kills. Nobody is hurt or killed
+  who did not choose it; `check.js` asserts that. (Fault 5.)
 - **The ending** is graded from three of the SPEC's four things: the uncle
-  (30), place (30), a partner (30, and 10 more if they know all of it). The
-  fourth, which side of the door, is the player's and has no number.
+  (30), place (30), a partner (30, and 10 more if they know all of it).
 
 ## The policies
 
 | Policy | The rule |
 |---|---|
-| knower | Works every season and uses what they know, openly, every time |
+| lunatic | Works every season and explains everything, every time |
+| showman | Works every season; does it openly and never explains |
+| crafty | Works every season; everything is a craft of his people |
 | native | Never uses what they know. Trains for a year, then works |
-| quiet | Works every season; only ever a little, deniable knowledge |
-| riser | Trains two seasons, then works; uses what they know while the hall has room for it |
+| riser | Trains two seasons, then works; presents what they know to suit the room as they guess it |
 | placeLove | Earns a household place, courts, then goes on rising |
 | placeUncle | Earns a household place, follows the trail to its end, then goes on rising |
 | loveUncle | Follows the trail to its end, then courts; works only for the keep |
 | everything | A household place, then the trail, then courting, then rising |
-| seeker | Follows the trail and nothing else |
+| seeker | Follows the trail and nothing else, the safe way |
+| bold | Courts, then follows the trail the dangerous way |
+| wanderer | A journey every other season, work between |
 | lover0, lover1 | Courts one named person and does whatever that person needs |
 
-"Riser" and the planning policies stand in for competent play: fixed
-thresholds, no look-ahead. A person will beat them.
+A policy sees what a player would: the state, whether a need has come, and
+the guess at the hall's room. "Riser" and the planning policies stand in for
+competent play: fixed thresholds, no look-ahead. A person will beat them.
 
 ## Results against the SPEC's claims
 
+Claim 1 in the SPEC was about using what you know or not. After the author's
+decision it reads: the more openly you show it, the faster you rise and the
+likelier you burn.
+
 | Claim | Measured (2,160 runs per policy) | Verdict |
 |---|---|---|
-| 1a. Always using what you know rises fastest | Place after one year: knower 43.1 ±0.3, riser 38.0, quiet 34.6, native 3.2 | Met |
-| 1b. ...and is exposed most | Knower is cast out at least once in 100.0%, and finally exposed in 73.5% ±0.9. Next worst: quiet, 22.4% | Met |
-| 1c. Never using it is safe | Native: cast out 0.0%, exposed 0.0% | Met |
-| 1d. ...and ends the life as nobody | Native ends with a name (place 60) in 0.0%. It ends in the household (mean 44.2); 16.7% end below that | Met, if "nobody" means "without a name". See fault 3 |
-| 1e. Neither is best | Grade: knower 6.2, native 16.6, riser 27.9. Reading the room beats both | Met |
-| 2a. The timer leaves room for a place and a courtship | At 16 seasons, placeLove has both in 98.9% ±0.2 | Met, too easily. See fault 4 |
-| 2b. ...and not for everything | All three things, any policy, at 16 seasons: 0.0% | Met |
-| 3. Both people are reachable from every hero | 72 heroes x 2 people x 30 seeds. Worst hero for each: Aud 90.0% ±5.5, the second woman 90.0%, the first man 80.0% ±7.3, the second man 93.3% | Met |
+| 1a. Showing more rises faster | Place after one year: native 3.9, crafty 26.1, riser 38.6, showman 45.8 | Met |
+| 1b. ...and is exposed more | Finally exposed: native 0.0%, crafty 0.0%, riser 6.3% ±0.5, showman 53.7% ±1.1, lunatic 93.5% ±0.5 | Met |
+| 1c. Explaining everything is the worst thing you can do | Lunatic is cast out at least once in every run, so after a year it stands lower than showman (31.0 against 45.8) as well as being doomed | Met |
+| 1d. Never using it is safe and ends as nobody | Native: exposed 0.0%, named 0.0%, below the household in 81.3% | Met |
+| 1e. No fixed rule is best | Grade: lunatic 1.5, showman 11.4, native 13.1, crafty 20.9, riser 26.0. Suiting it to the room beats every fixed presentation | Met |
+| 2a. The timer leaves room for a place and a courtship | placeLove has both in 88.9% ±0.7 | Met |
+| 2b. ...and not for everything | All three things: 0.0% to 3.9% for the safe plans; 8.2% ±0.6 for bold, which pays for it (6.2% dead) | Met |
+| 3. Both people are reachable from every hero | 72 heroes x 2 people x 30 seeds. Worst hero for each: Aud 63.3% ±8.8, the second woman 86.7%, the first man 66.7% ±8.6, the second man 83.3% | Met |
 
 ### Every policy
 
-| Policy | Place, year 1 | Place, end | Cast out | Exposed (final) | Nobody (<40) | Named | Partner | Uncle | Two of three | All three | Grade |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| knower | **43.1** | 62.4 | **100.0%** | **73.5%** | 0.0% | 15.4% | 0.0% | 0.0% | 0.0% | 0.0% | 6.2 |
-| native | 3.2 | 44.2 | 0.0% | 0.0% | 16.7% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 16.6 |
-| quiet | 34.6 | 70.0 | 20.0% | 22.4% | 0.7% | 63.8% | 0.0% | 0.0% | 0.0% | 0.0% | 20.3 |
-| riser | 38.0 | **76.6** | 1.4% | 1.9% | 0.4% | **96.6%** | 0.0% | 0.0% | 0.0% | 0.0% | 27.9 |
-| placeLove | 38.0 | 73.3 | 0.1% | 0.2% | 0.1% | 98.9% | **99.7%** | 0.0% | **98.9%** | 0.0% | **67.3** |
-| placeUncle | 38.0 | 63.6 | 2.3% | 1.9% | 1.5% | 74.7% | 0.0% | 97.9% | 74.7% | 0.0% | 52.8 |
-| loveUncle | 14.1 | 40.7 | 3.7% | 1.7% | 42.6% | 0.0% | 55.6% | **98.3%** | 55.6% | 0.0% | 66.8 |
-| everything | 34.6 | 43.0 | 6.7% | 2.7% | 14.5% | 0.0% | 40.1% | 93.2% | 40.1% | 0.0% | 59.7 |
-| seeker | 16.4 | 49.0 | 12.0% | 6.3% | 11.5% | 5.9% | 0.0% | 93.7% | 5.9% | 0.0% | 45.3 |
+| Policy | Place, year 1 | Place, end | Cast out | Exposed (final) | Dead | Nobody (<40) | Named | Partner | Uncle | Two of three | All three | Grade |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| lunatic | 31.0 | 63.3 | **100.0%** | **93.5%** | 0.0% | 0.0% | 4.4% | 0.0% | 0.0% | 0.0% | 0.0% | 1.5 |
+| showman | 45.8 | 66.0 | 91.9% | 53.7% | 0.0% | 0.2% | 32.1% | 0.0% | 0.0% | 0.0% | 0.0% | 11.4 |
+| crafty | 26.1 | 55.7 | 0.0% | 0.0% | 0.0% | 1.0% | 26.7% | 0.0% | 0.0% | 0.0% | 0.0% | 20.9 |
+| native | 3.9 | 35.0 | 0.0% | 0.0% | 0.0% | 81.3% | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 13.1 |
+| riser | 38.6 | 76.0 | 9.8% | 6.3% | 0.0% | 0.9% | 86.4% | 0.0% | 0.0% | 0.0% | 0.0% | 26.0 |
+| placeLove | 38.6 | 72.4 | 1.9% | 1.3% | 0.0% | 0.3% | **89.1%** | **96.5%** | 0.0% | **88.9%** | 0.0% | **65.2** |
+| placeUncle | 38.4 | 66.9 | 13.5% | 6.6% | 0.0% | 2.7% | 69.5% | 0.0% | 92.8% | 69.5% | 0.0% | 51.2 |
+| loveUncle | 19.3 | 39.3 | 17.0% | 4.1% | 0.0% | 47.6% | 4.0% | 41.2% | **93.3%** | 41.3% | 3.9% | 58.6 |
+| everything | 37.9 | 46.0 | 25.7% | 7.1% | 0.0% | 20.7% | 5.4% | 21.6% | 83.7% | 23.8% | 3.1% | 49.8 |
+| seeker | 21.3 | 51.1 | 27.4% | 10.2% | 0.0% | 19.5% | 25.6% | 0.0% | 87.3% | 25.6% | 0.0% | 43.4 |
+| bold | 20.5 | 48.4 | 2.8% | 3.7% | **6.2%** | 14.3% | 10.0% | 75.6% | 56.5% | 55.5% | **8.2%** | 63.6 |
+| wanderer | **46.4** | **77.3** | 17.0% | 9.9% | 0.0% | 2.2% | 77.9% | 0.0% | 45.2% | 41.9% | 0.0% | 38.2 |
 
-Place columns are means; their standard errors are 0.1 to 0.4. Rate errors are
-under 1.1 points. Deaths were 0.0% to 0.1% in every row (fault 5).
+Place columns are means with standard errors of 0.1 to 0.7. Rate errors are
+at most 1.1 points.
 
 ### The timer
 
-How often a policy ends with two of the three things, and with all three, by
-how long the door stays shut. 720 runs per cell (72 heroes x 10 seeds).
+Two of the three things, by how long the door stays shut; the last column is
+the best any policy did at all three. 720 runs per cell.
 
-| Seasons | placeLove | placeUncle | loveUncle | everything | All three (best policy) |
-|---|---|---|---|---|---|
-| 8 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| 10 | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% |
-| 12 | 9.7% ±1.1 | 6.7% ±0.9 | 0.0% | 0.0% | 0.0% |
-| 14 | 92.4% ±1.0 | 26.5% ±1.6 | 15.0% ±1.3 | 3.9% ±0.7 | 0.0% |
-| **16** | 99.2% ±0.3 | 74.6% ±1.6 | 56.3% ±1.8 | 39.3% ±1.8 | 0.0% |
-| 20 | 97.5% ±0.6 | 93.3% ±0.9 | 87.8% ±1.2 | 85.7% ±1.3 | 28.8% ±1.7 |
+| Seasons | placeLove | placeUncle | loveUncle | everything | bold | All three (best) |
+|---|---|---|---|---|---|---|
+| 8 | 0.0% | 1.9% | 0.0% | 0.0% | 0.0% | 0.0% |
+| 10 | 6.5% | 15.6% | 2.8% | 0.6% | 0.8% | 0.0% |
+| 12 | 32.6% ±1.7 | 46.1% ±1.9 | 7.6% | 2.5% | 9.7% | 0.4% |
+| 14 | 75.7% ±1.6 | 62.2% ±1.8 | 20.1% ±1.5 | 10.7% | 32.9% ±1.8 | 2.4% |
+| **16** | 88.2% ±1.2 | 69.7% ±1.7 | 42.5% ±1.8 | 24.9% ±1.6 | 54.4% ±1.9 | 6.8% ±0.9 |
+| 20 | 91.4% ±1.0 | 76.8% ±1.6 | 70.6% ±1.7 | 55.7% ±1.9 | 76.4% ±1.6 | 27.4% ±1.7 |
 
-The SPEC's claim is true in a window. At 12 seasons (three years) there is no
-room for two things. At 20 (five years) more than a quarter of plain plans get
-everything. **16 seasons, four years, is where two fit and three do not.** The
-window is about two seasons wide either side, in this model.
+Four years holds. At three, the best pair is under half. At five, more than a
+quarter of bold lives get everything.
 
 ### What the player chose
 
-Mean grade by kit. `*` is the best of the three where the gap from the worst
-is beyond two standard errors.
+Mean grade by kit; `*` is the best where the gap from the worst is beyond two
+standard errors.
 
 | Policy | Tool bag | Notebook | Sack |
 |---|---|---|---|
-| knower | 7.4* | 6.1 | 5.1 |
-| native | 17.1 | 15.3 | 17.2* |
-| quiet | 24.3* | 16.6 | 20.1 |
-| riser | 28.9* | 28.0 | 26.9 |
-| placeLove | 67.6* | 66.7 | 67.5 |
-| placeUncle | 53.0 | 54.3* | 51.0 |
-| loveUncle | 60.2 | 76.6* | 63.4 |
-| everything | 56.3 | 58.3 | 64.4* |
-| seeker | 46.8* | 44.8 | 44.3 |
+| showman | 12.2* | 11.4 | 10.5 |
+| crafty | 21.8* | 20.6 | 20.3 |
+| native | 13.5 | 11.8 | 14.0* |
+| riser | 27.0* | 26.2 | 24.9 |
+| placeLove | 65.4 | 64.7 | 65.4 |
+| placeUncle | 51.5 | 52.1* | 50.0 |
+| loveUncle | 49.2 | 62.1 | 64.6* |
+| everything | 44.6 | 47.5 | 57.3* |
+| seeker | 43.8 | 44.7* | 41.7 |
+| bold | 60.9 | 62.9 | 66.9* |
+| wanderer | 39.1* | 38.4 | 36.9 |
 
-Each kit is best somewhere: the tool bag for rising, the notebook where the
-uncle is the aim, the sack for a life that tries a bit of everything. In round
-1 the tool bag won seven rows of nine and the notebook none.
-
-By sex, a woman's grade is higher in six rows of nine and a man's in one, all
-by 0.5 to 3.3 points. By trait, nurse and welder lead most rows; rider is last
-in six of nine (fault 6).
+Tool bag best in four rows, sack in four, notebook in two (both by under a
+point). By trait, over all twelve policies: welder or nurse leads eleven rows, and
+rider leads wanderer by 19 points (53.0 against 33.7). By sex, no gap is over 3.2 points.
 
 ### Each rule switched off
 
-720 runs per policy per variant, same seeds (`npm run gate:switches`).
+720 runs per policy per variant, same seeds, all 14 policies pooled: 10,080
+runs a column (`npm run gate:switches`).
 
-| Switched off | What changed, all policies pooled |
+| Switched off | What changed |
 |---|---|
-| What you know can never be used | Named 39.4% to 0.0%. Partner and uncle fall with it. Nothing in the life is reachable without it (fault 3) |
-| The truth can never be told | No partner, for anyone. As designed: the bond is capped while it is untold |
-| Soft losing (exposure is final in any year) | Knower exposed 70.4% to 100.0%; quiet +15.4 points; riser +1.9 |
-| A woman's route (sex makes no difference) | Changes half the end states. Pooled over the policies, no rate moves beyond the noise (exposed +0.9, named +0.3); single policies move by up to 10 points either way |
-| Nothing shown is remembered | Changes 2,516 of 7,920 end states and **no rate beyond the noise** (fault 2) |
+| What you know can never be used | Named 36.0% to 0.0%; grade 39.3 to 11.9. The game is using it |
+| The truth can never be told | Partner 29.5% to 0.0% |
+| No season brings a need | Cast out 23.4% to 17.7%; named +4.9 points. Needs are what pull a careful player over the line |
+| The hero reads the hall exactly | Cast out -3.4 points, named +2.9. For seeker, cast out 28.1% to 17.7% |
+| The dangerous way cannot be taken | Bold: uncle 58.5% to 41.0%, dead 4.4% to 0.0% (720 runs). A real trade |
+| Soft losing (exposure is final in any year) | Finally exposed 15.7% to 28.2%; mean grade 39.3 to 35.2 |
+| A woman's route | Changes half the end states; pooled, named +1.5 points and nothing else beyond the noise |
 
-The inert check marked a switch INERT only where the policy never touches the
-rule (the truth, for a policy that does not court). No rule is unread by the
-model.
+The inert check marked a switch INERT only where a policy never touches the
+rule.
 
-## What round 1 found
+## The six faults of round 2, and what was done
 
-Round 1 (12 seasons, first numbers) failed in six ways. Round 2 fixed four.
+| Fault | Round 2 | What changed | Round 3 |
+|---|---|---|---|
+| 1. Reading the room was nearly free | Riser exposed 1.9%, cast out 1.4% | The hero sees a guess at the hall's room, not the number; needs tempt | Riser cast out 9.8% ±0.6, exposed 6.3% ±0.5, and still named in 86.4% |
+| 2. "People remember" did nothing | No rate moved when it was switched off | Rebuilt for round 3 (explaining left the deepest mark) and measured again: 926 of 10,080 end states changed and no rate moved. **Cut.** | The rule is gone; no number changed when it went |
+| 3. No slow, safe road to a name | Native named 0.0% | The author's decision: there should not be one. The game is using what you know without looking like a lunatic. Skill became the cover for knowledge | Crafty, the safest way to use it, is never exposed and named in 26.7% |
+| 4. A place and a courtship was near certain | 98.9% | Courting gains 12 to 8 a season; an untended bond fades faster | 88.9% ±0.7 |
+| 5. Nobody died | 0.0% to 0.1% | Danger is a way the hero chooses, with the risk named | Bold dead 6.2% ±0.5; every other policy 0.0%; nobody harmed who did not choose it |
+| 6. Rider was weak because travel was thin | Rider last in six rows of nine | A journey has its own worth: renown, a quieter place to be clever, something of the uncle | Wanderer is named in 77.9% and has the highest place after a year (46.4). Rider leads it by 19 points |
 
-| Round 1 | Measured then | Round 2 |
-|---|---|---|
-| The uncle could not be saved | Best policy, seeker: 3.0% ±0.4 | Trail gain 9 to 20 a season; less danger. Seeker 93.7% |
-| No two things fitted in the time | placeLove 41.7%; every other pair 0.0% | The door at 16 seasons; keep due every fourth season, not third |
-| Careful play was free and total | Riser: named 100.0%, never exposed, place 97 | The ladder steepens; talk adds 5 to 18, not a fixed 7; tolerance 42 to 34. Riser 96.6% named, 1.9% exposed. Still open: fault 1 |
-| Death was not rare for anyone on the trail | placeUncle dead 11.0% ±0.7 | Danger cut. Now it is absent: fault 5 |
-| Aud was out of reach for some heroes | 8 of 36 heroes under 25%, the worst at 0% | Reachable for all; worst 90.0% |
-| One kit was right for everything | Tool bag best in 7 rows of 9, notebook in none | Each kit best somewhere (above) |
+Round 1's six failures and their numbers are in the git history of this file
+(commit "Gate B: the three claims hold at a 16-season door").
 
-## Open faults
+## Open after round 3
 
-Not to be tuned away without measuring. Each is a design question first.
-
-1. **Reading the room is nearly free.** Riser is exposed in 1.9% and named in
-   96.6%. The danger the SPEC builds the game on, "enough of that and you are
-   a witch, a spy or a madman", only happens to a policy that does not look.
-   A player who watches one number will never meet it. Either the room has to
-   be harder to read (the hall's tolerance is not shown as a number), or
-   something has to tempt the player past it. The trail and courting do tempt:
-   seeker is cast out in 12.0%.
-2. **"People remember" does nothing.** The rule that strangeness can never
-   fall below what the hero has shown moved no rate beyond the noise when
-   switched off. It is close to decoration under these policies, because the
-   careful ones stop before it binds and the knower is exposed long before.
-   Cut it, or make it the thing that tempts (fault 1).
-3. **There is no slow, safe road to a name.** Native is never named: 0.0%.
-   Switch knowledge off and nobody is. The SPEC's per-turn decision reads
-   "learn the era's own way and rise slowly and safe"; in these numbers the
-   era's own way tops out in the household. That matches claim 1 as written
-   ("ends the life as nobody") and may not match what the author wants. A
-   question for him.
-4. **A place and a courtship is nearly certain.** placeLove gets both in
-   98.9%. The other pairs sit at 74.7% and 55.6%, which is the shape wanted.
-   The romance costs too little next to the trail.
-5. **Nobody dies.** 0.0% to 0.1%. The SPEC's second way to lose is "rare, and
-   from a choice the player saw coming". In the model, danger is a small
-   chance on trail and travel seasons and is only final in the last year, so
-   it never lands. It should be a choice with a named risk, not a dice roll on
-   a season, and the model has no such choice yet.
-6. **Rider is the weak trait** (last in six rows of nine), and nurse and
-   welder lead most. Travel matters only as a key to the trail, so a trait
-   about travel has little to do. This is a symptom: travel is the thinnest of
-   the five things a season can be for.
+1. **Everything is reachable by the dangerous way, in 8.2%.** The SPEC says
+   the timer leaves no room for everything. The safe plans top out at 3.9%.
+   Whether one life in twelve that risks death should get all three is the
+   author's call. At 6.2% dead it is not cheap.
+2. **Rider is a specialist, not fixed.** It is best by far in a life of
+   journeys and last or near last in six other rows. That may be right for a
+   trait about horses.
+3. **The notebook is the weakest kit.** Best in two rows, both by under a
+   point. It opens the trail's walls, which the careful plans get past anyway.
+4. **Presenting to suit the room is one threshold rule.** Riser beats every
+   fixed presentation, but the model has no case where explaining is right and
+   doing it openly is wrong for a reason other than how much room there is.
+   In the game that has to come from who is in the room, which a table of
+   numbers cannot hold.
 
 ## What this does not show
 
@@ -230,6 +250,6 @@ Not to be tuned away without measuring. Each is a design question first.
 - Act 1 (the three visits), the other two eras, or the second playthrough.
 - That these numbers are the game's. They are one set that makes the claims
   true.
-- A woman's route. The model gives her two multipliers, invented, so that the
-  tables have a second column. They changed almost nothing, which says the
+- A woman's route. The model gives her multipliers, invented, so that the
+  tables have a second column. They change almost nothing, which says the
   model has no route for her yet, not that she needs none.

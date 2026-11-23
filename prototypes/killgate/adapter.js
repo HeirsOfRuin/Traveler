@@ -33,18 +33,19 @@ export function metrics(s) {
     grade: Math.round(grade(s) * 10) / 10,
     place: Math.round(s.place * 10) / 10,
     peakPlace: Math.round(s.peakPlace * 10) / 10,
-    setbacks: s.setbacks, castOut: s.setbacks > 0, hurts: s.hurts, usedKnow: s.usedKnow,
+    setbacks: s.setbacks, castOut: s.setbacks > 0, hurts: s.hurts, pressed: s.pressed,
+    explained: s.used[3], needsMet: s.needsMet, needsLeft: s.needsLeft,
   };
 }
 
 export function digest(s) {
   return JSON.stringify([s.ending, s.season, s.place.toFixed(4), s.skill.toFixed(4), s.strange.toFixed(4),
-    s.bond.map((b) => b.toFixed(4)), s.told, s.remembered.toFixed(4), s.trail.toFixed(4), s.travelled, s.setbacks, s.hurts]);
+    s.bond.map((b) => b.toFixed(4)), s.told, s.trail.toFixed(4), s.travelled, s.setbacks, s.hurts, s.used, s.needsMet]);
 }
 
 export function trace(s) {
   const h = s.hero;
   return [`${s.policy} / ${h.sex} courts ${h.courts} / ${h.kit} / ${h.traits.join('+')} / seed ${s.seed}`,
-    ...s.log.map((l) => `  ${String(l.t + 1).padStart(2)} ${l.focus.padEnd(6)} know ${l.know}  place ${String(l.place).padStart(5)}  strange ${String(l.strange).padStart(5)} / tol ${String(l.tol).padStart(5)}  bond ${l.bond.join(',').padEnd(7)} trail ${String(l.trail).padStart(3)}${l.castOut ? '  CAST OUT' : ''}${l.hurt ? '  hurt' : ''}${l.walled ? '  (trail walled)' : ''}`),
+    ...s.log.map((l) => `  ${String(l.t + 1).padStart(2)} ${l.focus.padEnd(6)} know ${l.know}  place ${String(l.place).padStart(5)}  strange ${String(l.strange).padStart(5)} / tol ${String(l.tol).padStart(5)}  bond ${l.bond.join(',').padEnd(7)} trail ${String(l.trail).padStart(3)}${l.castOut ? '  CAST OUT' : ''}${l.hurt ? '  hurt' : ''}${l.walled ? '  (trail walled)' : ''}${l.need ? '  need' : ''}${l.press ? '  pressed' : ''}`),
     `ending ${s.ending}, ${rungOf(s)}, grade ${grade(s).toFixed(1)}, partner ${partnerOf(s)}, uncle ${s.trail >= s.D.uncleAt}`].join('\n');
 }

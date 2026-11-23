@@ -10,7 +10,7 @@ waiting on whom.
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved by the author, 2026-11-22 (`SPEC.md`) |
 | **2 Gate A, the read** | **Two drafts not passed (dry wit and the machine feel; then choices not worth choosing). Third draft written, waiting on the author** (`GATE-A.md`) |
-| **2 Gate B, the numbers** | **Run 2026-11-23 at the author's word, Gate A still open. The three claims hold at 16 seasons; six faults open** (`KILLGATE.md`) |
+| **2 Gate B, the numbers** | **Three rounds, 2026-11-23, Gate A still open. The three claims hold at 16 seasons (accepted by the author); round 2's six faults closed; four smaller things open** (`KILLGATE.md`) |
 | 3 Phase 0 design | Not started (`DESIGN.md` is a stub) |
 | 4 Engine and instruments | The kit is laid and proven; none of this game's own rules exist |
 | 5 to 8 | Not started |
@@ -55,9 +55,8 @@ numbers say the kit works. They say nothing about this game.
 
 ## Waiting on the author
 
-0. **Gate B's questions** (`KILLGATE.md`, open faults): is there meant to be
-   a slow, safe road to a name (fault 3); and is four years the wait.
-
+0. **Gate B, open after round 3** (`KILLGATE.md`): whether one bold life in
+   twelve should be able to have everything.
 1. **Gate A:** read the third draft in `GATE-A.md` and answer its three
    questions.
 2. The table at the top of `GATE-A.md`: seven things the sample chose that
