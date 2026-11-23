@@ -5,11 +5,11 @@ import { describe, expect, it } from 'vitest';
 import { loadContent } from '../tools/content-loader';
 import { validate } from '../tools/validate';
 import { runBot } from '../tools/bot';
-import { newGame, view, choose, type GameState } from '../src/game/index';
+import { newGame, view, choose, everyHero, type GameState } from '../src/game/index';
 import { toSave, fromSave, encodeSaveCode, decodeSaveCode } from '../src/game/save';
 
 const content = loadContent();
-const start = (s: string, seed = 1) => newGame(content, { start: s, seed, name: 'Hal' });
+const start = (s: string, seed = 1) => newGame(content, { start: s, seed, hero: { ...everyHero(content)[0]!, name: 'Hal' } });
 const pick = (s: GameState, id: string, force?: 'success' | 'partial' | 'failure') => choose(content, s, id, { force }).state;
 
 describe('content', () => {

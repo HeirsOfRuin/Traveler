@@ -3,14 +3,15 @@
 // 60 steps), an engine error. Prints how the runs ended, by start.
 import { playOnce, POLICIES, policyName, type Run } from '@tools/play';
 import { loadContent } from './content-loader';
-import { newGame, startsOf } from '../src/game/index';
+import { newGame, startsOf, everyHero } from '../src/game/index';
 
 export function runBot(runs: number): Run[] {
   const content = loadContent();
   const out: Run[] = [];
+  const heroes = everyHero(content); // every hero the creation screen can make takes its turn
   for (const start of startsOf(content)) for (let i = 0; i < runs; i++) {
     const policy = POLICIES[i % POLICIES.length]!;
-    out.push(playOnce(content, start, (seed) => newGame(content, { start, seed, name: 'Bot' }), 1 + i * 7919, policy));
+    out.push(playOnce(content, start, (seed) => newGame(content, { start, seed, hero: heroes[i % heroes.length]! }), 1 + i * 7919, policy));
   }
   return out;
 }

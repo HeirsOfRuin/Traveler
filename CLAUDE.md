@@ -8,22 +8,29 @@
   Read `game-building/SKILL.md` before writing game logic, and
   `game-narrative/SKILL.md` before writing scenes. Follow the stages and gates;
   skipping a stage is allowed, skipping it silently is not.
-- Two gates stand before any game code. Gate A (`docs/GATE-A.md`): the author
-  reads the sample and says whether it is funny without trying, whether there
-  is wonder, and whether he wants the next scene. Nothing measures it but him.
+- Two gates stood before any game code. Gate A (`docs/GATE-A.md`): the author
+  reads a sample. On the third draft, 2026-11-23: "Gate a is fine for now,
+  call it usable for the prototype." That clears it for building; it is not a
+  final word on the voice.
   Gate B (`docs/KILLGATE.md`): bot policies on the same seeds, numbers only.
   It was run on 2026-11-23 at the author's word while Gate A was still open:
   the SPEC's three claims hold at a door of 16 seasons (the author: "Four
   years is fine"). Round 3 closed the six faults of round 2; four smaller
   things are open. Read them before designing any system they touch, and do
   not tune one away without measuring it.
+- The Phase 0 design (`docs/DESIGN.md`) is still a stub. Character creation
+  was built ahead of it under `docs/FRAME-creation.md`. Write Phase 0 before
+  the example game is replaced: it has to settle how the story engine's
+  calendar, attributes and stations fit a game that starts in a machine shed.
+- A hero is made in one place, `src/game/creation.ts`. The screen, `newGame`,
+  the bot and the tests all ask it. Do not build a hero by hand anywhere else,
+  and do not preselect anything for the player.
 - The author on what the game is, 2026-11-23: players "are going to want to
   use it and feel smart and powerful... it should be more about making sure
   they don't come across as a lunatic or heretic." The hero uses what they
   know. The decision is how it is presented: as a craft, done openly, or
   explained. Never design or write a road where the right play is to keep
-  quiet and live as a local. No engine work on the game's own rules
-  before Gate A is passed.
+  quiet and live as a local.
 - The Gate B model is `prototypes/killgate/`. Its numbers are tuned
   placeholders, not the design. Re-run `npm run gate` after any change to it
   and put the numbers, with their run counts, in the commit message. The kit

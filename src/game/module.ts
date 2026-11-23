@@ -16,20 +16,22 @@ const FERRY = ['takings', 'repair'];
 
 export const module: GameModule = {
   id: GAME_ID,
-  namespaces: ['ferry', 'start'],
+  namespaces: ['ferry', 'start', 'courts'],
   getValue(s, _c, path) {
     const [ns, field] = path.split('.');
     if (ns === 'start') return st(s).start;
+    if (ns === 'courts') return st(s).courts;
     return st(s).ferry[field as 'takings' | 'repair'];
   },
   checkPath(c, path) {
     const [ns, field] = path.split('.');
     if (ns === 'start') return field === undefined ? null : `"start" has no fields (start == <id>)`;
+    if (ns === 'courts') return field === undefined ? null : `"courts" has no fields (courts == women, courts == men)`;
     return FERRY.includes(field ?? '') ? null : `unknown ferry field in "${path}" (${FERRY.join(', ')})`;
   },
   labelFor: (_c, path) => ({ 'ferry.repair': 'The boat', 'ferry.takings': 'Takings' })[path],
   // start == heir compares with the starts' ids
-  namedValues: (c, path) => (path === 'start' ? Object.keys(ct(c).starts) : undefined),
+  namedValues: (c, path) => (path === 'start' ? Object.keys(ct(c).starts) : path === 'courts' ? ['women', 'men'] : undefined),
   addNumber(s, _c, path, delta, changes) {
     const f = st(s).ferry;
     if (path === 'ferry.repair') { f.repair = Math.max(0, Math.min(3, f.repair + delta)); changes.push(`The boat: ${delta > 0 ? 'sounder' : 'worse'}`); }

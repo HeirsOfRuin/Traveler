@@ -3,7 +3,8 @@
 // the clock, [data-action] for choices, [data-tab] for tabs.
 import { useState } from 'preact/hooks';
 import type { ContentBundle } from '../content/schema';
-import { newGame, view, choose, startsOf, type GameState, type SceneView } from '../game/index';
+import { newGame, view, choose, startsOf, describe, heroOf, type GameState, type SceneView, type HeroChoice } from '../game/index';
+import { Creation } from './Creation';
 import { toSave, fromSave, encodeSaveCode, decodeSaveCode, SAVE_KEY } from '../game/save';
 import { STORAGE_OK, lsGet, lsSet } from './storage.js';
 
@@ -20,7 +21,10 @@ export function App({ content }: { content: ContentBundle }) {
   const [page, setPage] = useState(0);
   const [note, setNote] = useState<string | null>(null);
   const commit = (s: GameState | null) => { setState(s); setPage(0); if (s) lsSet(SAVE_KEY, JSON.stringify(toSave(s, content))); };
-  const begin = (start: string) => { commit(newGame(content, { start, seed: (Math.random() * 2 ** 31) >>> 0, name: 'Hal' })); setTab('story'); };
+  const [making, setMaking] = useState<string | null>(null); // the start a hero is being made for
+  const begin = (start: string, hero: HeroChoice) => { setMaking(null); commit(newGame(content, { start, seed: (Math.random() * 2 ** 31) >>> 0, hero })); setTab('story'); };
+
+  if (!state && making) return <Creation content={content} onBegin={(h) => begin(making, h)} onBack={() => setMaking(null)} />;
 
   if (!state) {
     const saved = load(content);
@@ -32,7 +36,7 @@ export function App({ content }: { content: ContentBundle }) {
         <div class="stack">
           {saved && <button class="primary" data-act="continue" onClick={() => setState(saved)}>Continue</button>}
           {startsOf(content).map((id, i) => (
-            <button class={!saved && i === 0 ? 'primary' : ''} data-act={i === 0 ? 'new' : `new-${id}`} onClick={() => begin(id)}>
+            <button class={!saved && i === 0 ? 'primary' : ''} data-act={i === 0 ? 'new' : `new-${id}`} onClick={() => setMaking(id)}>
               <strong>{content.starts[id]!.label}</strong><br /><small>{content.starts[id]!.summary}</small>
             </button>
           ))}
@@ -77,7 +81,7 @@ export function App({ content }: { content: ContentBundle }) {
         {tab === 'journal' && <><h2>Journal</h2>{state.journal.length
           ? <ol class="journal">{[...state.journal].reverse().map((j) => <li><strong>{j.sceneTitle ?? j.scene}</strong>: {j.choice}{j.changes.length > 0 && <small> ({j.changes.join(' · ')})</small>}</li>)}</ol>
           : <p class="empty">Empty so far: every choice you make is written here.</p>}</>}
-        {tab === 'menu' && <><h2>Menu</h2><div class="stack">
+        {tab === 'menu' && <><h2>You</h2><p class="made">{describe(content, { ...heroOf(state), courts: state.courts })}</p><h2>Menu</h2><div class="stack">
           <button data-act="code" onClick={async () => { const c = await encodeSaveCode(toSave(state, content)); try { await navigator.clipboard.writeText(c); setNote('Save code copied.'); } catch { setNote(c); } }}>Save code (copy)</button>
           <button data-act="load-code" onClick={async () => { const t = prompt('Paste a save code'); if (!t) return; try { commit(fromSave(await decodeSaveCode(t.trim()), content).state); setTab('story'); } catch (e) { setNote(`That code did not load: ${(e as Error).message}`); } }}>Load a save code</button>
           <button data-act="quit" onClick={() => setState(null)}>Back to the title</button></div>

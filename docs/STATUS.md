@@ -9,10 +9,10 @@ waiting on whom.
 |---|---|
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved by the author, 2026-11-22 (`SPEC.md`) |
-| **2 Gate A, the read** | **Two drafts not passed (dry wit and the machine feel; then choices not worth choosing). Third draft written, waiting on the author** (`GATE-A.md`) |
-| **2 Gate B, the numbers** | **Three rounds, 2026-11-23, Gate A still open. The three claims hold at 16 seasons (accepted by the author); round 2's six faults closed; four smaller things open** (`KILLGATE.md`) |
-| 3 Phase 0 design | Not started (`DESIGN.md` is a stub) |
-| 4 Engine and instruments | The kit is laid and proven; none of this game's own rules exist |
+| 2 Gate A, the read | Usable for the prototype (the author, 2026-11-23, on the third draft). `GATE-A.md` |
+| **2 Gate B, the numbers** | **Three rounds, 2026-11-23. The three claims hold at 16 seasons (accepted by the author); round 2's six faults closed; four smaller things open** (`KILLGATE.md`) |
+| **3 Phase 0 design** | **Not written. The next thing owed** (`DESIGN.md` is a stub) |
+| 4 Engine and instruments | The kit is laid. Character creation is built, ahead of Phase 0 (`FRAME-creation.md`). Nothing else of the game's own |
 | 5 to 8 | Not started |
 
 The repo was laid before Gate A because the SPEC's handoff orders it that way
@@ -29,7 +29,10 @@ work on this game: nothing in it knows about belonging, the door or the uncle.
   the four text tools in `tools/narrative/`, and the kit's example game, "The
   Crossing" (8 scenes, 2 starts), in `content/` and `src/game/`. It is a
   placeholder. It is what `npm run check` plays today.
-- **The Gate B model** (`prototypes/killgate/`): data, rules, eleven policies,
+- **Character creation** (`content/creation.yaml`, `src/game/creation.ts`,
+  `src/ui/Creation.tsx`): name, sex, who they would court, two of four traits.
+  24 heroes. No scene reads them yet.
+- **The Gate B model** (`prototypes/killgate/`): data, rules, fourteen policies,
   the gate tables, a switch ablation and an invariant check that runs in
   `npm run check`. Numbers only; tuned placeholders.
 - **Documents:** `SPEC.md`, `KILLGATE.md`, `GATE-A.md` (the sample, third draft, with every answer to both of its choices written),
@@ -57,10 +60,8 @@ numbers say the kit works. They say nothing about this game.
 
 0. **Gate B, open after round 3** (`KILLGATE.md`): whether one bold life in
    twelve should be able to have everything.
-1. **Gate A:** read the third draft in `GATE-A.md` and answer its three
-   questions.
-2. The table at the top of `GATE-A.md`: seven things the sample chose that
-   are not decided.
+1. `FRAME-creation.md`, the table of choices that are his to change: two
+   traits or three, the four traits, the words on the screen.
 3. The open list in `SPEC.md`: a title, love scenes, the Vesuvius season.
 4. Once, in the repository on GitHub: Settings > Pages > Source: "GitHub
    Actions". The workflow cannot switch Pages on by itself. Not needed until

@@ -1,1 +1,15 @@
-{}
+# The four modern traits a hero is made from (content/creation.yaml picks two).
+# The ids match prototypes/killgate/data.js TRAITS; tests/creation.test.ts holds them together.
+# No mods: this game's own numbers are not designed yet (docs/DESIGN.md).
+nurse:
+  label: A nurse
+  description: Eleven years on a surgical ward, most of them nights. You know what a wound ought to look like on the third day.
+welder:
+  label: A welder
+  description: You join steel for a living and have the forearms to prove it. You have never done it without electricity.
+rider:
+  label: Rode as a child
+  description: Every Saturday until you were sixteen. Somebody else always caught the horse, and somebody else fed it.
+reader:
+  label: Only ever read about it
+  description: You own a shelf of books on the period and hold strong views about the films. None of it was written to be used.

@@ -11,6 +11,8 @@ export interface Ferry {
 export interface GameState extends CoreState {
   /** the start this game began from (content/starts/) */
   start: string;
+  /** who the hero would court, chosen at creation (content/creation.yaml): `courts == women` in content */
+  courts: 'women' | 'men';
   ferry: Ferry;
 }
 

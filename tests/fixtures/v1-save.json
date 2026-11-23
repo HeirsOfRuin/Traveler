@@ -1,10 +1,10 @@
 {
  "format": "traveler-save",
  "saveVersion": 1,
- "contentHash": "a5ec22728623",
+ "contentHash": "96fdd5936bfc",
  "state": {
   "version": 1,
-  "contentHash": "a5ec22728623",
+  "contentHash": "96fdd5936bfc",
   "seed": 12345,
   "rng": [
    3497751176,
@@ -29,7 +29,10 @@
      "lore": 1
     },
     "health": 8,
-    "traits": [],
+    "traits": [
+     "nurse",
+     "welder"
+    ],
     "injuries": [
      {
       "id": "cracked_ribs",
@@ -42,6 +45,7 @@
   },
   "hero": "hero",
   "start": "heir",
+  "courts": "women",
   "ferry": {
    "takings": 0,
    "repair": 1

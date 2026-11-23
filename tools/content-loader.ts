@@ -2,7 +2,7 @@
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { loadBase, walkYaml, readYaml, parse, ContentError } from '@tools/content';
-import { ConfigSchema, RegistrySchema, SceneSchema, StartSchema, GAME_ID, type ContentBundle, type Start } from '../src/content/schema';
+import { ConfigSchema, RegistrySchema, SceneSchema, StartSchema, CreationSchema, GAME_ID, type ContentBundle, type Start } from '../src/content/schema';
 import '../src/game/module'; // the rules this content is played by
 
 export { ContentError };
@@ -19,5 +19,10 @@ export function loadContent(dir = CONTENT_DIR): ContentBundle {
     starts[s.id] = s;
   }
   if (!Object.keys(starts).length) throw new ContentError('content/starts/: no start');
-  return { hash: hash.digest('hex').slice(0, 12), ...base, starts };
+  const cp = join(dir, 'creation.yaml');
+  hash.update(readFileSync(cp));
+  const creation = parse(CreationSchema, readYaml(cp), rel(cp));
+  for (const t of creation.traits.options) if (!base.registry.traits[t]) throw new ContentError(`creation.yaml: trait "${t}" is not in registry/traits.yaml`);
+  if (creation.traits.pick > creation.traits.options.length) throw new ContentError('creation.yaml: traits.pick is more than there are traits');
+  return { hash: hash.digest('hex').slice(0, 12), ...base, starts, creation };
 }

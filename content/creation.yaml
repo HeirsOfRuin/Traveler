@@ -1,0 +1,31 @@
+# Who the player makes before the story starts (docs/FRAME-creation.md).
+# Every word on the creation screen is here; the rules are in src/game/creation.ts.
+# The kit (tool bag, notebook, sack) is NOT here: it is the story's first choice, in the shed.
+title: Who went through the door
+lede: Your uncle wrote to you, and not to anybody else. He will have had a reason.
+name:
+  prompt: Your name
+  default: Sam                 # used when the box is left empty, and shown in it
+  max: 24
+sex:
+  prompt: You are
+  options:
+    male: A man
+    female: A woman
+courts:
+  prompt: And if you were to lose your head over somebody
+  note: Two people in each era can be courted. Nobody has to be.
+  options:
+    women: It would be a woman
+    men: It would be a man
+traits:
+  prompt: Two things about you that have never once been useful
+  pick: 2                      # Gate B measured two of four (docs/KILLGATE.md)
+  options: [nurse, welder, rider, reader]   # ids in registry/traits.yaml
+  full: Two only. Put one back first.
+begin: Open the letter
+missing:                       # why Begin is not open yet, in the order shown
+  sex: Say whether you are a man or a woman.
+  courts: Say who it would be.
+  traits_few: "Choose {n} more."
+  name_long: That name is too long for the envelope.

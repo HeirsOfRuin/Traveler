@@ -8,7 +8,8 @@ import { newNpcState } from '@engine/effects';
 import { enterScene } from '@engine/director';
 import { bornAtAge } from '@engine/character';
 import { EngineError } from '@engine/index';
-import type { Character, Sex } from '@engine/state';
+import type { Character } from '@engine/state';
+import { finish, type HeroChoice } from './creation';
 
 export { EngineError, view, choose, visibleChoices, isAvailable } from '@engine/index';
 export type { ChoiceView, SceneView, ChooseResult } from '@engine/index';
@@ -16,23 +17,28 @@ export { describeDate } from '@engine/calendar';
 export { heroOf } from '@engine/character';
 export type { GameState } from './state';
 
-export interface NewGameOptions { start: string; seed: number; name: string; sex?: Sex }
+export { problems, toggleTrait, finish, describe, everyHero, emptyDraft, SEXES, COURTS } from './creation';
+export type { HeroDraft, HeroChoice, Courts } from './creation';
+
+/** A new game needs a finished hero: build one with finish() from ./creation, which is what the screen does. */
+export interface NewGameOptions { start: string; seed: number; hero: HeroChoice }
 
 export function newGame(content: ContentBundle, opts: NewGameOptions): GameState {
   const st = content.starts[opts.start];
   if (!st) throw new EngineError(`unknown start ${opts.start}`);
   const scene = content.scenes[st.start_scene];
   if (!scene) throw new EngineError(`start ${st.id}: unknown scene ${st.start_scene}`);
+  const made = finish(content, opts.hero); // refuses a hero the screen could not have made
   const rng = new RngCursor(seedRng(opts.seed));
   const hero: Character = {
-    name: opts.name.trim() || 'Wat',
-    sex: opts.sex ?? 'male',
+    name: made.name,
+    sex: made.sex,
     born: bornAtAge(st.hero.age),
     alive: true,
     attributes: Object.fromEntries(content.config.attributes.map((a) => [a, st.hero.attributes[a] ?? 2])),
     skills: Object.fromEntries(content.config.skills.map((k) => [k, st.hero.skills[k] ?? 0])),
     health: 8,
-    traits: [],
+    traits: made.traits,
     injuries: [],
     items: [],
     station: st.hero.station,
@@ -45,6 +51,7 @@ export function newGame(content: ContentBundle, opts: NewGameOptions): GameState
     characters: { [HERO_ID]: hero },
     hero: HERO_ID,
     start: st.id,
+    courts: made.courts,
     ferry: { takings: 0, repair: 0 },
     chapter: scene.chapter,
     scene: scene.id,

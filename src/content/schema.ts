@@ -44,7 +44,22 @@ export const StartSchema = z.object({
 }).strict();
 export type Start = z.infer<typeof StartSchema>;
 
+// ---- Character creation (content/creation.yaml; rules in src/game/creation.ts) ----
+const TwoLabels = <A extends string, B extends string>(a: A, b: B) => z.object({ [a]: z.string(), [b]: z.string() } as Record<A | B, z.ZodString>).strict();
+export const CreationSchema = z.object({
+  title: z.string(),
+  lede: z.string(),
+  name: z.object({ prompt: z.string(), default: z.string().min(1), max: z.number().int().min(1) }).strict(),
+  sex: z.object({ prompt: z.string(), options: TwoLabels('male', 'female') }).strict(),
+  courts: z.object({ prompt: z.string(), note: z.string(), options: TwoLabels('women', 'men') }).strict(),
+  traits: z.object({ prompt: z.string(), pick: z.number().int().min(1), options: z.array(Id).min(2), full: z.string() }).strict(),
+  begin: z.string(),
+  missing: z.object({ sex: z.string(), courts: z.string(), traits_few: z.string(), name_long: z.string() }).strict(),
+}).strict();
+export type Creation = z.infer<typeof CreationSchema>;
+
 export interface ContentBundle extends CoreContent {
+  creation: Creation;
   registry: Registry;
   scenes: Record<string, Scene>;
   starts: Record<string, Start>;
