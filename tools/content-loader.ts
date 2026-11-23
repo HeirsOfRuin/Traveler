@@ -22,7 +22,15 @@ export function loadContent(dir = CONTENT_DIR): ContentBundle {
   const cp = join(dir, 'creation.yaml');
   hash.update(readFileSync(cp));
   const creation = parse(CreationSchema, readYaml(cp), rel(cp));
-  for (const t of creation.traits.options) if (!base.registry.traits[t]) throw new ContentError(`creation.yaml: trait "${t}" is not in registry/traits.yaml`);
-  if (creation.traits.pick > creation.traits.options.length) throw new ContentError('creation.yaml: traits.pick is more than there are traits');
+  const owner: Record<string, string> = {};
+  for (const g of creation.groups) {
+    if (g.pick > g.options.length) throw new ContentError(`creation.yaml: ${g.id} picks ${g.pick} of ${g.options.length}`);
+    if (g.pick > 1 && !g.full) throw new ContentError(`creation.yaml: ${g.id} picks more than one and has no "full" line to say why the next is refused`);
+    for (const t of g.options) {
+      if (!base.registry.traits[t]) throw new ContentError(`creation.yaml: ${g.id} option "${t}" is not in registry/traits.yaml`);
+      if (owner[t]) throw new ContentError(`creation.yaml: "${t}" is in both ${owner[t]} and ${g.id}`);
+      owner[t] = g.id;
+    }
+  }
   return { hash: hash.digest('hex').slice(0, 12), ...base, starts, creation };
 }

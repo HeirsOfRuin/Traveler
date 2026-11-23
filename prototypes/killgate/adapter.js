@@ -3,10 +3,10 @@
 
 import { play as playLife, grade, partnerOf, rungOf } from './model.js';
 import { POLICIES } from './policies.js';
-import { SEXES, COURTS, KITS, TRAIT_PAIRS } from './data.js';
+import { SEXES, COURTS, KITS, OCCUPATIONS, TRAIT_PAIRS } from './data.js';
 
-export const axes = { policy: Object.keys(POLICIES), sex: SEXES, courts: COURTS, kit: Object.keys(KITS), traits: TRAIT_PAIRS };
-export const defaults = { policy: 'riser', sex: 'm', courts: 'women', kit: 'tools', traits: 'nurse+welder' };
+export const axes = { policy: Object.keys(POLICIES), sex: SEXES, courts: COURTS, kit: Object.keys(KITS), job: Object.keys(OCCUPATIONS), traits: TRAIT_PAIRS };
+export const defaults = { policy: 'riser', sex: 'm', courts: 'women', kit: 'tools', job: 'welder', traits: 'rider+charm' };
 
 export const play = (seed, opts) => playLife(seed, opts);
 
@@ -45,7 +45,7 @@ export function digest(s) {
 
 export function trace(s) {
   const h = s.hero;
-  return [`${s.policy} / ${h.sex} courts ${h.courts} / ${h.kit} / ${h.traits.join('+')} / seed ${s.seed}`,
+  return [`${s.policy} / ${h.sex} courts ${h.courts} / ${h.kit} / ${h.job} / ${h.traits.join('+')} / seed ${s.seed}`,
     ...s.log.map((l) => `  ${String(l.t + 1).padStart(2)} ${l.focus.padEnd(6)} know ${l.know}  place ${String(l.place).padStart(5)}  strange ${String(l.strange).padStart(5)} / tol ${String(l.tol).padStart(5)}  bond ${l.bond.join(',').padEnd(7)} trail ${String(l.trail).padStart(3)}${l.castOut ? '  CAST OUT' : ''}${l.hurt ? '  hurt' : ''}${l.walled ? '  (trail walled)' : ''}${l.need ? '  need' : ''}${l.press ? '  pressed' : ''}`),
     `ending ${s.ending}, ${rungOf(s)}, grade ${grade(s).toFixed(1)}, partner ${partnerOf(s)}, uncle ${s.trail >= s.D.uncleAt}`].join('\n');
 }

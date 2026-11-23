@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { playOnce, POLICIES } from '@tools/play';
 import { validateCond, test } from '@engine/conditions';
 import { loadContent, CONTENT_DIR } from './content-loader';
-import { newGame, view, startsOf, everyHero } from '../src/game/index';
+import { newGame, view, startsOf, spreadHeroes } from '../src/game/index';
 import type { ContentBundle } from '../src/content/schema';
 import type { GameState } from '../src/game/state';
 import type { NarrativeAdapter, Seen, Written } from './narrative/adapter';
@@ -34,7 +34,7 @@ function textsOf(c: ContentBundle): Written[] {
   for (const [id, n] of Object.entries(c.registry.npcs)) add(`npcs/${id}`, n.notes);
   // the creation screen is written prose too, and is held to the same style guide
   const cr = c.creation;
-  for (const t of [cr.title, cr.lede, cr.name.prompt, cr.sex.prompt, ...Object.values(cr.sex.options), cr.courts.prompt, cr.courts.note, ...Object.values(cr.courts.options), cr.traits.prompt, cr.traits.full, cr.begin, ...Object.values(cr.missing)]) add('creation.yaml', t);
+  for (const t of [cr.title, cr.lede, cr.name.prompt, cr.name_long, cr.begin, cr.sex.prompt, cr.sex.owed, ...Object.values(cr.sex.options), cr.courts.prompt, cr.courts.note, cr.courts.owed, ...Object.values(cr.courts.options), ...cr.groups.flatMap((g) => [g.prompt, g.note, g.owed, g.full])]) add('creation.yaml', t);
   for (const [id, t] of Object.entries(c.registry.traits)) { add(`traits/${id}`, t.label); add(`traits/${id}`, t.description); }
   for (const [id, e] of Object.entries(c.registry.endings)) { add(`endings/${id}`, e.label); add(`endings/${id}`, e.description); }
   return out;
@@ -47,7 +47,7 @@ export const adapter: NarrativeAdapter<ContentBundle, GameState> = {
   textsOf,
   play(content, runs, observe) {
     for (const start of startsOf(content)) for (let i = 0; i < runs; i++) {
-      playOnce<GameState>(content, start, (seed) => newGame(content, { start, seed, hero: everyHero(content)[i % everyHero(content).length]! }), 3 + i * 7919, POLICIES[i % POLICIES.length]!, {
+      playOnce<GameState>(content, start, (seed) => newGame(content, { start, seed, hero: spreadHeroes(content, runs)[i]! }), 3 + i * 7919, POLICIES[i % POLICIES.length]!, {
         observe: (s, v) => {
           const from = s.journal.at(-1)?.scene ?? s.scene;
           const texts: Seen[] = [{ kind: 'text', scene: s.scene, text: v.text }, { kind: 'title', scene: s.scene, text: v.title ?? '' }, { kind: 'outcome', scene: from, text: v.outcome?.text ?? '' }, ...v.choices.map((c) => ({ kind: 'choice' as const, scene: s.scene, text: c.text }))];

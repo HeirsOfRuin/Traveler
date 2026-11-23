@@ -43,7 +43,7 @@ game-scaffold's.
 | `adapter.js` | Connects the model to the kit | |
 | `gate.js` | The tables below | `npm run gate` |
 | `ablations/switches.js` | Each rule switched off; the inert check | `npm run gate:switches` |
-| `check.js` | Determinism and invariants, 6,048 runs | `npm run gate:check` (in `npm run check`) |
+| `check.js` | Determinism and invariants, 37,632 runs (every hero, every policy) | `npm run gate:check` (in `npm run check`) |
 
 The player makes the hero: sex, who they court, one hand's worth of kit (tool
 bag, notebook, sack: `GATE-A.md`), and two of four modern traits. That is 72
@@ -243,6 +243,62 @@ Round 1's six failures and their numbers are in the git history of this file
    doing it openly is wrong for a reason other than how much room there is.
    In the game that has to come from who is in the room, which a table of
    numbers cannot hold.
+
+## Round 4: the wider hero (2026-11-23)
+
+The author split what a hero is made of: one occupation of four (welder,
+nurse, history teacher, engineer) and two traits of eight, where rounds 1 to
+3 had two "traits" of four. The model follows (`data.js`: `OCCUPATIONS`,
+`TRAITS`), with a placeholder number or two for each new option. Looks and
+manner are not in the model; by the author's rule they change the prose more
+than the outcome.
+
+That is 1,344 heroes where there were 72, so every gate was measured again:
+1,344 heroes x 8 seeds = **10,752 runs per policy**, and 20 seeds a hero for
+reachability. Nothing else in the model changed. The tables above are round
+3's, on 72 heroes.
+
+| Claim | Round 3 (72 heroes) | Round 4 (1,344 heroes) |
+|---|---|---|
+| Explaining everything: finally exposed | 93.5% ±0.5 | 93.3% ±0.2 |
+| Doing it openly, never explaining | 53.7% ±1.1 | 54.0% ±0.5 |
+| Suiting it to the room: cast out / exposed / named | 9.8% / 6.3% / 86.4% | 10.5% ±0.3 / 6.5% ±0.2 / 86.3% ±0.3 |
+| A place and a courtship (placeLove) | 88.9% ±0.7 | 92.5% ±0.3 |
+| The other pair plans | 69.5%, 41.3% | 71.9% ±0.4, 47.1% ±0.5 |
+| All three, safely | 0.0% to 3.9% | 0.0% to 6.6% ±0.2 |
+| All three, the dangerous way (bold) | 8.2% ±0.6, 6.2% dead | **12.5% ±0.3**, 4.8% ±0.2 dead |
+| Timer, best pair at 12 / 16 / 20 seasons | 46.1% / 88.2% / 91.4% | 49.8% / 92.4% / 93.3% |
+| Worst hero for any of the four people | 63.3% ±8.8 | 50.0% ±11.2 (a woman, the notebook, a teacher, rider and sailor, courting the first man) |
+
+The claims hold. Two things moved the wrong way and are added to the open
+list: everything by the dangerous way is now one life in eight, and a place
+plus a courtship crept back above 90%.
+
+Switches, 1,344 runs per policy, 18,816 pooled: the same pattern as round 3
+(no needs, cast out -4.9 points; clear sight, -2.8; soft losing off, finally
+exposed +11.2).
+
+**What the new options are worth, and it is not even.** Mean grade, each
+policy's best marked:
+
+| | Best in (of 12 policies) | Worst in |
+|---|---|---|
+| Welder | 6 | 0 |
+| Nurse | 6 | 0 |
+| Teacher | 0 | 11 |
+| Engineer | 0 | 0 |
+| Raised on a farm | 9 | 0 |
+| Rode as a child | 1 (wanderer, by 22 points) | 1 |
+| Hunts, used to a room | 1 each | 0 |
+| Martial arts | 0 | 6 |
+| Easy to like, fenced, sails | 0 | 1, 0, 4 |
+
+This is the model's placeholder numbers talking, not the game: martial arts
+only lowers a risk one policy takes; a teacher's knowledge is strong and
+strange in a model where strangeness is the cost. It is recorded because the
+real numbers will be made the same way and will need the same table. **Open
+5: a history teacher is the worst occupation in eleven rows of twelve, and
+four of the eight traits are best nowhere.**
 
 ## What this does not show
 

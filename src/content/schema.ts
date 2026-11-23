@@ -50,11 +50,15 @@ export const CreationSchema = z.object({
   title: z.string(),
   lede: z.string(),
   name: z.object({ prompt: z.string(), default: z.string().min(1), max: z.number().int().min(1) }).strict(),
-  sex: z.object({ prompt: z.string(), options: TwoLabels('male', 'female') }).strict(),
-  courts: z.object({ prompt: z.string(), note: z.string(), options: TwoLabels('women', 'men') }).strict(),
-  traits: z.object({ prompt: z.string(), pick: z.number().int().min(1), options: z.array(Id).min(2), full: z.string() }).strict(),
+  sex: z.object({ prompt: z.string(), options: TwoLabels('male', 'female'), owed: z.string() }).strict(),
+  courts: z.object({ prompt: z.string(), note: z.string(), options: TwoLabels('women', 'men'), owed: z.string() }).strict(),
+  // occupation, traits, looks, manner: each a list of ids from registry/traits.yaml and how many to pick
+  groups: z.array(z.object({
+    id: Id, prompt: z.string(), note: z.string().optional(), pick: z.number().int().min(1),
+    options: z.array(Id).min(2), owed: z.string(), full: z.string().optional(),
+  }).strict()).min(1),
   begin: z.string(),
-  missing: z.object({ sex: z.string(), courts: z.string(), traits_few: z.string(), name_long: z.string() }).strict(),
+  name_long: z.string(),
 }).strict();
 export type Creation = z.infer<typeof CreationSchema>;
 

@@ -3,13 +3,13 @@
 import { writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { loadContent } from './content-loader';
-import { newGame, view, choose, startsOf, everyHero } from '../src/game/index';
+import { newGame, view, choose, startsOf, heroAt } from '../src/game/index';
 import { toSave, SAVE_VERSION } from '../src/game/save';
 
 const content = loadContent();
 const file = join(import.meta.dirname, '..', 'tests', 'fixtures', `v${SAVE_VERSION}-save.json`);
 if (existsSync(file) && !process.argv.includes('--force')) { console.error(`${file} exists: a shipped fixture is never rewritten (--force if it never shipped)`); process.exit(1); }
-let s = newGame(content, { start: startsOf(content)[0]!, seed: 12345, hero: { ...everyHero(content)[0]!, name: 'Fixture' } });
+let s = newGame(content, { start: startsOf(content)[0]!, seed: 12345, hero: { ...heroAt(content, 0), name: 'Fixture' } });
 for (let i = 0; i < 2 && !s.ended; i++) s = choose(content, s, view(content, s).choices.find((c) => c.available)!.id).state;
 mkdirSync(dirname(file), { recursive: true });
 writeFileSync(file, JSON.stringify(toSave(s, content), null, 1));

@@ -9,7 +9,7 @@ import { enterScene } from '@engine/director';
 import { bornAtAge } from '@engine/character';
 import { EngineError } from '@engine/index';
 import type { Character } from '@engine/state';
-import { finish, type HeroChoice } from './creation';
+import { finish, allPicks, type HeroChoice } from './creation';
 
 export { EngineError, view, choose, visibleChoices, isAvailable } from '@engine/index';
 export type { ChoiceView, SceneView, ChooseResult } from '@engine/index';
@@ -17,8 +17,8 @@ export { describeDate } from '@engine/calendar';
 export { heroOf } from '@engine/character';
 export type { GameState } from './state';
 
-export { problems, toggleTrait, finish, describe, everyHero, emptyDraft, SEXES, COURTS } from './creation';
-export type { HeroDraft, HeroChoice, Courts } from './creation';
+export { problems, tap, finish, describe, allPicks, heroCount, heroAt, spreadHeroes, emptyDraft, SEXES, COURTS } from './creation';
+export type { HeroDraft, HeroChoice, Courts, Picks } from './creation';
 
 /** A new game needs a finished hero: build one with finish() from ./creation, which is what the screen does. */
 export interface NewGameOptions { start: string; seed: number; hero: HeroChoice }
@@ -38,7 +38,7 @@ export function newGame(content: ContentBundle, opts: NewGameOptions): GameState
     attributes: Object.fromEntries(content.config.attributes.map((a) => [a, st.hero.attributes[a] ?? 2])),
     skills: Object.fromEntries(content.config.skills.map((k) => [k, st.hero.skills[k] ?? 0])),
     health: 8,
-    traits: made.traits,
+    traits: allPicks(content, made),
     injuries: [],
     items: [],
     station: st.hero.station,
@@ -52,6 +52,7 @@ export function newGame(content: ContentBundle, opts: NewGameOptions): GameState
     hero: HERO_ID,
     start: st.id,
     courts: made.courts,
+    picks: made.picks,
     ferry: { takings: 0, repair: 0 },
     chapter: scene.chapter,
     scene: scene.id,

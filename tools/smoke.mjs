@@ -8,7 +8,7 @@
 // It also proves PROGRESS through the UI: the clock must move on every turn.
 //
 // ---- ADAPT THESE to the game's screens (the rest is generic) ---------------
-export const START = ['[data-act="new"]', '[data-pick="sex:female"]', '[data-pick="courts:men"]', '[data-pick="trait:nurse"]', '[data-pick="trait:rider"]', '[data-act="begin"]']; // clicks that begin a game: the title, then a hero made on the creation screen
+export const START = ['[data-act="new"]', '[data-pick="sex:female"]', '[data-pick="courts:men"]', '[data-pick="occupation:nurse"]', '[data-pick="traits:rider"]', '[data-pick="traits:hunter"]', '[data-pick="looks:tall"]', '[data-pick="manner:blunt"]', '[data-act="begin"]']; // clicks that begin a game: the title, then a hero made on the creation screen
 export const CLOCK = 'main.panel';                    // narrative: a choice changes the page (the date moves per season)                    // element whose text is the game clock
 export const TABS = ['[data-tab="story"]', '[data-tab="journal"]', '[data-tab="menu"]'];
 export const TURNS = Number(process.env.TURNS || 10);

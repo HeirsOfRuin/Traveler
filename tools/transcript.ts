@@ -9,7 +9,7 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import YAML from 'yaml';
 import { loadContent } from './content-loader';
-import { everyHero, newGame, view, choose } from '../src/game/index';
+import { heroAt, newGame, view, choose } from '../src/game/index';
 import type { CheckResult } from '@engine/checks';
 import type { ContentBundle } from '../src/content/schema';
 
@@ -17,7 +17,7 @@ interface Plan { name: string; start: string; seed: number; choices: string[] }
 const PLANS = join(import.meta.dirname, 'plans');
 
 export function transcript(content: ContentBundle, plan: Plan): string {
-  let s = newGame(content, { start: plan.start, seed: plan.seed, hero: { ...everyHero(content)[0]!, name: 'Hal' } });
+  let s = newGame(content, { start: plan.start, seed: plan.seed, hero: { ...heroAt(content, 0), name: 'Hal' } });
   const out = [`# ${plan.name}`, '', `Start: ${content.starts[plan.start]!.label}. Seed ${plan.seed}.`, ''];
   for (let i = 0; i < 300 && !s.ended; i++) {
     const v = view(content, s);

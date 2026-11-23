@@ -13,6 +13,8 @@ export interface GameState extends CoreState {
   start: string;
   /** who the hero would court, chosen at creation (content/creation.yaml): `courts == women` in content */
   courts: 'women' | 'men';
+  /** what was picked in each creation group (occupation, traits, looks, manner); the hero's traits are these, flattened */
+  picks: Record<string, string[]>;
   ferry: Ferry;
 }
 

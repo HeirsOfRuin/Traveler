@@ -6,20 +6,22 @@
 // they know. The decision is how it is presented, and how hard to push.
 
 import { streamFor } from './rng.js';
-import { D as BASE, KITS, TRAITS, SEX, LOVES, GRADE } from './data.js';
+import { D as BASE, KITS, OCCUPATIONS, TRAITS, SEX, LOVES, GRADE } from './data.js';
 import { POLICIES } from './policies.js';
 
 const clamp = (v, lo = 0, hi = 100) => Math.max(lo, Math.min(hi, v));
 
 export function newLife(seed, o = {}) {
   const D = { ...BASE, ...(o.data || {}) };
-  const traits = String(o.traits || 'nurse+welder').split('+');
-  const mods = [KITS[o.kit || 'tools'], ...traits.map((t) => TRAITS[t])];
+  const traits = String(o.traits || 'rider+charm').split('+');
+  const job = o.job || 'welder';
+  const mods = [KITS[o.kit || 'tools'], OCCUPATIONS[job], ...traits.map((t) => TRAITS[t])];
+  if (mods.some((m) => !m)) throw new Error(`unknown kit, occupation or trait: ${o.kit}, ${job}, ${traits}`);
   const sum = (k) => mods.reduce((a, m) => a + (m[k] || 0), 0);
   const mul = (k) => mods.reduce((a, m) => a * (m[k] ?? 1), 1);
   const sex = o.sex || 'm';
   const hero = {
-    sex, courts: o.courts || 'women', kit: o.kit || 'tools', traits,
+    sex, courts: o.courts || 'women', kit: o.kit || 'tools', job, traits, bond: sum('bond'),
     work: sum('work'), trail: sum('trail'), know: sum('know'), workKnow: sum('workKnow'),
     travelPlace: sum('travelPlace'), travelTrail: sum('travelTrail'), openTrail: sum('openTrail') > 0,
     gifts: sum('gifts'), giftBond: sum('giftBond'),
@@ -105,7 +107,7 @@ export function step(s, input) {
 
   if (focus === 'court') {
     const L = loves(s)[who], k = L.likes, tell = Math.min(2, know);
-    let g = D.courtBond + D.courtPlace * s.place + (k.skill || 0) * s.skill + (k.travelled && s.travelled ? k.travelled : 0);
+    let g = D.courtBond + hero.bond + D.courtPlace * s.place + (k.skill || 0) * s.skill + (k.travelled && s.travelled ? k.travelled : 0);
     if (s.giftsLeft > 0) { g += hero.giftBond; s.giftsLeft--; }
     strangeAdd = 0;
     if (tell && !o.noTruth) {                            // in courting, what you know is the truth about you

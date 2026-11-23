@@ -81,7 +81,7 @@ export function App({ content }: { content: ContentBundle }) {
         {tab === 'journal' && <><h2>Journal</h2>{state.journal.length
           ? <ol class="journal">{[...state.journal].reverse().map((j) => <li><strong>{j.sceneTitle ?? j.scene}</strong>: {j.choice}{j.changes.length > 0 && <small> ({j.changes.join(' · ')})</small>}</li>)}</ol>
           : <p class="empty">Empty so far: every choice you make is written here.</p>}</>}
-        {tab === 'menu' && <><h2>You</h2><p class="made">{describe(content, { ...heroOf(state), courts: state.courts })}</p><h2>Menu</h2><div class="stack">
+        {tab === 'menu' && <><h2>You</h2><p class="made">{describe(content, { ...heroOf(state), courts: state.courts, picks: state.picks })}</p><h2>Menu</h2><div class="stack">
           <button data-act="code" onClick={async () => { const c = await encodeSaveCode(toSave(state, content)); try { await navigator.clipboard.writeText(c); setNote('Save code copied.'); } catch { setNote(c); } }}>Save code (copy)</button>
           <button data-act="load-code" onClick={async () => { const t = prompt('Paste a save code'); if (!t) return; try { commit(fromSave(await decodeSaveCode(t.trim()), content).state); setTab('story'); } catch (e) { setNote(`That code did not load: ${(e as Error).message}`); } }}>Load a save code</button>
           <button data-act="quit" onClick={() => setState(null)}>Back to the title</button></div>

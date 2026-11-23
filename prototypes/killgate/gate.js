@@ -1,16 +1,17 @@
 // The Gate B tables in one run, from the SPEC's three claims.
-//   node prototypes/killgate/gate.js [seedsPerHero=30]
-// 72 heroes (2 sexes x 2 preferences x 3 kits x 6 trait pairs), the same seeds for every policy.
+//   node prototypes/killgate/gate.js [seedsPerHero=8]
+// 1,344 heroes (2 sexes x 2 preferences x 3 kits x 4 occupations x 28 trait pairs), the same seeds for every policy.
 
 import { play, grade, partnerOf } from './model.js';
 import { POLICIES, MAIN } from './policies.js';
-import { D, SEXES, COURTS, KITS, TRAIT_PAIRS, LOVES } from './data.js';
+import { D, SEXES, COURTS, KITS, OCCUPATIONS, TRAITS, TRAIT_PAIRS, LOVES } from './data.js';
 import { seRate } from './stats.js';
 import { progress } from './adapter.js';
 
-const per = Number(process.argv[2] || 30);
+const per = Number(process.argv[2] || 8);
+const reachN = Math.max(per, 20);   // a single hero's rate needs its own sample
 const HEROES = [];
-for (const sex of SEXES) for (const courts of COURTS) for (const kit of Object.keys(KITS)) for (const traits of TRAIT_PAIRS) HEROES.push({ sex, courts, kit, traits });
+for (const sex of SEXES) for (const courts of COURTS) for (const kit of Object.keys(KITS)) for (const job of Object.keys(OCCUPATIONS)) for (const traits of TRAIT_PAIRS) HEROES.push({ sex, courts, kit, job, traits });
 const seedOf = (h, i) => 1 + h * 100003 + i * 7919;
 
 function runs(policy, extra = {}, n = per, heroes = HEROES) {
@@ -64,16 +65,16 @@ for (const t of TIMES) {
 }
 
 // ---- 3. both people reachable from every hero
-console.log('\n3. REACHABLE: each hero courts each of their two people (lover0, lover1), partner at the door');
+console.log(`\n3. REACHABLE: each hero courts each of their two people (lover0, lover1), partner at the door; ${reachN} seeds a hero`);
 const reach = [];
 for (const hero of HEROES) for (const who of [0, 1]) {
-  const r = runs(`lover${who}`, {}, per, [hero]);
+  const r = runs(`lover${who}`, {}, reachN, [hero]);
   reach.push({ hero, who, id: LOVES[hero.courts][who].id, p: num(r, (s) => door(s) && partnerOf(s) === who), n: r.length });
 }
 for (const c of COURTS) for (const who of [0, 1]) {
   const cells = reach.filter((x) => x.hero.courts === c && x.who === who);
   const worst = cells.reduce((a, b) => (b.p < a.p ? b : a));
-  console.log(`${LOVES[c][who].id.padEnd(11)} mean ${(100 * mean(cells.map((x) => x.p))).toFixed(1)}%  worst hero ${(100 * worst.p).toFixed(1)}±${seRate(worst.p, worst.n).toFixed(1)}% (${worst.hero.sex}, ${worst.hero.kit}, ${worst.hero.traits})  heroes under 25%: ${cells.filter((x) => x.p < 0.25).length} of ${cells.length}`);
+  console.log(`${LOVES[c][who].id.padEnd(11)} mean ${(100 * mean(cells.map((x) => x.p))).toFixed(1)}%  worst hero ${(100 * worst.p).toFixed(1)}±${seRate(worst.p, worst.n).toFixed(1)}% (${worst.hero.sex}, ${worst.hero.kit}, ${worst.hero.job}, ${worst.hero.traits})  heroes under 25%: ${cells.filter((x) => x.p < 0.25).length} of ${cells.length}`);
 }
 
 // ---- 4. no kit, sex or trait is best everywhere
@@ -89,6 +90,10 @@ const by = (label, key, vals, pick) => {
 };
 by('kit', 'kit', Object.keys(KITS), (s) => s.hero.kit);
 by('sex', 'sex', SEXES, (s) => s.hero.sex);
-const TR = ['nurse', 'welder', 'rider', 'reader'];
-console.log(row(['trait', ...TR], [10, 11]));
-for (const p of MAIN) console.log(row([p, ...TR.map((t) => ms(all[p].filter((s) => s.hero.traits.includes(t)).map(grade)))], [10, 11]));
+by('job', 'job', Object.keys(OCCUPATIONS), (s) => s.hero.job);
+const TR = Object.keys(TRAITS);
+console.log(row(['trait', ...TR], [10, 9]));
+for (const p of MAIN) {
+  const m = TR.map((t) => mean(all[p].filter((s) => s.hero.traits.includes(t)).map(grade)));
+  console.log(row([p, ...m.map((v) => `${v.toFixed(1)}${v === Math.max(...m) ? '*' : v === Math.min(...m) ? '-' : ' '}`)], [10, 9]));
+}

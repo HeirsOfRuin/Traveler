@@ -1,16 +1,16 @@
 // Determinism and invariants for the Gate B model.  node prototypes/killgate/check.js
 import { play } from './model.js';
 import { POLICIES } from './policies.js';
-import { SEXES, COURTS, KITS, TRAIT_PAIRS } from './data.js';
+import { SEXES, COURTS, KITS, OCCUPATIONS, TRAIT_PAIRS } from './data.js';
 import { digest, progress } from './adapter.js';
 
 let runs = 0; const bad = [];
 const in100 = (v) => Number.isFinite(v) && v >= 0 && v <= 100;
-for (const policy of Object.keys(POLICIES)) for (const sex of SEXES) for (const courts of COURTS) for (const kit of Object.keys(KITS)) for (const traits of TRAIT_PAIRS) {
-  for (let i = 0; i < 3; i++) {
-    const seed = 11 + i * 977 + runs, o = { policy, sex, courts, kit, traits };
+for (const policy of Object.keys(POLICIES)) for (const sex of SEXES) for (const courts of COURTS) for (const kit of Object.keys(KITS)) for (const job of Object.keys(OCCUPATIONS)) for (const traits of TRAIT_PAIRS) {
+  for (let i = 0; i < 1; i++) {
+    const seed = 11 + i * 977 + runs, o = { policy, sex, courts, kit, job, traits };
     const a = play(seed, o), b = play(seed, o); runs += 2;
-    const where = `${policy}/${sex}/${courts}/${kit}/${traits}/seed ${seed}`;
+    const where = `${policy}/${sex}/${courts}/${kit}/${job}/${traits}/seed ${seed}`;
     if (digest(a) !== digest(b)) bad.push(`${where}: two plays of one seed differ`);
     for (const m of progress(a)) bad.push(`${where}: ${m}`);
     if (![a.place, a.skill, a.strange, a.trail, ...a.bond].every(in100)) bad.push(`${where}: a value left 0..100`);

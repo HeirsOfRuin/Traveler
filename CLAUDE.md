@@ -24,7 +24,12 @@
   calendar, attributes and stations fit a game that starts in a machine shed.
 - A hero is made in one place, `src/game/creation.ts`. The screen, `newGame`,
   the bot and the tests all ask it. Do not build a hero by hand anywhere else,
-  and do not preselect anything for the player.
+  and do not preselect anything for the player. A hero is a name, a sex, who
+  they would court, one occupation, two traits, one look and one manner; the
+  groups are data in `content/creation.yaml`.
+- Looks and manner "affect prose more than actions or outcome" (the author,
+  2026-11-23). A scene may say a tall hero ducks; it may not open or close a
+  road on it or move a number.
 - The author on what the game is, 2026-11-23: players "are going to want to
   use it and feel smart and powerful... it should be more about making sure
   they don't come across as a lunatic or heretic." The hero uses what they

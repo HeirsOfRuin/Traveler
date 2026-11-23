@@ -24,7 +24,7 @@
     "fixture": "tsx tools/make-fixture.ts",
     "gate": "node prototypes/killgate/gate.js",
     "gate:check": "node prototypes/killgate/check.js",
-    "gate:switches": "node prototypes/killgate/ablate.js prototypes/killgate/ablations/switches.js --adapter=prototypes/killgate/adapter.js --inert --runs=10"
+    "gate:switches": "node prototypes/killgate/ablate.js prototypes/killgate/ablations/switches.js --adapter=prototypes/killgate/adapter.js --inert"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",

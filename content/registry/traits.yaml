@@ -1,15 +1,71 @@
-# The four modern traits a hero is made from (content/creation.yaml picks two).
-# The ids match prototypes/killgate/data.js TRAITS; tests/creation.test.ts holds them together.
-# No mods: this game's own numbers are not designed yet (docs/DESIGN.md).
-nurse:
-  label: A nurse
-  description: Eleven years on a surgical ward, most of them nights. You know what a wound ought to look like on the third day.
+# Everything a hero is made from (content/creation.yaml groups them and says how many of each).
+# The occupation and trait ids match prototypes/killgate/data.js; tests/creation.test.ts holds
+# them together. No mods: this game's own numbers are not designed yet (docs/DESIGN.md).
+
+# --- occupation: one
 welder:
   label: A welder
   description: You join steel for a living and have the forearms to prove it. You have never done it without electricity.
+nurse:
+  label: A nurse
+  description: Eleven years on a surgical ward, most of them nights. You know what a wound ought to look like on the third day.
+teacher:
+  label: A history teacher
+  description: You have explained the fall of Rome to fifteen-year-olds every spring for nine years. Nobody has asked you to prove any of it until now.
+engineer:
+  label: An engineer
+  description: You can say why a bridge stands up and what it will cost. Other people have always done the building.
+
+# --- traits: two
 rider:
   label: Rode as a child
   description: Every Saturday until you were sixteen. Somebody else always caught the horse, and somebody else fed it.
-reader:
-  label: Only ever read about it
-  description: You own a shelf of books on the period and hold strong views about the films. None of it was written to be used.
+charm:
+  label: Easy to like
+  description: People tell you things. You have never been sure what you do to cause it, and have learned not to ask.
+martial:
+  label: Martial arts
+  description: A brown belt, earned twice a week in a hall that smelled of feet. Nobody there was trying to kill you.
+fencer:
+  label: Fenced
+  description: Three years of foil, with a mask, a referee and a rule about whose turn it was.
+speaker:
+  label: Used to a room
+  description: You can stand up in front of two hundred people and be heard at the back. What you said when you got there has varied.
+hunter:
+  label: Hunts
+  description: A week every autumn, with a rifle and a flask, and the truck forty yards behind you.
+sailor:
+  label: Sails
+  description: Summers on a lake, in a boat that belonged to somebody's father. You know where the wind is before you know you have looked.
+farm:
+  label: Raised on a farm
+  description: Chores before school for sixteen years. Animals have never frightened you, and have never impressed you either.
+
+# --- looks: one. These change the prose more than the outcome (the author, 2026-11-23).
+tall:
+  label: Tall
+  description: You have found most door frames the same way.
+slight:
+  label: Slight
+  description: People hand you things to hold.
+broad:
+  label: Broad
+  description: Strangers ask you to help them move house.
+forgettable:
+  label: Easy to forget
+  description: Witnesses have disagreed about you.
+
+# --- manner: one. As looks.
+blunt:
+  label: Blunt
+  description: You say it, and afterwards you find out whether you should have.
+quiet:
+  label: Quiet
+  description: You are often taken to be agreeing.
+cheerful:
+  label: Cheerful
+  description: It has been held against you.
+stubborn:
+  label: Stubborn
+  description: You would have said thorough.

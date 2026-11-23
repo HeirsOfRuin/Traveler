@@ -1,10 +1,10 @@
 {
  "format": "traveler-save",
  "saveVersion": 1,
- "contentHash": "96fdd5936bfc",
+ "contentHash": "1b99d1f85cb2",
  "state": {
   "version": 1,
-  "contentHash": "96fdd5936bfc",
+  "contentHash": "1b99d1f85cb2",
   "seed": 12345,
   "rng": [
    3497751176,
@@ -30,8 +30,11 @@
     },
     "health": 8,
     "traits": [
-     "nurse",
-     "welder"
+     "welder",
+     "rider",
+     "charm",
+     "tall",
+     "blunt"
     ],
     "injuries": [
      {
@@ -46,6 +49,21 @@
   "hero": "hero",
   "start": "heir",
   "courts": "women",
+  "picks": {
+   "occupation": [
+    "welder"
+   ],
+   "traits": [
+    "rider",
+    "charm"
+   ],
+   "looks": [
+    "tall"
+   ],
+   "manner": [
+    "blunt"
+   ]
+  },
   "ferry": {
    "takings": 0,
    "repair": 1

@@ -88,22 +88,37 @@ export const D = {
   hurtSeasons: 2,
 };
 
-// The player makes the hero: sex, who they court, a kit of one hand's worth
-// (GATE-A.md), and two modern traits. 2 x 2 x 3 x 6 = 72 heroes.
+// The player makes the hero (content/creation.yaml): sex, who they court, ONE occupation and TWO
+// traits; and in the story, a kit of one hand's worth (GATE-A.md). Looks and manner are also
+// chosen, and are not in this model: they change the prose more than the outcome (the author).
+// 2 x 2 x 3 kits x 4 occupations x 28 trait pairs = 1,344 heroes.
 export const SEXES = ['m', 'f'];
 export const COURTS = ['women', 'men'];
 
 export const KITS = {
   tools:    { skill0: 9, work: 0.4 },                        // arrive with a trade
-  notebook: { trail: 5, know: 0.35, strange0: 4, openTrail: 1 }, // he wrote down where it leads and who to ask        // arrive with what he knew
+  notebook: { trail: 5, know: 0.35, strange0: 4, openTrail: 1 }, // he wrote down where it leads and who to ask
   sack:     { place0: 12, gifts: 5, giftBond: 7 },           // arrive with something to give
 };
 
+// What the hero knows comes mostly from here. PLACEHOLDERS, like every number in this file.
+export const OCCUPATIONS = {
+  welder:   { skill0: 10, work: 0.5 },                       // hands: the nearest thing to a trade they have
+  nurse:    { workKnow: 0.25, strangeMul: 0.88 },            // healing is a use people understand
+  teacher:  { know: 0.3, strangeMul: 1.05, trail: 3 },       // knows what happened here, and says so
+  engineer: { know: 0.2, work: 0.3 },                        // knows why it works; has never built it
+};
+
+// Other things a person can do. Each touches one corner of the model.
 export const TRAITS = {
-  nurse:  { workKnow: 0.25, strangeMul: 0.88 },              // healing is a use people understand
-  welder: { skill0: 10, work: 0.5 },
-  rider:  { dangerMul: 0.45, travelPlace: 3, trail: 3, travelTrail: 10 }, // a journey is also a search
-  reader: { know: 0.3, strangeMul: 1.05, trail: 3 },         // only ever read about it
+  rider:   { dangerMul: 0.6, travelPlace: 3, travelTrail: 8 }, // a journey is also a search
+  charm:   { bond: 2.5 },                                     // people tell you things
+  martial: { dangerMul: 0.5 },                                // the dangerous way is less so
+  fencer:  { dangerMul: 0.7, place0: 5 },                     // carries himself like someone who has held one
+  speaker: { know: 0.12, strangeMul: 0.93 },                  // explains it and is believed a little longer
+  hunter:  { work: 0.6, trail: 1.5 },                         // earns his keep, and can follow a track
+  sailor:  { travelPlace: 2.5, travelTrail: 5 },              // in a country that goes everywhere by water
+  farm:    { skill0: 9, work: 0.3 },                          // already knows half of how they live
 };
 export const TRAIT_PAIRS = (() => {
   const k = Object.keys(TRAITS), out = [];

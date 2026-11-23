@@ -13,25 +13,29 @@ import type { GameState } from './state';
 const st = (s: CoreState) => s as GameState;
 const ct = (c: CoreContent) => c as ContentBundle;
 const FERRY = ['takings', 'repair'];
+const ONE = ['occupation', 'looks', 'manner'];
 
 export const module: GameModule = {
   id: GAME_ID,
-  namespaces: ['ferry', 'start', 'courts'],
+  // occupation, looks, manner: the creation groups that pick one (content/creation.yaml): occupation == nurse
+  namespaces: ['ferry', 'start', 'courts', 'occupation', 'looks', 'manner'],
   getValue(s, _c, path) {
     const [ns, field] = path.split('.');
     if (ns === 'start') return st(s).start;
     if (ns === 'courts') return st(s).courts;
+    if (ONE.includes(ns!)) return st(s).picks[ns!]?.[0] ?? '';
     return st(s).ferry[field as 'takings' | 'repair'];
   },
   checkPath(c, path) {
     const [ns, field] = path.split('.');
     if (ns === 'start') return field === undefined ? null : `"start" has no fields (start == <id>)`;
     if (ns === 'courts') return field === undefined ? null : `"courts" has no fields (courts == women, courts == men)`;
+    if (ONE.includes(ns!)) return field !== undefined ? `"${ns}" has no fields (${ns} == <id>)` : ct(c).creation.groups.some((g) => g.id === ns && g.pick === 1) ? null : `creation.yaml has no pick-one group "${ns}"`;
     return FERRY.includes(field ?? '') ? null : `unknown ferry field in "${path}" (${FERRY.join(', ')})`;
   },
   labelFor: (_c, path) => ({ 'ferry.repair': 'The boat', 'ferry.takings': 'Takings' })[path],
   // start == heir compares with the starts' ids
-  namedValues: (c, path) => (path === 'start' ? Object.keys(ct(c).starts) : path === 'courts' ? ['women', 'men'] : undefined),
+  namedValues: (c, path) => (path === 'start' ? Object.keys(ct(c).starts) : path === 'courts' ? ['women', 'men'] : ONE.includes(path) ? ct(c).creation.groups.find((g) => g.id === path)?.options : undefined),
   addNumber(s, _c, path, delta, changes) {
     const f = st(s).ferry;
     if (path === 'ferry.repair') { f.repair = Math.max(0, Math.min(3, f.repair + delta)); changes.push(`The boat: ${delta > 0 ? 'sounder' : 'worse'}`); }

@@ -1,7 +1,7 @@
 // Does each rule matter, and is any switch decoration?
 //   npm run gate:switches
 export default {
-  runs: 10, by: ['policy'], pool: ['sex', 'courts', 'kit', 'traits'],
+  runs: 1, by: ['policy'], pool: ['sex', 'courts', 'kit', 'job', 'traits'],   // 1,344 heroes a policy
   base: {},
   variants: {
     noKnow: { noKnow: true },         // what you know can never be used
