@@ -44,9 +44,9 @@
   and put the numbers, with their run counts, in the commit message. The kit
   files in it (`run.js`, `ablate.js`, `stats.js`, `measure-lib.js`, `rng.js`)
   are copies from Game-Workshop and are not edited here.
-- The first prototype (2026-11-24) is the fourth draft of `docs/GATE-A.md` as
-  content: the shed and the first night in Norway. The kit's example game is
-  gone. One scene serves every hero: plain text for all, `[if occupation ==
+- The prototype (2026-11-24) is the shed and the whole Norway visit, up to
+  the door (`content/scenes/`; the plan was `docs/FRAME-norway-visit.md`).
+  The kit's example game is gone. One scene serves every hero: plain text for all, `[if occupation ==
   ...]` and the like where a passage depends on who was made. Write all four
   occupations whenever one is written.
 - The screen wears the era being played (`src/ui/eras.css`, one block of
@@ -73,6 +73,10 @@
 - The author, 2026-11-24: "Decisions can go with your recommendations." When
   a decision is open and a recommendation is written down, take it, say so in
   the SPEC's table as taken on that word, and keep it his to change.
+- A choice whose road matters later is named in `content/roads.yaml` and read
+  as `road.<choice> == <road>`. Never key a later scene on a count that other
+  scenes also move (`shown.craft >= 1`): a test caught the uncle's story
+  showing the wrong version that way.
 - Standing is shown in words, never as a number, and no stakes line is shown
   under a choice (`docs/DESIGN.md` section 4).
 - `packages/engine`, `packages/tools` and `tools/narrative/` are copies of the

@@ -24,12 +24,33 @@ const Thumb = () => (
   </svg>
 );
 
+/** His drawing in the ashes: a hull, a mast, a sail set along the ship and not across it, and the wind. */
+const Ship = () => (
+  <svg class="art" viewBox="0 0 200 120" role="img" aria-label="A drawing of a ship with its sail set along the hull, and an arrow for the wind">
+    <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 84 Q100 110 178 84 Q170 96 150 100 L50 100 Q30 96 22 84" />
+      <path d="M100 98 L100 22" />
+      <path d="M100 26 L160 84 L100 84" />
+      <path d="M100 100 L100 114 M88 114 L112 114" />
+      <path d="M186 30 L140 44 M140 44 L150 36 M140 44 L151 50" stroke-dasharray="1 0" />
+    </g>
+  </svg>
+);
+/** A rune cut with a knife: the one for U. Drawn, because not every phone has a face with runes in it. */
+const Rune = () => (
+  <svg class="art rune" viewBox="0 0 40 60" width="34" height="52" role="img" aria-label="A rune">
+    <path d="M10 56 L10 6 L30 30 L30 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" />
+  </svg>
+);
+
 export function Clue({ content, id }: { content: ContentBundle; id: string }) {
   const c = content.clues[id];
   if (!c) return <p class="warn">A clue is missing here ({id}).</p>;
   return (
     <figure class={`clue clue-${c.kind}`} aria-label={c.title}>
       <div class="clue-body">
+        {c.art === 'ship' && <Ship />}
+        {c.art === 'rune' && <Rune />}
         {c.lines.map((l) => <p>{l}</p>)}
         {c.boxed && <p class="boxed"><span>{c.boxed}</span></p>}
         {c.tally && <Tally n={c.tally} />}

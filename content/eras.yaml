@@ -14,14 +14,20 @@ standing:
   place:
     - Nobody has decided what you are.
     - You have a place by the door, and a use.
+    - You are somebody's guest, and it shows in how you are served.
     - You have been moved up the bench, into the warm.
     - People make room for you.
+    - You are asked what you think.
+    - Thorgrim would rather you came back than not.
   talk:
     - Nobody is talking about you yet.
     - They are talking about you, kindly enough.
     - They are explaining you to each other.
     - People move along the bench when you sit down.
     - They are saying what they said about your uncle.
+    - Children are called away from you.
+    - There is a verse about you in the next fjord.
+    - It would not take much now.
 kits:
   bag: Your work bag
   notebook: Your uncle's notebook

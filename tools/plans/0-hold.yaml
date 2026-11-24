@@ -1,4 +1,0 @@
-name: "bag, then: hold"
-start: door
-seed: 3
-choices: [p_shed/bag, n_hill/down, n_hall/eat, n_choke/hold]

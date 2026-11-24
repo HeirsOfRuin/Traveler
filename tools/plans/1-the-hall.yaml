@@ -1,0 +1,4 @@
+name: "The work bag, a hold, the boat shed"
+start: door
+seed: 3
+choices: [p_shed/bag, n_choke/hold, n_keel/boat, n_boat/craft, n_skald/better, n_counsel/useful, n_stone/far, n_surety/word]

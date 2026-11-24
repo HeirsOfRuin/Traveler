@@ -1,4 +1,0 @@
-name: "notebook, then: explain"
-start: door
-seed: 3
-choices: [p_shed/notebook, n_hill/down, n_hall/eat, n_choke/explain]

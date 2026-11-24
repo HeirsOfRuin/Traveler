@@ -1,4 +1,0 @@
-name: "sack, then: silent"
-start: door
-seed: 3
-choices: [p_shed/sack, n_hill/down, n_hall/eat, n_choke/silent]

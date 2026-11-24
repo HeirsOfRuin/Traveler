@@ -3,3 +3,7 @@ kol:      { name: Kol, notes: "A boy of about eleven, with a dog. He finds every
 thorgrim: { name: Thorgrim Ketilsson, notes: "The hersir. It is his hall, and his half pound of silver." }
 aud:      { name: Aud Ketilsdóttir, notes: "Thorgrim's sister. The keys are hers." }
 hrapp:    { name: Hrapp, notes: "The smith. He does your uncle's voice." }
+hild:     { name: Hild, notes: "Gyda's apprentice at the healing. She keeps a stick." }
+finn:     { name: Finn Ormsson, notes: "Orm's son. He builds by looking." }
+eyvind:   { name: Eyvind, notes: "A skald. He goes between the halls and says who is dead. Invented; not the Eyvind of the next century." }
+ulfar:    { name: Ulfar, notes: "Hrapp's brother, one farm up the water. His boy died at harvest." }

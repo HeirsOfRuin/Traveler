@@ -13,15 +13,14 @@ waiting on whom.
 | 2 Gate B, the numbers | Six rounds. The claims hold at 16 seasons; three things open (`KILLGATE.md`) |
 | 3 Phase 0 design | Written with the prototype (`DESIGN.md`) |
 | 4 Engine and instruments | The kit, character creation, this game's module |
-| **5 Calibration** | **A first prototype plays. The author's playtest is the next thing** (`DESIGN.md` section 7) |
-| 6 to 8 | Not started |
+| **5 to 6 Calibration and slice** | **The whole Norway visit plays. The author's playtest is the next thing** (`DESIGN.md` section 7) |
+| 7 to 8 | Not started |
 
 ## What exists
 
-- **A first prototype:** title, character creation, the shed, the hill, the
-  hall, the smith's throat, one of three scenes with Aud, the first night.
-  Two choices of three roads; nine ways through; 7,168 heroes; about fifteen
-  minutes. 8 scenes in `content/scenes/`.
+- **A prototype of the whole Norway visit:** title, character creation, the
+  shed, and three days in Norway up to the door. 20 scenes, 10 choices of
+  three roads, 12 drawn clues, 7,168 heroes, about forty minutes.
 - **The story** (`STORY.md`): the whole arc and what each mechanic is for.
   Decided by the author, 2026-11-24.
 - **Clues, drawn** (`content/clues.yaml`): six, kept in the Journal.
@@ -50,9 +49,6 @@ have no passage; the deck is not laid.
 
 ## Waiting on the author
 
-1. **`FRAME-norway-visit.md`:** the plan for the rest of the Norway visit
-   (about 17 scenes, six choices). Strike or move anything before it is
-   written.
 1. **Play the prototype** on a phone and say: the voice, the two choices, the
    creation screen, the four designs. (`DESIGN.md` section 9 has four
    questions with defaults.)

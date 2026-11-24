@@ -40,3 +40,35 @@ notebook_people:
   boxed: "STOP EXPLAINING THINGS"
   found_in: n_hill
   if: kit == notebook
+ash_drawing:
+  kind: ash
+  title: His drawing, kept under a bowl
+  art: ship
+  found_in: n_keel
+finn_tally:
+  kind: wood
+  title: Finn's count, cut in the door post
+  tally: 14
+  found_in: n_boat
+hild_stick:
+  kind: wood
+  title: Hild's stick. One edge for the boiled, one for the rest
+  tally: 12
+  found_in: n_bench
+hrapp_marks:
+  kind: wood
+  title: What Unkel owes the forge, by Hrapp's knife
+  art: rune
+  tally: 7
+  found_in: n_forge
+note_half:
+  kind: note
+  title: The other half of the note
+  lines: ["Sorry about the ship.", "Tell Hrapp's brother I was right,", "and that I am sorrier for that", "than for anything."]
+  found_in: n_last_night
+  if: road.first == explain
+next_label:
+  kind: tape
+  title: Stuck to the quartz, under the marks
+  lines: ["NOT HOME. THE NEXT ONE.", "MIND THE STEP."]
+  found_in: e_door

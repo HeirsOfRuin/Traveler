@@ -2,7 +2,7 @@
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { loadBase, walkYaml, readYaml, parse, ContentError } from '@tools/content';
-import { ConfigSchema, RegistrySchema, SceneSchema, StartSchema, CreationSchema, ErasSchema, CluesSchema, GAME_ID, type Eras, type ContentBundle, type Start } from '../src/content/schema';
+import { ConfigSchema, RegistrySchema, SceneSchema, StartSchema, CreationSchema, ErasSchema, CluesSchema, RoadsSchema, GAME_ID, type Eras, type ContentBundle, type Start } from '../src/content/schema';
 import '../src/game/module'; // the rules this content is played by
 
 export { ContentError };
@@ -48,5 +48,19 @@ export function loadContent(dir = CONTENT_DIR): ContentBundle {
     if (!base.scenes[c.found_in]) throw new ContentError(`clues.yaml: ${id} is found in "${c.found_in}", which is not a scene`);
     if (!marks[id]?.includes(c.found_in)) throw new ContentError(`clues.yaml: ${id} says it is found in ${c.found_in}, and that scene never shows it`);
   }
-  return { hash: hash.digest('hex').slice(0, 12), ...base, starts, creation, eras, clues };
+  const rp = join(dir, 'roads.yaml');
+  hash.update(readFileSync(rp));
+  const roads = parse(RoadsSchema, readYaml(rp), rel(rp));
+  // every road effect names a remembered choice and one of its three roads
+  const walk = (where: string, es: unknown): void => {
+    for (const e of (Array.isArray(es) ? es : []) as Record<string, unknown>[]) {
+      if (e.then) { walk(where, e.then); walk(where, e.else); }
+      if (e.road) for (const [k, v] of Object.entries(e.road as Record<string, string>)) {
+        if (!roads[k]) throw new ContentError(`${where}: road "${k}" is not in roads.yaml`);
+        if (!roads[k]!.includes(String(v))) throw new ContentError(`${where}: road ${k} has no "${v}" (${roads[k]!.join(', ')})`);
+      }
+    }
+  };
+  for (const s of Object.values(base.scenes)) { walk(s.id, s.on_enter); for (const c of s.choices) { walk(`${s.id}/${c.id}`, c.effects); for (const k of ['success', 'partial', 'failure'] as const) walk(`${s.id}/${c.id}`, c[k]?.effects); } }
+  return { hash: hash.digest('hex').slice(0, 12), ...base, starts, creation, eras, clues, roads };
 }

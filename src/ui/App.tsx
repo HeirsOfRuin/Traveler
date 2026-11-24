@@ -83,7 +83,7 @@ export function App({ content }: { content: ContentBundle }) {
             </button>
           ))}
         </div>
-        <p class="hint">A first prototype: the shed, and the first night in Norway. About fifteen minutes, and it ends early.</p>
+        <p class="hint">A prototype: the shed, and three days in Norway. About forty minutes. It ends at the door to the next place, which is not built.</p>
       </main>
     );
   }

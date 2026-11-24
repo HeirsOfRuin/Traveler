@@ -1,4 +1,4 @@
-# sack, then: silent
+# The sack, left alone, the healer's bench
 
 Start: New game. Seed 3.
 
@@ -248,3 +248,225 @@ The fire is banked for the night, and the hall goes to sleep around you all at o
 Kol has the sack, and is asleep on top of it. Further down the bench somebody is still explaining you to somebody else, and getting it wrong.
 
 Tomorrow you are Unkel's kin.
+
+- Sleep.
+
+**Chose:** Sleep.
+
+## Unkel's kin
+
+You are woken by a dog, which has decided in the night that you are furniture.
+
+The hall in the morning is grey light through the smoke and people stepping over one another. Nobody has forgotten last night. You gather, from talk that nobody troubles to lower, that the stories about you were settled into one overnight. You are a healer who wrestles. You could have done worse.
+
+Aud puts a bowl into your hands on her way past, without stopping. "Thorgrim is at the shore," she says. "He would like you to see what your kinsman left him. Eat first. You will want it in you."
+
+Kol is waiting at the door with the dog. He has been up the hill already, since he goes up the hill every morning, and he reports that the wet smell by the white stone is fainter than it was yesterday. He says it as he might tell you a ewe was lame. You find that you do not like it.
+
+- Go down to the shore.
+
+**Chose:** Go down to the shore.
+
+## The ship that is not there
+
+The boat shed is open at both ends, like your uncle's, and smells of tar and new wood.
+
+In the middle of it lies your uncle's ship. It is a keel, a stem, a stern and four planks up each side, and there it stops. Grass has not had time to grow through it, but something has made a nest in the bow.
+
+"Orm laid it at midsummer," Thorgrim says. "Your kinsman stood where you are standing and told him where everything went. Orm has built ships since before I had a beard. He did as he was told as far as the fourth plank. Then he put down his axe, and said he would not put another on a thing he could not see in his head." He nods at a big grey man at the far end of the shed, who is fitting a rib and does not look round. "I have paid for the oak."
+
+On a flat stone by the keel is a wooden bowl, upside down. Thorgrim lifts it off as you would lift a lid to show a guest the dinner.
+
+::clue ash_drawing::
+
+"Nobody has been allowed to sweep there," he says.
+
+*(Continue)*
+
+You cannot say whether it would sail. You can say that the mast in the drawing is held up by four fittings that would each need a lathe to make, and that he has drawn them with some love. He always did like a fitting.
+
+"Three days," Thorgrim says. "Orm says the weather holds three days, and after that nothing is built until spring. You are his kin. Go where you can be of use, and at the noon meal tell me what kind of use it was."
+
+He goes. You are left with the keel, and the rest of his farm.
+
+- Stay in the boat shed.
+- Go to where they boil the cloths.
+- Go to the forge.
+
+**Chose:** Go to where they boil the cloths.
+
+## Hild's stick
+
+The cloths are boiled at a bench against the south wall of the hall, out of the wind. The old woman from last night is feeding a fire under the pot, and a younger one is hanging what comes out of it along a rail.
+
+The old woman is Gyda. She looks at you as a cat looks at a second cat.
+
+The younger one is called Hild, and she has a stick.
+
+::clue hild_stick::
+
+"That edge is the ones we washed with the boiled water," she says. "This edge is the ones we did not, before he came. A cut for every wound, and a cross-cut through it if it went bad." She turns it over for you. One edge has a good many cross-cuts and the other has two. "Gyda says it was the weather. I think weather would be on both edges."
+
+It takes you a moment. Then you see that she has done, with a knife and a stick, the thing your own people needed several hundred years and a great many dead to think of.
+
+"Nobody asked you to keep that," Gyda says.
+
+"No," says Hild.
+
+*(Continue)*
+
+A woman comes across the yard carrying a child of about three, who is too quiet. He has had a fever for two days, and the flux with it, and this morning he stopped crying, which his mother took for a good sign. His eyes have gone back in his head. Gyda feels his belly and calls for ale with an egg in it.
+
+You know this one, as it happens. It is printed on the back of a packet in every chemist's you have ever stood in. Water, salt and something sweet, a spoonful at a time, all day. It is not the fever that takes them. They run dry.
+
+- Tell them it is your grandmother's cure.  
+  <small>At stake: Your place in the hall + · How it looks +</small>
+- Mix it, and start spooning.  
+  <small>At stake: Your place in the hall + · Talk about you + · How it looks +</small>
+- Tell Hild what is happening inside him.  
+  <small>At stake: Talk about you + · How it looks +</small>
+
+**Chose:** Mix it, and start spooning.
+
+You take a cup of the boiled water from the bench, stir in honey from Gyda's own crock and a pinch from the salt box, and sit down by the child with the horn spoon you were lent last night. Nobody stops you. It is quite clear that somebody would, if the child had anyone better.
+
+He takes a spoonful, and then another. You go on. By noon he has taken half the cup. Gyda has watched every spoon go in and said nothing, and when the mother asks her what the stranger is giving him she says, "Honey," which is a third of the truth, and the third she can stand behind.
+
+Hild cuts her stick. She has started a third edge.
+
+## The skald
+
+The noon meal is cold, and eaten where people happen to be. A girl brings yours to you, which you understand does not happen to everybody. Thorgrim asks what kind of use you were. You say you fed a child with a spoon. Gyda says, across you, that it was her honey.
+
+Then the dogs all get up at once, and a man walks in out of the rain as a man walks into his own house.
+
+He is thin, and wet to the thigh, and he has a staff, and a hat he does not take off until he has been looked at in it. The hall is pleased to see him as a hall is pleased to see a pedlar. He has things they want, and they will have to feed him.
+
+"Eyvind," Kol tells you. "He goes between the halls and says who is dead."
+
+*(Continue)*
+
+He says, when he has a horn in his hand, that the king's ships are at the mouth of the next fjord but one. He counted eleven. They are taking a tenth of what each farm has, and the names of the men on it. Then he says that he made a verse on the way over the hill, and would the hall like it, and the hall would.
+
+You do not follow all of it. The brass ear does what it can, and gives up where the poetry starts. But you follow enough. It is about a short man from the south with soft hands, who promised a great lord a ship that would outrun the wind, and ate the lord's mutton for a summer, and went into a stone. The hall enjoys it a great deal, Thorgrim least.
+
+Afterwards he comes and sits by you, since you are the newest thing in the room.
+
+"You are the kinsman," he says. "I will want something for the next hall. They will ask me what came after the short man. What came after him?"
+
+- Tell him the truth: a shed, a door, a letter.  
+  <small>At stake: Talk about you +</small>
+- Give him something better.  
+  <small>At stake: Your place in the hall +</small>
+- Tell him to ask again when you have done something.
+
+**Chose:** Tell him to ask again when you have done something.
+
+"Ask me again when I've done something," you say.
+
+He looks you over. "That is what the good ones say," he says, "and also the ones who never do anything." He makes a verse anyway, since a skald cannot leave a hall with a hole in his news. In it you are tall, and silent, and came out of the stone at night, and nobody knows what you want. Kol has it by heart before supper.
+
+## The king's tenth
+
+That evening nobody plays at anything. The fire is built up, the children are sent to the far end, and the hall talks about the king.
+
+There are three things a hall can do, and each has a bench to itself. Bjorn and the older men are for paying. A tenth is a tenth, and they have had worse winters. The young men round Finn, Orm's son, are for the shore and the axes, since eleven ships is not so very many, and Thorgrim lets them say it twice before he asks which of them has ever seen eleven ships. And there is a third thing, said quietly, mostly by the women: that there is land in the west, a summer's sail past the islands, with nobody on it at all. Hild, who helps Gyda with the cloths, says it loudest. Eyvind has met a man who wintered there.
+
+That is what the ship is for. You had thought he wanted to fight in it. He wants to leave in it, with the wind against him and the king behind.
+
+*(Continue)*
+
+"You," Thorgrim says, down the length of the fire. "Unkel's kin. Your people live a long way off, and have seen more kings than we have. What do they do when one comes?"
+
+- Tell them to count it: the tenth against the ship.  
+  <small>At stake: Your place in the hall +</small>
+- Tell them the truth: kings like this one win.  
+  <small>At stake: Talk about you +</small>
+- Ask who in the hall wants to go.
+
+**Chose:** Ask who in the hall wants to go.
+
+"Before they decide anything," you say, "they ask who wants to go."
+
+Thorgrim looks at you, and then down the hall. "Well?" he says.
+
+Nobody had asked. It takes a long time, and it does not go by benches. Finn wants to go, and his father would sooner be buried here. The woman whose child had the fever wants to go. Gyda says she is too old to be seasick, and will pay the king in advice. Aud does not say, and you notice Thorgrim not asking her.
+
+## The well
+
+Later, when the fire is low and the hall has gone to its corners, you learn what your uncle did on his last night here.
+
+Nobody tells you. You put it together yourself, as the hall put you together last night, from what is lying about.
+
+There is an empty place on the bench beside Hrapp that nobody sits in. There is a farm one up the water that Kol will not take you to. On the slope behind it, when you walked out before supper, there was a small new mound with white stones laid on it, and below the byre a well with a hurdle across it and a rock on the hurdle.
+
+You ask Kol one question, which is who shut the well. "Ulfar," he says. "After Unkel told him it had killed his boy. He told him in here, in front of everyone. He was crying." Kol thinks about it. "Ulfar cut him. Hrapp is Ulfar's brother, and it was Hrapp who stopped it. That is why Hrapp does the voice. He has to do something."
+
+He was right about the well. You are as sure of that as he was, and it has done him no more good than it will do you.
+
+- Sleep, if you can.
+
+**Chose:** Sleep, if you can.
+
+## The white stone
+
+You go up the hill with Kol before anybody is about. It is a good deal easier going up than it was coming down, and you are getting the measure of the moss.
+
+The smell is still there by the boulder, if you put your face close to the quartz: woodsmoke and low tide, and under them, very faint, the heater in your uncle's shed. Yesterday Kol could smell it from the path. He says that when Unkel first came it was strong enough to bring the dog up from the yard, and that it has come and gone ever since, like the water in the fjord, only slower. He has been keeping an eye on it for a year, he says, in case it turned out to matter.
+
+"It goes somewhere," he says. He is not asking. "He went in there. I saw his back go in, and after that the stone was only a stone." He puts his hand flat on the quartz, where the nine marks are. "Where does it go?"
+
+- Tell him it goes to a country a very long way off.
+- Tell him the truth.  
+  <small>At stake: Talk about you +</small>
+- Tell him you will tell him when he is older.
+
+**Chose:** Tell him you will tell him when he is older.
+
+"I'll tell you when you're older," you say.
+
+He gives you the look that every child of eleven has given every adult who ever said it, in any year you care to name. "Unkel said that," he says. "He said it about the stone, and the beasts in the water, and why the moon follows you home. I am already older than I was when he said it."
+
+He does not ask again. He means to find out by himself, and you do not think it will take him until he is older.
+
+## What you leave
+
+Thorgrim is waiting in the yard when you come down, with Aud beside him and most of the hall finding reasons to be within earshot.
+
+"Orm says the weather turns tomorrow," he says. "Kol says the stone is closing. And I say that the last one of you who went up that hill took half a pound of my silver with him." He is not angry. He has the look of a man who has thought about this in the night and got it into an order. "You may go and look for him. I would sooner he were found than not. But you will leave me something, so that I know you mean to come back down."
+
+- Leave him what you carried.
+- Give him your oath.
+- Ask whoever you worked beside to speak for you.
+
+**Chose:** Give him your oath.
+
+"I'll swear to it," you say.
+
+They take that more seriously than you had meant it. A ring is fetched from beside the high seat, an iron one as thick as your thumb, and you are shown where to put your hand. Thorgrim says the words and you say them after him, half a beat behind, which is how the brass ear has taught you to do everything. You swear to come back down the hill, with your kinsman or with what he owes.
+
+Nobody smiles. You had thought of it as something to say. You see now that it was something to do, and that you have done it.
+
+## The yard
+
+You go up at noon, since nobody will let you leave before you have eaten.
+
+Hild walks you to the edge of the stubble. She has cut a second stick, the length of your hand, with nothing on it yet. "One edge for what you see that works," she says. "One for what does not. I want to know whether it is the same there." She does not say where there is. She has plainly decided that it is somewhere.
+
+Aud is standing in the door of the hall with her sleeves pushed back. She does not come down. When she sees you look, she holds up the horn spoon, so that you can see she has it, and goes back in.
+
+- Go up the hill.
+
+**Chose:** Go up the hill.
+
+## The door
+
+Kol comes as far as the boulder and no further, and holds the dog.
+
+The smell is almost gone. There is a place on the quartz, under the nine marks, where the rain does not seem to land, and when you put your hand near it the air is warmer and smells of somewhere else. It is not the shed. It is sweeter, like wet cedar and a charcoal fire. Stuck to the rock, under the moss, is a strip of masking tape that you would swear was not there three days ago.
+
+::clue next_label::
+
+You look back once. The hall is where it was, with the smoke lying along the grass of the roof. The keel is a pale line in the door of the boat shed. Kol has let go of the dog to wave with both arms. You have been here three days, and you know a dozen people by name, and one of them is waiting for a ship.
+
+Then you put your hand flat on the warm place, as he must have done nine times, and go where he went.

@@ -1,10 +1,10 @@
 {
  "format": "traveler-save",
  "saveVersion": 1,
- "contentHash": "691a32fb264a",
+ "contentHash": "a7ccf898e27d",
  "state": {
   "version": 1,
-  "contentHash": "691a32fb264a",
+  "contentHash": "a7ccf898e27d",
   "seed": 12345,
   "rng": [
    194968149,
@@ -61,6 +61,7 @@
    "open": 0,
    "explain": 0
   },
+  "roads": {},
   "chapter": "norway",
   "scene": "n_hall",
   "returnStack": [],
@@ -106,6 +107,38 @@
     "grudges": []
    },
    "hrapp": {
+    "met": false,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "hild": {
+    "met": false,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "finn": {
+    "met": false,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "eyvind": {
+    "met": false,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "ulfar": {
     "met": false,
     "alive": true,
     "affection": 0,

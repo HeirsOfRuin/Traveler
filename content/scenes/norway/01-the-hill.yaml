@@ -175,15 +175,15 @@
   choices:
     - id: hold
       text: Tell him it is a hold your people use for a bone in the throat.
-      effects: [ { present: craft }, { add: { counter.place: 1 } }, { set: flag.hrapp_owes } ]
+      effects: [ { present: craft }, { road: { first: hold } }, { add: { counter.place: 1 } }, { set: flag.hrapp_owes } ]
       next: n_hold
     - id: silent
       text: Tell him the man was choking and now he is not, and sit down.
-      effects: [ { present: open }, { add: { counter.place: 2, counter.talk: 2 } }, { set: flag.hrapp_owes } ]
+      effects: [ { present: open }, { road: { first: silent } }, { add: { counter.place: 2, counter.talk: 2 } }, { set: flag.hrapp_owes } ]
       next: n_silent
     - id: explain
       text: Tell him how it works.
-      effects: [ { present: explain }, { add: { counter.talk: 3 } }, { set: flag.hrapp_owes }, { set: flag.knows_he_bled } ]
+      effects: [ { present: explain }, { road: { first: explain } }, { add: { counter.talk: 3 } }, { set: flag.hrapp_owes }, { set: flag.knows_he_bled } ]
       next: n_explain
 
 - id: n_hold
@@ -206,7 +206,7 @@
   choices:
     - id: sleep
       text: Find somewhere to sleep.
-      next: e_first_night
+      next: n_night
 
 - id: n_silent
   chapter: norway
@@ -228,7 +228,7 @@
   choices:
     - id: sleep
       text: Find somewhere to sleep.
-      next: e_first_night
+      next: n_night
 
 - id: n_explain
   chapter: norway
@@ -260,16 +260,18 @@
   choices:
     - id: sleep
       text: Find somewhere to sleep.
-      next: e_first_night
+      next: n_night
 
-- id: e_first_night
+- id: n_night
   chapter: norway
-  kind: ending
-  ending: first_night
   title: The first night
   text: |
     The fire is banked for the night, and the hall goes to sleep around you all at once, as a barn does. Rain is falling on the grass over your head. It is a roof you would very much like to tell your mother about, and you have been asked not to.
 
-    [if kit == bag]Your bag is under your head, and you have a hand through the strap.[elif kit == notebook]The notebook is inside your jacket, where nobody can ask to see it.[else]Kol has the sack, and is asleep on top of it.[/if] [if shown.craft >= 1]By the door, two boys are still practising the hold on each other in the dark.[elif shown.open >= 1]Further down the bench somebody is still explaining you to somebody else, and getting it wrong.[else]Nobody has lain down within an arm's length of you.[/if]
+    [if kit == bag]Your bag is under your head, and you have a hand through the strap.[elif kit == notebook]The notebook is inside your jacket, where nobody can ask to see it.[else]Kol has the sack, and is asleep on top of it.[/if] [if road.first == hold]By the door, two boys are still practising the hold on each other in the dark.[elif road.first == silent]Further down the bench somebody is still explaining you to somebody else, and getting it wrong.[else]Nobody has lain down within an arm's length of you.[/if]
 
     Tomorrow you are Unkel's kin.
+  choices:
+    - id: sleep
+      text: Sleep.
+      next: n_morning

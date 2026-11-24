@@ -1,8 +1,8 @@
 # Frame: the rest of the Norway visit
 
-**Status: a plan, 2026-11-24. Nothing here is written as scenes.** It is the
-next thing to build after the first prototype, laid out so the author can
-strike or move any of it before the prose exists.
+**Status: built, 2026-11-24.** The author read this plan and said "Go ahead".
+The scenes are `content/scenes/norway/02-the-days.yaml`. What follows is the
+plan as it was; "As built" at the foot says where the scenes differ.
 
 It follows `STORY.md` (decided the same day) and the six beats of a visit.
 The first night covers beats 1 to 5. This frame is the days after it, up to
@@ -77,3 +77,27 @@ occupation would change what the hero sees (10, 11a, 11b, 11c, 14).
 - Length. Three roads at each of six choices is a great deal of prose if
   nothing is shared. The plan shares the places and the people and varies who
   the hero is to them, as the first night did.
+
+## As built
+
+12 scenes (9 to 19 of the plan, with the noon meal folded into the skald's
+arrival), 8 choices of three roads where the plan had 6 (the need in each of
+the three places counts once in the plan and is three scenes).
+
+Where the scenes differ from the plan:
+
+| Plan | Built | Why |
+|---|---|---|
+| A plank splits on the steam | Green oak, split not sawn, cracks as it is twisted to the stem | Steam bending is not attested; cleft green planks are (`HISTORY.md`) |
+| Hild keeps a knotted cord | A stick, cut on two edges | A tally stick is at least a real kind of thing |
+| A second half of the note, a rune stick, or nothing | The second half of the note on one road only; the other two are told | One drawn clue is enough for one scene |
+| The hero adds a tenth mark, or does not | Cut | It was a fourth road |
+| A person's word: whoever the hero spent the day with | The same; for the forge it is Hrapp, the least willing | |
+| The goodbye is from whoever the hero was closest to | From the day's person, and Aud holds up the spoon for everyone | The spoon was lent on the first night to every hero |
+| A woman's route: its frame owed first | Three short versions are written (the sail, Aud's errand, Aud asking and speaking for her). The fuller frame is still owed | Enough to make the scenes true for her; not enough to call it her route |
+
+Found by a test while it was being written: the uncle's story on the last
+night was keyed on "has this hero ever presented something as a craft", so a
+hero who said nothing on the first night and then called the day's need a
+craft read the wrong version. The first night's choice is now remembered by
+name (`road.first`) and everything that follows from it reads that.

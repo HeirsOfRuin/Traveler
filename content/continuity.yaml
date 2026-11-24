@@ -10,8 +10,8 @@ rules:
   - match: "the sack|The sack"
     allow: kit == sack
   - match: "door in (the|his) throat"
-    allow: shown.explain >= 1
-    why: Only a hero who explained has said it.
+    allow: road.first == explain
+    why: Only a hero who explained the smith's throat has said it.
   - match: "Aud, Thorgrim's sister"
     allow: npc.kol.met
 dead_names_ok: {}

@@ -1,0 +1,4 @@
+name: "The notebook, explained, the forge"
+start: door
+seed: 3
+choices: [p_shed/notebook, n_choke/explain, n_keel/forge, n_forge/explain, n_skald/truth, n_counsel/truth, n_stone/truth, n_surety/kit]

@@ -19,6 +19,7 @@ export const GAME_ID = 'traveler';
 export const GAME_EFFECTS = [
   z.object({ take: z.enum(['bag', 'notebook', 'sack']) }).strict(), // the one hand's worth carried through the door (kit)
   z.object({ present: z.enum(['craft', 'open', 'explain']) }).strict(), // how a modern thing was presented (shown.<how>)
+  z.object({ road: z.record(Id, z.string()) }).strict(), // which of three roads was taken at a named choice (road.<choice>; content/roads.yaml)
 ] as const;
 const BaseEffectSchema = z.union([...CORE_EFFECTS, ...GAME_EFFECTS]);
 export type BaseEffect = z.infer<typeof BaseEffectSchema>;
@@ -82,11 +83,12 @@ export interface Eras {
 }
 
 // ---- Clues (content/clues.yaml): things written, labelled or cut, drawn on the page ----
-export const CLUE_KINDS = ['letter', 'note', 'tape', 'page', 'carving'] as const;
+export const CLUE_KINDS = ['letter', 'note', 'tape', 'page', 'carving', 'wood', 'ash'] as const;
 export const ClueSchema = z.object({
   kind: z.enum(CLUE_KINDS),
   title: z.string(),
-  lines: z.array(z.string()).min(1),
+  lines: z.array(z.string()).default([]),
+  art: z.enum(['ship', 'rune']).optional(), // a drawing rather than words (src/ui/Clue.tsx)
   boxed: z.string().optional(),
   tally: z.number().int().min(1).max(40).optional(),
   mark: z.enum(['thumbprint']).optional(),
@@ -98,7 +100,11 @@ export const CluesSchema = z.record(Id, ClueSchema);
 /** A paragraph that is nothing but this shows a clue: "::clue letter::". */
 export const CLUE_MARK = /^::clue ([a-z][a-z0-9_]*)::$/;
 
+/** content/roads.yaml: each remembered choice and its three roads. */
+export const RoadsSchema = z.record(Id, z.array(z.string()).length(3));
+
 export interface ContentBundle extends CoreContent {
+  roads: Record<string, string[]>;
   creation: Creation;
   clues: Record<string, Clue>;
   eras: Eras;

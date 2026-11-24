@@ -211,12 +211,46 @@ easy on the eyes background with easy transitions."
 - Looked at again at 390px: `docs/shots/clues.png`. The handwriting faces
   fall back to a bold serif where a phone has none of the stack.
 
+### The whole Norway visit (2026-11-24)
+
+The author read `FRAME-norway-visit.md` and said "Go ahead".
+
+| | First prototype | Now |
+|---|---|---|
+| Scenes | 8 | 20 |
+| Choices of three roads | 2 | 10 |
+| Clues, drawn | 6 | 12 (two new kinds: cut in wood, drawn in ash) |
+| Words of scene text, every version | about 5,200 | about 11,600 |
+| One playthrough | about 3,200 words | about 6,200 words, forty minutes |
+
+**Remembered choices** (`content/roads.yaml`): a choice whose road matters
+later is named there with its three roads; a scene sets it with
+`road: { day: boat }` and anything later reads `road.day == boat`. Six so
+far: the first night, the day, the verse, the counsel, what Kol was told,
+the surety. The loader fails a road that is not in the file.
+
+**Measured:** 39 tests. Each road of each of the eight kinds of choice
+reaches the door, reads differently from the other two and leaves a different
+state. The three days are three different scenes, each with its own three
+roads. No hero leaves without having met Aud, Hild, Finn and Eyvind. The
+uncle's last night comes out three ways and each hero reads exactly one.
+Looks and manner move nothing over 12 plans x 8 options. 30 heroes x 12 plans
+show no raw template. A woman is seated, sent, asked and spoken for as "she".
+Validator: 20 scenes, 0 errors. Style lint: 214 strings, 0 errors, 4
+warnings. Continuity: 128 views, 0 problems. Render scan: 240 views, 0
+leaks. Bot: 100 runs, 0 failed. Smoke at 390px clean; played to the door in a
+browser and looked at (`docs/shots/norway-visit.png`).
+
+**Still not built:** nothing reads standing (it moves across ten choices and
+is shown; no exposure); who the hero would court changes nothing; the four
+years; the deck.
+
 ## 8. Build plan from here
 
 | Step | Delivers | Exit |
 |---|---|---|
 | Calibration | The author plays the prototype on a phone | His verdict on the voice, the two choices, the creation screen and the four designs |
-| The rest of the Norway visit | The uncle's trail to the edge of the fjord; the second of the two people; the door | He wants the next era |
+| The rest of the Norway visit | Done, 2026-11-24 (above) | He wants the next era |
 | The season | Act 2's turn on the engine's calendar; standing that is read; exposure as a soft loss; the deck | Gate B's tables reproduced from the real game |
 | Japan, then Rome | Each its own release (`SPEC.md`) | |
 

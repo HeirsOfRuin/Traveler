@@ -2,11 +2,12 @@
 
 An accidental time traveller: Norway about 870, Japan in the 1560s, Rome in AD 79. Three visits, one life.
 
-Status, 2026-11-24: **a first prototype plays.** Character creation, the
-shed, and the first night in Norway: two choices of three roads each, nine
-ways through, about fifteen minutes. The screen wears a different design in
-each era; Japan and Rome have a design and no scenes yet. `docs/STATUS.md`
-says where the build stands and `docs/DESIGN.md` what was built and measured.
+Status, 2026-11-24: **the prototype plays the whole Norway visit.** Character
+creation, the shed, and three days in a hall on a fjord, up to the door to the
+next place: ten choices of three roads each, about forty minutes. The screen
+wears a different design in each era; Japan and Rome have a design and no
+scenes yet. `docs/STATUS.md` says where the build stands, `docs/STORY.md` what
+the story is, and `docs/DESIGN.md` what was built and measured.
 
 ![The prototype at phone width: now, Norway, and the Japan and Rome designs](docs/shots/prototype.png)
 

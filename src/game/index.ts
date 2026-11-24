@@ -61,6 +61,7 @@ export function newGame(content: ContentBundle, opts: NewGameOptions): GameState
     picks: made.picks,
     kit: '',
     shown: { craft: 0, open: 0, explain: 0 },
+    roads: {},
     chapter: scene.chapter,
     scene: scene.id,
     returnStack: [],

@@ -1,0 +1,4 @@
+name: "The sack, left alone, the healer's bench"
+start: door
+seed: 3
+choices: [p_shed/sack, n_choke/silent, n_keel/bench, n_bench/open, n_skald/none, n_counsel/asked, n_stone/later, n_surety/oath]

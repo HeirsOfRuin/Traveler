@@ -49,3 +49,18 @@
 
 .found { display: grid; gap: .2rem; }
 .found .clue { margin: .9rem auto; }
+
+/* cut into a plank or a post with a knife: pale cuts in dark, smoked wood */
+.clue-wood .clue-body {
+  background: #4a3626 repeating-linear-gradient(92deg, rgb(0 0 0 / .12) 0 2px, #0000 2px 9px, rgb(255 255 255 / .04) 9px 11px, #0000 11px 23px);
+  color: #e6d6b8; padding: 1rem 1.2rem; border-radius: 2px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .35), 0 6px 14px rgb(0 0 0 / .18);
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.clue-wood .tally { opacity: .9; max-width: 100%; height: auto; filter: drop-shadow(0 1px 0 rgb(0 0 0 / .5)); }
+.clue-wood .rune { flex: none; filter: drop-shadow(0 1px 0 rgb(0 0 0 / .5)); }
+/* drawn with a finger in cold ash, and kept under a bowl */
+.clue-ash .clue-body {
+  background: radial-gradient(90% 80% at 50% 45%, #8a8680, #6f6b66 60%, #5a5753); color: #e9e6df; border-radius: 50%; aspect-ratio: 5 / 3.4; padding: 1.4rem 2.2rem;
+  box-shadow: inset 0 0 26px rgb(0 0 0 / .35), 0 0 0 7px #3b2c20, 0 8px 16px rgb(0 0 0 / .2); display: grid; place-items: center;
+}
+.clue-ash .art { width: 100%; height: auto; opacity: .85; filter: blur(.35px); }

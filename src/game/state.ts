@@ -19,6 +19,8 @@ export interface GameState extends CoreState {
   kit: Kit;
   /** how many times each presentation has been used: `shown.explain >= 1` in content */
   shown: Record<Presentation, number>;
+  /** which road was taken at each remembered choice (content/roads.yaml): `road.day == boat` in content */
+  roads: Record<string, string>;
 }
 
 export const HERO_ID = 'hero';

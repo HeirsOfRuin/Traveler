@@ -24,6 +24,24 @@ Sources: [Battle of Hafrsfjord, Wikipedia](https://en.wikipedia.org/wiki/Battle_
 [Harald Fairhair, Wikipedia](https://en.wikipedia.org/wiki/Harald_Fairhair) ·
 [Science Norway: What Norwegians learn about the birth of Norway may be wrong](https://www.sciencenorway.no/history-norway-viking-age/what-norwegians-learn-about-the-birth-of-norway-may-be-wrong/2661777)
 
+### Checked for the Norway visit, 2026-11-24
+
+| Claim in a scene | Finding | Used as |
+|---|---|---|
+| Ship planks are split from the log, not sawn; the hull is overlapping planks held with iron rivets | Supported: planks cleft with an axe so they follow the grain (Viking Ship Museum, Roskilde; PBS NOVA). Clinker planking fastened with iron rivets | "Green oak, split and not sawn"; Finn's rivets |
+| Sails were wool | Supported: woven wool or linen; the museum notes how much work a sail was | The brown wool sail on trestles |
+| **Women wove and sewed the sails** | **Not found.** No source in this search says who did the work | Used, and unverified. It is the door by which a woman hero enters the boat shed. To be checked against textile archaeology before release |
+| Empty land in the west was known about by 870 | Traditional only. *Landnámabók* has Naddodd blown there about 830, Garðar in the 860s, Flóki about 868, and Ingólfr settling in 874. The sources are 12th and 13th century and scholars treat the dates as legend with a core | "Land in the west, a summer's sail past the islands... Eyvind has met a man who wintered there." Said in the hall as rumour, by nobody real |
+| A king's ships taking a tenth and the names of the men | **From memory and unchecked.** The tax is Snorri's picture of Harald | Eyvind's news. The king stays unnamed |
+| Oaths sworn on a ring kept by the high seat | From memory (the sagas' temple ring). Unchecked | The surety scene, one of three roads |
+| A healer keeping a tally on a stick | Invented. Tally sticks are old and widespread; nobody is recorded doing this with wounds | Hild's stick. It is the one deliberately modern thing in the hall that a local thought of |
+| Eyvind | Invented. Not Eyvindr skáldaspillir, the skald of the following century | A skald who carries news |
+
+Sources: [Viking Ship Museum, Roskilde: the hull of the ship](https://www.vikingeskibsmuseet.dk/en/professions/education/all-about-the-viking-ship/the-hull-of-the-ship) ·
+[PBS NOVA: Secrets of Viking Ships](https://www.pbs.org/wgbh/nova/article/viking-ships) ·
+[Viking ship, Wikipedia](https://en.wikipedia.org/wiki/Viking_ship) ·
+[World History Encyclopedia: The Legendary Settlement of Iceland](https://www.worldhistory.org/article/1317/the-legendary-settlement-of-iceland/)
+
 ## Japan, the 1560s
 
 | Claim | Finding | Effect on the game |

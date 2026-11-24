@@ -1,0 +1,9 @@
+# The choices that are remembered by name: which of three roads was taken at each (docs/DESIGN.md
+# section 4). A scene sets one with the effect  road: { day: boat }  and anything later reads it
+# as  road.day == boat . The kit and the presentations have their own paths; these are the rest.
+first: [hold, silent, explain]     # how the smith's throat was presented, on the first night
+day: [boat, bench, forge]          # where the second day was spent, and so who is known best
+verse: [truth, better, none]        # what the skald was given to carry to the next hall
+counsel: [useful, truth, asked]     # what was said when the hall argued about the king
+kol: [far, truth, later]           # what the boy was told about the stone
+surety: [kit, oath, word]          # what was left with Thorgrim against coming back
