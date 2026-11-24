@@ -222,6 +222,10 @@ easy on the eyes background with easy transitions."
 
 ## 9. Questions for the author (with the default if unanswered)
 
+On 2026-11-24 the author said "Decisions can go with your recommendations".
+The defaults below are taken on that word. Each stays his to change.
+
+
 | # | Question | Default |
 |---|---|---|
 | 1 | Does this game roll dice? The engine can test a choice against a skill and show "Risky / Even / Favorable". Gate B used chance only for exposure and for the dangerous way | No checks in authored scenes; chance only where Gate B has it |

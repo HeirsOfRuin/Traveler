@@ -97,3 +97,11 @@ for (const p of MAIN) {
   const m = TR.map((t) => mean(all[p].filter((s) => s.hero.traits.includes(t)).map(grade)));
   console.log(row([p, ...m.map((v) => `${v.toFixed(1)}${v === Math.max(...m) ? '*' : v === Math.min(...m) ? '-' : ' '}`)], [10, 9]));
 }
+
+// ---- 5. the two people are not the same life
+console.log(`\n5. WHO YOU COURT: the same heroes courting each of their two people (lover0, lover1); ${per} seeds a hero`);
+console.log(row(['person', 'partner', 'named', 'cast out', 'exposed', 'place end', 'grade'], [8, 10]));
+for (const c of COURTS) for (const who of [0, 1]) {
+  const r = runs(`lover${who}`, {}, per, HEROES.filter((h) => h.courts === c));
+  console.log(row([LOVES[c][who].id, rate(r, (s) => door(s) && partnerOf(s) === who), rate(r, named), rate(r, (s) => s.setbacks > 0), rate(r, (s) => s.ending === 'exposed'), ms(r.filter(door).map((s) => s.place)), ms(r.map(grade))], [8, 10]));
+}

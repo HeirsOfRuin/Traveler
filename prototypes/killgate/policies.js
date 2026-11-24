@@ -41,6 +41,7 @@ const love = (who) => (s) => {
   if (n.travelled !== undefined && s.travelled < n.travelled) return { focus: 'travel', know: present(s) };
   return null;
 };
+const earnFor = (who) => (s) => { const n = LOVES[s.hero.courts][who].needs.place; return n !== undefined && s.place < n ? work(s) : null; };
 const plan = (...goals) => (s) => {
   if (mustWork(s)) return work(s);
   for (const g of goals) { const step = g(s); if (step) return step; }
@@ -56,12 +57,15 @@ export const POLICIES = {
   placeLove:  { says: 'Earns a household place, courts the first of the two, then goes on rising', rule: plan(train(2), place(45), love(0)) },
   placeUncle: { says: 'Earns a household place, follows the trail to its end, then goes on rising', rule: plan(train(2), place(40), trail(false)) },
   loveUncle:  { says: 'Follows the trail to its end, then courts the first of the two; works only for the keep', rule: plan(trail(false), love(0)) },
+  loveUncle2: { says: 'As loveUncle, courting the second of the two', rule: plan(trail(false), love(1)) },
   everything: { says: 'A household place, then the trail, then courting, then rising', rule: plan(place(40), trail(false), love(0)) },
   seeker:     { says: 'Follows the trail and nothing else, the safe way', rule: plan(trail(false)) },
   bold:       { says: 'Courts the first of the two, then follows the trail the dangerous way', rule: plan(love(0), trail(true)) },
   wanderer:   { says: 'A journey every other season, work between', rule: (s) => (mustWork(s) || s.season % 2 ? work(s) : { focus: 'travel', know: present(s) }) },
   // The reachability test: court one named person and do whatever they need.
-  lover0:     { says: 'Courts the first of the two and does what that person needs', rule: plan(love(0)) },
-  lover1:     { says: 'Courts the second of the two and does what that person needs', rule: plan(love(1)) },
+  // A person who needs you to have a place is courted once you have it: courting from the door-bench
+  // is noticed (data.js LOVES.costs.above), and a sensible suitor knows it.
+  lover0:     { says: 'Earns the place the first person needs, then courts them', rule: plan(earnFor(0), love(0)) },
+  lover1:     { says: 'Earns the place the second person needs, then courts them', rule: plan(earnFor(1), love(1)) },
 };
-export const MAIN = ['lunatic', 'showman', 'crafty', 'native', 'riser', 'placeLove', 'placeUncle', 'loveUncle', 'everything', 'seeker', 'bold', 'wanderer'];
+export const MAIN = ['lunatic', 'showman', 'crafty', 'native', 'riser', 'placeLove', 'placeUncle', 'loveUncle', 'loveUncle2', 'everything', 'seeker', 'bold', 'wanderer'];

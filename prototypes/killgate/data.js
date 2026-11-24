@@ -66,7 +66,8 @@ export const D = {
   truthBond: [0, 5, 10],        // extra bond in a season when you tell part, or all
   truthStrangeAt: 60,   // telling the truth below this bond is a risk
   truthStrange: 0.28,   // strangeness per point the bond is short of it
-  bondFade: 3,        // a bond you do not tend loses this a season
+  bondFade: 3,
+  supportAt: 50,        // a bond past this starts to give what that person gives        // a bond you do not tend loses this a season
 
   // --- the uncle's trail, 0..100
   trailGain: 18,
@@ -134,18 +135,27 @@ export const SEX = {
   f: { work: 0.85, skillPlace: 1.6, strangeMul: 0.92 },
 };
 
-// Two people to court for each preference. Only Aud is written; the other
-// three are placeholders with a different thing they answer to, so that
-// "reachable" is tested against four different requirements.
-//   likes: what adds to a season's courting; needs: what must be true to stand beside you.
+// Two people to court for each preference (docs/STORY.md section 3).
+//   likes: what adds to a season's courting; needs: what must be true before they stand beside you.
+// The author, 2026-11-24: "Your [name] and standing are affected by your courtship. They provide
+// different stories and different support to you". So a courtship is not free and not all alike:
+//   costs: what a season of courting does to your standing while it lasts
+//          (above: talk it raises while your place is below theirs; talk: talk it raises anyway)
+//   gives: what they do for you once the bond is past D.supportAt, every season from then on
 export const LOVES = {
   women: [
-    { id: 'aud',    likes: { skill: 0.07 },  needs: { place: 40 } },   // reads your hands; the hersir's sister
-    { id: 'healer', likes: { truth: 4 },     needs: { told: 2 } },     // wants to know how you know, all of it
+    // Aud holds the keys. Courting her from the door-bench is noticed. In return she tells you
+    // exactly how the hall is taking you, and her household lifts yours.
+    { id: 'aud',  likes: { skill: 0.07 }, needs: { place: 40 }, costs: { above: 3, talk: 1 }, gives: { readMul: 0.35, place: 0.9 } },
+    // Hild wants to know how you know. The healer's company is talk in itself. In return she
+    // turns what you know into a craft people already have a word for.
+    { id: 'hild', likes: { truth: 4 },    needs: { told: 2 },   costs: { talk: 2.5 }, gives: { cover: 0.35 } },
   ],
   men: [
-    { id: 'shipwright', likes: { skill: 0.07 }, needs: { place: 40 } },
-    { id: 'skald',      likes: { travelled: 5 }, needs: { travelled: 2 } },
+    // Finn builds the boats. The same notice as Aud. In return, a pair of hands: your work counts for more.
+    { id: 'finn',   likes: { skill: 0.07 },  needs: { place: 40 },    costs: { above: 3, talk: 1 },  gives: { work: 1.4, place: 0.5 } },
+    // Eyvind carries news between halls. Being in his verses is talk. In return your name travels.
+    { id: 'eyvind', likes: { travelled: 5 }, needs: { travelled: 2 }, costs: { talk: 2.5 }, gives: { travelPlace: 3, travelTrail: 3 } },
   ],
 };
 

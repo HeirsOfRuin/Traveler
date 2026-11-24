@@ -42,6 +42,16 @@ export function newLife(seed, o = {}) {
 
 export const rungOf = (s) => s.D.rungs.find(([min]) => s.place >= min)[1];
 export const tolerance = (s) => s.D.tolerance + s.D.placeShields * s.place + s.D.bondShields * Math.max(...s.bond);
+/** What the people the hero is close to are giving this season (data.js LOVES.gives), summed. */
+export function support(s) {
+  const out = { readMul: 1, place: 0, cover: 0, work: 0, travelPlace: 0, travelTrail: 0 };
+  if (s.o.noSupport) return out;
+  LOVES[s.hero.courts].forEach((L, i) => {
+    if (s.bond[i] < s.D.supportAt) return;
+    for (const [k, v] of Object.entries(L.gives || {})) { if (k === 'readMul') out.readMul *= v; else out[k] += v; }
+  });
+  return out;
+}
 export const lastYear = (s) => s.season >= s.D.seasons - s.D.yearLength;
 const loves = (s) => LOVES[s.hero.courts];
 
@@ -52,7 +62,7 @@ function look(s) {
   const { D, o } = s;
   const r = streamFor(s.seed, s.season, 'look');
   s.need = !o.noNeeds && r.chance(D.needChance);
-  const blur = o.clearSight ? 0 : D.readNoise * s.hero.readMul * (1 - D.bondTells * Math.max(...s.bond) / 100);
+  const blur = o.clearSight ? 0 : D.readNoise * s.hero.readMul * support(s).readMul * (1 - D.bondTells * Math.max(...s.bond) / 100);
   s.seen = tolerance(s) - s.strange + r.normal(0, blur);
 }
 
@@ -91,14 +101,15 @@ export function step(s, input) {
 
   let gainMul = 1 + (D.knowGain[know] - 1) * (1 + hero.know);
   if (answered) gainMul *= D.needGain + hero.need;
+  const sup = support(s);
   const steep = (g) => g * Math.max(0.15, 1 - s.place / D.ladderTop);   // each rung is harder than the last
   // strangeness: a craft is covered by knowing their ways; an explanation is not
-  const cover = 1 - Math.min(0.9, s.skill * D.skillCovers[know]);
+  const cover = (1 - Math.min(0.9, s.skill * D.skillCovers[know])) * (know === 1 || know === 2 ? 1 - sup.cover : 1);
   let strangeAdd = D.knowStrange[know] * hero.strangeMul * cover * (answered ? D.needStrange : 1) * (away ? D.awayStrange : 1);
   if (focus !== 'court' && focus !== 'lost') s.used[know]++;
 
   if (focus === 'work') {
-    const base = (D.workPlace + hero.work) * hero.sexWork + D.workSkill * s.skill * hero.sexSkill;
+    const base = (D.workPlace + hero.work + sup.work) * hero.sexWork + D.workSkill * s.skill * hero.sexSkill;
     s.place += steep(base * (know ? gainMul + hero.workKnow : 1));
     s.idle = 0;
   } else if (focus !== 'lost') s.idle++;
@@ -109,11 +120,14 @@ export function step(s, input) {
     const L = loves(s)[who], k = L.likes, tell = Math.min(2, know);
     let g = D.courtBond + hero.bond + D.courtPlace * s.place + (k.skill || 0) * s.skill + (k.travelled && s.travelled ? k.travelled : 0);
     if (s.giftsLeft > 0) { g += hero.giftBond; s.giftsLeft--; }
-    strangeAdd = 0;
+    // a courtship is seen: it costs standing while it lasts (data.js LOVES.costs)
+    const c = o.freeLove ? {} : L.costs || {};
+    strangeAdd = (c.talk || 0) + (c.above && s.place < (L.needs.place ?? 0) ? c.above : 0);
+    const seen = strangeAdd;
     if (tell && !o.noTruth) {                            // in courting, what you know is the truth about you
       g += D.truthBond[tell] + (k.truth || 0);
       s.told[who] = Math.max(s.told[who], tell);
-      strangeAdd = Math.max(0, D.truthStrangeAt - s.bond[who]) * D.truthStrange * (tell / 2) * hero.strangeMul;
+      strangeAdd = seen + Math.max(0, D.truthStrangeAt - s.bond[who]) * D.truthStrange * (tell / 2) * hero.strangeMul;
     }
     const cap = s.told[who] ? 100 : D.bondCapSilent;
     s.bond[who] = Math.min(cap, s.bond[who] + g);
@@ -142,9 +156,9 @@ export function step(s, input) {
   if (focus === 'travel') {
     s.travelled++;
     // Out there nobody has a ladder to keep you off: what you do is news, and news travels home.
-    s.place += (D.travelPlace + hero.travelPlace) * gainMul * pressMul * Math.max(0.3, 1 - s.place / D.renownTop);
+    s.place += (D.travelPlace + hero.travelPlace + sup.travelPlace) * gainMul * pressMul * Math.max(0.3, 1 - s.place / D.renownTop);
     const cap = hero.openTrail || s.place >= D.trailPlace ? 100 : D.trailWall2;
-    s.trail = Math.max(s.trail, Math.min(cap, s.trail + (D.travelTrail + hero.travelTrail) * pressMul));
+    s.trail = Math.max(s.trail, Math.min(cap, s.trail + (D.travelTrail + hero.travelTrail + sup.travelTrail) * pressMul));
     strangeAdd += D.travelStrange;
     danger();
   }
@@ -152,6 +166,7 @@ export function step(s, input) {
   // the season closes
   if (need) { if (answered) s.needsMet++; else { s.needsLeft++; s.place -= D.needIgnored; } }
   if (s.idle > D.idleGrace) s.place -= D.idleCost;
+  s.place += steep(sup.place);                           // their household lifts yours
   s.place = clamp(s.place - D.placeDrift);
   s.skill = clamp(s.skill);
   s.trail = clamp(s.trail);

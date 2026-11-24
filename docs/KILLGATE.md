@@ -354,6 +354,53 @@ nothing, so it is 8.
 These are placeholder numbers. The prototype does not read them; it will have
 its own, made the same way and checked with the same tables.
 
+## Round 6: a courtship costs and gives (2026-11-24)
+
+The author, on what a courtship should cost besides time: "Your [name] and
+standing are affected by your courtship. They provide different stories and
+different support to you". ("Babe" in his message is read as "name".)
+
+In the model (`data.js`, `LOVES`): a season of courting raises talk. For the
+two who need you to have a place (Aud, Finn) it raises it by 1, and by 3 more
+while your place is below theirs. For the other two (Hild, Eyvind) by 2.5.
+Once a bond is past 50, that person gives something every season: Aud a far
+clearer read of the hall and a lift to your place; Hild cover for what you
+know; Finn more from your work; Eyvind more from every journey.
+
+Measured: 1,344 heroes x 8 seeds = 10,752 runs per policy.
+
+**The four are four different lives** (5,376 runs a person):
+
+| Courting | Partner at the door | Named | Cast out | Place at the end |
+|---|---|---|---|---|
+| Aud | 84.4% ±0.5 | 52.4% ±0.7 | 9.8% ±0.4 | 59.6 |
+| Hild | 95.3% ±0.3 | 31.9% ±0.6 | 4.5% ±0.3 | 53.2 |
+| Finn | 85.7% ±0.5 | 63.5% ±0.7 | 9.6% ±0.4 | 63.9 |
+| Eyvind | 91.0% ±0.4 | 51.4% ±0.7 | 5.6% ±0.3 | 60.6 |
+
+**Who you court decides what else fits.** The trail and the first person
+(Aud or Finn): both in 22.8% ±0.4. The trail and the second (Hild or Eyvind):
+61.0% ±0.5. Before this round the first was 51.0%.
+
+**Each half matters when switched off** (1,344 runs a policy): with courting
+free, a hero courting the second person is named in 73.4% instead of 41.3%.
+With no support, a hero courting the first is named in 44.0% instead of
+58.4%.
+
+**Not fixed.** A place plus a courtship, earned in that order, is still 93.7%
+±0.2. The cost bites on a hero who courts before they have a place, and a
+sensible one does not.
+
+**Broken, slightly.** Claim 3 (both people reachable from every hero) now
+fails for four cells of 2,688 at 20 seeds each: a woman who carried the
+notebook, a history teacher, with martial arts and sailing or riding and
+sailing, courting Aud or Finn: 10.0% ±6.7 at worst. She has the least work
+and the most talk in the model. It is recorded, not tuned.
+
+Unchanged: explaining everything is finally exposed in 92.9%; suiting it to
+the room is named in 88.8%; all three things by the dangerous way fell from
+10.1% to 6.1% ±0.2.
+
 ## What this does not show
 
 - Whether any of it is fun. Gate A is the only test of that, and it is open.

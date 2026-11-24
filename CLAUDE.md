@@ -61,9 +61,18 @@
   (`content/clues.yaml`; a scene paragraph `::clue <id>::`). The author:
   "having clues like notes, carvings, etc should have some art to them".
   Never quote such a thing in running prose when it can be shown.
-- `docs/STORY.md` is the whole arc and what each mechanic is for. It is a
-  proposal until the author answers its section 6; do not write past the
-  Norway visit on it before then.
+- `docs/STORY.md` is the whole arc and what each mechanic is for, decided by
+  the author on 2026-11-24: the door has a tide; the uncle is wherever the
+  hero waits; saving him is both his promise made good and the man got out;
+  Norway, then Japan, then Rome; Rome's eruption falls in the middle of the
+  four years. Read it before writing any scene past the first night.
+- Who the hero courts changes their name and standing while it lasts, and
+  each of the four people in an era gives different support and a different
+  story (the author, 2026-11-24; `STORY.md` section 3 has Norway's table).
+  Never write two of them as the same romance with the names changed.
+- The author, 2026-11-24: "Decisions can go with your recommendations." When
+  a decision is open and a recommendation is written down, take it, say so in
+  the SPEC's table as taken on that word, and keep it his to change.
 - Standing is shown in words, never as a number, and no stakes line is shown
   under a choice (`docs/DESIGN.md` section 4).
 - `packages/engine`, `packages/tools` and `tools/narrative/` are copies of the

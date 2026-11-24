@@ -10,7 +10,7 @@ waiting on whom.
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved 2026-11-22; amended since (`SPEC.md`, decisions table) |
 | 2 Gate A, the read | Third draft accepted as usable for the prototype. The fourth, rewritten on everything decided since, **is the prototype's text and has not been read** (`GATE-A.md`) |
-| 2 Gate B, the numbers | Five rounds. The claims hold at 16 seasons; three things open (`KILLGATE.md`) |
+| 2 Gate B, the numbers | Six rounds. The claims hold at 16 seasons; three things open (`KILLGATE.md`) |
 | 3 Phase 0 design | Written with the prototype (`DESIGN.md`) |
 | 4 Engine and instruments | The kit, character creation, this game's module |
 | **5 Calibration** | **A first prototype plays. The author's playtest is the next thing** (`DESIGN.md` section 7) |
@@ -22,8 +22,8 @@ waiting on whom.
   hall, the smith's throat, one of three scenes with Aud, the first night.
   Two choices of three roads; nine ways through; 7,168 heroes; about fifteen
   minutes. 8 scenes in `content/scenes/`.
-- **The story outline** (`STORY.md`): the whole arc and what each mechanic is
-  for. A proposal, waiting on the author.
+- **The story** (`STORY.md`): the whole arc and what each mechanic is for.
+  Decided by the author, 2026-11-24.
 - **Clues, drawn** (`content/clues.yaml`): six, kept in the Journal.
 - **One design per era** (`src/ui/eras.css`): now, Norway, Japan, Rome. The
   screen wears the era being played. Japan and Rome have no scenes and can be
@@ -50,9 +50,9 @@ have no passage; the deck is not laid.
 
 ## Waiting on the author
 
-0. **`STORY.md`, section 6:** seven questions. The first three shape
-   everything after the Norway visit (the door's tide; where the uncle is;
-   what saving him means).
+1. **`FRAME-norway-visit.md`:** the plan for the rest of the Norway visit
+   (about 17 scenes, six choices). Strike or move anything before it is
+   written.
 1. **Play the prototype** on a phone and say: the voice, the two choices, the
    creation screen, the four designs. (`DESIGN.md` section 9 has four
    questions with defaults.)

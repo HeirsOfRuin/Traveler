@@ -1,13 +1,16 @@
 # The story, and what each mechanic is for
 
-**Status: a proposal, 2026-11-24, waiting on the author.** He asked: "Give me
-more of the story frameworked and outlined to better tell how the story sits
-and what each mechanic should add."
+**Status: decided, 2026-11-24.** The author asked for it ("Give me more of
+the story frameworked and outlined to better tell how the story sits and what
+each mechanic should add"), read the proposal, and answered its seven
+questions: "Decisions can go with your recommendations. 1. Yes 2. Yes 3. Both
+4. Yes 5. Mid way 6. Yes 7. Your babe and standing are affected by your
+courtship. They provide different stories and different support to you".
+("Babe" is read as "name". If he meant something else, section 3's table of
+what each person gives and costs is the place it would change.)
 
 `SPEC.md` says what the game is. `DESIGN.md` says what is built. This page
 says what happens, in what order, and why each system is in the game at all.
-Everything decided is marked **decided** with where. Everything else is
-proposed here for the first time and is his to strike.
 
 Nothing on this page is written as scenes except the prologue and the first
 night in Norway. History on it is from memory unless `HISTORY.md` holds it.
@@ -45,13 +48,20 @@ without that lesson: every true thing he says costs him a little more. The
 wistful part is that he wrote to you, and not to anybody else, because you
 were the only one who ever let him finish.
 
-### Three things proposed here that the story needs
+### Three things the story needed, as decided
 
-| | Proposed | Why | Alternative |
-|---|---|---|---|
-| Why the door shuts | **The door has a tide.** It opens easily for a few days at the spring of it, then ebbs for sixteen seasons. The smell of low tide in the shed is the first sign, and his notebook has the table | Gives the four years a reason inside the story, gives Act 1 its hurry, and makes the last season a thing everybody can see coming | The frame burns out and has to be rebuilt; or no reason is given |
-| Where the uncle is in Act 2 | **Wherever you choose to wait.** The last clue of Act 1 shows he went back to put one of his promises right, and the era you pick is the one he picked | Every life has the uncle in it, and no era is the "right" one | He is in a fixed era, and two lives out of three are without him |
-| What "saving" him means | **Making his promise good, or making it not matter,** and getting him to the door. Not a rescue from a dungeon | It turns the trail into the same lesson as the rest of the game: his debt is settled by doing, or by standing high enough that it is forgiven | A rescue |
+| | Decided | Why |
+|---|---|---|
+| Why the door shuts | **The door has a tide.** It opens easily for a few days at the spring of it, then ebbs for sixteen seasons. The smell of low tide in the shed is the first sign, and his notebook has the table. ("1. Yes") | Gives the four years a reason inside the story, gives Act 1 its hurry, and makes the last season a thing everybody can see coming |
+| Where the uncle is in Act 2 | **Wherever you choose to wait.** The last clue of Act 1 shows he went back to put one of his promises right, and the era you pick is the one he picked. ("2. Yes") | Every life has the uncle in it, and no era is the "right" one |
+| What saving him means | **Both.** His promise has to be made good, or made not to matter, **and** he has to be got out of where it has put him. ("3. Both") | Two halves, and two different ways to fail: you can settle the debt and still lose the man, or reach the man and be unable to bring him home because the debt stands |
+
+**How "both" plays.** The promise is the long work of years 2 and 3, done by
+making and by standing: build the thing, or rise high enough that it is
+forgiven. The rescue is one set piece in year 3 or 4. It is where the
+dangerous way lives (the only place a hero can die, and only by choosing it).
+In Norway: the people he promised have him, or somebody worse does, and the
+price of him is the ship.
 
 ---
 
@@ -61,7 +71,7 @@ were the only one who ever let him finish.
 PROLOGUE   The shed.                                   built
 ACT 1      The chase. Three visits, a few days each.   Norway's first night built
              Norway, about 870
-             Japan, the 1560s
+             Japan, the 1560s                          in this order ("4. Yes")
              Rome and the bay, AD 79
            The door ebbs. Choose where to wait.
 ACT 2      The life. Four years, sixteen seasons, in one era.
@@ -110,7 +120,7 @@ out of the hall, the hero winters somewhere worse and comes back with less.
 |---|---|---|---|
 | Norway, 870s | A king is making the coast pay him. Halls are deciding whether to bend, fight, or sail west to empty land | Stay or go. This is why Thorgrim wants a ship that sails into the wind | The king and the dates are in `HISTORY.md`. The westward settlement in these same years is from memory and unchecked |
 | Japan, 1560s | A small province between two larger lords, in the first years of guns | Whose side, and how soon | Unresearched. Not the first era built |
-| Rome and the bay, AD 79 | A mountain nobody thinks of as a mountain | Nothing, until the last season | The day of the eruption is disputed (`HISTORY.md`). **Open:** do the four years end with it, or begin with it? |
+| Rome and the bay, about AD 77 to 81 | A mountain nobody thinks of as a mountain | Nothing, for two years. Then everything | **Decided: midway** ("5. Mid way"). The eruption falls at the turn of year 2 into year 3, so the life is two years of a town and two years of what is left, ending with the opening of the amphitheatre in Rome. The day and the season of the eruption are disputed (`HISTORY.md`) and still have to be picked |
 
 ---
 
@@ -121,12 +131,34 @@ hero courts can be courted; all four are in the story for every hero.
 
 ### Norway
 
-| | Who | Wants from you | If not courted, they are |
+Decided ("6. Yes"), with what each gives and costs ("7... They provide
+different stories and different support to you"):
+
+| | Who | Wants from you | Courting them costs | Close to them, they give | Their story |
+|---|---|---|---|---|---|
+| **Aud Ketilsdóttir** | Thorgrim's widowed sister. The keys are hers. Reads people fast and says so. **Built** | Standing. She will not stand beside somebody the hall has not accepted | From the door-bench it is noticed, and talked about. Earn the place first | She tells you exactly how the hall is taking you, and her household lifts yours | The hall, and who runs it when the king comes |
+| **Hild** | Gyda the healer's apprentice. Has noticed that Unkel's water works and wants to know why, which nobody else does | The truth, all of it. She is the one person explaining is right for | The healer's company is talk in itself | She turns what you know into a craft people already have a word for | What the uncle really taught, and what it could be if somebody listened |
+| **Finn Ormsson** | The boat-builder's son. Builds by eye and is better than his father | Standing, and proof you can make a thing | As Aud | A second pair of hands: your work counts for more | The ship |
+| **Eyvind** | A skald who goes between halls and carries their news | That you have been somewhere. He is bored by people who stay | Being in his verses is talk | Your name travels, and so does news of the uncle | The road, and the other halls |
+
+If not courted, each is still there: Aud as patron, Hild as the one who can
+make your knowledge pass, Finn as rival or partner for the ship, Eyvind as
+the way stories about you spread, for good or ill.
+
+**What the numbers say this does** (`KILLGATE.md`, round 6; 5,376 lives a
+person): courting is not free and the four are four different lives.
+
+| Courting | Ends beside you | You earn a name | Cast out at least once |
 |---|---|---|---|
-| **Aud Ketilsdóttir** | Thorgrim's widowed sister. The keys are hers. Reads people fast and says so. **Built** | Standing. She will not stand beside somebody the hall has not accepted | Your patron, and the one who tells you how the hall is taking you |
-| **Hild** (proposed) | Gyda the healer's apprentice. Has noticed that Unkel's water works and wants to know why, which nobody else does | The truth, all of it. She is the one person explaining is right for | The one who can make what you know look like a craft |
-| **Finn Ormsson** (proposed) | The boat-builder's son. Builds by eye and is better than his father | Standing, and proof you can make a thing | Your rival for the ship, or your partner in it |
-| **Eyvind** (proposed) | A skald who goes between halls and carries their news | That you have been somewhere. He is bored by people who stay | The way stories about you travel, for good or ill |
+| Aud | 84% | 52% | 10% |
+| Hild | 95% | 32% | 5% |
+| Finn | 86% | 64% | 10% |
+| Eyvind | 91% | 51% | 6% |
+
+And who you court decides what else fits: following the uncle's trail and
+courting the first of the two ends with both in 23% of lives; with the second
+of the two, 61%. Aud and Finn are a life in the hall. Hild and Eyvind go with
+the road.
 
 Also built: **Thorgrim** (the hall is his, and the debt), **Kol** (finds
 everything first), **Hrapp** the smith (does the uncle's voice; hated him;
@@ -156,7 +188,7 @@ If nothing, it goes.
 | **Their ways** | Spends seasons learning how these people do things | Cover. The better they know the local way, the more of their own passes as craft. Also the comedy of being bad at it | Modelled |
 | **The keep** | Works, or is a burden | Time pressure. Every season spent on the uncle or on love is a season not earning | Modelled |
 | **Exposure, softly** | Is cast out, and comes back with less | The stakes, without ending the game. The harder road is still a road | Modelled |
-| **Courtship and the truth** | Tends a bond; decides how much to tell, and when | The same choice as presentation, with one person. A bond stops short until the truth is told, and telling it early is its own risk | Modelled |
+| **Courtship and the truth** | Tends a bond; decides how much to tell, and when | The same choice as presentation, with one person. A bond stops short until the truth is told, and telling it early is its own risk. **Courting changes your name and standing while it lasts, and each person gives something different once close** (decided) | Modelled, with its costs |
 | **The trail** | Follows the uncle through clues | The plot. It needs journeys and it needs standing: nobody tells a stranger the rest | Modelled; first clues built |
 | **Clues, drawn** | Finds things he wrote, labelled and cut | The uncle on the page before he is ever met. His hand, his habits, his worry. Kept in the Journal | Built: six, drawn |
 | **His leavings** | Meets what he taught, gone slightly wrong | Comedy, and proof that the hall keeps what works and drops the reason | Built for one |
@@ -174,10 +206,10 @@ From `KILLGATE.md`, as constraints on the writing:
   truth about the uncle), or nobody will take it twice.
 - A hero who presents everything as a craft is never exposed and earns a name
   in about one life in four. Safe has to be slow.
-- A place plus a courtship is nearly certain (about 94%). **A courtship has to
-  cost something besides seasons.** Proposed: each of the four people wants
-  one thing that pulls against another goal (Aud wants standing, which the
-  trail eats; Hild wants the truth, which is talk).
+- A courtship costs standing and gives support (decided, and modelled). It
+  still leaves a place plus Aud nearly certain (94%) for a hero who earns the
+  place first and then courts. The order is the lesson; whether that is
+  enough of a cost is open.
 
 ---
 
@@ -208,13 +240,15 @@ tablet, wall graffiti, a potsherd). None is drawn yet.
 
 ---
 
-## 6. What this leaves for the author
+## 6. What was asked, and what is still open
 
-1. **The tide.** Does the door have one? (Section 1.)
-2. **The uncle is wherever you wait.** Yes, or a fixed era?
-3. **What saving him means.** Making the promise good, or a rescue?
-4. **The order of the visits.** Norway, Japan, Rome is assumed. The teacher's
-   shelf in the shed already hints at all three.
-5. **Rome's four years:** ending with the mountain, or beginning with it?
-6. **The three proposed people in Norway** (Hild, Finn, Eyvind).
-7. **What a courtship costs** besides time.
+Answered 2026-11-24 (above): the tide, the uncle's whereabouts, saving him,
+the order of the visits, Rome's midpoint, Norway's people, what a courtship
+costs.
+
+Still open:
+
+1. The season of the eruption (`HISTORY.md`).
+2. Japan's and Rome's people, places and troubles: research first.
+3. A title.
+4. Whether a place plus a courtship should be harder than it is.

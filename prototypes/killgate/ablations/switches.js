@@ -8,6 +8,8 @@ export default {
     noTruth: { noTruth: true },       // the truth can never be told
     noNeeds: { noNeeds: true },       // no season ever brings a need
     clearSight: { clearSight: true }, // the hero reads the hall's room exactly
+    freeLove: { freeLove: true },     // courting costs no standing
+    noSupport: { noSupport: true },   // nobody you are close to gives you anything
     noPress: { noPress: true },       // the dangerous way cannot be taken
     hardLoss: { hardLoss: true },     // exposure is final in any year
     sexless: { sexless: true },       // a woman's route is the man's
