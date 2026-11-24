@@ -314,8 +314,8 @@ The boy stops with his hand on the dog's neck. "Who gave you my name?"
 You have no answer he would like, so you hold up the book. He looks at the
 marks on the page as he might at the tracks of an animal he had only been told
 about, and he does not come any nearer to them. Further down it says
-*THORGRIM. Runs the place. Fair.* and *AUD. His sister. Do not bother lying to
-her.* At the foot, in a box drawn twice round: *STOP EXPLAINING THINGS.* He
+*THORGRIM. Runs the place. Fair.* Under that is *AUD. His sister. Do not bother
+lying to her.* At the foot, in a box drawn twice round: *STOP EXPLAINING THINGS.* He
 has underlined that as well, and from the look of the paper he did it on
 several different days.
 

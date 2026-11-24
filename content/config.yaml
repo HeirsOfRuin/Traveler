@@ -1,16 +1,24 @@
 # The game's fixed lists. Every id here is checked against the content by the validator.
+#
+# The story engine was built for a knight's career under a king. This game uses its scenes,
+# conditions, effects, text and saves, and leaves the rest idle (docs/DESIGN.md section 3):
+#  - the date line is the era's (content/eras.yaml), so start_year and regnal_king are never shown;
+#  - there are no checks yet, so one attribute and one skill stand in for the lists the schema needs;
+#  - one station: the hero is a stranger. The ladder of each era is this game's own, not designed yet.
 title: "Traveler"
-start_year: 3                # the year of the reign the game opens in: "Spring, year 3 of King Edmund"
-regnal_king: Edmund          # whose reign dates count in, until reigns: says otherwise
+start_year: 870
+regnal_king: nobody
 reigns: []
-attributes: [strength, wits, presence]
-skills: [boatcraft, talk, lore]
-stations: [hand, ferryman]
-tracks: [river]
+attributes: [wits]
+skills: [craft]
+stations: [stranger]
+tracks: [visit]
 seasons: [spring, summer, autumn, winter]
-chapters: [ch1]
+chapters: [prologue, norway]
 counter_labels:
-  trust: "The village's trust"   # a counter named here shows in a choice's stakes line
+  place: "Your place in the hall"
+  talk: "Talk about you"
 aliases: []
 chapter_cards:
-  ch1: { title: "The Crossing", subtitle: "One season at the ferry", epigraph: "Whoever keeps the ferry keeps the road." }
+  prologue: { title: "Now", subtitle: "A machine shed, two hours of gravel from town" }
+  norway: { title: "Norway", subtitle: "A fjord in the west, about the year 870" }

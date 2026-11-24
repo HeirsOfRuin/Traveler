@@ -1,6 +1,4 @@
 # Every flag the content sets or reads. The validator fails on an undeclared one and warns on one
-# set but never read (a choice that only sets an unread flag is hollow: audit-choices).
-mended_boat: { description: The boat was mended before the first crossing }
-told_reeve: { description: Told the reeve the truth about the rope }
-carried_friar: { description: Carried the friar across in the flood }
-took_bribe: { description: Took the wool-man's coin to cross first }
+# set but never read.
+knows_he_bled: { description: "Aud said the uncle left bleeding, and that somebody in the hall did it", later: norway_life }
+hrapp_owes: { description: "You kept the smith alive in front of the hall", later: norway_life }

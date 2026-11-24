@@ -3,73 +3,60 @@
 Read after `SPEC.md`. One page, kept current: the stage, what exists, what is
 waiting on whom.
 
-## Stage (2026-11-22)
+## Stage (2026-11-24)
 
 | Stage (`game-building`) | State |
 |---|---|
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
-| 1 Spec | Approved by the author, 2026-11-22 (`SPEC.md`) |
-| **2 Gate A, the read** | **Third draft accepted as usable for the prototype; rewritten as a fourth draft on everything decided since, at his word. The fourth waits on the author** (`GATE-A.md`) |
-| **2 Gate B, the numbers** | **Five rounds, 2026-11-23 (the fourth and fifth on the wider hero). The three claims hold at 16 seasons (accepted by the author); round 2's six faults closed; four smaller things open** (`KILLGATE.md`) |
-| **3 Phase 0 design** | **Not written. The next thing owed** (`DESIGN.md` is a stub) |
-| 4 Engine and instruments | The kit is laid. Character creation is built, ahead of Phase 0 (`FRAME-creation.md`). Nothing else of the game's own |
-| 5 to 8 | Not started |
-
-The repo was laid before Gate A because the SPEC's handoff orders it that way
-(lay the repo, write `CLAUDE.md`, then Gate A). Laying a kit is not engine
-work on this game: nothing in it knows about belonging, the door or the uncle.
+| 1 Spec | Approved 2026-11-22; amended since (`SPEC.md`, decisions table) |
+| 2 Gate A, the read | Third draft accepted as usable for the prototype. The fourth, rewritten on everything decided since, **is the prototype's text and has not been read** (`GATE-A.md`) |
+| 2 Gate B, the numbers | Five rounds. The claims hold at 16 seasons; three things open (`KILLGATE.md`) |
+| 3 Phase 0 design | Written with the prototype (`DESIGN.md`) |
+| 4 Engine and instruments | The kit, character creation, this game's module |
+| **5 Calibration** | **A first prototype plays. The author's playtest is the next thing** (`DESIGN.md` section 7) |
+| 6 to 8 | Not started |
 
 ## What exists
 
-- **The scaffold** (game-scaffold, shape C): Vite, Preact, TypeScript strict,
-  YAML content checked by Zod, guarded saves with a v1 fixture and save codes
-  (`TRV1.`), a build-id service worker, icons, the Pages workflow, the phone
-  smoke test, `npm run check`.
-- **The story engine** (game-narrative): `packages/engine`, `packages/tools`,
-  the four text tools in `tools/narrative/`, and the kit's example game, "The
-  Crossing" (8 scenes, 2 starts), in `content/` and `src/game/`. It is a
-  placeholder. It is what `npm run check` plays today.
-- **Character creation** (`content/creation.yaml`, `src/game/creation.ts`,
-  `src/ui/Creation.tsx`): name, sex, who they would court, one occupation of
-  four, two traits of eight, one of four looks, one of four manners. 7,168
-  heroes. No scene reads them yet.
-- **The Gate B model** (`prototypes/killgate/`): data, rules, fourteen policies,
-  the gate tables, a switch ablation and an invariant check that runs in
-  `npm run check`. Numbers only; tuned placeholders.
-- **Documents:** `SPEC.md`, `KILLGATE.md`, `GATE-A.md` (the sample, third draft, with every answer to both of its choices written),
-  `HISTORY.md` (a first check of the four things the SPEC marked "from
-  memory"), this page. `CONTENT.md`, `ECONOMY.md` and the `FRAME-*` files are
-  the kit's templates and references.
+- **A first prototype:** title, character creation, the shed, the hill, the
+  hall, the smith's throat, one of three scenes with Aud, the first night.
+  Two choices of three roads; nine ways through; 7,168 heroes; about fifteen
+  minutes. 8 scenes in `content/scenes/`.
+- **One design per era** (`src/ui/eras.css`): now, Norway, Japan, Rome. The
+  screen wears the era being played. Japan and Rome have no scenes and can be
+  looked at from the You page.
+- **Character creation** (`content/creation.yaml`, `src/game/creation.ts`).
+- **This game's rules** (`src/game/module.ts`): the kit, the three
+  presentations, standing as two counters shown in words, the era.
+- **The Gate B model** (`prototypes/killgate/`): numbers only, not read by the
+  game.
+- **Instruments:** 31 tests, a validator that enforces three roads, the choice
+  audit, the style lint on this game's own guide, continuity, render scan, the
+  bot, the phone smoke test, scripted playthroughs in `docs/playthroughs/`.
+- **Documents:** `SPEC.md`, `DESIGN.md`, `GATE-A.md`, `KILLGATE.md`,
+  `HISTORY.md`, `FRAME-creation.md`, this page.
 
-`npm run check` on 2026-11-22, on the example game: build, 3 test files, validate, style
-lint, continuity and render scan (158 views, 0 leaks), 200 bot runs with 0
-failed, the installed-site check and the 390px smoke test, all clean. These
-numbers say the kit works. They say nothing about this game.
+The kit's example game ("The Crossing") is gone.
 
-## Not laid yet, on purpose
+## Not built
 
-- **The deck** (nothing authored shown twice; Divine Mismanagement's
-  `src/engine/deck.js`). It goes in with the first content system, after the
-  gates. The story engine's own once-only rules for scenes need reading
-  against it first.
-- **This game's style guide.** `content/style-guide.md` is the example's.
-  Vikingr's guide is the model for Norway; it bans modern idiom outright, and
-  this game's narrator stands beside a modern person, so it cannot be copied
-  whole. The Gate A verdict on voice decides how it is written.
+Listed in `DESIGN.md` section 7, "Known gaps". The large ones: nothing reads
+standing (no exposure, no season, no door); who the hero would court changes
+nothing; a woman's hall differs from a man's by one bench; six of eight traits
+have no passage; the deck is not laid.
 
 ## Waiting on the author
 
-- **Gate A, fourth draft:** the same three questions, and whether the
-  choking scene is the right modern thing for the hall.
-
-0. **Gate B, open after round 3** (`KILLGATE.md`): whether one bold life in
-   twelve should be able to have everything.
-1. `FRAME-creation.md`, the table of choices that are his to change: the two
-   traits he did not name, the four looks, the four manners, the words.
-3. The open list in `SPEC.md`: a title, love scenes, the Vesuvius season.
-4. Once, in the repository on GitHub: Settings > Pages > Source: "GitHub
-   Actions". The workflow cannot switch Pages on by itself. Not needed until
-   there is something to play.
+1. **Play the prototype** on a phone and say: the voice, the two choices, the
+   creation screen, the four designs. (`DESIGN.md` section 9 has four
+   questions with defaults.)
+2. **To play it from a link:** once, in the repository on GitHub, Settings >
+   Pages > Source: "GitHub Actions". The workflow deploys from the default
+   branch and cannot switch Pages on by itself.
+3. `FRAME-creation.md`: the two traits he did not name, the looks, the
+   manners, the words.
+4. `SPEC.md`, open list: a title, love scenes, the Vesuvius season.
+5. `KILLGATE.md`: whether one bold life in ten should have everything.
 
 ## Found while laying the repo
 

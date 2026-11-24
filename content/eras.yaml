@@ -1,0 +1,28 @@
+# Where and when each chapter happens. The screen wears the era's design (src/ui/eras.css) and
+# shows its label where a date would go. Japan and Rome have a design and no scenes yet.
+eras:
+  now:    { label: "Now",                 where: "The shed",                   built: true }
+  norway: { label: "Norway, about 870",   where: "A fjord in the west",        built: true }
+  japan:  { label: "Japan, the 1560s",    where: "A small province",           built: false }
+  rome:   { label: "The Bay of Naples, AD 79", where: "Rome and the bay",      built: false }
+chapters:
+  prologue: now
+  norway: norway
+# The hero's standing, in words, for the You page. The counters (place, talk) index these lists;
+# a number is never shown, because nobody in the hall would give you one.
+standing:
+  place:
+    - Nobody has decided what you are.
+    - You have a place by the door, and a use.
+    - You have been moved up the bench, into the warm.
+    - People make room for you.
+  talk:
+    - Nobody is talking about you yet.
+    - They are talking about you, kindly enough.
+    - They are explaining you to each other.
+    - People move along the bench when you sit down.
+    - They are saying what they said about your uncle.
+kits:
+  bag: Your work bag
+  notebook: Your uncle's notebook
+  sack: A feed sack of sugar, pepper and needles

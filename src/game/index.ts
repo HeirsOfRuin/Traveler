@@ -15,7 +15,8 @@ export { EngineError, view, choose, visibleChoices, isAvailable } from '@engine/
 export type { ChoiceView, SceneView, ChooseResult } from '@engine/index';
 export { describeDate } from '@engine/calendar';
 export { heroOf } from '@engine/character';
-export type { GameState } from './state';
+export type { GameState, Kit, Presentation } from './state';
+export { eraOf, standing } from './module';
 
 export { problems, tap, finish, describe, allPicks, heroCount, heroAt, spreadHeroes, emptyDraft, SEXES, COURTS } from './creation';
 export type { HeroDraft, HeroChoice, Courts, Picks } from './creation';
@@ -53,7 +54,8 @@ export function newGame(content: ContentBundle, opts: NewGameOptions): GameState
     start: st.id,
     courts: made.courts,
     picks: made.picks,
-    ferry: { takings: 0, repair: 0 },
+    kit: '',
+    shown: { craft: 0, open: 0, explain: 0 },
     chapter: scene.chapter,
     scene: scene.id,
     returnStack: [],

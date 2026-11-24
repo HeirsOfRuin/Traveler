@@ -1,0 +1,5 @@
+id: door
+label: New game
+summary: Your uncle wrote to say he finally got it to work.
+start_scene: p_shed
+hero: { age: 30, station: stranger, attributes: { wits: 3 }, skills: { craft: 0 }, coin: 0 }

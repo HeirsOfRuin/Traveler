@@ -1,32 +1,28 @@
 {
  "format": "traveler-save",
  "saveVersion": 1,
- "contentHash": "1b99d1f85cb2",
+ "contentHash": "7a224d750391",
  "state": {
   "version": 1,
-  "contentHash": "1b99d1f85cb2",
+  "contentHash": "7a224d750391",
   "seed": 12345,
   "rng": [
-   3497751176,
-   1374560474,
-   3782063374,
-   2397394850
+   194968149,
+   4048065787,
+   4205630669,
+   2397394848
   ],
   "characters": {
    "hero": {
     "name": "Fixture",
     "sex": "male",
-    "born": -64,
+    "born": -120,
     "alive": true,
     "attributes": {
-     "strength": 3,
-     "wits": 2,
-     "presence": 2
+     "wits": 3
     },
     "skills": {
-     "boatcraft": 2,
-     "talk": 0,
-     "lore": 1
+     "craft": 0
     },
     "health": 8,
     "traits": [
@@ -36,18 +32,13 @@
      "tall",
      "blunt"
     ],
-    "injuries": [
-     {
-      "id": "cracked_ribs",
-      "since": 0
-     }
-    ],
+    "injuries": [],
     "items": [],
-    "station": "hand"
+    "station": "stranger"
    }
   },
   "hero": "hero",
-  "start": "heir",
+  "start": "door",
   "courts": "women",
   "picks": {
    "occupation": [
@@ -64,41 +55,58 @@
     "blunt"
    ]
   },
-  "ferry": {
-   "takings": 0,
-   "repair": 1
+  "kit": "bag",
+  "shown": {
+   "craft": 0,
+   "open": 0,
+   "explain": 0
   },
-  "chapter": "ch1",
-  "scene": "e_otter",
-  "returnStack": [
-   "c_reckoning"
-  ],
+  "chapter": "norway",
+  "scene": "n_hall",
+  "returnStack": [],
   "time": 0,
-  "rep": {
-   "village": 0
-  },
+  "rep": {},
   "res": {
-   "coin": 120
+   "coin": 0
   },
   "favors": {},
-  "flags": {
-   "mended_boat": true,
-   "carried_friar": true
-  },
-  "counters": {
-   "trust": 1
-  },
+  "flags": {},
+  "counters": {},
   "npcs": {
-   "aldith": {
+   "walter": {
     "met": false,
     "alive": true,
     "affection": 0,
-    "respect": 1,
+    "respect": 0,
     "loyalty": 0,
     "grudges": []
    },
-   "osric": {
+   "kol": {
     "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "thorgrim": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "aud": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "hrapp": {
+    "met": false,
     "alive": true,
     "affection": 0,
     "respect": 0,
@@ -109,42 +117,30 @@
   "aliases": {},
   "queue": [],
   "seen": {
-   "c_first_morning": 0,
-   "c_flood": 0,
-   "e_otter": 0
+   "p_shed": 0,
+   "n_hill": 0,
+   "n_hall": 0
   },
   "journal": [
    {
     "at": 0,
-    "scene": "c_first_morning",
-    "sceneTitle": "The first morning",
-    "choice": "Mend the boat before you take anyone across.",
-    "outcome": "The caulking takes the morning. The first passengers wait on the bank and watch you do it properly.",
-    "changes": [
-     "The boat: sounder"
-    ]
+    "scene": "p_shed",
+    "sceneTitle": "The shed",
+    "choice": "Fetch your work bag from the truck.",
+    "outcome": "The bag is on the passenger seat, under a coat, where it spends its weekends.\n\nYou hook the brass thing behind your ear and find it warm, as if it had lately been behind somebody else's. The note goes into your jacket, since a person should have something to show the police. Your phone and your lighter are in your pockets already, where they live.\n\nYou step through the frame as you would over a garden hose, without looking down, with your one hand's worth.",
+    "changes": []
    },
    {
     "at": 0,
-    "scene": "c_flood",
-    "sceneTitle": "High water",
-    "choice": "Cross for the friar now, flood or not.",
-    "outcome": "The current turns the boat broadside and slams you into the post. You get him over. Your ribs will tell you about it for weeks.",
-    "changes": [
-     "Injury: Cracked ribs"
-    ]
+    "scene": "n_hill",
+    "sceneTitle": "The hill",
+    "choice": "Go down to the hall.",
+    "changes": []
    }
   ],
-  "checkpoint": "c_first_morning",
+  "checkpoint": "n_hill",
   "lastOutcome": {
-   "text": "The current turns the boat broadside and slams you into the post. You get him over. Your ribs will tell you about it for weeks.",
-   "changes": [
-    "Injury: Cracked ribs"
-   ],
-   "check": {
-    "band": "Even",
-    "result": "partial"
-   }
+   "changes": []
   }
  }
 }

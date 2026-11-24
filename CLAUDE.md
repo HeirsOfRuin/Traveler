@@ -21,10 +21,10 @@
   years is fine"). Round 3 closed the six faults of round 2; four smaller
   things are open. Read them before designing any system they touch, and do
   not tune one away without measuring it.
-- The Phase 0 design (`docs/DESIGN.md`) is still a stub. Character creation
-  was built ahead of it under `docs/FRAME-creation.md`. Write Phase 0 before
-  the example game is replaced: it has to settle how the story engine's
-  calendar, attributes and stations fit a game that starts in a machine shed.
+- `docs/DESIGN.md` is the design and the record of what was built. Read it
+  before touching `src/`. Section 3 says how the story engine fits a game that
+  starts in a machine shed and what of it is left idle; section 7 is the first
+  prototype as built, with its known gaps.
 - A hero is made in one place, `src/game/creation.ts`. The screen, `newGame`,
   the bot and the tests all ask it. Do not build a hero by hand anywhere else,
   and do not preselect anything for the player. A hero is a name, a sex, who
@@ -44,9 +44,17 @@
   and put the numbers, with their run counts, in the commit message. The kit
   files in it (`run.js`, `ablate.js`, `stats.js`, `measure-lib.js`, `rng.js`)
   are copies from Game-Workshop and are not edited here.
-- What is in `content/` and `src/game/` today is the story kit's example game
-  ("The Crossing"). It is there so every instrument has something to prove. It
-  is replaced chapter by chapter after the gates, never extended.
+- The first prototype (2026-11-24) is the fourth draft of `docs/GATE-A.md` as
+  content: the shed and the first night in Norway. The kit's example game is
+  gone. One scene serves every hero: plain text for all, `[if occupation ==
+  ...]` and the like where a passage depends on who was made. Write all four
+  occupations whenever one is written.
+- The screen wears the era being played (`src/ui/eras.css`, one block of
+  tokens per era; `content/eras.yaml` maps chapters to eras). A new era is a
+  block there and a line in `eras.yaml`. Look at every design at 390px after
+  any change to either: three faults were found that way and none by a test.
+- Standing is shown in words, never as a number, and no stakes line is shown
+  under a choice (`docs/DESIGN.md` section 4).
 - `packages/engine`, `packages/tools` and `tools/narrative/` are copies of the
   kit and are not edited here. A fault found in them is fixed in
   `Game-Workshop/skills/game-narrative` and brought back with
@@ -84,8 +92,9 @@
   come round and meet a different person. A choice that cannot be written as
   three roads is not offered. The second Gate A draft failed on this in three
   choices out of four (`docs/GATE-A.md` has the table). `npm run audit` lists
-  choices that do nothing; it becomes a failing check when this game's content
-  starts.
+  choices that do nothing, and `npm run validate` fails a scene that offers two
+  roads, or four, or three that do the same thing, or one locked for any hero.
+  A scene with one choice is a page turn.
 - Before writing Norway, read Vikingr's `content/style-guide.md` and
   `docs/DESIGN.md`. This game's own guide is `content/style-guide.md`.
 - Decisions go in the SPEC's dated table with the author's words quoted.

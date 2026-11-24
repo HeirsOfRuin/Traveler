@@ -1,69 +1,70 @@
 // Traveler's game module: the rules the engine leaves to the game. Registered on import; every
 // entry point that loads content imports it (src/game/index.ts, tools/content-loader.ts).
-// The hooks are listed in packages/engine/src/game.ts; only id, namespaces, getValue, checkPath
-// and effects are required. This one owns two paths (ferry.*, start), two effects (toll, mend),
-// one text variable ({takings}) and the scene variant key (the start).
+//
+// Paths this game owns (docs/DESIGN.md section 4):
+//   courts == women | men                 who the hero would court (creation)
+//   occupation, looks, manner == <id>     the creation groups that pick one
+//   kit == bag | notebook | sack          what was carried through the door
+//   shown.craft | open | explain >= n     how often each presentation has been used
+//   era == now | norway | japan | rome    where the current chapter happens (content/eras.yaml)
+// Effects: take (the kit), present (a presentation). The date line is the era's, not a reign's.
 import { registerGame, STAKES_RANK, type GameModule } from '@engine/game';
 import type { CoreContent } from '@engine/schema';
 import type { CoreState } from '@engine/state';
-import { formatCoin } from '@engine/format';
-import { GAME_ID, type ContentBundle } from '../content/schema';
-import type { GameState } from './state';
+import { GAME_ID, type ContentBundle, type EraId } from '../content/schema';
+import { KITS, PRESENTATIONS, type GameState, type Kit, type Presentation } from './state';
 
 const st = (s: CoreState) => s as GameState;
 const ct = (c: CoreContent) => c as ContentBundle;
-const FERRY = ['takings', 'repair'];
 const ONE = ['occupation', 'looks', 'manner'];
+
+/** The era a state is in: the design the screen wears and the line at the top of it. */
+export const eraOf = (content: ContentBundle, s: { chapter: string }): EraId => content.eras.chapters[s.chapter] ?? 'now';
+
+/**
+ * The hero's standing in words, for the You page: never a number (docs/DESIGN.md section 4).
+ * The same counters the choices move, read through the lists in content/eras.yaml.
+ */
+export function standing(content: ContentBundle, s: GameState): { place: string; talk: string } {
+  const at = (list: string[], n: number) => list[Math.max(0, Math.min(list.length - 1, n))]!;
+  return { place: at(content.eras.standing.place, s.counters.place ?? 0), talk: at(content.eras.standing.talk, s.counters.talk ?? 0) };
+}
 
 export const module: GameModule = {
   id: GAME_ID,
-  // occupation, looks, manner: the creation groups that pick one (content/creation.yaml): occupation == nurse
-  namespaces: ['ferry', 'start', 'courts', 'occupation', 'looks', 'manner'],
-  getValue(s, _c, path) {
+  namespaces: ['start', 'courts', 'occupation', 'looks', 'manner', 'kit', 'shown', 'era'],
+  getValue(s, c, path) {
     const [ns, field] = path.split('.');
     if (ns === 'start') return st(s).start;
     if (ns === 'courts') return st(s).courts;
-    if (ONE.includes(ns!)) return st(s).picks[ns!]?.[0] ?? '';
-    return st(s).ferry[field as 'takings' | 'repair'];
+    if (ns === 'kit') return st(s).kit;
+    if (ns === 'era') return eraOf(ct(c), s);
+    if (ns === 'shown') return st(s).shown[field as Presentation] ?? 0;
+    return st(s).picks[ns!]?.[0] ?? '';
   },
   checkPath(c, path) {
     const [ns, field] = path.split('.');
-    if (ns === 'start') return field === undefined ? null : `"start" has no fields (start == <id>)`;
-    if (ns === 'courts') return field === undefined ? null : `"courts" has no fields (courts == women, courts == men)`;
-    if (ONE.includes(ns!)) return field !== undefined ? `"${ns}" has no fields (${ns} == <id>)` : ct(c).creation.groups.some((g) => g.id === ns && g.pick === 1) ? null : `creation.yaml has no pick-one group "${ns}"`;
-    return FERRY.includes(field ?? '') ? null : `unknown ferry field in "${path}" (${FERRY.join(', ')})`;
+    if (ns === 'shown') return PRESENTATIONS.includes(field as Presentation) ? null : `unknown presentation in "${path}" (${PRESENTATIONS.join(', ')})`;
+    if (field !== undefined) return `"${ns}" has no fields (${ns} == <id>)`;
+    if (ONE.includes(ns!) && !ct(c).creation.groups.some((g) => g.id === ns && g.pick === 1)) return `creation.yaml has no pick-one group "${ns}"`;
+    return null;
   },
-  labelFor: (_c, path) => ({ 'ferry.repair': 'The boat', 'ferry.takings': 'Takings' })[path],
-  // start == heir compares with the starts' ids
-  namedValues: (c, path) => (path === 'start' ? Object.keys(ct(c).starts) : path === 'courts' ? ['women', 'men'] : ONE.includes(path) ? ct(c).creation.groups.find((g) => g.id === path)?.options : undefined),
-  addNumber(s, _c, path, delta, changes) {
-    const f = st(s).ferry;
-    if (path === 'ferry.repair') { f.repair = Math.max(0, Math.min(3, f.repair + delta)); changes.push(`The boat: ${delta > 0 ? 'sounder' : 'worse'}`); }
-    if (path === 'ferry.takings') { f.takings += delta; changes.push(`Takings: ${formatCoin(f.takings)}`); }
-  },
+  namedValues: (c, path) => (
+    path === 'start' ? Object.keys(ct(c).starts)
+      : path === 'courts' ? ['women', 'men']
+        : path === 'kit' ? [...KITS]
+          : path === 'era' ? Object.keys(ct(c).eras.eras)
+            : ONE.includes(path) ? ct(c).creation.groups.find((g) => g.id === path)?.options : undefined),
   effects: {
-    toll(s, _c, e, ctx) {
-      const n = (e as { toll: number }).toll;
-      st(s).ferry.takings += n;
-      s.res.coin = (s.res.coin ?? 0) + n;
-      ctx.changes.push(`+${formatCoin(n)} at the landing`);
-    },
-    mend(s, _c, e, ctx) {
-      const f = st(s).ferry;
-      f.repair = Math.min(3, f.repair + (e as { mend: number }).mend);
-      ctx.changes.push('The boat: sounder');
-    },
+    take(s, c, e) { st(s).kit = (e as { take: Kit }).take; void c; },
+    present(s, _c, e) { st(s).shown[(e as { present: Presentation }).present] += 1; },
   },
+  // What a choice puts at stake is shown under it. A presentation is named as itself; the kit is not
+  // a stake (it is the choice).
   stakesOf(_c, _s, e, put) {
-    if ('toll' in e) put('coin', 'Coin', STAKES_RANK.coin, 1);
-    if ('mend' in e) put('boat', 'The boat', STAKES_RANK.other, 1);
+    if ('present' in e) put('shown', 'How it looks', STAKES_RANK.rep, 1);
   },
-  textVar(name, s) {
-    if (name === 'takings') return formatCoin(st(s).ferry.takings);
-    return undefined;
-  },
-  checkTextVar: (name) => (name === 'takings' ? [] : undefined),
-  variantKey: (s) => st(s).start,
+  date: (s, c) => ct(c).eras.eras[eraOf(ct(c), s)].label,
   startScene: (s, c) => ct(c).starts[st(s).start]?.start_scene,
 };
 

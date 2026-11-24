@@ -1,88 +1,97 @@
 # Style guide
 
-Applies to all scene, choice, outcome and journal text. `npm run lint:style` enforces the two
-lists at the bottom. Write the voice section from the author's own sample pages before the
-first chapter: Knight of Adalia's first-pass prose was "too clipped and too quiet" until the
-author's sample chapters set the target.
+Applies to every written string: scenes, choices, outcomes, the creation screen, trait
+descriptions, endings. `npm run lint:style` enforces the lists at the bottom. The model for the
+voice is `docs/GATE-A.md`.
+
+## The author's rules, in his words
+- "It did not have enough dry wit, but I liked the way it was narrated."
+- "Keep the ai feel out of the prose, I beg you."
+- "Don't try too hard, it should be clever." (said of Divine Mismanagement; it holds here)
+- Looks and manner "affect prose more than actions or outcome".
 
 ## Voice
-- Plain and concrete: food, weather, money, hunger, injury, smell, what people wear and carry.
-- Second person, present tense, consistent within a scene.
-- Let people talk: most scenes have at least two lines of spoken dialogue.
-- Nobody explains the theme or says what a moment means. No inspirational speeches.
-- Outcomes are rarely clean. Something is usually lost even in success.
-- Choice text is an action, in the imperative, under about 15 words. It does not hint at which is best.
-- Fear and hurt come as body things (a heart in the throat, knees that will not stop), not named feelings.
+- Second person, present tense. A narrator who stands beside a modern person and reports.
+- The wit is understatement, in the reporting and in what people say. Nothing is set up as a
+  joke. Comedy comes from competence: a modern adult cannot light a fire, find a lintel or eat
+  without being lent a spoon. Report it flatly.
+- The narrator may use the hero's own world for a comparison (a grain truck, a garden hose, a
+  bus stop). The people of the era never do: no modern idiom in their mouths.
+- Each visit gives one slow look at the place before anything goes wrong.
+- People talk. Most scenes have at least two spoken lines, and people needle each other.
+- Nobody explains the theme. If a thing has to be said, somebody in the scene says it as advice
+  and for a reason of their own.
+- Choice text is an action, in the imperative, under about 15 words, and does not hint which
+  road is best. The screen shows no stakes under a choice.
 
-## Narrator tics to cut
-These read as machine prose when they repeat (both narrative games had to cut them). The lint
-counts them as warnings; each is allowed rarely.
-- "...which is worse."
-- "It is not X. It is Y."
-- "He says nothing." / "Nobody says anything." as the beat that ends a paragraph.
-- "for a long time".
-- Foreshadowing the player's feelings: "You will remember this."
-- "That is all." and "That is its own kind of X."
-- Chains of "and, and, and" clauses.
+## Machine habits: never
+These made the first draft read as generated (`docs/GATE-A.md` history has the lines that were cut).
+- A short line alone at the end of a paragraph, for effect. ("Not who. What.")
+- Telling the reader what they have just worked out.
+- A list of three for rhythm; "no this, no that, no the other".
+- Two flat sentences where one with a turn in it would do. ("It is dark, and it is enormous.")
+- An echoed closing line.
+- The same construction again and again ("the way you would").
+- A joke that knows it is one.
 
-## Numbers, names and time
-- The hero's age is {age_words}, never typed: play speed varies. Years and dates come from {date} or the state.
-- A person's title, office or ruler only once it is true in the run: continuity.yaml holds the rules.
-- Period time and money: <the game's units, e.g. canonical hours and pence, or watches and silver by weight>.
+## One scene, every hero
+- Plain text is for everyone. A passage that depends on who was made is written once per
+  occupation (all four), and once per trait, look, manner or sex where it is used.
+- A look or a manner may change a sentence. It never opens or closes a road and never moves a
+  number: `tests/prototype.test.ts` fails if one does.
+- A woman's route is its own route where the era demands it, not the man's with the pronouns
+  changed. Write the hero without "he" or "she"; the scenes are in the second person.
+
+## Choices
+- Three roads through the same story, or one way on. Never two, never four. None is a refusal,
+  a delay or a wrong answer, and none is locked for any hero. `npm run validate` fails otherwise.
+- The hero uses what they know. The standing choice is how it is presented: as a craft of your
+  people, done and left unexplained, or explained. Never write a road where the right play is
+  to keep quiet and live as a local.
+
+## History
+- Real people appear as they were; the hero is never written into a real person's deeds.
+- A period detail is checked before it shapes a scene (`docs/HISTORY.md`). One not in that file
+  is from memory and is listed as such where it is used.
+- In Norway: no clock time in anybody's mouth, silver by weight, names and patronymics, never
+  "sir" or "my lord". Vikingr's guide (`Vikingr/content/style-guide.md`) holds the detail.
 
 ## Lint lists
-Each line is one pattern. Plain lines match as whole words or phrases, case-insensitive. Lines
+Each line is one pattern. Plain lines match as case-insensitive whole words or phrases. Lines
 wrapped in `/.../` are regular expressions (case-insensitive). Lines starting with `#` are comments.
 
 ### Banned (lint error)
 ```banned
-# modern idiom
-okay
-ok
-awesome
-guys
-teenager
-weekend
-deal with it
-at the end of the day
-game changer
-level up
-no problem
-makes sense
-stressed
-you've got this
-# machine-prose stock phrases
-a testament to
-tapestry
-unbreakable bond
-little did you know
-destiny awaits
-against all odds
-/\bmindset\b/
-/\bfeedback\b/
-/\bpercent\b/
-# clock time (most periods told time by light, bells and meals): remove if the game has clocks
-/\b(a few|several|\d+|for a) (seconds?|minutes?)\b/
-# authoring notes that leaked into prose instead of becoming [if] conditions
-/if you are not\b[^.]{0,20}(son|daughter|background)/
-# the hero's age, typed (use {age_words})
-/\byou are (sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty)(-[a-z]+)?\b/
+# the shows, not the history
+horned helmet
+/\bthe vikings\b/
+# address
+/\bsir\b/
+my lord
+# a narrator who tells you what to feel
+/\byou will (remember|never forget|think about) this\b/
+/\byou realise that\b/
+/\byou realize that\b/
+# machine connectives
+/\bit is worth noting\b/
+/\ba testament to\b/
+/\bin that moment\b/
+/\bsomething (shifts|changes) (in|between)\b/
 ```
 
-### Watch (lint warning; allowed, but check each use)
-```watch
-suddenly
-somehow
-very
-truly
-incredibly
-in that moment
-/\bfelt a sense of\b/
-/\ba wave of\b/
+### Warning (lint warning)
+```warning
+# narrator tics: each is allowed rarely
 which is worse
-not unkindly
-its own kind of
-/\bfor a long time\b/
-/\bIt is not [^.]*\. It is\b/
-/\byou will (think about|remember) (this|it|that)\b/
+for a long time
+that is all
+/\bit is not \w+\. it is\b/
+/\bnobody says anything\b/
+/\b(he|she) says nothing\b/
+/\bthe way you would\b/
+/\bas you would\b/
+/\ba beat (passes|later)\b/
+# contested in the sources
+shieldmaiden
+blood eagle
 ```

@@ -15,8 +15,8 @@ export const GAME_ID = 'traveler';
 
 // ---- Effects --------------------------------------------------------------
 export const GAME_EFFECTS = [
-  z.object({ toll: z.number().int() }).strict(), // pence taken at the landing (ferry.takings)
-  z.object({ mend: z.number().int().min(1) }).strict(), // work on the boat (ferry.repair, 0..3)
+  z.object({ take: z.enum(['bag', 'notebook', 'sack']) }).strict(), // the one hand's worth carried through the door (kit)
+  z.object({ present: z.enum(['craft', 'open', 'explain']) }).strict(), // how a modern thing was presented (shown.<how>)
 ] as const;
 const BaseEffectSchema = z.union([...CORE_EFFECTS, ...GAME_EFFECTS]);
 export type BaseEffect = z.infer<typeof BaseEffectSchema>;
@@ -62,8 +62,26 @@ export const CreationSchema = z.object({
 }).strict();
 export type Creation = z.infer<typeof CreationSchema>;
 
+// ---- Eras (content/eras.yaml): where and when each chapter happens, and which design the screen wears ----
+export const ERA_IDS = ['now', 'norway', 'japan', 'rome'] as const;
+export type EraId = (typeof ERA_IDS)[number];
+const EraDef = z.object({ label: z.string(), where: z.string(), built: z.boolean() }).strict();
+export const ErasSchema = z.object({
+  eras: z.object({ now: EraDef, norway: EraDef, japan: EraDef, rome: EraDef }).strict(),
+  chapters: z.record(z.string(), z.enum(ERA_IDS)),
+  standing: z.object({ place: z.array(z.string()).min(2), talk: z.array(z.string()).min(2) }).strict(),
+  kits: z.object({ bag: z.string(), notebook: z.string(), sack: z.string() }).strict(),
+}).strict();
+export interface Eras {
+  eras: Record<EraId, { label: string; where: string; built: boolean }>;
+  chapters: Record<string, EraId>;
+  standing: { place: string[]; talk: string[] };
+  kits: { bag: string; notebook: string; sack: string };
+}
+
 export interface ContentBundle extends CoreContent {
   creation: Creation;
+  eras: Eras;
   registry: Registry;
   scenes: Record<string, Scene>;
   starts: Record<string, Start>;

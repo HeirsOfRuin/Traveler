@@ -16,12 +16,21 @@ export function validate(content: ContentBundle): Issue[] {
     for (const a of Object.keys(s.hero.attributes)) if (!content.config.attributes.includes(a)) err(w, `unknown attribute "${a}"`);
     for (const k of Object.keys(s.hero.skills)) if (!content.config.skills.includes(k)) err(w, `unknown skill "${k}"`);
   }
+  // This game's rule on choices (the author, 2026-11-22): a scene offers three roads or none.
+  // One choice is a page turn. Two is a choice with a road missing; four is one nobody asked for.
+  // The three must lead somewhere different or do something different.
+  for (const s of Object.values(content.scenes)) {
+    const w = `${content.sources[s.id]}:${s.id}`, n = s.choices.length;
+    if (s.kind === 'ending' || n === 1) continue;
+    if (n !== 3) { err(w, `${n} choices: a scene offers three roads, or one way on`); continue; }
+    const sig = s.choices.map((c) => JSON.stringify([c.next, c.effects ?? []]));
+    if (new Set(sig).size !== 3) err(w, 'two of the three choices go to the same place and do the same thing');
+    for (const c of s.choices) if (c.requires || c.visible_if) err(`${w}/${c.id}`, 'a road is locked or hidden: every hero must be able to take all three');
+  }
   const issues = validateContent(content, {
     starts: Object.values(content.starts).map((s) => s.start_scene),
     variantKeys: Object.keys(content.starts),
-    checkGameEffect: (where, e, e2) => {
-      if ('toll' in e && typeof (e as { toll: unknown }).toll !== 'number') e2(where, 'toll takes pence');
-    },
+    checkGameEffect: () => {}, // take and present are closed lists in the schema (src/content/schema.ts)
   });
   return [...extra, ...issues];
 }

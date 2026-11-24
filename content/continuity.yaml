@@ -1,12 +1,18 @@
 # Continuity rules: npm run continuity (tools/narrative/continuity.ts, from the game-narrative skill).
-# Each rule: a phrase (regex, case-sensitive unless flags: i) the prose may only use while a
-# condition holds in the run showing it. The tool also flags the dead named after their death,
-# unless the sentence is about the death or memory (memorial: adds this game's own words).
+# Each rule: a phrase the prose may only use while a condition holds in the run showing it.
 rules:
-  - match: "Brother Osric has been telling"
-    allow: npc.osric.met
-    why: Osric only tells the story if he was carried across and met.
-  - match: "knows about the wool-man"
-    allow: flag.took_bribe
+  - match: "Your bag is under your head"
+    allow: kit == bag
+    why: Only a hero who fetched the work bag has one.
+  - match: "the notebook|The notebook"
+    allow: kit == notebook
+    why: The notebook stayed on the bench unless it was the one thing carried.
+  - match: "the sack|The sack"
+    allow: kit == sack
+  - match: "door in (the|his) throat"
+    allow: shown.explain >= 1
+    why: Only a hero who explained has said it.
+  - match: "Aud, Thorgrim's sister"
+    allow: npc.kol.met
 dead_names_ok: {}
 memorial: []

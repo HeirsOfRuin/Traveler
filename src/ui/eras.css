@@ -1,0 +1,100 @@
+/* One design per era (docs/DESIGN.md section 6). The screen wears the era of the chapter being
+   played: <html data-era="norway">. Every colour, face and ornament is a token, so an era is one
+   block here and nothing else. No network fonts: each face is a stack of what phones carry.
+
+   now     a machine shed: galvanised grey, safety yellow, block capitals, masking-tape labels
+   norway  a hall by firelight: soot and timber, amber, bone-white, a carved braid
+   japan   ink on paper: sumi black on washi, one vermilion seal, a line of waves
+   rome    a painted wall: plaster, Pompeian red and ochre, cut capitals, a meander          */
+
+:root, :root[data-era="now"] {
+  --bg: #1d2023; --panel: #292e32; --ink: #e8eae8; --ink-dim: #a3aaad; --line: #454c51;
+  --accent: #e0a81c; --on-accent: #1a1a17; --good: #8fb573; --alarm: #e0674f;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-head: "Arial Narrow", "Roboto Condensed", "Helvetica Neue", system-ui, sans-serif;
+  --head-case: uppercase; --head-space: .05em; --head-weight: 700;
+  --radius: 4px; --rule: 2px;
+  --band: repeating-linear-gradient(-45deg, #e0a81c 0 7px, #1d2023 7px 14px); --band-h: 6px;
+  --card-bg: #e9dfc3; --card-ink: #26231c;   /* masking tape */
+  --on-bg: #1d2023;
+  color-scheme: dark;
+}
+:root[data-era="norway"] {
+  --bg: #16100b; --panel: #251a11; --ink: #ecdfc6; --ink-dim: #ad9a7c; --line: #45321f;
+  --accent: #c8791f; --on-accent: #16100b; --good: #9fb06a; --alarm: #d2573c;
+  --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --font-head: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --head-case: none; --head-space: .01em; --head-weight: 700;
+  --radius: 2px; --rule: 3px;
+  --band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10'%3E%3Cpath d='M0 5 Q6 -3 12 5 T24 5' fill='none' stroke='%23c8791f' stroke-width='1.6'/%3E%3Cpath d='M0 5 Q6 13 12 5 T24 5' fill='none' stroke='%23c8791f' stroke-width='1.6'/%3E%3C/svg%3E"); --band-h: 10px;
+  --card-bg: #2f2014; --card-ink: #ecdfc6;
+  --on-bg: #16100b;
+  color-scheme: dark;
+}
+:root[data-era="japan"] {
+  --bg: #efe8d8; --panel: #f8f3e6; --ink: #1b1916; --ink-dim: #5d564a; --line: #c9bea6;
+  --accent: #b3261e; --on-accent: #fbf6ea; --good: #46683a; --alarm: #b3261e;
+  --font-body: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Songti SC", Georgia, serif;
+  --font-head: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Songti SC", Georgia, serif;
+  --head-case: none; --head-space: .1em; --head-weight: 600;
+  --radius: 0px; --rule: 1px;
+  --band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cg fill='none' stroke='%232b4a6f' stroke-width='1' opacity='.75'%3E%3Ccircle cx='10' cy='10' r='9'/%3E%3Ccircle cx='10' cy='10' r='6'/%3E%3Ccircle cx='10' cy='10' r='3'/%3E%3C/g%3E%3C/svg%3E"); --band-h: 10px;
+  --card-bg: #f8f3e6; --card-ink: #1b1916;
+  --on-bg: #efe8d8;
+  color-scheme: light;
+}
+:root[data-era="rome"] {
+  --bg: #eadfc6; --panel: #f4ecd8; --ink: #2b1b12; --ink-dim: #6b5642; --line: #c9b68c;
+  --accent: #8e2a1f; --on-accent: #f6eedb; --good: #5b6b2e; --alarm: #8e2a1f;
+  --font-body: "Palatino Linotype", Palatino, "Book Antiqua", "Iowan Old Style", Georgia, serif;
+  --font-head: "Trajan Pro", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --head-case: uppercase; --head-space: .14em; --head-weight: 500;
+  --radius: 0px; --rule: 2px;
+  --band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12'%3E%3Cpath d='M0 10.5 H4 V2 H12.5 V7.5 H8 M12.5 10.5 H16' fill='none' stroke='%238e2a1f' stroke-width='1.5'/%3E%3C/svg%3E"); --band-h: 12px;
+  --card-bg: #8e2a1f; --card-ink: #f6eedb;   /* a red panel on the wall */
+  --on-bg: #eadfc6;
+  color-scheme: light;
+}
+
+/* ---- what the tokens dress ---- */
+body { font-family: var(--font-body); }
+h1, h2, .hud, .tabs button, legend, .field span { font-family: var(--font-head); }
+h1, h2 { text-transform: var(--head-case); letter-spacing: var(--head-space); font-weight: var(--head-weight); }
+button { border-radius: var(--radius); }
+button.primary { color: var(--on-accent); }
+.field input { border-radius: var(--radius); }
+
+.hud { position: relative; text-transform: var(--head-case); letter-spacing: var(--head-space); }
+.hud::after, .title::before, .creation::before {
+  content: ""; display: block; height: var(--band-h); background: var(--band) repeat-x left center;
+}
+.hud::after { position: absolute; left: 0; right: 0; bottom: calc(-1 * var(--band-h)); }
+.title::before, .creation::before { margin: 0 -1rem 1rem; }
+.panel { padding-top: calc(1rem + var(--band-h)); }
+
+.card { background: var(--card-bg); color: var(--card-ink); border: 0; border-left: var(--rule) solid var(--accent); border-radius: var(--radius); padding: .9rem 1rem; margin-bottom: 1rem; }
+.card h2 { margin-bottom: .2rem; }
+.card p { margin: 0; color: inherit; opacity: .85; }
+:root[data-era="now"] .card { transform: rotate(-.6deg); box-shadow: 0 1px 0 rgba(0,0,0,.4); border-left: 0; }
+:root[data-era="japan"] .card { border-left: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); position: relative; padding-right: 3.2rem; }
+:root[data-era="japan"] .card::after { content: ""; position: absolute; right: .9rem; top: .9rem; width: 1.6rem; height: 1.6rem; background: var(--accent); }
+:root[data-era="rome"] .card { border-left: 0; text-align: center; outline: 1px solid var(--card-ink); outline-offset: -5px; }
+
+/* a road: a choice among three */
+.roads button { border-left: var(--rule) solid var(--accent); }
+:root[data-era="japan"] .roads button { border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding-left: .2rem; }
+:root[data-era="rome"] .roads button { border: 1px solid var(--line); border-left: var(--rule) solid var(--accent); }
+
+.era-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.era-tiles button { text-align: center; }
+.preview { background: var(--accent); color: var(--on-accent); padding: .5rem 1rem; display: flex; gap: .6rem; align-items: center; justify-content: space-between; font-size: .9rem; }
+.preview button { min-height: 36px; padding: .2em .7em; background: transparent; color: inherit; border-color: currentColor; }
+.you dt { color: var(--ink-dim); font-size: .85rem; margin-top: .6rem; }
+.you dd { margin: 0; }
+
+/* fixes from looking at it at 390px (2026-11-24) */
+button.primary small { color: var(--on-accent); opacity: .8; }               /* was yellow on yellow on the title */
+.tabs button.on { background: transparent; box-shadow: none; border: 0; }     /* the creation screen's "picked" look leaked onto the tabs */
+.hud { font-size: .9rem; align-items: baseline; }
+.hud span:last-child { text-align: right; }
+:root[data-era="rome"] .hud { letter-spacing: .07em; font-size: .8rem; }     /* cut capitals wrapped the era line */

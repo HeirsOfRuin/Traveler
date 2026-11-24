@@ -1,2 +1,5 @@
-aldith: { name: Aldith Reeve, title: Mistress, affection: 0, respect: 1, notes: The village reeve. Gave you the ferry. }
-osric: { name: Brother Osric, affection: 0, respect: 0, notes: A friar on the road south. }
+walter:   { name: Walter, notes: "Your uncle. The hall calls him Unkel, having taken the word for his name." }
+kol:      { name: Kol, notes: "A boy of about eleven, with a dog. He finds everything first and tells everyone." }
+thorgrim: { name: Thorgrim Ketilsson, notes: "The hersir. It is his hall, and his half pound of silver." }
+aud:      { name: Aud Ketilsdóttir, notes: "Thorgrim's sister. The keys are hers." }
+hrapp:    { name: Hrapp, notes: "The smith. He does your uncle's voice." }
