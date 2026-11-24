@@ -30,6 +30,12 @@ export function standing(content: ContentBundle, s: GameState): { place: string;
   return { place: at(content.eras.standing.place, s.counters.place ?? 0), talk: at(content.eras.standing.talk, s.counters.talk ?? 0) };
 }
 
+/** The clues this hero has met so far, in the order found: for the Journal. */
+export function found(content: ContentBundle, s: GameState, holds: (cond: unknown) => boolean): string[] {
+  const been = new Set([...s.journal.map((j) => j.scene), s.scene]);
+  return Object.entries(content.clues).filter(([, c]) => been.has(c.found_in) && (c.if === undefined || holds(c.if))).map(([id]) => id);
+}
+
 export const module: GameModule = {
   id: GAME_ID,
   namespaces: ['start', 'courts', 'occupation', 'looks', 'manner', 'kit', 'shown', 'era'],

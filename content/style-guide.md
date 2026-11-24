@@ -9,6 +9,9 @@ voice is `docs/GATE-A.md`.
 - "Keep the ai feel out of the prose, I beg you."
 - "Don't try too hard, it should be clever." (said of Divine Mismanagement; it holds here)
 - Looks and manner "affect prose more than actions or outcome".
+- 2026-11-24, on the first prototype: "Make sure the prose isn't obtuse [in] it's wit. It should
+  give a chuckle at times, it's should be readable, and it should be witty and fun, while
+  remaining full of wonder and wistfulness."
 
 ## Voice
 - Second person, present tense. A narrator who stands beside a modern person and reports.
@@ -23,6 +26,16 @@ voice is `docs/GATE-A.md`.
   and for a reason of their own.
 - Choice text is an action, in the imperative, under about 15 words, and does not hint which
   road is best. The screen shows no stakes under a choice.
+
+## Readable first
+The dry voice went too far in places: a line the reader has to stop and work out is not wit.
+- If a joke needs a second reading, say it straight. "You gave him a summer of lessons once and
+  he gave it back" became "and none of it stuck".
+- A chuckle every page or so, and it should be plain what is funny.
+- Wonder: one slow look per place, and one thing made by hand that is better than it needed to be.
+- Wistfulness: a line now and then about who is not here to see it. The uncle writes to nobody
+  else; the hero would like to tell their mother about the roof.
+- Fun is allowed. People in the hall enjoy each other.
 
 ## Machine habits: never
 These made the first draft read as generated (`docs/GATE-A.md` history has the lines that were cut).

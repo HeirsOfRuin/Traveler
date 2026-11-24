@@ -17,6 +17,11 @@ export { describeDate } from '@engine/calendar';
 export { heroOf } from '@engine/character';
 export type { GameState, Kit, Presentation } from './state';
 export { eraOf, standing } from './module';
+import { found as foundIn } from './module';
+import { test as holds } from '@engine/conditions';
+import type { GameState as GS } from './state';
+/** The clues this hero has met so far (content/clues.yaml), in the order found. */
+export const cluesFound = (content: ContentBundle, s: GS): string[] => foundIn(content, s, (c) => holds(c as never, s, content));
 
 export { problems, tap, finish, describe, allPicks, heroCount, heroAt, spreadHeroes, emptyDraft, SEXES, COURTS } from './creation';
 export type { HeroDraft, HeroChoice, Courts, Picks } from './creation';

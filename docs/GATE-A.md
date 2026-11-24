@@ -4,7 +4,12 @@ The first of the two gates in `SPEC.md`. The author reads a sample and says
 whether it is funny without trying, whether there is wonder, and whether he
 wants the next scene. No instrument can judge it.
 
-**Status: fourth draft, 2026-11-23, waiting on the author.** The third draft
+**The living text is now `content/scenes/`** (the first prototype, 2026-11-24).
+It has had a pass for readability since this draft, and its letters and notes
+are drawn. This file is the draft as it was read; where the two differ, the
+scenes win.
+
+**Status: fourth draft, 2026-11-23.** The third draft
 was accepted ("Gate a is fine for now, call it usable for the prototype").
 This one replaces it at his word: "Rewrite gate a with all of the new context
 behind it". The first three drafts are in this file's git history.

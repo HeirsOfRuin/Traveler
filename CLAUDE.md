@@ -53,6 +53,17 @@
   tokens per era; `content/eras.yaml` maps chapters to eras). A new era is a
   block there and a line in `eras.yaml`. Look at every design at 390px after
   any change to either: three faults were found that way and none by a test.
+- The author on the designs, 2026-11-24: "The designs look good, but don't
+  make them too powerful, I like a calm and easy on the eyes background with
+  easy transitions." Soft grounds, accents low in colour, ornaments faint,
+  slow cross-fades. The art on a page is its clues, not its chrome.
+- Anything written, labelled or cut by a person is a clue and is drawn
+  (`content/clues.yaml`; a scene paragraph `::clue <id>::`). The author:
+  "having clues like notes, carvings, etc should have some art to them".
+  Never quote such a thing in running prose when it can be shown.
+- `docs/STORY.md` is the whole arc and what each mechanic is for. It is a
+  proposal until the author answers its section 6; do not write past the
+  Norway visit on it before then.
 - Standing is shown in words, never as a number, and no stakes line is shown
   under a choice (`docs/DESIGN.md` section 4).
 - `packages/engine`, `packages/tools` and `tools/narrative/` are copies of the
@@ -80,9 +91,12 @@
   wit is understatement in the reporting and in what people say. Never a short
   line alone at the end of a paragraph for effect; never telling the reader
   what they have just worked out; no lists of three for rhythm; no echoed
-  closing line; no joke that knows it is one. `docs/GATE-A.md` has the table
-  of habits with the lines that were cut. Read every scene against it before
-  it is committed.
+  closing line; no joke that knows it is one. And on the prototype,
+  2026-11-24: "Make sure the prose isn't obtuse [in] it's wit. It should give a
+  chuckle at times... readable... witty and fun, while remaining full of wonder
+  and wistfulness." Readable comes first: a line that needs a second reading
+  is said straight. `content/style-guide.md` holds all of it. Read every scene
+  against it before it is committed.
 - The author on choices, 2026-11-22: "Make sure the choices are actually
   worth choosing. Every choice should lead in 3 different paths of the same
   story, not interruptive of those choices... I don't want it to ever feel

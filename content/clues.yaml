@@ -1,0 +1,42 @@
+# Things the hero finds that were written, labelled or cut by somebody: the uncle's trail.
+# Each is drawn, not just quoted (src/ui/Clue.tsx, src/ui/clues.css). A scene shows one with a
+# paragraph that reads  ::clue <id>::  and the Journal keeps every one found.
+#
+# kind: letter (a posted page) | note (a torn half sheet) | tape (a masking-tape label)
+#       page (a leaf of his notebook) | carving (cut into stone or wood)
+# lines: what it says, one line each. boxed: a line he drew a box round. tally: marks to draw.
+# found_in: the scene it is met in. if: only for a hero for whom this holds.
+letter:
+  kind: letter
+  title: The letter
+  lines: ["GOT IT WORKING.", "COME SATURDAY.", "BRING WHAT YOU USE AT WORK.", "DO NOT TELL YOUR MOTHER."]
+  found_in: p_shed
+note:
+  kind: note
+  title: The note on the bench
+  lines: ["Gone through. Back for supper.", "If I am not, DO NOT FOLLOW.", "W."]
+  mark: thumbprint
+  found_in: p_shed
+ear_label:
+  kind: tape
+  title: The label on the case
+  lines: ["EAR. MOSTLY WORKS."]
+  found_in: p_shed
+frame_label:
+  kind: tape
+  title: The label on the frame
+  lines: ["ONE HAND'S WORTH.", "ASK ME HOW I KNOW."]
+  found_in: p_shed
+boulder_tally:
+  kind: carving
+  title: The marks on the boulder
+  lines: ["W"]
+  tally: 9
+  found_in: n_hill
+notebook_people:
+  kind: page
+  title: A page of his notebook
+  lines: ["PEOPLE", "KOL. Boy, about 11. Dog. Finds everything first, tells everyone.", "THORGRIM. Runs the place. Fair.", "AUD. His sister. Do not bother lying to her."]
+  boxed: "STOP EXPLAINING THINGS"
+  found_in: n_hill
+  if: kit == notebook

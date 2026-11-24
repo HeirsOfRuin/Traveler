@@ -35,6 +35,7 @@ function textsOf(c: ContentBundle): Written[] {
   // the creation screen is written prose too, and is held to the same style guide
   const cr = c.creation;
   for (const t of [cr.title, cr.lede, cr.name.prompt, cr.name_long, cr.begin, cr.sex.prompt, cr.sex.owed, ...Object.values(cr.sex.options), cr.courts.prompt, cr.courts.note, cr.courts.owed, ...Object.values(cr.courts.options), ...cr.groups.flatMap((g) => [g.prompt, g.note, g.owed, g.full])]) add('creation.yaml', t);
+  for (const [id, k] of Object.entries(c.clues)) for (const t of [k.title, ...k.lines, k.boxed]) add(`clues/${id}`, t);
   for (const [id, t] of Object.entries(c.registry.traits)) { add(`traits/${id}`, t.label); add(`traits/${id}`, t.description); }
   for (const [id, e] of Object.entries(c.registry.endings)) { add(`endings/${id}`, e.label); add(`endings/${id}`, e.description); }
   return out;

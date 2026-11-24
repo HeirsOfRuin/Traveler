@@ -5,6 +5,7 @@ import type { ContentBundle } from './content/schema';
 import { registerSW } from './ui/sw-register.js';
 import './ui/styles.css';
 import './ui/eras.css';
+import './ui/clues.css';
 
 render(<App content={bundle as unknown as ContentBundle} />, document.getElementById('app')!);
 registerSW();

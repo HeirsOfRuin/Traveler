@@ -185,6 +185,32 @@ draft, as content, with a short closing scene written for the build.
    no season, no door.
 6. The closing scene (`e_first_night`) is new prose and was not in Gate A.
 
+### After the author's first look (2026-11-24)
+
+"The designs look good, but don't make them too powerful, I like a calm and
+easy on the eyes background with easy transitions."
+
+- **Calmer.** Every ground and ink softened, every accent taken down in
+  colour (safety yellow to mustard, vermilion and Pompeian red to brick),
+  ornaments at about half strength. Body text is 17px at a line height of
+  1.62, in a column of at most 34em.
+- **Easy transitions.** Moving between eras cross-fades the tokens over 0.9
+  seconds. A new page settles in over half a second. Both are off for anyone
+  whose device asks for less motion.
+- **Clues are drawn** (`content/clues.yaml`, `src/ui/Clue.tsx`,
+  `src/ui/clues.css`): a scene paragraph that reads `::clue <id>::` shows the
+  object, and the Journal keeps every one found. Kinds so far: letter, note,
+  tape, page, carving. A clue looks the same in every era; it is the thing
+  and not the screen. They are the art on the page, and the calm round them
+  is what lets them be. The loader fails a mark with no clue, and a clue its
+  scene never shows.
+- **The prose** had a pass for readability (`content/style-guide.md`,
+  "Readable first").
+- 35 tests now; four are on clues (every hero finds five; the notebook page
+  only if they carried the notebook; nothing before its scene).
+- Looked at again at 390px: `docs/shots/clues.png`. The handwriting faces
+  fall back to a bold serif where a phone has none of the stack.
+
 ## 8. Build plan from here
 
 | Step | Delivers | Exit |

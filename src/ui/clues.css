@@ -1,0 +1,51 @@
+/* Clues: the things the uncle wrote, labelled and cut (src/ui/Clue.tsx). Each is drawn as the
+   object it is, with its own paper and ink, and sits the same in every era. They are the art on
+   the page; everything round them is kept quiet so that they are. */
+.clue { margin: 1.4rem auto; max-width: 21rem; }
+.clue figcaption { font-size: .78rem; color: var(--ink-dim); text-align: center; margin-top: .5rem; font-family: var(--font-body); letter-spacing: .02em; }
+.clue-body { position: relative; padding: 1.1rem 1.2rem; box-shadow: 0 1px 2px rgb(0 0 0 / .25), 0 6px 14px rgb(0 0 0 / .12); }
+.clue-body p { margin: 0 0 .35em; color: inherit; }
+.clue-body p:last-of-type { margin-bottom: 0; }
+
+/* a posted page: block capitals pressed hard into cheap lined paper */
+.clue-letter .clue-body {
+  background: #ece6d6 repeating-linear-gradient(#0000 0 1.55rem, #9db4c8 1.55rem calc(1.55rem + 1px)); background-position: 0 .9rem;
+  color: #1f2430; font: 700 .98rem/1.6rem "Courier New", ui-monospace, monospace; letter-spacing: .04em;
+  text-shadow: 0 1px 0 rgb(255 255 255 / .7), 0 -1px 0 rgb(0 0 0 / .12); transform: rotate(-.7deg);
+  border-left: 1.6rem solid #e6dfcd; border-image: linear-gradient(90deg, #e6dfcd 0 calc(100% - 1px), #d9a3a0 0) 1;
+}
+/* a half sheet, torn across the bottom, written in a hurry */
+.clue-note .clue-body {
+  background: #efe9da; color: #2a2620; font: 600 1.05rem/1.5 "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Sans MS", cursive;
+  transform: rotate(1.1deg); padding-bottom: 1.8rem;
+  clip-path: polygon(0 0, 100% 0, 100% 91%, 94% 96%, 88% 90%, 80% 97%, 71% 91%, 63% 96%, 54% 90%, 45% 97%, 36% 92%, 27% 97%, 18% 91%, 9% 96%, 0 91%);
+}
+.clue-note .thumb { position: absolute; right: 1rem; bottom: 1.3rem; color: #6b3a22; opacity: .62; transform: rotate(-14deg); }
+/* masking tape and a marker */
+.clue-tape { text-align: center; }
+.clue-tape .clue-body {
+  display: inline-block; background: #e3d6ae linear-gradient(rgb(255 255 255 / .18), #0000 40%, rgb(0 0 0 / .05)); color: #24211b;
+  font: 800 .95rem/1.25 "Arial Narrow", "Roboto Condensed", "Helvetica Neue", sans-serif; letter-spacing: .06em; padding: .6rem 1.5rem; transform: rotate(-1.4deg);
+  clip-path: polygon(0 12%, 3% 0, 6% 10%, 9% 0, 100% 0, 97% 18%, 100% 36%, 97% 54%, 100% 72%, 97% 90%, 100% 100%, 8% 100%, 5% 88%, 2% 100%, 0 86%, 3% 70%, 0 52%, 3% 34%);
+  box-shadow: none;
+}
+/* a leaf of the notebook: ruled, with a margin, filled to the foot */
+.clue-page .clue-body {
+  background: #f1ecdf repeating-linear-gradient(#0000 0 1.5rem, #b9c7d3 1.5rem calc(1.5rem + 1px)); background-position: 0 .7rem;
+  color: #23283a; font: 600 .92rem/1.5rem "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Sans MS", cursive; padding-left: 2.4rem; transform: rotate(-.5deg);
+}
+.clue-page .clue-body::before { content: ""; position: absolute; left: 1.7rem; top: 0; bottom: 0; width: 1px; background: #cf8f8a; }
+.clue-page p:first-child { font-weight: 800; letter-spacing: .12em; }
+.clue-page .boxed { margin-top: 1.5rem; }
+.clue-page .boxed span { display: inline-block; padding: .1rem .5rem; border: 2px solid currentColor; outline: 2px solid currentColor; outline-offset: 3px; font-weight: 800; letter-spacing: .05em; transform: rotate(-1.5deg); }
+/* cut into rock with a nail: pale scratches on wet stone, beside a seam of quartz */
+.clue-carving .clue-body {
+  background: #5a5f60 linear-gradient(115deg, #0000 0 58%, rgb(255 255 255 / .55) 60%, rgb(255 255 255 / .2) 63%, #0000 66%), radial-gradient(120% 90% at 20% 10%, #6f7473, #4b5051 70%);
+  color: #dfe3df; padding: 1.3rem 1.2rem 1.1rem; border-radius: 46% 54% 50% 50% / 14% 12% 16% 18%; box-shadow: inset 0 -8px 18px rgb(0 0 0 / .28), 0 6px 14px rgb(0 0 0 / .18);
+  font: 400 1.9rem/1 Georgia, serif; text-shadow: 0 1px 0 rgb(0 0 0 / .45);
+}
+.clue-carving .clue-body p { font-family: "Courier New", monospace; font-weight: 400; transform: skewX(-6deg); opacity: .92; margin-bottom: .4rem; }
+.clue-carving .tally { display: block; max-width: 100%; height: auto; opacity: .92; filter: drop-shadow(0 1px 0 rgb(0 0 0 / .45)); }
+
+.found { display: grid; gap: .2rem; }
+.found .clue { margin: .9rem auto; }

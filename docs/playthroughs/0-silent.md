@@ -8,9 +8,9 @@ Start: New game. Seed 3.
 
 Your uncle Walter does not trust telephones, so the news comes by post, on one page, in block capitals pressed hard enough to read from the back.
 
-GOT IT WORKING. COME SATURDAY. BRING WHAT YOU USE AT WORK. DO NOT TELL YOUR MOTHER.
+::clue letter::
 
-He has ended every letter that way since you were nine, including the Christmas cards, which he addresses to her. He did not say which Saturday. You let that carry you past the first one, and it is the second when you go.
+He has ended every letter that way since you were nine, including the Christmas cards, which he addresses to her. You are the only person he writes to, and you have never been sure whether to take that as a compliment. He did not say which Saturday. You let that carry you past the first one, and it is the second when you go.
 
 It is two hours of gravel to his place. The yard light is on at noon and his truck is in the yard with the flat you mentioned in April, when he said he was aware of it. The shed door is rolled open a foot for the cat.
 
@@ -18,25 +18,31 @@ Inside, the heater is running for nobody. There is a cup of coffee on the bench 
 
 *(Continue)*
 
-Bolted to the slab in the middle of the floor is a door frame, with no door in it and no wall around it. It is seven feet of two-inch square tube, and cables as thick as your wrist run from it to a rack of equipment you cannot name, apart from one item, which is the arc welder that went missing from your mother's garage four years ago. He was very decent about it at the time.
+Bolted to the slab in the middle of the floor is a door frame, with no door in it and no wall around it. It is seven feet of two-inch square tube, and cables as thick as your wrist run from it to a rack of equipment you cannot name, apart from one item, which is the arc welder that went missing from your mother's garage four years ago. He helped you look for it.
 
-You look at the welds first, because you always do. You gave him a summer of lessons once and he gave it back. He has ground every joint flat and painted it, and you know from experience what a person is hiding when they go to that trouble on a frame nobody will see. Whatever this one does, it does on the strength of those.
+You look at the welds first, because you always do. You gave him a summer of lessons once, and none of it stuck. He has ground every joint flat and painted over it, and nobody does that to a weld they are proud of. Whatever this frame does, those are what is holding it together.
 
 Under a wrench on the bench is half a sheet of paper.
 
-Gone through. Back for supper. If I am not, DO NOT FOLLOW. W.
+::clue note::
 
-He has underlined NOT twice. Beside the W is a thumbprint in something brown, which has dried as blood dries and coffee does not.
+There is a thumbprint beside the W, in something brown. You would like it to be coffee, and coffee does not dry that colour.
 
 *(Continue)*
 
-Beside the note is a foam-lined case cut for two of something. One place is empty. In the other is a brass object about the size of a hearing aid, with a hook to sit behind the ear, and a strip of masking tape on the lid reads EAR. MOSTLY WORKS. The truck has a label like that on the dash.
+Beside the note is a foam-lined case cut for two of something. One place is empty. In the other is a brass object about the size of a hearing aid, with a hook to sit behind the ear. He has put a strip of masking tape on the lid.
+
+::clue ear_label::
+
+There is a label just like it on the dash of his truck, and you have ridden in the truck.
 
 Through the frame you can see the back wall of the shed, the pegboard and the co-op calendar, all where they belong. The air inside it is a little darker than the air outside it, though, as it is in any doorway, and a draught is coming through that smells of woodsmoke and low tide. The nearest tide is three days' drive from here.
 
-The cat has taken the far wall, and from the state of the blanket it has had the far wall for some time.
+The cat is on a blanket against the far wall, which is as far from the frame as a cat can get without going out in the rain. It has the look of an animal that settled there some days ago.
 
-There is more tape on the frame itself, at eye height. ONE HAND'S WORTH. ASK ME HOW I KNOW.
+There is more tape on the frame itself, at eye height.
+
+::clue frame_label::
 
 So you are going, it seems, and the question is what the hand is for. Your work bag is in the truck, since he asked for it. His notebook is on the bench beside the note, a black one gone fat with use, with a rubber band round it. And over the kettle is a shelf he has labelled TRADE, which holds a bag of sugar, a tin of pepper and three cards of steel needles from the fabric shop in town. You had taken that for groceries and a hobby.
 
@@ -58,13 +64,19 @@ You step through the frame as you would over a garden hose, without looking down
 
 You are up to the shins in heather and the rain is coming in from the side.
 
-The frame has not come with you, nor the shed. Behind you is a boulder about the size of a grain truck, with a streak of white quartz down the face of it, and you take a good look at that streak, since it is all the address you have.
+The frame has not come with you, nor the shed. Behind you is a boulder about the size of a grain truck, with a streak of white quartz down the face of it, and you take a good look at that streak, since it is the only way home you know about.
+
+Somebody has been at the quartz with a nail. Cut into it, at about the height of a short man's shoulder, are a letter and a row of marks.
+
+::clue boulder_tally::
+
+You count them twice. You had thought he had only done this the once.
 
 Then you turn around, and it is some time before you do anything else.
 
 The hill falls away below your boots in grey rock and rusty bracken, down to water that lies a long way under you, black-green and so still that it holds the mountains upside down. It runs inland between walls of rock that go up into the cloud and do not come out again. Across from you a waterfall hangs on the far wall, a white thread of it, too far off to hear.
 
-There is no wire anywhere in the sky and no road cut into the other shore, and it is quieter than you knew a place could be.
+There is no wire anywhere in the sky and no road cut into the other shore, and it is quieter than you knew a place could be. You would have liked somebody to be standing next to you, to say so to.
 
 *(Continue)*
 
@@ -72,7 +84,7 @@ On a shelf of green by the water stands a building, longer than your uncle's she
 
 The only other one you have seen was in a museum, black and cracked, propped on steel behind glass. These two are the colour of dark honey and they are wet. Whoever built them is very likely down there under the grass roof, keeping dry, and could build you a third if you had anything to pay him with.
 
-You try your phone, which has no service and sixty-one per cent, and put it away.
+You try your phone. It has sixty-one per cent and nobody to call, and you put it away.
 
 By now you are cold enough to notice. You get into the lee of the boulder and collect sticks, with some confidence, having lit fires before, in a pit, on a dry evening, with a firelighter. Wet heather held over the lighter gives off steam. The bark of a small bent birch does no more. You take out the note and consider it, and decide your uncle would want it kept. By the time the lighter is too hot to hold you have produced a smell.
 
@@ -106,7 +118,7 @@ After that he gets round to what you are carrying.
 
 He looks into it and is not much struck. You tear a corner off the sugar and shake some into his palm, and he takes it for salt and licks it up out of manners.
 
-He stands quite still. Then he cleans the palm thoroughly, looks into the sack to see how much more of it there is, and ties the neck himself, with a knot you would not care to have to undo.
+He stands quite still. Then he cleans the palm thoroughly, looks into the sack to see how much more of it there is, and ties the neck himself, with a knot you would not like to have to undo.
 
 "Do not give that to anybody on the way down," he says. "They will only want it."
 
@@ -118,13 +130,13 @@ He lets you know that he is called Kol and that you may walk behind him. In the 
 
 ## Unkel's water
 
-Your boots were bought for a floor. Nobody sold them to you for wet moss, and you make most of the descent sitting.
+Your boots were made for a flat floor, and you go down most of the hill sitting.
 
 There is a horse in the yard, about the size of a large pony and the colour of the hill. It looks you over as the ones at the riding school used to, and you can tell that it has come to the same view.
 
 The door of the long building is cut for people who know where the lintel is. You find out where it is.
 
-Inside it is dark and far bigger than it looked from the hill. A fire burns in a trench down the middle of the floor, a truck-length of it, and its light climbs the posts and gives up before it reaches the roof. The posts are whole trees. Somebody has carved every one of them, from the floor to as high as you can see, with beasts that bite each other and are knotted so tight you could not get a nail in between. The place smells of smoke and wet dog, of meat and of a good many people, some thirty of whom have turned to look at you. The talk stops one bench at a time, working up from the door to the far end, until the fire is the loudest thing in the room.
+Inside it is dark and far bigger than it looked from the hill. A fire burns in a trench down the middle of the floor, a truck-length of it, and its light climbs the posts and gives up before it reaches the roof. The posts are whole trees. Somebody has carved every one of them, from the floor to as high as you can see, with beasts that bite each other and are knotted so tight you could not get a nail in between. It is the best thing you have ever seen made by hand, and nobody in the room is looking at it. The place smells of smoke and wet dog, of meat and of a good many people, some thirty of whom have turned to look at you. The talk stops one bench at a time, working up from the door to the far end, until the fire is the loudest thing in the room.
 
 *(Continue)*
 
@@ -180,9 +192,9 @@ Kol informs you, at no great pains to be quiet, that this is Aud, Thorgrim's sis
 
 ## The smith's throat
 
-Across the fire a man with burned forearms has been telling his end of the bench about Unkel, and doing the voice. He does it well enough that you know it for your uncle through a brass ear and eleven hundred years. Halfway through a sentence about the ship he stops.
+Across the fire a man with burned forearms has been telling his end of the bench about Unkel, and doing the voice. He does it well. You know it for your uncle at once, through a brass ear and eleven hundred years, and you find that you have missed the sound of him. Halfway through a sentence about the ship he stops.
 
-Nobody minds at first. He has a mouthful, and a man with a mouthful is allowed to stop. Then he gets to his feet, and puts a hand flat on the board, and the other to his throat, and makes no sound at all. The man next to him laughs and thumps him between the shoulders. The smith's face has gone a colour you have seen on a plum.
+Nobody minds at first. He has a mouthful, and a man with a mouthful is allowed to stop. Then he gets to his feet, and puts a hand flat on the board, and the other to his throat, and makes no sound at all. The man next to him laughs and thumps him between the shoulders. The smith's face has gone the colour of a plum.
 
 You once spent a wet afternoon in a church hall being shown this on a rubber torso by a man called Keith. You find, to your surprise, that it took.
 
@@ -231,7 +243,7 @@ Aud comes for her spoon when you have finished with it.
 
 ## The first night
 
-The fire is banked for the night, and the hall goes to sleep around you all at once, as a barn does.
+The fire is banked for the night, and the hall goes to sleep around you all at once, as a barn does. Rain is falling on the grass over your head. It is a roof you would very much like to tell your mother about, and you have been asked not to.
 
 Kol has the sack, and is asleep on top of it. Further down the bench somebody is still explaining you to somebody else, and getting it wrong.
 

@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { loadContent } from '../tools/content-loader';
 import { validate } from '../tools/validate';
 import { runBot } from '../tools/bot';
-import { newGame, view, choose, heroAt, spreadHeroes, eraOf, standing, type GameState, type HeroChoice } from '../src/game/index';
+import { newGame, view, choose, heroAt, spreadHeroes, eraOf, standing, cluesFound, type GameState, type HeroChoice } from '../src/game/index';
 
 const content = loadContent();
 const KITS = ['bag', 'notebook', 'sack'] as const;
@@ -124,5 +124,26 @@ describe('looks and manner change the prose and nothing else (the author, 2026-1
     const src = JSON.stringify(Object.values(content.scenes).flatMap((s) => [s.requires ?? [], ...s.choices.map((c) => [c.requires ?? [], c.visible_if ?? [], c.next])]));
     for (const o of all) expect(src.includes(o), o).toBe(false);
     expect(src).not.toMatch(/looks|manner/);
+  });
+});
+
+describe('clues: things written, labelled and cut are drawn (the author, 2026-11-24)', () => {
+  const mark = (id: string) => `::clue ${id}::`;
+  it('every clue is shown by its scene, and every hero meets the letter, the note and the tally', () => {
+    const t = run(base, 'bag', 'hold');
+    for (const id of ['letter', 'note', 'ear_label', 'frame_label', 'boulder_tally']) expect(t.text, id).toContain(mark(id));
+    expect(cluesFound(content, t.state)).toEqual(['letter', 'note', 'ear_label', 'frame_label', 'boulder_tally']);
+  });
+  it('the notebook page is found only by a hero who took the notebook', () => {
+    expect(run(base, 'notebook', 'hold').text).toContain(mark('notebook_people'));
+    expect(cluesFound(content, run(base, 'notebook', 'hold').state)).toContain('notebook_people');
+    for (const kit of ['bag', 'sack']) { const r = run(base, kit, 'hold'); expect(r.text).not.toContain(mark('notebook_people')); expect(cluesFound(content, r.state)).not.toContain('notebook_people'); }
+  });
+  it('nothing is found before its scene', () => {
+    const s = newGame(content, { start: 'door', seed: 1, hero: base });
+    expect(cluesFound(content, s)).toEqual(['letter', 'note', 'ear_label', 'frame_label']);
+  });
+  it('a clue mark is always a paragraph of its own, so the screen can draw it', () => {
+    for (const s of Object.values(content.scenes)) for (const m of s.text.matchAll(/(.*)::clue [a-z_]+::(.*)/g)) expect([m[1]!.trim(), m[2]!.trim()], s.id).toEqual(['', '']);
   });
 });

@@ -7,7 +7,9 @@
 import { z } from 'zod';
 import { CORE_EFFECTS, CORE_REGISTRY, Id, makeSceneSchemas, wrapEffects, type CondInput, type CoreContent } from '@engine/schema';
 
-export { CondInputSchema, ConfigSchema, Id } from '@engine/schema';
+export { ConfigSchema, Id } from '@engine/schema';
+import { CondInputSchema } from '@engine/schema';
+export { CondInputSchema };
 export type { CondInput, Config } from '@engine/schema';
 
 /** The game module id this content belongs to (src/game/module.ts registers it). */
@@ -79,8 +81,26 @@ export interface Eras {
   kits: { bag: string; notebook: string; sack: string };
 }
 
+// ---- Clues (content/clues.yaml): things written, labelled or cut, drawn on the page ----
+export const CLUE_KINDS = ['letter', 'note', 'tape', 'page', 'carving'] as const;
+export const ClueSchema = z.object({
+  kind: z.enum(CLUE_KINDS),
+  title: z.string(),
+  lines: z.array(z.string()).min(1),
+  boxed: z.string().optional(),
+  tally: z.number().int().min(1).max(40).optional(),
+  mark: z.enum(['thumbprint']).optional(),
+  found_in: Id,
+  if: CondInputSchema.optional(),
+}).strict();
+export type Clue = z.infer<typeof ClueSchema>;
+export const CluesSchema = z.record(Id, ClueSchema);
+/** A paragraph that is nothing but this shows a clue: "::clue letter::". */
+export const CLUE_MARK = /^::clue ([a-z][a-z0-9_]*)::$/;
+
 export interface ContentBundle extends CoreContent {
   creation: Creation;
+  clues: Record<string, Clue>;
   eras: Eras;
   registry: Registry;
   scenes: Record<string, Scene>;

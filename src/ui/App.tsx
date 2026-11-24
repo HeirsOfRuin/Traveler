@@ -6,8 +6,9 @@
 // creation screen are "now", and a game is whatever era its chapter is in (content/eras.yaml).
 import { useEffect, useState } from 'preact/hooks';
 import type { ContentBundle, EraId } from '../content/schema';
-import { ERA_IDS } from '../content/schema';
-import { newGame, view, choose, startsOf, describe, heroOf, eraOf, standing, type GameState, type SceneView, type HeroChoice } from '../game/index';
+import { ERA_IDS, CLUE_MARK } from '../content/schema';
+import { Clue } from './Clue';
+import { newGame, view, choose, startsOf, describe, heroOf, eraOf, standing, cluesFound, type GameState, type SceneView, type HeroChoice } from '../game/index';
 import { toSave, fromSave, encodeSaveCode, decodeSaveCode, SAVE_KEY } from '../game/save';
 import { STORAGE_OK, lsGet, lsSet } from './storage.js';
 import { Creation } from './Creation';
@@ -25,7 +26,7 @@ const keepPage = (s: GameState, page: number) => lsSet(PAGE_KEY, JSON.stringify(
 function pageFor(s: GameState): number {
   try { const p = JSON.parse(lsGet(PAGE_KEY) ?? 'null'); return p && p.at === at(s) && Number.isInteger(p.page) ? p.page : 0; } catch { return 0; }
 }
-const paras = (t: string) => t.trim().split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).map((p) => <p>{p}</p>);
+
 
 /** Put the era's design on the page, and tell the browser's own chrome its colour. */
 function wear(era: EraId) {
@@ -48,6 +49,11 @@ function You({ content, state }: { content: ContentBundle; state: GameState }) {
 }
 
 export function App({ content }: { content: ContentBundle }) {
+  // a paragraph that is only "::clue id::" is drawn as that clue (content/clues.yaml)
+  const paras = (t: string) => t.trim().split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean).map((p) => {
+    const m = CLUE_MARK.exec(p);
+    return m ? <Clue content={content} id={m[1]!} /> : <p>{p}</p>;
+  });
   const [state, setState] = useState<GameState | null>(null);
   const [tab, setTab] = useState<'story' | 'journal' | 'menu'>('story');
   const [page, setPage] = useState(0);
@@ -95,7 +101,7 @@ export function App({ content }: { content: ContentBundle }) {
       {preview && <p class="preview" role="status"><span>Looking at {content.eras.eras[preview].label}{content.eras.eras[preview].built ? '' : '. Nothing is built there yet'}.</span><button data-act="preview-off" onClick={() => setPreview(null)}>Back</button></p>}
       <header class="hud"><span class="turn">{v.date}</span><span>{v.title}</span></header>
       {note && <p class="banner">{note} <button onClick={() => setNote(null)}>OK</button></p>}
-      <main class="panel">
+      <main class="panel"><div class="leaf" key={`${state.scene}/${page}/${tab}/${era}`}>
         {tab === 'story' && <>
           {v.outcome?.text && page === 0 && <section class="outcome">{paras(v.outcome.text)}</section>}
           {v.card && page === 0 && <section class="card"><h2>{v.card.title}</h2>{v.card.subtitle && <p>{v.card.subtitle}</p>}{v.card.epigraph && <p class="hint">{v.card.epigraph}</p>}</section>}
@@ -121,7 +127,9 @@ export function App({ content }: { content: ContentBundle }) {
         </>}
         {tab === 'journal' && <><h2>Journal</h2>{state.journal.length
           ? <ol class="journal">{[...state.journal].reverse().map((j) => <li><strong>{j.sceneTitle ?? j.scene}</strong>: {j.choice}</li>)}</ol>
-          : <p class="empty">Empty so far: every choice you make is written here.</p>}</>}
+          : <p class="empty">Empty so far: every choice you make is written here.</p>}
+          <h2>What you have found</h2>
+          {cluesFound(content, state).length ? <div class="found">{cluesFound(content, state).map((id) => <Clue content={content} id={id} />)}</div> : <p class="empty">Nothing yet.</p>}</>}
         {tab === 'menu' && <><h2>You</h2><You content={content} state={state} />
           <h2>Menu</h2><div class="stack">
           <button data-act="code" onClick={async () => { const c = await encodeSaveCode(toSave(state, content)); try { await navigator.clipboard.writeText(c); setNote('Save code copied.'); } catch { setNote(c); } }}>Save code (copy)</button>
@@ -131,7 +139,7 @@ export function App({ content }: { content: ContentBundle }) {
           <h2>The four designs</h2>
           <p class="hint">The screen wears the era you are in. Two are built; all four can be looked at.</p>
           <div class="era-tiles">{ERA_IDS.map((e) => <button data-act={`era-${e}`} class={era === e ? 'on' : ''} onClick={() => { setPreview(e === eraOf(content, state) ? null : e); setTab('story'); }}>{content.eras.eras[e].label}</button>)}</div></>}
-      </main>
+      </div></main>
       <nav class="tabs">
         {(['story', 'journal', 'menu'] as const).map((t) => <button data-tab={t} class={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t === 'menu' ? 'You' : t[0]!.toUpperCase() + t.slice(1)}</button>)}
       </nav>

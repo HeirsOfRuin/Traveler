@@ -10,13 +10,19 @@
   text: |
     You are up to the shins in heather and the rain is coming in from the side.
 
-    The frame has not come with you, nor the shed. Behind you is a boulder about the size of a grain truck, with a streak of white quartz down the face of it, and you take a good look at that streak, since it is all the address you have.
+    The frame has not come with you, nor the shed. Behind you is a boulder about the size of a grain truck, with a streak of white quartz down the face of it, and you take a good look at that streak, since it is the only way home you know about.
+
+    Somebody has been at the quartz with a nail. Cut into it, at about the height of a short man's shoulder, are a letter and a row of marks.
+
+    ::clue boulder_tally::
+
+    You count them twice. You had thought he had only done this the once.
 
     Then you turn around, and it is some time before you do anything else.
 
     The hill falls away below your boots in grey rock and rusty bracken, down to water that lies a long way under you, black-green and so still that it holds the mountains upside down. It runs inland between walls of rock that go up into the cloud and do not come out again. Across from you a waterfall hangs on the far wall, a white thread of it, too far off to hear.
 
-    There is no wire anywhere in the sky and no road cut into the other shore, and it is quieter than you knew a place could be.
+    There is no wire anywhere in the sky and no road cut into the other shore, and it is quieter than you knew a place could be. You would have liked somebody to be standing next to you, to say so to.
     [break]
     On a shelf of green by the water stands a building, longer than your uncle's shed and much lower, bowed along its length like the hull of a boat turned over. Grass is growing on the roof. Smoke leaks out along the ridge, having found no chimney, and lies down flat in the rain. Smaller roofs stand about it, and strips of field gone pale with stubble, and on the shingle below are two boats drawn up side by side. Even from this height you know the line of them, the long rise to the stem that somebody drew in one stroke.[if trait.sailor]
 
@@ -24,7 +30,7 @@
 
     The only other one you have seen was in a museum, black and cracked, propped on steel behind glass. These two are the colour of dark honey and they are wet. Whoever built them is very likely down there under the grass roof, keeping dry, and could build you a third if you had anything to pay him with.
 
-    You try your phone, which has no service and sixty-one per cent, and put it away.
+    You try your phone. It has sixty-one per cent and nobody to call, and you put it away.
 
     By now you are cold enough to notice. You get into the lee of the boulder and collect sticks, with some confidence, having lit fires before, in a pit, on a dry evening, with a firelighter. Wet heather held over the lighter gives off steam. The bark of a small bent birch does no more. You take out the note and consider it, and decide your uncle would want it kept. By the time the lighter is too hot to hold you have produced a smell.
     [break]
@@ -64,17 +70,19 @@
 
     "You measure things," he says. "Orm builds our ships and he measures nothing. He looks." He winds the tape in by hand, slowly, to see where it goes. "Orm is going to hate you."[/if]
 
-    He appears to be looking forward to it. He says he is called Kol, and he carries the bag down the hill himself, shouting before the yard is in earshot that he has found something on the mountain and that it was he who found it.[elif kit == notebook]It is open on your knee, where you had been hunting for a page about fire. The page you have instead is headed PEOPLE, and the third line of it reads: KOL. Boy, about 11. Dog. Finds everything first, tells everyone.
+    He appears to be looking forward to it. He says he is called Kol, and he carries the bag down the hill himself, shouting before the yard is in earshot that he has found something on the mountain and that it was he who found it.[elif kit == notebook]It is open on your knee, where you had been hunting for a page about fire. This is the page you have instead.
+
+    ::clue notebook_people::
 
     "You're Kol," you say.
 
     The boy stops with his hand on the dog's neck. "Who gave you my name?"
 
-    You have no answer he would like, so you hold up the book. He looks at the marks on the page as he might at the tracks of an animal he had only been told about, and he does not come any nearer to them. Further down it says THORGRIM. Runs the place. Fair. Under that is AUD. His sister. Do not bother lying to her. At the foot, in a box drawn twice round: STOP EXPLAINING THINGS. He has underlined that as well, and from the look of the paper he did it on several different days.
+    You have no answer he would like, so you hold up the book. He looks at the marks on the page as he might at the tracks of an animal he had only been told about, and he does not come any nearer to them. Your uncle has gone round the last line a good many times, you notice, and not all with the same pen.
 
     Kol goes down the hill well ahead of you and does not wait at the turns. When you reach the yard on your own, a good while after him, a number of people have found work to do near the door, and it is clear that the news has arrived and that it was about the names.[else]He looks into it and is not much struck. You tear a corner off the sugar and shake some into his palm, and he takes it for salt and licks it up out of manners.
 
-    He stands quite still. Then he cleans the palm thoroughly, looks into the sack to see how much more of it there is, and ties the neck himself, with a knot you would not care to have to undo.
+    He stands quite still. Then he cleans the palm thoroughly, looks into the sack to see how much more of it there is, and ties the neck himself, with a knot you would not like to have to undo.
 
     "Do not give that to anybody on the way down," he says. "They will only want it."
 
@@ -89,13 +97,13 @@
   title: Unkel's water
   on_enter: [ { meet: thorgrim }, { meet: aud } ]
   text: |
-    Your boots were bought for a floor. Nobody sold them to you for wet moss, and you make most of the descent sitting.[if trait.rider]
+    Your boots were made for a flat floor, and you go down most of the hill sitting.[if trait.rider]
 
     There is a horse in the yard, about the size of a large pony and the colour of the hill. It looks you over as the ones at the riding school used to, and you can tell that it has come to the same view.[/if]
 
     The door of the long building is cut for people who know where the lintel is.[if looks == tall] You find out where it is.[elif looks == broad] You go through it at an angle, as a sofa would.[elif looks == slight] You pass under it with room to spare, and it is the last thing you do all day as well as the people who live here.[/if]
 
-    Inside it is dark and far bigger than it looked from the hill. A fire burns in a trench down the middle of the floor, a truck-length of it, and its light climbs the posts and gives up before it reaches the roof. The posts are whole trees. Somebody has carved every one of them, from the floor to as high as you can see, with beasts that bite each other and are knotted so tight you could not get a nail in between. The place smells of smoke and wet dog, of meat and of a good many people, [if looks == forgettable]none of whom has turned round. You stand inside the door for long enough to learn the price of a ewe. In the end it is a small child who points.[else]some thirty of whom have turned to look at you. The talk stops one bench at a time, working up from the door to the far end, until the fire is the loudest thing in the room.[/if]
+    Inside it is dark and far bigger than it looked from the hill. A fire burns in a trench down the middle of the floor, a truck-length of it, and its light climbs the posts and gives up before it reaches the roof. The posts are whole trees. Somebody has carved every one of them, from the floor to as high as you can see, with beasts that bite each other and are knotted so tight you could not get a nail in between. It is the best thing you have ever seen made by hand, and nobody in the room is looking at it. The place smells of smoke and wet dog, of meat and of a good many people, [if looks == forgettable]none of whom has turned round. You stand inside the door for long enough to learn the price of a ewe. In the end it is a small child who points.[else]some thirty of whom have turned to look at you. The talk stops one bench at a time, working up from the door to the far end, until the fire is the loudest thing in the room.[/if]
     [break]
     Near the hearth sits a man with his sleeve pushed up and a cut across the heel of his hand. An old woman has him by the wrist, and a girl is lifting a pot off the fire between two sticks.
 
@@ -149,9 +157,9 @@
   title: The smith's throat
   on_enter: [ { meet: hrapp } ]
   text: |
-    Across the fire a man with burned forearms has been telling his end of the bench about Unkel, and doing the voice. He does it well enough that you know it for your uncle through a brass ear and eleven hundred years. Halfway through a sentence about the ship he stops.
+    Across the fire a man with burned forearms has been telling his end of the bench about Unkel, and doing the voice. He does it well. You know it for your uncle at once, through a brass ear and eleven hundred years, and you find that you have missed the sound of him. Halfway through a sentence about the ship he stops.
 
-    Nobody minds at first. He has a mouthful, and a man with a mouthful is allowed to stop. Then he gets to his feet, and puts a hand flat on the board, and the other to his throat, and makes no sound at all. The man next to him laughs and thumps him between the shoulders. The smith's face has gone a colour you have seen on a plum.
+    Nobody minds at first. He has a mouthful, and a man with a mouthful is allowed to stop. Then he gets to his feet, and puts a hand flat on the board, and the other to his throat, and makes no sound at all. The man next to him laughs and thumps him between the shoulders. The smith's face has gone the colour of a plum.
 
     [if occupation == nurse]You have done this eleven times, twice on the same patient, and you are over the bench and round the fire before you have decided to be.[else]You once spent a wet afternoon in a church hall being shown this on a rubber torso by a man called Keith. You find, to your surprise, that it took.[/if]
 
@@ -260,7 +268,7 @@
   ending: first_night
   title: The first night
   text: |
-    The fire is banked for the night, and the hall goes to sleep around you all at once, as a barn does.
+    The fire is banked for the night, and the hall goes to sleep around you all at once, as a barn does. Rain is falling on the grass over your head. It is a roof you would very much like to tell your mother about, and you have been asked not to.
 
     [if kit == bag]Your bag is under your head, and you have a hand through the strap.[elif kit == notebook]The notebook is inside your jacket, where nobody can ask to see it.[else]Kol has the sack, and is asleep on top of it.[/if] [if shown.craft >= 1]By the door, two boys are still practising the hold on each other in the dark.[elif shown.open >= 1]Further down the bench somebody is still explaining you to somebody else, and getting it wrong.[else]Nobody has lain down within an arm's length of you.[/if]
 

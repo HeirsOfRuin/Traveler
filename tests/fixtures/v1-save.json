@@ -1,10 +1,10 @@
 {
  "format": "traveler-save",
  "saveVersion": 1,
- "contentHash": "7a224d750391",
+ "contentHash": "691a32fb264a",
  "state": {
   "version": 1,
-  "contentHash": "7a224d750391",
+  "contentHash": "691a32fb264a",
   "seed": 12345,
   "rng": [
    194968149,
