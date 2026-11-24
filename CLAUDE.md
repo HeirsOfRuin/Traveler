@@ -98,18 +98,24 @@
 - A woman's route is its own route where the era demands it, not the man's
   with the pronouns changed. Every scene written for one sex of hero is read
   against the other before it is committed.
-- The author on the prose, 2026-11-22: "Keep the ai feel out of the prose, I
-  beg you", and of the first Gate A draft, "It did not have enough dry wit, but
-  I liked the way it was narrated." So: the narrator reports, drily, and the
-  wit is understatement in the reporting and in what people say. Never a short
-  line alone at the end of a paragraph for effect; never telling the reader
-  what they have just worked out; no lists of three for rhythm; no echoed
-  closing line; no joke that knows it is one. And on the prototype,
-  2026-11-24: "Make sure the prose isn't obtuse [in] it's wit. It should give a
-  chuckle at times... readable... witty and fun, while remaining full of wonder
-  and wistfulness." Readable comes first: a line that needs a second reading
-  is said straight. `content/style-guide.md` holds all of it. Read every scene
-  against it before it is committed.
+- The author on the prose, in order. 2026-11-22: "Keep the ai feel out of the
+  prose, I beg you", and "not enough dry wit, but I liked the way it was
+  narrated". 2026-11-24: "not obtuse... a chuckle at times... readable...
+  witty and fun, while remaining full of wonder and wistfulness". Then
+  2026-11-25, on the whole Norway visit, which governs: **"The narrative
+  prose is far too broken or laconic. It sounds like a robot trying to be
+  human. Make it more story like, with more flowing narrative prose. I want
+  to feel like I'm there, not like the game is telling me what my thoughts
+  are."** Chasing dryness had cut every sentence to a bare statement and
+  filled the gaps with the hero's reactions. So: tell it as a story, in
+  sentences that carry through a moment; lead with the senses; and **never
+  tell the player what they think or feel** (no "you find", "you feel", "you
+  wish", "you had thought": the lint fails them). What the hero knows is
+  given as a memory of a real thing. Wit lives in the people and in what
+  happens, not in a narrator's aside. Still never: a short line alone for
+  effect, explaining what the reader has worked out, an echoed closing line,
+  a joke that knows it is one. `content/style-guide.md` holds all of it. Read
+  every scene against it before it is committed.
 - The author on choices, 2026-11-22: "Make sure the choices are actually
   worth choosing. Every choice should lead in 3 different paths of the same
   story, not interruptive of those choices... I don't want it to ever feel

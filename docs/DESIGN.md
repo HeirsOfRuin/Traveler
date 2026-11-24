@@ -245,6 +245,22 @@ browser and looked at (`docs/shots/norway-visit.png`).
 is shown; no exposure); who the hero would court changes nothing; the four
 years; the deck.
 
+### The prose rewritten (2026-11-25)
+
+The author on the whole visit: "far too broken or laconic. It sounds like a
+robot trying to be human... I want to feel like I'm there, not like the game
+is telling me what my thoughts are."
+
+Every scene's prose was rewritten and nothing else was touched: the same 20
+scenes, 10 choices, effects, roads and clues. Scene text went from about
+11,600 words to about 13,700, and a playthrough from about 6,200 to about
+7,400. The lint has a new banned list for told thoughts (seven patterns:
+"you find", "you feel", "you wish", "you had thought" and the like). Run
+against the scenes as they were, it fails 18 times and warns 33. Against the
+rewrite: 0 errors and 5 warnings in 214 strings, four of the warnings in the
+creation screen's descriptions of the hero and in dialogue. 39 tests pass
+unchanged in what they assert; the phrases they look for were updated.
+
 ## 8. Build plan from here
 
 | Step | Delivers | Exit |

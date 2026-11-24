@@ -103,9 +103,9 @@ describe('every road, for every hero', () => {
 });
 
 describe('who was made changes what is read', () => {
-  const SHED = { welder: 'You look at the welds first', nurse: 'find the mess before you look at the patient', teacher: "you read people's shelves", engineer: 'You look at the supply first' };
+  const SHED = { welder: 'The welds catch your eye', nurse: 'a mess on a ward', teacher: 'the one that left your house two Christmases ago', engineer: 'the power supply that catches your eye' };
   const BAG = { welder: 'Hrapp is going to hate you', nurse: 'Gyda is going to hate you', teacher: 'Ulf is going to hate you', engineer: 'Orm is going to hate you' };
-  const ASH = { welder: 'He always did like a fitting', nurse: 'could not tell a good ship from a bathtub', teacher: 'a different history', engineer: 'It is a dinghy' };
+  const ASH = { welder: 'He always did like a fitting', nurse: 'A ship or a bathtub', teacher: 'a different history', engineer: 'It is a dinghy' };
   it('each occupation reads its own shed, bag and drawing, and nobody else\'s', () => {
     for (const job of Object.keys(SHED) as (keyof typeof SHED)[]) {
       const t = run(hero({ occupation: [job] })).text;
@@ -113,21 +113,21 @@ describe('who was made changes what is read', () => {
     }
   });
   it('the one who knows the trade knows the need: nurse at the bench, welder at the forge', () => {
-    expect(run(hero({ occupation: ['nurse'] }), plan({ day: 'bench' })).text).toContain('how long he has');
+    expect(run(hero({ occupation: ['nurse'] }), plan({ day: 'bench' })).text).toContain('there is perhaps a day in it');
     expect(run(hero({ occupation: ['welder'] }), plan({ day: 'bench' })).text).toContain('on the back of a packet');
-    expect(run(hero({ occupation: ['welder'] }), plan({ day: 'forge' })).text).toContain('rebuilt more bellows');
-    expect(run(hero({ occupation: ['nurse'] }), plan({ day: 'forge' })).text).toContain('cat flap');
-    expect(run(hero({ occupation: ['teacher'] })).text).toContain("You know this king's name");
-    expect(run(hero({ occupation: ['nurse'] })).text).not.toContain("You know this king's name");
+    expect(run(hero({ occupation: ['welder'] }), plan({ day: 'forge' })).text).toContain('a great many bellows through your shop');
+    expect(run(hero({ occupation: ['nurse'] }), plan({ day: 'forge' })).text).toContain('The cat flap');
+    expect(run(hero({ occupation: ['teacher'] })).text).toContain('There is a name for this king');
+    expect(run(hero({ occupation: ['nurse'] })).text).not.toContain('There is a name for this king');
   });
   it('a trait is read only by a hero who has it', () => {
     const with_ = run(hero({ traits: ['rider', 'sailor'] }), plan({ kit: 'sack' })).text, without = run(hero({ traits: ['charm', 'hunter'] }), plan({ kit: 'sack' })).text;
-    for (const line of ['There is a horse in the yard', 'the smoke agrees with you']) { expect(with_).toContain(line); expect(without).not.toContain(line); }
+    for (const line of ['A horse stands in the yard', 'the smoke agrees with you']) { expect(with_).toContain(line); expect(without).not.toContain(line); }
   });
   it('a woman is seated, sent and asked differently, and is spoken for as "she"', () => {
     const m = run(hero({}, { sex: 'male' }), plan({ day: 'forge', surety: 'word' })).text, f = run(hero({}, { sex: 'female' }), plan({ day: 'forge', surety: 'word' })).text;
-    for (const line of ['cross-bench at the far wall', 'four women sewing', 'puts a key in your hand', 'It is Aud who asks you', 'I owe her a breath']) { expect(f, line).toContain(line); expect(m, line).not.toContain(line); }
-    for (const line of ['among the dogs', 'down the length of the fire', 'I owe him a breath']) { expect(m, line).toContain(line); expect(f, line).not.toContain(line); }
+    for (const line of ['cross-bench at the far wall', 'four women bent over it', 'a long iron key with its bit snapped off', 'It is Aud who asks you', 'I owe her a breath']) { expect(f, line).toContain(line); expect(m, line).not.toContain(line); }
+    for (const line of ['and the dogs lie', 'down the length of the fire', 'I owe him a breath']) { expect(m, line).toContain(line); expect(f, line).not.toContain(line); }
     expect(run(hero({}, { sex: 'female' }), plan({ day: 'boat', surety: 'word' })).text).toContain('She held the right end');
   });
 });

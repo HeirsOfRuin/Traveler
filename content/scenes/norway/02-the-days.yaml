@@ -8,13 +8,13 @@
   checkpoint: true
   title: Unkel's kin
   text: |
-    You are woken by a dog, which has decided in the night that you are furniture.
+    A weight lands across your shins before it is light: one of the dogs, which has decided in the night that you are furniture.
 
-    The hall in the morning is grey light through the smoke and people stepping over one another. Nobody has forgotten last night. [if road.first == hold]By the fire two small boys have a third in the hold, and the old woman who poured the water is overseeing it. She has a word for it now. The word is Unkelstak, Unkel's grip, which is hard on your uncle, who never did it, and harder on you.[elif road.first == silent]You gather, from talk that nobody troubles to lower, that the stories about you were settled into one overnight. You are a healer who wrestles. You could have done worse.[else]The bench has room on either side of you this morning, as it had last night. A small girl comes over to look at your throat, and is called away.[/if]
+    Morning comes into the hall from above, a grey shaft of it falling through the smoke-hole, and people rise out of the dark and step over one another, yawning, scratching, hunting for shoes. Somebody is waking the fire with fresh birch. Nobody has forgotten last night. [if road.first == hold]Beside the hearth two small boys have a third locked in the hold, and the old woman who poured the water stands over them correcting the grip. She has a name for it now. Unkelstak, she calls it: Unkel's grip, though Unkel never laid a hand on anybody.[elif road.first == silent]Two women pass with their arms full of bedding, talking across you without lowering their voices, and from them it is plain that the stories were settled into one overnight. You are a healer who wrestles.[else]The bench is empty for an arm's length on either side of you, as it was last night. A small girl creeps up, looks hard at your throat, and is called sharply away.[/if]
 
-    Aud puts a bowl into your hands on her way past, without stopping. "Thorgrim is at the shore," she says. "He would like you to see what your kinsman left him. Eat first. You will want it in you."
+    Aud goes by with a stack of bowls and puts the top one into your hands without breaking stride. "Thorgrim is at the shore," she says over her shoulder. "He wants you to see what your kinsman left him. Eat first. You will want it in you."
 
-    Kol is waiting at the door with the dog. He has been up the hill already, since he goes up the hill every morning, and he reports that the wet smell by the white stone is fainter than it was yesterday. He says it as he might tell you a ewe was lame. You find that you do not like it.
+    Kol is in the doorway with the dog, wet with dew to the knees. He has been up the hill already, as he is every morning, and he has news: the wet smell by the white stone is fainter than it was yesterday. He reports it as he would report a lame ewe. Beyond him the rain has stopped, and the fjord lies under a lid of white mist, with the mountains standing out of it like islands.
   choices:
     - id: shore
       text: Go down to the shore.
@@ -25,23 +25,23 @@
   title: The ship that is not there
   on_enter: [ { meet: finn } ]
   text: |
-    The boat shed is open at both ends, like your uncle's, and smells of tar and new wood.[if hero.sex == female] Half of it is given over to a sail, a great brown weight of wool laid across three trestles, with four women sewing at it. They look up together, like one animal with eight eyes. There is an empty stool at the fourth trestle.[/if]
+    The boat shed stands open at both ends, like your uncle's, and the morning comes straight through it. It smells of pine tar and fresh-cut oak, and the floor is soft underfoot with years of shavings.[if hero.sex == female] Half the shed has been given over to a sail: a huge brown weight of wool laid across three trestles, with four women bent over it, their needles flashing. They look up all together, like one animal with eight eyes. There is an empty stool at the fourth trestle.[/if]
 
-    [if hero.sex == female]In the other half lies your uncle's ship.[else]In the middle of it lies your uncle's ship.[/if] It is a keel, a stem, a stern and four planks up each side, and there it stops. Grass has not had time to grow through it, but something has made a nest in the bow.
+    [if hero.sex == female]In the other half lies your uncle's ship.[else]And there in the middle of it lies your uncle's ship.[/if] There is a keel, as long as the hall is wide, with a stem curving up at one end and a stern at the other, and four planks rising on each side, overlapping like the feathers of a wing. After that there is nothing. The oak has silvered where the weather reached it. In the bow, on a bed of dry grass, a wagtail has built a nest.
 
-    "Orm laid it at midsummer," Thorgrim says. "Your kinsman stood where you are standing and told him where everything went. Orm has built ships since before I had a beard. He did as he was told as far as the fourth plank. Then he put down his axe, and said he would not put another on a thing he could not see in his head." He nods at a big grey man at the far end of the shed, who is fitting a rib and does not look round. "I have paid for the oak."
+    "Orm laid it at midsummer," Thorgrim says. "Your kinsman stood where you are standing and told him where everything went. Orm has built ships since before I had a beard. He did as he was told as far as the fourth plank. Then he put down his axe, and said he would not lay another on a thing he could not see in his head." He nods toward a big grey man at the far end of the shed, who is fitting a rib and does not look round. "I have paid for the oak."
 
-    On a flat stone by the keel is a wooden bowl, upside down. Thorgrim lifts it off as you would lift a lid to show a guest the dinner.
+    A wooden bowl sits upside down on a flat stone beside the keel. Thorgrim crouches and lifts it away with both hands, gently, like the lid from a dish.
 
     ::clue ash_drawing::
 
     "Nobody has been allowed to sweep there," he says.
     [break]
-    [if occupation == engineer]You know it at once, because you drew it yourself, at about ten, on the back of an exercise book. It is a dinghy. He has given a ship of this size the sail off a holiday boat, and nothing under the water to stop it going sideways. It would sail into the wind for as long as it took to fall over.[elif occupation == welder]You cannot say whether it would sail. You can say that the mast in the drawing is held up by four fittings that would each need a lathe to make, and that he has drawn them with some love. He always did like a fitting.[elif occupation == nurse]You could not tell a good ship from a bathtub. You do know the hand. He has drawn the wind as an arrow, and you are quite sure that if the ash had been finer he would have labelled it.[else]You have seen that sail in books, on boats from seas a long way south of here. Nobody on this coast has seen it, and from what you remember nobody on this coast will take it up for a very long time. He has not so much promised Thorgrim a ship as a different history.[/if]
+    [if occupation == engineer]It is a dinghy. The lines in the ash are the lines every ten-year-old draws on the back of an exercise book: a triangle of sail set fore and aft, a mast, a hull like a slice of melon. He has given a ship of this size the rig of a holiday boat, and drawn nothing at all below the waterline to stop it sliding sideways. A thing built to that drawing would sail into the wind for exactly as long as it took to fall over.[elif occupation == welder]Whether it would sail is anybody's guess. But the mast in the drawing is stayed with four fittings, and he has taken trouble over them: his fingertip has gone back to square the shoulders of each one. Every one of them would need a lathe. He always did like a fitting.[elif occupation == nurse]A ship or a bathtub, it is all one to you. But the hand is unmistakable. He has drawn the wind as an arrow with a little barb at the tip, exactly as he draws arrows on the notes he leaves on his own fridge, and if ash would take lettering he would have labelled it.[else]That sail is in books. It belongs to boats from seas a long way south of here, lean boats with their canvas set along the hull instead of across it. Nobody on this coast has ever seen one, and by every account nobody on this coast will build one for a very long time to come. What he promised Thorgrim was not so much a ship as a different history.[/if]
 
-    "Three days," Thorgrim says. "Orm says the weather holds three days, and after that nothing is built until spring. You are his kin. Go where you can be of use, and at the noon meal tell me what kind of use it was."
+    Thorgrim sets the bowl back over the drawing. "Three days," he says, straightening. "Orm says the weather holds three days, and after that nothing is built until spring. You are his kin. Go where you can be of use, and at the noon meal tell me what kind of use it was."
 
-    He goes. You are left with the keel, and the rest of his farm.
+    His footsteps go away up the shingle. The wagtail comes back to the bow with something in its beak. From the forge across the yard comes the ring of a hammer, and from the south wall of the hall a thread of steam, where the cloths are boiling.
   choices:
     - id: boat
       text: Stay in the boat shed.
@@ -60,25 +60,25 @@
   chapter: norway
   title: The fifth plank
   text: |
-    There is a young man under the keel with an adze, taking off shavings as long as your arm. He comes out when the light changes, looks at you, and then looks at your hands, which is evidently what people here do first.
+    A young man is lying under the keel with an adze, and long pale shavings are curling away from the blade and falling on his chest. He slides out when your shadow crosses him. He looks at your face, and then at your hands, as everyone here does.
 
     "Finn," he says. "Orm's son. You are the other one."
 
     "The other one."
 
-    "Unkel's. He stood there for a month and told my father how a ship is built." He says it without heat. "My father has not been the same since. I thought it was the best month we ever had."
+    "Unkel's. He stood where you are for a month and told my father how a ship is built." There is no heat in it. He brushes the shavings from his shirt. "My father has not been the same since. I thought it was the best month we ever had."
 
-    He builds, you find, by looking. There is no drawing in the shed and no measure.[if occupation == engineer] You put the tape back in your pocket.[/if] He holds a plank against the last one, looks along it with one eye shut, takes it away, and removes a sliver you would not have known was there. Then it fits along its whole length, to the thickness of a hair. He has cut a mark in the door post for every plank that went on the first time.
+    There is not a drawing in the shed, nor a rule, nor so much as a length of knotted string.[if occupation == engineer] The tape measure stays in your pocket.[/if] Finn takes up a plank and offers it to the one below, and shuts one eye, and looks along the seam with the other for the space of a breath. Then he takes the plank away and shaves off a sliver no thicker than a fingernail. When he offers it up again the two edges meet along their whole length, and the morning light that was showing between them goes out like a candle. On the door post beside him is a row of cuts, one for every plank that has gone on at the first try.
 
     ::clue finn_tally::
     [break]
-    "You may hold that end," he says.[if hero.sex == female] The women at the sail stop sewing, to see whether you will.[/if]
+    "You may hold that end," he says.[if hero.sex == female] At the trestles the needles stop.[/if]
 
-    You hold that end. It is the fifth plank, the one his father would not put on, and Finn is putting it on because nobody has told him not to. It is green oak, split and not sawn, and it has to take a twist toward the stem. Halfway round the twist it speaks. A crack starts at the edge by the third rivet hole and opens toward the middle of the plank, a finger's length, and stops there to think about it.
+    The plank is green oak, split from the log along its own grain, heavy and cool and smelling like a cut apple. It is the fifth, the one his father would not lay, and Finn is laying it because nobody has told him not to. It has to take a twist as it comes round to the stem. He leans on it, and the wood creaks, and gives, and creaks again. Then it speaks: one flat crack, like a branch breaking. A split has opened at the edge beside the third rivet hole. It runs a finger's length toward the heart of the plank, pale and clean, and stops.
 
-    Finn says a word the brass ear lets through untouched.
+    Finn says a word. The brass ear lets it through untouched.
 
-    [if occupation == welder]You know cracks. A crack runs because its end is sharp, and you stop it by making the end round: you drill a hole just ahead of it, and it has nowhere left to go. You have done it on a stock trailer and on a fuel tank, and once on your own truck.[elif occupation == engineer]You know cracks. A crack runs because its end is sharp, and you stop it by making the end round: a hole drilled just ahead of it, and it has nowhere left to go. You once wrote four pages recommending this for a footbridge, and a man with a drill did it in a morning.[else]You once watched a man in a garage do this to a crack in a windscreen. He drilled a small hole just ahead of the end of it, and the crack ran into the hole and stopped, having nowhere sharp left to go. It cost forty dollars, and you thought at the time that it was a trick.[/if]
+    [if occupation == welder]A crack travels because its tip is sharp. Take away the sharpness and it has nowhere to go: one hole, drilled just beyond the end. It worked on a stock trailer, and on a fuel tank, and one winter on the frame of your own truck, lying on cardboard in the snow.[elif occupation == engineer]A crack travels because its tip is sharp. Take away the sharpness and it has nowhere to go: one hole, drilled just beyond the end. There are four pages of yours in a filing cabinet somewhere recommending exactly that for a footbridge, and a man with a drill did it in a morning.[else]There was a garage once, and a crack creeping across a windscreen, and a man in overalls who put a tiny drill to the glass just beyond the end of it. The crack ran into the hole he had made and stopped dead, with nowhere sharp left to go. Forty dollars. It had looked like a conjuring trick.[/if]
   choices:
     - id: craft
       text: Tell him your people bore a hole at the end of a crack, to give it somewhere to stop.
@@ -86,17 +86,17 @@
       text_after: |
         "Where I come from, we bore a hole at the end of a crack," you say. "Just past it. It gives it somewhere to stop."
 
-        Finn looks at the crack and then at you. He takes the auger down himself, sets it a thumb's width past the end, and turns it through. Then he leans on the plank. The crack walks into the hole and stays there.
+        Finn looks at the split, and then at you, for a long moment. Then he reaches up for the auger himself. He sets the point a thumb's width beyond the end of the crack and turns it through, the shavings spiralling out, and when he puts his weight on the plank again the split creeps forward into the hole, and stays there.
 
-        "Somewhere to stop," he says. He tries the words over, to hear how they will sound when he says them to his father. By the time the plank is riveted he has decided that the hole blinds the crack, so that it cannot see where to go next, and he tells you so, as a thing you might like to know.
+        "Somewhere to stop," he says, and then again, more slowly, trying the words out for his father before his father is there to hear them. By the time the rivets are clenched he has it worked out to his own satisfaction: the hole blinds the crack, so that it cannot see which way to run. He tells you this kindly, as a thing you may not have known.
       next: n_skald
     - id: open
       text: Take the auger off the wall and bore it.
       effects: [ { present: open }, { add: { counter.place: 1, counter.talk: 1 } } ]
       text_after: |
-        You take the auger down from its peg, set it a thumb's width past the end of the crack, and turn it through. Then you lean on the plank. The crack walks into the hole and stays there.
+        The auger hangs on a peg by the door post. You take it down, set the point a thumb's width beyond the end of the crack, and turn it through, with the pale shavings spiralling out over your knuckles. Then you lean on the plank. The split creeps forward into the hole, and stays there.
 
-        Finn watches all of it and says nothing. He rivets the plank. Some time later a second one starts to go, further along, and he has the auger off the wall before you have moved. He bores it himself, a thumb's width past the end. He does not look at you while he does it, and you can tell from the back of his neck that he would like to.
+        Finn has watched every turn of it without a word. He drives the rivets. A while later, further along, a second plank begins to go with the same flat crack, and the auger is in his hands before you have straightened up. He bores the hole himself, a thumb's width beyond the end. He does not look round while he does it. The back of his neck has gone red.
       next: n_skald
     - id: explain
       text: Tell him why a crack runs.
@@ -104,9 +104,9 @@
       text_after: |
         "It runs because the end of it is sharp," you say. "All the pull in the plank comes to that one point, and the point tears. Make the end round, and the pull is spread about, and there is nothing to tear."
 
-        Finn hears every word. You can see it going in. "Sharp," he says, and feels the end of the crack with his thumbnail.
+        Finn has gone very still. His lips move on the word. "Sharp," he says, and he lays his thumbnail against the tip of the crack as if it might cut him.
 
-        "Wood has no pull in it," says Orm, from the far end of the shed, without turning round. "It has grain. Bore your hole." Somebody laughs. Finn bores the hole, and the crack walks into it and stops, and nobody in the shed but Finn looks as if that had proved anything.
+        "Wood has no pull in it." Orm has not turned round. His voice comes down the length of the shed like a plank being dropped. "It has grain. Bore your hole." Somebody laughs. Finn bores the hole. The split creeps into it and stops, and in all the shed his is the only face that changes.
       next: n_skald
 
 - id: n_bench
@@ -114,25 +114,25 @@
   title: Hild's stick
   on_enter: [ { meet: hild } ]
   text: |
-    The cloths are boiled at a bench against the south wall of the hall, out of the wind. The old woman from last night is feeding a fire under the pot, and a younger one is hanging what comes out of it along a rail.
+    Against the south wall of the hall, out of the wind, a fire burns under an iron pot, and the steam goes up white into the morning. The old woman from last night is feeding it with split birch. Beside her a younger woman is lifting strips of linen out of the boil on a forked stick and laying them along a rail to dry, where they smoke gently in the sun.
 
-    The old woman is Gyda. She looks at you as a cat looks at a second cat.
+    The old woman is Gyda. She looks at you once, as one cat looks at another across a yard.
 
-    The younger one is called Hild, and she has a stick.
+    The younger is called Hild. She is perhaps twenty, with a burn-scar on one wrist and her hair tied back in a rag, and thrust through her belt, where another woman would carry a distaff, is a stick.
 
     ::clue hild_stick::
 
-    "That edge is the ones we washed with the boiled water," she says. "This edge is the ones we did not, before he came. A cut for every wound, and a cross-cut through it if it went bad." She turns it over for you. One edge has a good many cross-cuts and the other has two. "Gyda says it was the weather. I think weather would be on both edges."
+    "This edge is the ones we washed with the boiled water," she says, running her thumb along it. "That edge is the ones we did not, before he came. A cut for every wound. A cross-cut through it if the wound went bad." She turns the stick in the light. One edge is crowded with crosses. The other has two. "Gyda says it was the weather. I think weather would be on both edges."
 
-    [if occupation == nurse]You sat through three days of lectures on how to do what she has done with a knife and a stick, and you would not have thought of the stick.[else]It takes you a moment. Then you see that she has done, with a knife and a stick, the thing your own people needed several hundred years and a great many dead to think of.[/if]
+    [if occupation == nurse]Three days of lectures, a textbook as thick as a brick and an examination went into teaching you what she has done here with a knife and a stick.[else]Somewhere far ahead of this morning there are men in wigs, and hospitals full of the dead, and several centuries of argument, before anybody thinks to do what she has done here with a knife and a stick.[/if]
 
-    "Nobody asked you to keep that," Gyda says.
+    "Nobody asked you to keep that," Gyda says, without looking up from the fire.
 
     "No," says Hild.
     [break]
-    A woman comes across the yard carrying a child of about three, who is too quiet. He has had a fever for two days, and the flux with it, and this morning he stopped crying, which his mother took for a good sign. His eyes have gone back in his head. Gyda feels his belly and calls for ale with an egg in it.
+    A woman is coming across the yard with a child in her arms. He is three years old, perhaps, and he lies against her shoulder without holding on. Two days of fever, she says, and the flux with it; and this morning he stopped crying, and she was glad. His lips are cracked. His eyes have sunk back into their sockets, and the skin of his arm, when Gyda pinches it, stays pinched. Gyda presses his belly and calls for ale with an egg beaten into it.
 
-    [if occupation == nurse]You know what you are looking at, and how long he has. It is not the fever. He is running dry. Water with salt and something sweet in it, a spoonful at a time, all day, and most of them live.[else]You know this one, as it happens. It is printed on the back of a packet in every chemist's you have ever stood in. Water, salt and something sweet, a spoonful at a time, all day. It is not the fever that takes them. They run dry.[/if]
+    [if occupation == nurse]The fever is not what is killing him. He is drying out, and there is perhaps a day in it. Water, with salt and something sweet, a spoonful at a time from now until dark: most of them come back.[else]It is printed on the back of a packet in every chemist's shop at home, with a little drawing of a spoon: water, salt, something sweet, a little at a time, all day. It is never the fever that takes them. They dry out.[/if]
   choices:
     - id: craft
       text: Tell them it is your grandmother's cure.
@@ -140,50 +140,50 @@
       text_after: |
         "My grandmother had a cure for this," you say. "Boiled water, honey, and a pinch of salt. A spoon at a time, for as long as he'll take it."
 
-        Gyda has been giving honey for the flux for forty years, and says so. The salt she does not hold with. But a grandmother is an authority she can recognise, having been one for some time, and she lets Hild mix it. The child takes a spoonful, and then another. By noon he has taken half the cup, and his mother has remembered to sit down.
+        Gyda has given honey for the flux for forty years, and says so, at some length. Salt she does not hold with. But a grandmother is an authority she understands, being one, and after a moment she jerks her chin at Hild, and Hild mixes the cup. The child's mouth opens for the first spoon like a bird's. Then for the second. The sun climbs the wall. By noon half the cup is gone, and the mother has slid down with her back against the warm stones and her eyes shut.
 
-        "Whose grandmother?" Hild asks you quietly, cutting the stick. She has started a third edge.
+        "Whose grandmother?" Hild says, very low, with the knife already moving on the stick. She has begun a third edge.
       next: n_skald
     - id: open
       text: Mix it, and start spooning.
       effects: [ { present: open }, { add: { counter.place: 1, counter.talk: 1 } } ]
       text_after: |
-        You take a cup of the boiled water from the bench, stir in honey from Gyda's own crock and a pinch from the salt box, and sit down by the child with the horn spoon you were lent last night. Nobody stops you. It is quite clear that somebody would, if the child had anyone better.
+        There is a cup on the bench. You fill it from the pot of boiled water, stir in a thumb of honey from Gyda's own crock and a pinch from the salt box, and sit down on the ground beside the child with the horn spoon from last night. Nobody stops you. Gyda's hand comes halfway up, and goes down again.
 
-        He takes a spoonful, and then another. You go on. By noon he has taken half the cup. Gyda has watched every spoon go in and said nothing, and when the mother asks her what the stranger is giving him she says, "Honey," which is a third of the truth, and the third she can stand behind.
+        His mouth opens for the first spoon like a bird's. Then for the second. The sun climbs the wall. By noon half the cup is gone. Gyda has watched every spoonful go in, with her arms folded, and when the mother asks her in a whisper what the stranger is giving him she says, "Honey," which is a third of the truth, and the third she can stand behind.
 
-        Hild cuts her stick. She has started a third edge.
+        Hild's knife is moving on the stick. She has begun a third edge.
       next: n_skald
     - id: explain
       text: Tell Hild what is happening inside him.
       effects: [ { present: explain }, { add: { counter.talk: 2 } } ]
       text_after: |
-        You say it to Hild, since she is the one with the stick. "It isn't the fever that kills them. Everything is running out of him, and he's drying up. The water puts it back. The salt makes the water stay, and the honey gets the salt in."
+        You say it to Hild, because she is the one with the stick. "It isn't the fever that kills them. Everything is running out of him, and he's drying up. The water puts it back. The salt makes the water stay, and the honey gets the salt in."
 
-        She does not look at you as the hall did last night. She looks at the child, and then at the cup, and you can see her laying the one against the other. "Drying," she says. "Like fish."
+        She does not look at you as the hall did last night. Her eyes go to the child's cracked lips, and to the cup, and back, measuring one against the other. "Drying," she says slowly. "Like fish."
 
-        "Like fish," Gyda says, a good deal louder, to the mother and to the yard. "He says your boy is drying like a fish." The mother takes the child back onto her own knee. It is Hild who mixes the cup in the end, and Hild who spoons it, and she does it exactly as you said. By noon he has taken half of it. You are standing by the wall.
+        "Like fish," says Gyda, and her voice carries to the far side of the yard. "He says your boy is drying like a fish." The mother's arms tighten, and she turns the child away against her own body. So it is Hild who mixes the cup, and Hild who kneels and spoons it, a little at a time, exactly as it was said. By noon half of it is gone. The stones of the wall are warm against your back, where you have been standing all morning.
       next: n_skald
 
 - id: n_forge
   chapter: norway
   title: The bellows
   text: |
-    [if hero.sex == female]Aud catches you in the yard and puts a key in your hand, a long iron one with its bit snapped off. "Hrapp can mend that," she says, "and you can wait while he does." It is your first sight of how she gets a person through a door.
+    [if hero.sex == female]Aud is crossing the yard with a basket on her hip, and she changes direction without slowing. Something cold and heavy is pressed into your hand: a long iron key with its bit snapped off. "Hrapp can mend that," she says, "and you can wait while he does." Then she is gone, and there is a reason for you to be standing at the door of the forge.
 
-    [/if]The forge stands apart from everything that can burn. Hrapp is at the anvil when you come in, and he does not stop. He is hoarse this morning. Each time he swallows, he remembers you.
+    [/if]The forge sits by itself at the edge of the yard, well away from anything that might catch, a low stone hut with a roof of turf and a doorway black with soot. Heat comes out of it like breath. Inside, Hrapp is at the anvil with a bar of iron glowing orange in the tongs, and he does not stop for you. The hammer rises and falls. His voice, when it comes, is a rasp. He swallows, and winces, and his eyes flick to you and away.
 
-    "I am alive," he says at last, to the iron. "I had noticed. You need not have come to see."
+    "I am alive," he says to the iron. "I had noticed. You need not have come to see."
 
-    There is a boy on the bellows, of about Kol's size and a good deal quieter, and there is something wrong with the bellows. They wheeze. The boy pumps twice for every breath the fire gets.
+    A boy works the bellows in the corner, about Kol's size and a great deal quieter. Something is wrong with them. Each stroke ends in a wheeze, and the coals brighten only on every second one, so that he is pumping twice for each breath the fire draws, with the sweat running off his chin.
 
-    "Your kinsman mended those," Hrapp says. "They were not broken. He put a tongue of leather inside, so that the air would go one way only, and for a month they blew like the north wind and he told me about it daily. Now the tongue sticks." He turns the iron. "I have kept a count of what he owes this forge."
+    "Your kinsman mended those," Hrapp says. The hammer comes down. "They were not broken." It comes down again. "He put a tongue of leather inside, so that the air would go one way only, and for a month they blew like the north wind, and he told me about it daily. Now the tongue sticks." He turns the bar in the coals. "I have kept a count of what he owes this forge."
 
     ::clue hrapp_marks::
 
-    The first cut, the boy tells you, is the sign that starts your uncle's name. The rest are days.
+    The first cut is the sign that begins your uncle's name, the boy says, barely moving his lips. The rest are days.
     [break]
-    [if occupation == welder]You have rebuilt more bellows than you can count. The leather has dried, curled at the edge and caught. It wants taking out, working with fat and putting back with a stitch at the hinge, and it is a quarter of an afternoon's work.[else]You get your head down by the bellows and look. Inside the wooden throat is a flap of leather, hinged at the top. It has dried out and curled, and it is catching on its own edge. You have a cat flap at home that does the same every winter. It wants fat, and a stitch at the hinge.[/if]
+    [if occupation == welder]There have been a great many bellows through your shop. The sound of this one tells the whole story: leather gone dry, curled at the edge, catching on the rim of its own hole. Out, a palmful of fat worked into it, one stitch at the hinge, back in. A quarter of an afternoon.[else]Down on one knee beside the bellows, with your cheek almost on the wood, there is a hole to look through, and inside the throat a flap of leather hanging from a hinge. It has dried and curled like a dead leaf, and at each stroke its edge catches on the rim. The cat flap in your own back door does exactly this every winter. Fat, and a stitch at the hinge.[/if]
   choices:
     - id: craft
       text: Tell him your people grease the tongue at every new moon.
@@ -191,17 +191,17 @@
       text_after: |
         "At home we grease the tongue at every new moon," you say. "Then it never dries."
 
-        "Every new moon," says Hrapp. It is the kind of thing he can do something with. A man can remember a new moon. He sends the boy for the tallow, and you take the tongue out, work the fat into it and stitch it back, and the bellows fetch one long clean breath and the fire goes white.
+        "Every new moon." Hrapp lets the hammer rest on the anvil. It is the kind of thing a man can do something with; anybody can remember a moon. He sends the boy running for tallow. The leather comes out as stiff as bark and goes back supple, with a stitch at its hinge, and at the first stroke the bellows draw one long clean breath and the coals go from orange to white.
 
-        "He never said anything about the moon," Hrapp says. He sounds almost cheated.
+        Hrapp stands looking at them. "He never said anything about the moon," he says, and he sounds almost cheated.
       next: n_skald
     - id: open
       text: Take it out, grease it, and put it back.
       effects: [ { present: open }, { add: { counter.place: 1, counter.talk: 1 } } ]
       text_after: |
-        You pull the peg from the throat of the bellows, draw out the leather, and hold out your hand toward the boy until he works out that what you want is the tallow. You work the fat in, put a stitch at the hinge with Hrapp's own awl, and peg it back. The bellows fetch one long clean breath and the fire goes white.
+        The peg comes out of the throat of the bellows with a twist. The leather behind it is as stiff as bark. You hold out an open hand toward the boy and wait, and after a moment he understands, and comes back at a run with a lump of tallow. The fat goes in under your thumbs until the leather bends like a glove. A stitch at the hinge, with an awl from Hrapp's own bench. The peg goes home. At the first stroke the bellows draw one long clean breath, and the coals go from orange to white.
 
-        Hrapp looks at the fire. He looks at you. "He would have talked through the whole of that," he says. It is the nearest thing to thanks that the forge has in it, and the boy stares at him.
+        Hrapp looks at the fire. Then he looks at you. "He would have talked through the whole of that," he says. The boy's mouth falls open. It may be the kindest thing that has ever been said in that forge.
       next: n_skald
     - id: explain
       text: Tell him why it sticks.
@@ -209,11 +209,11 @@
       text_after: |
         "It sticks because the leather has dried," you say. "When it dries it curls, and the curl catches the edge of the hole. The air is pushing it the right way. It just can't get past itself."
 
-        Hrapp puts the hammer down, which he has not done since you came in.
+        The hammer comes down on the anvil and stays there. It is the first time it has been still since you came in.
 
-        "He explained it too," he says. "He explained the bellows, and he explained the fire. And then one night he went down the hall and explained to my brother why his boy was dead." He picks the hammer up again. "Grease it or leave it. Do not tell me about it."
+        "He explained it too," Hrapp says. "He explained the bellows, and he explained the fire. And then one night he walked down the hall and explained to my brother why his boy was dead." His hand closes on the hammer again. "Grease it or leave it. Do not tell me about it."
 
-        You grease it. The bellows fetch one long clean breath and the fire goes white, and neither of you says a word about that.
+        So you grease it, in silence, with the boy holding the tallow. At the first stroke the bellows draw one long clean breath, and the coals go from orange to white, and the hammer begins again.
       next: n_skald
 
 - id: n_skald
@@ -222,37 +222,37 @@
   title: The skald
   on_enter: [ { meet: eyvind } ]
   text: |
-    The noon meal is cold, and eaten where people happen to be. [if counter.place >= 3]A girl brings yours to you, which you understand does not happen to everybody.[else]You fetch your own from a board by the door, after the dogs have been spoken to.[/if] Thorgrim asks what kind of use you were. [if road.day == boat]You say you held the end of a plank. Finn, from down the bench, says it was the right end.[elif road.day == bench]You say you fed a child with a spoon. Gyda says, across you, that it was her honey.[else]You say his smith's bellows are blowing. Hrapp, who has come up for his meat, says that this is so, and takes the meat away to eat somewhere else.[/if]
+    At noon the food is cold, and people eat it wherever they happen to be standing. [if counter.place >= 3]A girl carries yours across the yard to you on a board, and two men by the wall watch her do it.[else]Yours is on a board inside the door, where the dogs have had to be spoken to about it.[/if] Thorgrim comes down from the high end with a rib of mutton in his fist, and wants to know what kind of use you were. [if road.day == boat]You held the end of a plank, you tell him. Finn, from further down the wall, says it was the right end.[elif road.day == bench]You fed a child with a spoon, you tell him. Gyda says, across you, that it was her honey.[else]His smith's bellows are blowing, you tell him. Hrapp, who has come up for his meat, says that this is so, and carries the meat away to eat it somewhere else.[/if]
 
-    Then the dogs all get up at once, and a man walks in out of the rain as a man walks into his own house.
+    That is when every dog in the yard stands up at once. A man is coming down off the hill path through the last of the mist, and he walks into the yard, and across it, and in at the door of the hall, as a man walks into his own house.
 
-    He is thin, and wet to the thigh, and he has a staff, and a hat he does not take off until he has been looked at in it. The hall is pleased to see him as a hall is pleased to see a pedlar. He has things they want, and they will have to feed him.
+    He is as lean as a rake, and wet to the thighs. He carries a staff, and he wears a broad hat, which he keeps on until everybody has had a good look at him in it. The hall's welcome is the welcome a pedlar gets: glad, and a little wary, because he has things they want and they will have to feed him for them.
 
-    "Eyvind," Kol tells you. "He goes between the halls and says who is dead."
+    "Eyvind," Kol says at your elbow. "He goes between the halls and says who is dead."
     [break]
-    He says, when he has a horn in his hand, that the king's ships are at the mouth of the next fjord but one. He counted eleven. They are taking a tenth of what each farm has, and the names of the men on it. Then he says that he made a verse on the way over the hill, and would the hall like it, and the hall would.
+    With a horn of ale in his hand and the steam rising off his cloak, Eyvind gives them the news. The king's ships are lying at the mouth of the next fjord but one. He counted eleven. From every farm they are taking a tenth of what it has, and the names of the men who work it. He lets that settle. Then he says that a verse came to him on the way over the hill, and would the hall care to have it, and the hall would.
 
-    You do not follow all of it. The brass ear does what it can, and gives up where the poetry starts. But you follow enough. It is about a short man from the south with soft hands, who promised a great lord a ship that would outrun the wind, and ate the lord's mutton for a summer, and went into a stone. The hall enjoys it a great deal, Thorgrim least.
+    His voice changes when he begins. It drops, and rings, and the lines come in pairs with a beat like oars. The brass ear clicks and stumbles and falls behind, and whole phrases arrive as nothing but noise. But enough comes through. There is a short man from the south, soft in the hands. He promises a great lord a ship that will outrun the wind. He eats the lord's mutton for a summer. He walks into a stone. All down the benches people are rocking with laughter and wiping their eyes, and the only still face in the hall is Thorgrim's.
 
-    Afterwards he comes and sits by you, since you are the newest thing in the room.
+    When it is done he comes and folds himself onto the bench beside you, smelling of wet wool and the road.
 
-    "You are the kinsman," he says. "I will want something for the next hall. They will ask me what came after the short man. What came after him?"
+    "You are the kinsman," he says. "I will want something for the next hall. They will ask me what came after the short man." He turns the empty horn in his fingers. "What came after him?"
   choices:
     - id: truth
       text: "Tell him the truth: a shed, a door, a letter."
       effects: [ { road: { verse: truth } }, { add: { counter.talk: 1 } } ]
       text_after: |
-        You tell him. A shed, two days' ride from any sea. A door with no wall round it. A letter. He listens to the end and does not once stop you, and afterwards he sits for a while, moving his lips.
+        So you tell him. A shed, two days' ride from any sea. A door standing in the middle of the floor with no wall round it. A letter. He does not interrupt once. When it is finished he sits looking at the fire, and his lips are moving.
 
-        "A door in a stone," he says. "With no house to it. And a man goes in at one side and does not come out at the other." He is counting on his fingers. "Nobody will believe it. It scans, though." You have the feeling that you have just become a poem, and that it will be told for some time to people who take it for a riddle.
+        "A door in a stone," he says at last. "With no house to it. A man goes in at one side and does not come out at the other." He is counting something off on his fingers. "Nobody will believe a word. It scans, though." He is already humming. Somewhere along this coast, for years to come, children are going to be asked it as a riddle.
       next: n_counsel
     - id: better
       text: Give him something better.
       effects: [ { road: { verse: better } }, { add: { counter.place: 1 } } ]
       text_after: |
-        You tell him you came by sea, from a country so far south that the ships have two masts, to find a kinsman who had wandered. It is not much of a lie. He improves it while you watch. By the time he has finished his horn there are three ships, and you have left a great house to come, and your kinsman is a kind of holy fool that your people are bound to look after.
+        You came by sea, you tell him. From a country so far to the south that the ships carry two masts. You are looking for a kinsman who wandered off. He nods along, and has begun improving it before you have finished. By the bottom of his next horn there are three ships. You left a great house to come. Your kinsman is a kind of holy fool, and your people are bound by an old law to fetch such men home.
 
-        "That one will travel," he says. He seems to think he has done you a kindness, and he may have.
+        "That one will travel," he says, and claps you on the knee, well pleased with both of you.
       next: n_counsel
     - id: none
       text: Tell him to ask again when you have done something.
@@ -260,22 +260,22 @@
       text_after: |
         "Ask me again when I've done something," you say.
 
-        He looks you over. "That is what the good ones say," he says, "and also the ones who never do anything." He makes a verse anyway, since a skald cannot leave a hall with a hole in his news. In it you are tall, and silent, and came out of the stone at night, and nobody knows what you want. Kol has it by heart before supper.
+        His eyebrows go up under the brim of the hat. "That is what the good ones say," he says. "Also the ones who never do anything." But a skald cannot walk out of a hall with a hole in his news, and by evening there is a verse regardless. In it you are tall, and silent. You came out of the stone at night. Nobody knows what you want. Kol has it by heart before supper, and is saying it to the hens.
       next: n_counsel
 
 - id: n_counsel
   chapter: norway
   title: The king's tenth
   text: |
-    That evening nobody plays at anything. The fire is built up, the children are sent to the far end, and the hall talks about the king.
+    Nobody brings out the gaming boards that evening. The fire is built up until the carved beasts on the posts seem to move, the small children are herded to the far end, and the hall talks about the king.
 
-    There are three things a hall can do, and each has a bench to itself. Bjorn and the older men are for paying. A tenth is a tenth, and they have had worse winters. The young men round Finn, Orm's son, are for the shore and the axes, since eleven ships is not so very many, and Thorgrim lets them say it twice before he asks which of them has ever seen eleven ships. And there is a third thing, said quietly, mostly by the women: that there is land in the west, a summer's sail past the islands, with nobody on it at all. Hild, who helps Gyda with the cloths, says it loudest. Eyvind has met a man who wintered there.
+    There are three things a hall can do, and by the time the first horn has gone round each of them has a bench to itself. Bjorn and the grey heads are for paying. A tenth is a tenth, and there have been winters that took more. The young men round Finn, Orm's son, are for the shore and their axes, since eleven ships is not so very many, and Thorgrim lets them say it twice before he asks, mildly, which of them has ever seen eleven ships. And then there is the third thing. It is said low, and mostly from the women's bench, and Hild, who helps Gyda with the cloths, says it loudest: that there is land in the west. A summer's sail beyond the islands. Grass to the knee, and rivers full of fish, and not one soul living on it. Eyvind, by the fire, has met a man who wintered there.
 
-    That is what the ship is for. You had thought he wanted to fight in it. He wants to leave in it, with the wind against him and the king behind.
+    So that is what the ship is for. Not to fight in. To leave in, with the wind dead against him and the king behind.
     [break]
-    [if hero.sex == female]It is Aud who asks you, on the cross-bench, low, while the men are shouting. "Your people live a long way off, and have seen more kings than we have. What do they do when one comes?" When you have answered she stands up and says it to the hall as a thing she has heard, and the hall listens to her as it would not have listened to you.[else]"You," Thorgrim says, down the length of the fire. "Unkel's kin. Your people live a long way off, and have seen more kings than we have. What do they do when one comes?"[/if][if occupation == teacher]
+    [if hero.sex == female]It is Aud who asks you, on the cross-bench, low, while the men are shouting. "Your people live a long way off, and have seen more kings than we have. What do they do when one comes?" And when she has her answer she stands, and says it to the hall as a thing she has heard, and the hall listens to her as it would never have listened to a stranger.[else]"You," Thorgrim says, down the length of the fire, and the shouting stops. "Unkel's kin. Your people live a long way off, and have seen more kings than we have. What do they do when one comes?"[/if][if occupation == teacher]
 
-    It is the one question in this hall that you could answer exactly. You know this king's name, and how long he lasts, and roughly what becomes of the people who sail west. You have taught it on a wet Thursday to children who were not listening. You find you would rather not be the one who knows.[/if]
+    There is a name for this king. There is a date for how long he lasts, and a paragraph in a book on your own shelf about what becomes of the people who sail west. All of it has been chalked on a board, on a wet Thursday afternoon, for thirty children who were looking out of the window. Every face in the hall is turned toward you now, waiting.[/if]
   choices:
     - id: useful
       text: "Tell them to count it: the tenth against the ship."
@@ -283,7 +283,7 @@
       text_after: |
         "They count it," you say. "What the tenth costs you, every year, for as long as there is a king. What the ship costs you, once. Then they look at the two heaps."
 
-        It is not much, and it is the first thing said all evening that a person can do with their hands. Bjorn starts on it with pebbles on the bench. Within a little while there are two heaps, and an argument about whether sheep go in as sheep or as wool, and Thorgrim has stopped looking at the fire and is looking at the heaps.
+        It is a small thing to say. But it is the first thing anybody has said all evening that a person can do with their hands, and Bjorn is already sweeping a space clear on the bench and reaching for a pouch of gaming pebbles. One heap grows, and then another. Voices rise over whether sheep go in as sheep or as wool. And at the head of the fire Thorgrim has stopped looking into the flames, and is leaning forward with his elbows on his knees, looking at the heaps.
       next: n_last_night
     - id: truth
       text: "Tell them the truth: kings like this one win."
@@ -291,9 +291,9 @@
       text_after: |
         "Kings like this one win," you say. "Where I come from there is always a king in the end. The halls that fought him are in songs. The ones that paid him are still there."
 
-        Nobody thanks you for it. The young men look at you as at somebody who has spat on the floor. But Thorgrim nods, slowly, as he might at a bill he had been expecting, and Aud says, to nobody, "And the ones that leave?"
+        Nobody thanks you. Round Finn the young men's faces close like doors, as though somebody had spat on the floor. But Thorgrim nods, slowly, a man reading a bill he has been expecting for some time; and Aud says to nobody, to the fire, "And the ones that leave?"
 
-        You tell her you do not know what becomes of the ones that leave. [if occupation == teacher]It is the only lie you tell all evening.[else]It is true, and you wish it were not.[/if]
+        "I don't know what becomes of the ones that leave," you say. [if occupation == teacher]In the book on your shelf it takes up most of a page.[else]The fire shifts and settles. Nobody else in the hall knows either.[/if]
       next: n_last_night
     - id: asked
       text: Ask who in the hall wants to go.
@@ -303,36 +303,38 @@
 
         Thorgrim looks at you, and then down the hall. "Well?" he says.
 
-        Nobody had asked. It takes a long time, and it does not go by benches. Finn wants to go, and his father would sooner be buried here. The woman whose child had the fever wants to go. Gyda says she is too old to be seasick, and will pay the king in advice. Aud does not say, and you notice Thorgrim not asking her.
+        Nobody had asked. The silence goes on long enough for a log to burn through and fall. Then they begin to answer, one at a time, and it does not go by benches at all. Finn wants to go; his father, beside him, would sooner be buried under his own boat shed. The woman whose child had the fever wants to go, and says so with the child asleep in her lap. Gyda says she is too old to be seasick, and will pay the king in good advice. Aud says nothing. Thorgrim's eyes pass over her, and do not stop.
       next: n_last_night
 
 - id: n_last_night
   chapter: norway
   title: The well
   text: |
-    Later, when the fire is low and the hall has gone to its corners, you learn what your uncle did on his last night here.
+    Late, when the fire has burned down to a red seam and the hall has drawn off into its corners, the rest of it comes out: what your uncle did on his last night here.
 
-    [if road.first == explain]Aud tells you. She comes and sits where nobody else will, which is beside you, and takes something from the purse at her belt.
+    [if road.first == explain]Aud brings it. She comes down the dark hall with the keys held still in her fist, so that they will not ring, and sits where nobody else will, which is beside you. From the purse at her belt she takes a folded scrap of paper.
 
     "He left the other half," she says. "It was under his bowl. I have not shown it to my brother."
 
     ::clue note_half::
 
-    "Hrapp has a brother, Ulfar," she says. "One farm up the water. His boy died at harvest. A fever and the flux, and three days. Your kinsman liked the boy, and sat with him. And afterwards, when the ale was in, he went and told Ulfar why." She turns the paper over, though there is nothing on the back. "The well by Ulfar's byre lies below the byre. He said the water had killed the boy. He was very sure, and very sorry, and he said it in front of everyone."
+    "Hrapp has a brother. Ulfar. One farm up the water." Her voice is very low. "His boy died at harvest. A fever, and the flux, and three days. Your kinsman was fond of the boy. He sat up with him. And afterwards, when the ale was in, he went and told Ulfar why." She turns the paper over. There is nothing on the back. "Ulfar's well lies below his byre. He said the water had killed the boy. He was very sure, and very sorry, and he said it here, in front of everyone."
 
     "What did Ulfar hear?"
 
-    "That his well was cursed, and that Unkel had known it was, and watched. It was Hrapp who got the knife off him." She gives you the paper. "Ulfar has not sat in this hall since."[elif road.first == hold]It is the boy from the forge who tells you. He has decided, since last night, that anybody who can put Hrapp on the floor is worth knowing, and he tells it in pieces, between looks at the door.
+    "That his well was cursed. That Unkel had known it was, and watched." The embers tick. "It was Hrapp who got the knife off him." She puts the paper into your hand and closes your fingers over it. "Ulfar has not sat in this hall since."[elif road.first == hold]It is the boy from the forge who tells you. He slides onto the bench beside you in the dark, smelling of charcoal; anybody who can put Hrapp on the floor is worth knowing, it seems. He tells it in scraps, in a whisper, with his eyes going to the door between each one.
 
-    Hrapp has a brother, Ulfar, whose farm is the next one up the water. Ulfar's boy died at harvest, of a fever and the flux, in three days. Unkel had sat with him. And afterwards, in the hall, with the ale in him, Unkel stood up and told Ulfar why. The well by Ulfar's byre lies below the byre, he said. It was the water. He was sorry, the boy says. He was crying. But he kept on saying it.
+    Hrapp has a brother, Ulfar, on the next farm up the water. Ulfar's boy died at harvest: a fever, the flux, three days. Unkel sat up with him. And afterwards, here in the hall, with the ale in him, Unkel stood up in front of everybody and told Ulfar why. The well is below the byre, he said. It was the water. He was sorry, the boy whispers. He was crying. But he would not stop saying it.
 
-    "Ulfar thought he was being told his well was cursed, and that Unkel had known." The boy shows you, on his own palm, where the knife went. "Hrapp took it off him. So Hrapp has had to be angry with his brother and grateful to his brother's enemy ever since, and he is not made to do both."[else]Nobody tells you. You put it together yourself, as the hall put you together last night, from what is lying about.
+    "Ulfar thought he was being told his well was cursed. And that Unkel had known." The boy opens his own hand in the red light and draws a finger across the palm, where the knife went. "Hrapp took it off him. So now Hrapp has to be angry with his brother and grateful to his brother's enemy, both together. He is not made for it."[else]Nobody tells you. It has been lying about in plain sight all day, and the pieces come together as the hall's stories about you came together last night.
 
-    There is an empty place on the bench beside Hrapp that nobody sits in. There is a farm one up the water that Kol will not take you to. On the slope behind it, when you walked out before supper, there was a small new mound with white stones laid on it, and below the byre a well with a hurdle across it and a rock on the hurdle.
+    There is a place on the bench beside Hrapp where nobody ever sits. There is a farm one bend up the water that Kol's errands never seem to pass. Behind that farm, on the slope, in the last of the light before supper, there was a small new mound with white stones set round it. And below the byre there was a well, with a hurdle laid across its mouth and a rock on top of the hurdle.
 
-    You ask Kol one question, which is who shut the well. "Ulfar," he says. "After Unkel told him it had killed his boy. He told him in here, in front of everyone. He was crying." Kol thinks about it. "Ulfar cut him. Hrapp is Ulfar's brother, and it was Hrapp who stopped it. That is why Hrapp does the voice. He has to do something."[/if]
+    "Who shut the well?" you ask Kol, in the dark.
 
-    He was right about the well. You are as sure of that as he was, and it has done him no more good than it will do you.
+    "Ulfar." His whisper comes from somewhere near your shoulder. "After Unkel told him it had killed his boy. He told him in here, in front of everyone. He was crying." A pause, while Kol turns it over. "Ulfar cut him. Hrapp is Ulfar's brother, and it was Hrapp who stopped it. That is why Hrapp does the voice. He has to do something."[/if]
+
+    He was right about the well. Anybody from your side of the stone would have said the same. The fire sinks, and a dog turns round three times in the straw and lies down, and nobody in the hall is asleep.
   choices:
     - id: sleep
       text: Sleep, if you can.
@@ -343,11 +345,11 @@
   checkpoint: true
   title: The white stone
   text: |
-    You go up the hill with Kol before anybody is about. It is a good deal easier going up than it was coming down, and you are getting the measure of the moss.
+    You climb the hill with Kol in the grey before sunrise, while the hall is still a dark shape breathing smoke. The moss is easier going up. Below, the fjord is filling slowly with light from the far end, like a bowl being filled with milk.
 
-    The smell is still there by the boulder, if you put your face close to the quartz: woodsmoke and low tide, and under them, very faint, the heater in your uncle's shed. Yesterday Kol could smell it from the path. He says that when Unkel first came it was strong enough to bring the dog up from the yard, and that it has come and gone ever since, like the water in the fjord, only slower. He has been keeping an eye on it for a year, he says, in case it turned out to matter.
+    At the boulder Kol puts his face to the seam of quartz, breathes in, and beckons. It is still there, for anybody who comes close enough for the wet stone to touch their nose: woodsmoke, and low tide, and under them, thin as a thread, the hot dusty smell of the heater in your uncle's shed. Yesterday it reached as far as the path. When Unkel first came, Kol says, it was strong enough to fetch the dog up from the yard. It has come and gone ever since, like the water in the fjord, only far slower. He has been watching it for a year, in case it turned out to matter.
 
-    "It goes somewhere," he says. He is not asking. "He went in there. I saw his back go in, and after that the stone was only a stone." He puts his hand flat on the quartz, where the nine marks are. "Where does it go?"
+    "It goes somewhere." He is not asking. "He went in there. I saw his back go in, and then the stone was only a stone." His small hand is spread flat on the quartz, covering the nine marks. "Where does it go?"
   choices:
     - id: far
       text: Tell him it goes to a country a very long way off.
@@ -359,7 +361,7 @@
 
         "A good deal further."
 
-        He takes that in. You watch him put the stone at the far edge of everything he knows, and then move the edge. "Then the smell is that country," he says. He leans in and takes a long breath of your uncle's heater, and is satisfied. By the time you are back in the yard three people know that the white stone goes to the country past the empty land. None of them is frightened of it, which you had not expected.
+        He is quiet for a time. The edge of the world, for him, has always been somewhere just past the islands, and now he is picking it up and carrying it further off. "Then the smell is that country," he says. He leans in and fills his chest with the air of your uncle's heater, and lets it out again, satisfied. Before you are back in the yard three people have been told that the white stone goes to the country beyond the empty land. One of them sets off up the hill at once, to smell it.
       next: n_surety
     - id: truth
       text: Tell him the truth.
@@ -367,9 +369,11 @@
       text_after: |
         "It goes to this same hill," you say. "A very long time from now. More winters than you could count if you counted all your life. There's no hall. There's a road."
 
-        He does not laugh. He looks down at the hall, with the smoke lying along the roof, for long enough that you wish you had said something else.
+        He does not laugh. He turns and looks down at the hall, at the smoke lying along the grass of its roof, and the two boats on the shingle, and a woman crossing the yard with a pail, and he goes on looking.
 
-        "Is it still called this?" he says. You tell him you don't know what this is called. He tells you. It is a good name. You promise him you will look, and find that you mean it.
+        "Is it still called this?" he says. The name of the place, when he tells it to you, is three plain words: the bay, and the farm, and the man who first cleared it. "Will you look? When you are there. Whether it is still called this."
+
+        You tell him you will. His hand is still on the stone.
       next: n_surety
     - id: later
       text: Tell him you will tell him when he is older.
@@ -377,28 +381,28 @@
       text_after: |
         "I'll tell you when you're older," you say.
 
-        He gives you the look that every child of eleven has given every adult who ever said it, in any year you care to name. "Unkel said that," he says. "He said it about the stone, and the beasts in the water, and why the moon follows you home. I am already older than I was when he said it."
+        He gives you the look that every child of eleven has given every adult who ever said it, in any year at all. "Unkel said that," he says. "He said it about the stone, and the beasts in the water, and why the moon follows you home. I am already older than I was when he said it."
 
-        He does not ask again. He means to find out by himself, and you do not think it will take him until he is older.
+        He takes his hand off the stone, whistles up the dog, and starts down the hill ahead of you. He does not ask again. Halfway down he stops and looks back at the boulder with one eye narrowed, exactly as Finn looks along a plank.
       next: n_surety
 
 - id: n_surety
   chapter: norway
   title: What you leave
   text: |
-    Thorgrim is waiting in the yard when you come down, with Aud beside him and most of the hall finding reasons to be within earshot.
+    Thorgrim is standing in the middle of the yard when you come down, with his thumbs in his belt and Aud at his shoulder, and a great many people have found something that needs doing within earshot.
 
-    "Orm says the weather turns tomorrow," he says. "Kol says the stone is closing. And I say that the last one of you who went up that hill took half a pound of my silver with him." He is not angry. He has the look of a man who has thought about this in the night and got it into an order. "You may go and look for him. I would sooner he were found than not. But you will leave me something, so that I know you mean to come back down."
+    "Orm says the weather turns tomorrow," he says. "Kol says the stone is closing. And I say that the last one of you who went up that hill took half a pound of my silver with him." He does not sound angry. He sounds like a man who lay awake over it, and had it in an order before morning. "You may go and look for him. I would sooner he were found than not. But you will leave me something, so that I know you mean to come back down."
   choices:
     - id: kit
       text: Leave him what you carried.
       effects: [ { road: { surety: kit } } ]
       text_after: |
-        [if kit == bag]You put the bag down in front of him. It is everything you know how to do, with a handle on it. He does not open it. "That is a real thing," he says. "Unkel would not have left his." It goes into the locked end of the hall, behind one of Aud's keys. You feel a good deal lighter, and do not much like it.[elif kit == notebook]You hold out the notebook. Thorgrim takes it, opens it, and studies a page of your uncle's capitals for a while with great attention, upside down. "This is his," he says. "All of what he knew?"
+        [if kit == bag]The bag goes down on the packed earth in front of him, and its weight leaves your shoulder. Everything you know how to do is in it. Thorgrim looks at it without touching it. "That is a real thing," he says. "Unkel would not have left his." Aud carries it into the hall herself, to the far end where the locked chests are, and a key turns.[elif kit == notebook]You hold out the notebook. Thorgrim takes it in both hands, opens it, and studies a page of your uncle's capitals for some time, gravely, upside down. "This is his," he says. "All of what he knew?"
 
         "All of what he wrote down."
 
-        He gives it to Aud, who puts it in the purse at her belt. You are fairly sure she will have found somebody to explain the pictures to her before you are over the hill.[else]There is not much left in the sack. You give it to him anyway: the last of the sugar, two cards of needles, the tin. Thorgrim weighs it in his hand. Then, to your surprise, he takes out one card of needles and hands the rest back. "Nobody should go on a journey with nothing to give," he says. "Unkel taught me that, by doing it."[/if]
+        He passes it to Aud. It goes into the purse at her belt, and her hand rests on the flap a moment longer than it needs to.[else]There is little enough left in the sack: the end of the sugar, two cards of needles, the tin of pepper. Thorgrim weighs it in one hand. Then he draws out a single card of needles, tucks it into his belt, and holds the rest out to you again. "Nobody should start a journey with nothing to give," he says. "Unkel taught me that. He taught me by doing it."[/if]
       next: n_goodbye
     - id: oath
       text: Give him your oath.
@@ -406,9 +410,9 @@
       text_after: |
         "I'll swear to it," you say.
 
-        They take that more seriously than you had meant it. A ring is fetched from beside the high seat, an iron one as thick as your thumb, and you are shown where to put your hand. Thorgrim says the words and you say them after him, half a beat behind, which is how the brass ear has taught you to do everything. You swear to come back down the hill, with your kinsman or with what he owes.
+        The yard goes quiet. Somebody is sent running, and comes back from the high seat with a ring of iron as thick as a thumb, dark and smooth with handling. It is cold, and heavier than it looks. Thorgrim shows you where to lay your hand. He speaks the words a few at a time, and you give them back to him half a beat late, through the brass ear, as you have given back everything since the hill: to come down that hill again, with your kinsman, or with what he owes.
 
-        Nobody smiles. You had thought of it as something to say. You see now that it was something to do, and that you have done it.
+        When it is done nobody smiles, and nobody speaks. A hen walks across the silence. The ring is carried back into the hall.
       next: n_goodbye
     - id: word
       text: Ask whoever you worked beside to speak for you.
@@ -423,11 +427,11 @@
   chapter: norway
   title: The yard
   text: |
-    You go up at noon, since nobody will let you leave before you have eaten.
+    They will not hear of your going before the noon meal, and so it is under a high pale sun that you cross the yard for the last time, with the smell of the cooking fire in your clothes.
 
-    [if road.day == boat]Finn walks you to the edge of the stubble. He has a rivet in his hand, one of the clenched iron ones from the fifth plank, and he gives it to you as a thing he has not thought about very hard. "It is the one beside your hole," he says. "It will want replacing anyway. Bring it back, and I will put it in the ship."[elif road.day == bench]Hild walks you to the edge of the stubble. She has cut a second stick, the length of your hand, with nothing on it yet. "One edge for what you see that works," she says. "One for what does not. I want to know whether it is the same there." She does not say where there is. She has plainly decided that it is somewhere.[else]The boy from the bellows walks you to the edge of the stubble, since Hrapp would not be seen to. He gives you a nail. It is a good one, square and newly drawn, and it is the first thing Hrapp has made since the bellows were mended. "He says it is not a gift," the boy says. "He says to say that."[/if]
+    [if road.day == boat]Finn walks beside you as far as the edge of the stubble. He has something in his fist, and at the last moment he opens it: a rivet, one of the clenched iron ones from the fifth plank, still bright where the hammer flattened it. "It is the one beside your hole," he says, looking at the fjord. "It would have wanted replacing anyway. Bring it back, and I will put it in the ship."[elif road.day == bench]Hild walks beside you as far as the edge of the stubble. From her belt she takes a second stick, the length of a hand, new-cut and white, without a mark on it. "One edge for what you see that works," she says. "One edge for what does not. I want to know whether it is the same there." She does not say where there is. She puts the stick in your hand and folds her arms.[else]The boy from the bellows walks beside you as far as the edge of the stubble, because Hrapp would not be seen to. He opens his fist. In it is a nail: square, new-drawn, with the blue of the fire still on it, the first thing to come out of the forge since the bellows were mended. "He says it is not a gift," the boy says. "He said I was to say that."[/if]
 
-    Aud is standing in the door of the hall with her sleeves pushed back. She does not come down. When she sees you look, she holds up the horn spoon, so that you can see she has it, and goes back in.
+    Aud is standing in the doorway of the hall with her sleeves pushed back to the elbow. She does not come down. But when you look round from the edge of the field she lifts one hand, and in it, pale against the dark of the door, is the horn spoon. She holds it up long enough to be seen. Then she goes in.
   choices:
     - id: up
       text: Go up the hill.
@@ -439,12 +443,12 @@
   ending: the_door
   title: The door
   text: |
-    Kol comes as far as the boulder and no further, and holds the dog.
+    Kol comes with you as far as the boulder, and stops, and takes hold of the dog by the scruff.
 
-    The smell is almost gone. There is a place on the quartz, under the nine marks, where the rain does not seem to land, and when you put your hand near it the air is warmer and smells of somewhere else. It is not the shed. It is sweeter, like wet cedar and a charcoal fire. Stuck to the rock, under the moss, is a strip of masking tape that you would swear was not there three days ago.
+    The smell is almost gone. But there is a place on the quartz, under the nine marks, where the rain is not landing. The stone there is dry, and the air close to it is warm against your hand. It does not smell of the shed any longer. It smells sweeter than that: wet cedar, and charcoal burning somewhere near. Half hidden under the moss, stuck to the rock, is a strip of masking tape that was not there three days ago.
 
     ::clue next_label::
 
-    You look back once. The hall is where it was, with the smoke lying along the grass of the roof. The keel is a pale line in the door of the boat shed. Kol has let go of the dog to wave with both arms. You have been here three days, and you know a dozen people by name, and one of them is waiting for a ship.
+    Below you the hall lies where it lay on the first afternoon, with the smoke spread flat along the grass of its roof. The keel shows as a pale line in the mouth of the boat shed. The two boats are on the shingle. Down in the yard somebody carrying two buckets has stopped, and is shading her eyes. Kol has let go of the dog and is waving with both arms above his head, as a boy waves at a ship.
 
-    Then you put your hand flat on the warm place, as he must have done nine times, and go where he went.
+    The quartz is warm under your palm. Nine times he stood here, with his hand flat on this stone. Then the hill is gone.

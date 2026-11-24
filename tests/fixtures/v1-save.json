@@ -1,10 +1,10 @@
 {
  "format": "traveler-save",
  "saveVersion": 1,
- "contentHash": "a7ccf898e27d",
+ "contentHash": "2f0bf152fee5",
  "state": {
   "version": 1,
-  "contentHash": "a7ccf898e27d",
+  "contentHash": "2f0bf152fee5",
   "seed": 12345,
   "rng": [
    194968149,
@@ -160,7 +160,7 @@
     "scene": "p_shed",
     "sceneTitle": "The shed",
     "choice": "Fetch your work bag from the truck.",
-    "outcome": "The bag is on the passenger seat, under a coat, where it spends its weekends.\n\nYou hook the brass thing behind your ear and find it warm, as if it had lately been behind somebody else's. The note goes into your jacket, since a person should have something to show the police. Your phone and your lighter are in your pockets already, where they live.\n\nYou step through the frame as you would over a garden hose, without looking down, with your one hand's worth.",
+    "outcome": "The bag is on the passenger seat under a coat, heavy and familiar, and its strap finds the groove it wore in your shoulder years ago.\n\nThe brass thing hooks over your ear and sits there warm, as though it had only just come off somebody else's. The note goes into your jacket pocket. Your phone and your lighter are in your jeans already.\n\nBehind you the radio is still murmuring prices. The draught from the frame touches your face, cool and salt, and you step through it as if over a garden hose, with your one hand full.",
     "changes": []
    },
    {

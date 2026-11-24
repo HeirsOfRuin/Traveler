@@ -49,6 +49,9 @@ have no passage; the deck is not laid.
 
 ## Waiting on the author
 
+1. **The new voice.** Every scene was rewritten on 2026-11-25 to flow and to
+   stop telling the player their thoughts. It needs his read before anything
+   more is written in it.
 1. **Play the prototype** on a phone and say: the voice, the two choices, the
    creation screen, the four designs. (`DESIGN.md` section 9 has four
    questions with defaults.)

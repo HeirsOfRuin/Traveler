@@ -4,10 +4,12 @@ The first of the two gates in `SPEC.md`. The author reads a sample and says
 whether it is funny without trying, whether there is wonder, and whether he
 wants the next scene. No instrument can judge it.
 
-**The living text is now `content/scenes/`** (the first prototype, 2026-11-24).
-It has had a pass for readability since this draft, and its letters and notes
-are drawn. This file is the draft as it was read; where the two differ, the
-scenes win.
+**The living text is `content/scenes/`.** On 2026-11-25 the author judged the
+prose built from this draft "far too broken or laconic... like a robot trying
+to be human", and every scene was rewritten to flow, to put the reader in the
+place, and never to tell them what they think. **Do not use the prose below as
+a model of the voice.** It is kept for its structure: how one scene serves
+every hero, and how a choice is three roads.
 
 **Status: fourth draft, 2026-11-23.** The third draft
 was accepted ("Gate a is fine for now, call it usable for the prototype").

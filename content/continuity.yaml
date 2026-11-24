@@ -1,7 +1,7 @@
 # Continuity rules: npm run continuity (tools/narrative/continuity.ts, from the game-narrative skill).
 # Each rule: a phrase the prose may only use while a condition holds in the run showing it.
 rules:
-  - match: "Your bag is under your head"
+  - match: "The bag is under your head"
     allow: kit == bag
     why: Only a hero who fetched the work bag has one.
   - match: "the notebook|The notebook"
@@ -12,7 +12,5 @@ rules:
   - match: "door in (the|his) throat"
     allow: road.first == explain
     why: Only a hero who explained the smith's throat has said it.
-  - match: "Aud, Thorgrim's sister"
-    allow: npc.kol.met
 dead_names_ok: {}
 memorial: []
