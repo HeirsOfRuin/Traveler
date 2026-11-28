@@ -261,13 +261,47 @@ rewrite: 0 errors and 5 warnings in 214 strings, four of the warnings in the
 creation screen's descriptions of the hero and in dialogue. 39 tests pass
 unchanged in what they assert; the phrases they look for were updated.
 
+### The four years, as built (2026-11-28)
+
+The author: "Do the next step that isn't writing". The next step in the plan
+below was the season. Built:
+
+- **The rules** (`src/game/life.ts`): Gate B's model, ported rule for rule
+  and stream for stream, with every number in `content/season.yaml`. Proven
+  equal to the model on 40,320 lives (`KILLGATE.md`, round 7).
+- **The joins** (`src/game/years.ts`): the life begins at the door, in the
+  era just visited. It carries what the visit left: each step of place or talk
+  is worth 3 on the season's scale, and the person the second day was spent
+  with starts 15 closer if they are one of the two the hero could court.
+  **Proposed, not measured** (`season.yaml`, `carry:`).
+- **The deck** (`src/game/deck.ts`, `content/decks.yaml`): laid, with the
+  spent list in the save. Each season draws a line from `season_<focus>`; no
+  line is written yet, so every deck is dry and the screen leaves the prose
+  out. A test with six lines and sixteen seasons shows each once and never
+  again.
+- **Save version 2**: adds the spent list and the life. A version-1 save
+  (anything played from the link before today) loads through a migration;
+  both fixtures load and play on.
+- **The season screen** (`src/ui/Years.tsx`), a sandbox reached from the
+  door: what the season is for (five), how you go about it (three, or what
+  to tell for a courtship), the dangerous way with its risk named, then the
+  result. Standing, the hall's room (a guess), each person, the uncle and the
+  door are all words from `season.yaml`, never numbers. Looked at 390px:
+  `docs/shots/years.png`.
+- **The gate on the game** (`sim/`): `npm run gate`, `gate:switches`,
+  `gate:check` (in `npm run check`), `gate:equivalence`.
+
+**What it is not:** a story. There are no season scenes and no lines in any
+deck. It is the rules of the four years, playable, so that they can be felt
+before they are written.
+
 ## 8. Build plan from here
 
 | Step | Delivers | Exit |
 |---|---|---|
 | Calibration | The author plays the prototype on a phone | His verdict on the voice, the two choices, the creation screen and the four designs |
 | The rest of the Norway visit | Done, 2026-11-24 (above) | He wants the next era |
-| The season | Act 2's turn on the engine's calendar; standing that is read; exposure as a soft loss; the deck | Gate B's tables reproduced from the real game |
+| The season | Done as rules and a sandbox, 2026-11-28 (above). Gate B's tables reproduced from the game | Written: the seasons' scenes and lines, the uncle found, the promise and the rescue |
 | Japan, then Rome | Each its own release (`SPEC.md`) | |
 
 ## 9. Questions for the author (with the default if unanswered)
@@ -282,6 +316,8 @@ The defaults below are taken on that word. Each stays his to change.
 | 2 | Is the creation screen one page or a step per group? | One page |
 | 3 | Should the four designs go further (a drawn header, a texture, the hero's kit pictured)? | Tokens and one ornament each, until the voice is settled |
 | 4 | A title | "Traveler" stands in |
+| 5 | The season screen offers five things a season can be for and three ways to go about them. Is the three-roads rule for story choices only, with the season's plan exempt as a planner? | Exempt: the plan is not a scene, and its five uses are the SPEC's own core loop |
+| 6 | What the visit carries into the four years (`season.yaml`, `carry`) | As built: 3 a step of place or talk, 15 to the day's person. Not yet measured |
 
 ## Decisions log
 

@@ -110,3 +110,10 @@ body { font-size: 17px; line-height: 1.62; }
 @keyframes settle { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 button { transition: background-color .25s ease, border-color .25s ease, color .9s ease; }
 :root[data-era="now"] .card { transform: rotate(-.4deg); }
+
+/* the four years (src/ui/Years.tsx) */
+.banner-calm { border-left: var(--rule) solid var(--accent); padding: .5rem .8rem; background: var(--panel); border-radius: var(--radius); }
+.happened { margin: 0 0 1rem; padding-left: 1.1rem; color: var(--ink-dim); }
+.check { display: flex; gap: .6rem; align-items: flex-start; margin: .2rem 0 1rem; color: var(--ink-dim); }
+.check input { width: 1.2rem; height: 1.2rem; margin-top: .25rem; accent-color: var(--accent); flex: none; }
+.label { margin: 1.1rem 0 .4rem; font-size: .85rem; color: var(--ink-dim); letter-spacing: .02em; }

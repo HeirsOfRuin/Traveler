@@ -1,0 +1,187 @@
+# The four years: every number the season turn uses (src/game/life.ts), and the words the season
+# screen shows. Ported 2026-11-28 from the Gate B model (prototypes/killgate/data.js, round 6), and
+# proven to play identically to it (sim/equivalence.ts). They are still tuned placeholders, not a
+# design: `npm run gate` measures them, and any change to one is measured before it is committed.
+#
+# One turn is a season. The life is the wait for the door: sixteen seasons (the author, "Four years
+# is fine", 2026-11-23).
+
+rules:
+  seasons: 16
+  yearLength: 4             # a year is a chapter; only the last year's losses are final
+
+  # place: where you stand on the hall's ladder, 0..100
+  nobodyBelow: 40
+  workPlace: 4
+  ladderTop: 110            # gains shrink as place nears this: each rung is harder than the last
+  workSkill: 0.03
+  idleGrace: 3              # seasons without working for your keep before it costs you
+  idleCost: 4
+  placeDrift: 1.2           # a stranger is forgotten
+
+  # skill: the era's own way of doing things, 0..100. It is the cover for what you know.
+  trainSkill: 12
+  trainPlace: 1
+  trainCalms: 4
+
+  # what you know, by how it is presented: 0 nothing | 1 a craft | 2 done, unexplained | 3 explained
+  knowGain: [1, 1.5, 2.3, 3.2]
+  knowStrange: [0, 3, 9, 20]
+  skillCovers: [0, 0.011, 0.005, 0.001]
+
+  # a need: a season when somebody is hurt or something is broken
+  needChance: 0.35
+  needGain: 1.5
+  needStrange: 1.3
+  needIgnored: 3
+
+  # reading the room: the hero sees a guess, never the number
+  readNoise: 9
+  bondTells: 0.7
+
+  # strangeness: how much the hall wonders about you, 0..100
+  strangeDecay: 3
+  placeCalms: 0.03
+  rumourChance: 0.25
+  rumourAt: 25
+  rumourMin: 5
+  rumourMax: 18
+  tolerance: 34
+  placeShields: 0.2
+  bondShields: 0.15
+  exposeSpan: 45
+
+  # a soft loss, in any year but the last
+  castOutPlace: 0.5
+  castOutStrange: 28
+  castOutBond: 18
+  castOutSeasons: 1
+
+  # courting
+  courtBond: 8
+  courtPlace: 0.05
+  bondCapSilent: 70         # a bond cannot pass this while the truth is untold
+  partnerAt: 80
+  truthBond: [0, 5, 10]
+  truthStrangeAt: 60
+  truthStrange: 0.28
+  bondFade: 3
+  supportAt: 50             # past this, the person gives what they give
+
+  # the uncle's trail, 0..100
+  trailGain: 18
+  trailWall1: 45            # the trail leaves the fjord: nothing past this until you have travelled
+  trailWall2: 75            # nobody tells a stranger the rest: needs place >= trailPlace
+  trailPlace: 30
+  uncleAt: 100
+
+  # a journey
+  travelPlace: 4
+  renownTop: 150
+  travelTrail: 6
+  travelStrange: 2
+  awayStrange: 0.45
+
+  # the dangerous way: a named risk the hero chooses
+  pressGain: 1.3
+  pressDanger: 0.05
+  hurtSeasons: 2
+
+# What each choice at creation and in the shed does to the four years. Ids must match
+# content/creation.yaml and the kit; the loader fails a missing one.
+kits:
+  bag:      { skill0: 9, work: 0.4 }
+  notebook: { trail: 5, know: 0.35, strange0: 4, openTrail: 1 }
+  sack:     { place0: 12, gifts: 5, giftBond: 7 }
+occupations:
+  welder:   { skill0: 10, work: 0.5 }
+  nurse:    { workKnow: 0.25, strangeMul: 0.88 }
+  teacher:  { know: 0.25, trail: 4, readMul: 0.45 }
+  engineer: { know: 0.2, work: 0.3, need: 0.35 }
+traits:
+  rider:   { dangerMul: 0.6, travelPlace: 2.5, travelTrail: 8 }
+  charm:   { bond: 4, readMul: 0.8 }
+  martial: { dangerMul: 0.35, press: 0.3 }
+  fencer:  { dangerMul: 0.7, place0: 8 }
+  speaker: { know: 0.12, strangeMul: 0.93 }
+  hunter:  { work: 0.6, trail: 1.5 }
+  sailor:  { travelPlace: 4.5, travelTrail: 7 }
+  farm:    { skill0: 6, work: 0.2 }
+sex:
+  male:   { work: 1, skillPlace: 1, strangeMul: 1 }
+  female: { work: 0.85, skillPlace: 1.6, strangeMul: 0.92 }
+
+# The two people who can be courted, by who the hero would court (docs/STORY.md section 3).
+loves:
+  women:
+    - { npc: aud,  likes: { skill: 0.07 }, needs: { place: 40 }, costs: { above: 3, talk: 1 }, gives: { readMul: 0.35, place: 0.9 } }
+    - { npc: hild, likes: { truth: 4 },    needs: { told: 2 },   costs: { talk: 2.5 },        gives: { cover: 0.35 } }
+  men:
+    - { npc: finn,   likes: { skill: 0.07 },  needs: { place: 40 },    costs: { above: 3, talk: 1 }, gives: { work: 1.4, place: 0.5 } }
+    - { npc: eyvind, likes: { travelled: 5 }, needs: { travelled: 2 }, costs: { talk: 2.5 },        gives: { travelPlace: 3, travelTrail: 3 } }
+
+grade: { uncle: 30, place: 30, placeFull: 80, partner: 30, truth: 10 }
+
+# What the Norway visit carries into the four years (src/game/years.ts). Placeholders, proposed
+# 2026-11-28 and not yet measured: each step of place or talk the visit left is worth this much on
+# the season scale, and the person the hero spent the second day with starts this much closer.
+carry: { placePer: 3, talkPer: 3, dayBond: 15 }
+
+# The season screen's words (src/ui/Years.tsx). Interface, not story: the four years have no
+# scenes yet. Lists of [threshold, words] are read from the top; the first threshold met wins.
+screen:
+  title: The four years
+  note: "A sandbox: the rules of the four years, with no story written yet. Every season is played here as a plan and a result."
+  begin: Wait out the four years here
+  need: Somebody needs help this season.
+  press: "Take the dangerous way: further and faster, and it can go wrong."
+  go: Let the season pass
+  for: What the season is for
+  how: How you go about it
+  back: Back to the title
+  focus:
+    work: Work for your keep
+    train: Learn how they do things
+    court: "Spend the season with {npc}"
+    trail: Follow his trail
+    travel: Make a journey along the coast
+  present: [As a craft of your people, "Do it, and leave it unexplained", Explain it]
+  tell: [Say nothing of where you are from, Tell part of it, Tell all of it]
+  years: [The first year, The second year, The third year, The fourth year]
+  room:        # the hall's room, as the hero guesses it; never the number
+    - [40, The hall is easy about you.]
+    - [28, People are used to you.]
+    - [18, You are talked about.]
+    - [9, People wait for you to leave a room before they talk.]
+    - [0, It would not take much now.]
+    - [-1000, They are saying what they said about your uncle.]
+  bond:
+    - [80, "{npc} would stand beside you."]
+    - [50, "{npc} is close to you, and it shows."]
+    - [20, "{npc} is glad to see you."]
+    - [0, "You hardly know {npc}."]
+  told: ["{npc} knows nothing of where you are from.", "{npc} knows part of it.", "{npc} knows all of it."]
+  trail:
+    - [100, You have found him.]
+    - [75, You are close.]
+    - [45, You know which way he went.]
+    - [1, You have heard of him.]
+    - [0, Nobody has said a word about him.]
+  trailOut: His trail goes out of the fjord. Somebody will have to go after it.
+  door:        # seasons left
+    - [8, The stone is cold. The door is years away.]
+    - [4, The door is two years off or less.]
+    - [2, The door opens this year.]
+    - [1, The smell is back at the stone.]
+    - [0, The door is open.]
+  happened:
+    lost: The season was lost.
+    castOut: The hall turned you out, and it took a season to get back in.
+    hurt: The dangerous way went wrong. You were hurt, and two seasons went with it.
+    walled: The trail went no further this season.
+    needLeft: Somebody needed help, and it did not come from you.
+    needMet: Somebody needed help, and got it.
+  ending:
+    door: The door is open.
+    exposed: The hall has decided what you are. The four years end here.
+    dead: The dangerous way went wrong in the last year. The four years end here.

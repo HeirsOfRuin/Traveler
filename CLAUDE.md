@@ -39,11 +39,18 @@
   know. The decision is how it is presented: as a craft, done openly, or
   explained. Never design or write a road where the right play is to keep
   quiet and live as a local.
-- The Gate B model is `prototypes/killgate/`. Its numbers are tuned
-  placeholders, not the design. Re-run `npm run gate` after any change to it
-  and put the numbers, with their run counts, in the commit message. The kit
-  files in it (`run.js`, `ablate.js`, `stats.js`, `measure-lib.js`, `rng.js`)
-  are copies from Game-Workshop and are not edited here.
+- The four years are the game's own rules (`src/game/life.ts`), with every
+  number in `content/season.yaml`. They are still tuned placeholders. Re-run
+  `npm run gate` (`sim/`) after any change to either, and put the numbers,
+  with their run counts, in the commit message. The policies there may only
+  do what the season screen lets a player do (`sim/heroes.ts` asScreen).
+- `prototypes/killgate/` is the retired Stage 2 model (2026-11-28): the
+  record, not maintained. Never tune it or read a number from it as the
+  game's. `sim/equivalence.ts` proved the port on that day and is expected to
+  disagree once a number moves.
+- Every line drawn rather than placed (a season's report, a pool event) goes
+  in a deck (`content/decks.yaml`, `src/game/deck.ts`); the season screen
+  draws from `season_<focus>`. The deck is laid; it is empty.
 - The prototype (2026-11-24) is the shed and the whole Norway visit, up to
   the door (`content/scenes/`; the plan was `docs/FRAME-norway-visit.md`).
   The kit's example game is gone. One scene serves every hero: plain text for all, `[if occupation ==

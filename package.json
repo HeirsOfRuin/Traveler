@@ -22,9 +22,10 @@
     "audit": "tsx tools/narrative/audit-choices.ts",
     "transcript": "tsx tools/transcript.ts",
     "fixture": "tsx tools/make-fixture.ts",
-    "gate": "node prototypes/killgate/gate.js",
-    "gate:check": "node prototypes/killgate/check.js",
-    "gate:switches": "node prototypes/killgate/ablate.js prototypes/killgate/ablations/switches.js --adapter=prototypes/killgate/adapter.js --inert"
+    "gate": "tsx sim/gate.ts",
+    "gate:check": "tsx sim/check.ts",
+    "gate:switches": "tsx sim/gate.ts --switches",
+    "gate:equivalence": "tsx sim/equivalence.ts"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",

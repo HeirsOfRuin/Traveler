@@ -1,0 +1,5 @@
+# Authored lines that are drawn rather than placed, by deck: a season's report, a pool event.
+# Each line is used at most once in a playthrough (src/game/deck.ts); the spent list is in the save.
+# A dry deck leaves the prose out. Empty until the four years are written: the season screen
+# draws from  season_<focus>  (season_work, season_court, ...) and shows nothing when it is dry.
+{}

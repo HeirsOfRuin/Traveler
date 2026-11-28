@@ -26,6 +26,7 @@ export async function advanceOnce(page) {
     await page.locator('.scrim [data-act="close"]').first().click();
   }
   if (await page.locator('[data-act="new"]').count()) return true; // the game ended: also progress
+  if (await page.locator('[data-act="season"]').count()) return true; // the four years: their own screen
   return (await page.locator(CLOCK).textContent())?.trim() !== before;
 }
 // -----------------------------------------------------------------------------

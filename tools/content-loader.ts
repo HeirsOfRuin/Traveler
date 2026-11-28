@@ -2,7 +2,7 @@
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { loadBase, walkYaml, readYaml, parse, ContentError } from '@tools/content';
-import { ConfigSchema, RegistrySchema, SceneSchema, StartSchema, CreationSchema, ErasSchema, CluesSchema, RoadsSchema, GAME_ID, type Eras, type ContentBundle, type Start } from '../src/content/schema';
+import { ConfigSchema, RegistrySchema, SceneSchema, StartSchema, CreationSchema, ErasSchema, CluesSchema, RoadsSchema, SeasonSchema, DecksSchema, GAME_ID, type Eras, type ContentBundle, type Start } from '../src/content/schema';
 import '../src/game/module'; // the rules this content is played by
 
 export { ContentError };
@@ -62,5 +62,21 @@ export function loadContent(dir = CONTENT_DIR): ContentBundle {
     }
   };
   for (const s of Object.values(base.scenes)) { walk(s.id, s.on_enter); for (const c of s.choices) { walk(`${s.id}/${c.id}`, c.effects); for (const k of ['success', 'partial', 'failure'] as const) walk(`${s.id}/${c.id}`, c[k]?.effects); } }
-  return { hash: hash.digest('hex').slice(0, 12), ...base, starts, creation, eras, clues, roads };
+  const sp = join(dir, 'season.yaml');
+  hash.update(readFileSync(sp));
+  const season = parse(SeasonSchema, readYaml(sp), rel(sp));
+  // every kit, occupation and trait the hero can have has season numbers, and only those
+  const want = (what: string, have: string[], need: string[]) => {
+    for (const k of need) if (!have.includes(k)) throw new ContentError(`season.yaml: no ${what} "${k}"`);
+    for (const k of have) if (!need.includes(k)) throw new ContentError(`season.yaml: ${what} "${k}" is not one the hero can have`);
+  };
+  const group = (id: string) => creation.groups.find((g) => g.id === id)?.options ?? [];
+  want('kit', Object.keys(season.kits), ['bag', 'notebook', 'sack']);
+  want('occupation', Object.keys(season.occupations), group('occupation'));
+  want('trait', Object.keys(season.traits), group('traits'));
+  for (const L of [...season.loves.women, ...season.loves.men]) if (!base.registry.npcs[L.npc]) throw new ContentError(`season.yaml: "${L.npc}" is not in registry/npcs.yaml`);
+  const dp = join(dir, 'decks.yaml');
+  hash.update(readFileSync(dp));
+  const decks = parse(DecksSchema, readYaml(dp) ?? {}, rel(dp));
+  return { hash: hash.digest('hex').slice(0, 12), ...base, starts, creation, eras, clues, roads, season, decks };
 }

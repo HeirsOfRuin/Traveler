@@ -43,7 +43,7 @@ game-scaffold's.
 | `adapter.js` | Connects the model to the kit | |
 | `gate.js` | The tables below | `npm run gate` |
 | `ablations/switches.js` | Each rule switched off; the inert check | `npm run gate:switches` |
-| `check.js` | Determinism and invariants, 37,632 runs (every hero, every policy) | `npm run gate:check` (in `npm run check`) |
+| `check.js` | Determinism and invariants, 37,632 runs (every hero, every policy). Retired with the model; the game's is `sim/check.ts` | `npm run gate:check` (in `npm run check`) |
 
 The player makes the hero: sex, who they court, one hand's worth of kit (tool
 bag, notebook, sack: `GATE-A.md`), and two of four modern traits. That is 72
@@ -400,6 +400,61 @@ and the most talk in the model. It is recorded, not tuned.
 Unchanged: explaining everything is finally exposed in 92.9%; suiting it to
 the room is named in 88.8%; all three things by the dangerous way fell from
 10.1% to 6.1% ±0.2.
+
+## Round 7: measured on the game (2026-11-28)
+
+The model's rules were ported into the game (`src/game/life.ts`, numbers in
+`content/season.yaml`), and the gate now runs on the game: `npm run gate`,
+`gate:switches`, `gate:check` (in `npm run check`). The model in
+`prototypes/killgate/` is retired (its README says so).
+
+**The port is the model.** `sim/equivalence.ts` played both on every hero
+(1,344) x 2 seeds x 15 policies, first in lockstep (the same input to both
+every season) and then each with its own copy of the policies: 40,320 lives
+and 634,634 seasons, every state identical after every season.
+
+**One change, from the screen.** The season screen offers three ways to go
+about work, the trail and a journey (as a craft, done and unexplained,
+explained). It does not offer "use nothing": the author's rule is never to
+make keeping quiet the right play, and learning their ways is already the
+quiet season. The Gate B policies could choose nothing when the hall looked
+tight, so the gate now measures with that taken away. Measured first on 7
+policies x 5,376 lives each, as the model had them and with nothing taken
+away:
+
+| Policy | Exposed, model | Exposed, the screen | Named, model | Named, the screen |
+|---|---|---|---|---|
+| riser | 5.5% | 10.3% | 89.0% | 84.2% |
+| placeUncle | 6.6% | 10.8% | 74.9% | 77.6% |
+| seeker | 10.0% | 18.9% | 29.1% | 33.8% |
+| wanderer | 9.4% | 14.9% | 80.5% | 76.2% |
+| placeLove | 1.2% | 2.0% | 93.9% | 94.6% |
+
+This is round 2's fault 1 ("reading the room is nearly free") pushed further
+the right way: careful play is now exposed about one life in ten.
+
+### On the game: 1,344 heroes x 8 seeds = 10,752 lives per policy, ±1 SE
+
+| Claim | Measured | Verdict |
+|---|---|---|
+| Showing more rises faster and burns more | Place after a year: crafty 27.3, riser 41.4, showman 48.1. Finally exposed: crafty 0.0%, riser 10.1% ±0.3, showman 53.4% ±0.5, lunatic 92.9% ±0.2 | Holds |
+| No fixed presentation is best | Grade: lunatic 1.7, showman 11.6, crafty 20.9, riser 25.7, placeLove 66.5 | Holds |
+| Two of three things fit at 16 seasons; all three do not, safely | Pair plans 26.5% to 95.1% (720 lives a cell at 2 seeds); all three safely 0.0% to 10.6% ±0.3 (loveUncle2), by the dangerous way 7.5% ±0.3 | Holds, with all three now as likely by the trail and the second person as by danger |
+| Both people reachable from every hero | Mean 83.2% to 93.5% by person; worst cell 10.0% ±6.7 (20 lives), two heroes under 25% for Aud and two for Finn, as in round 6 | Holds except those four cells |
+
+**No longer measurable:** "never using what you know ends as nobody" (claim
+1d). The game no longer lets anyone work without using it, so the "native"
+policy now means "trains a year, then works as a craft", and it earns a name
+in 56.7% ±0.5. There is no local's road to measure, which is the author's
+decision of 2026-11-23.
+
+Each rule switched off, 1,344 lives a cell, 15 policies pooled (20,160 lives
+a row): every rule moves something beyond the noise. Without what you know
+nobody is named (0.2%); without the truth nobody has a partner; without needs
+fewer are cast out (26.3% to 18.8%); with courting free more are named (41.9%
+to 49.7%); without support fewer (38.3%); with exposure final, 34.2% end
+exposed instead of 18.7%. The dangerous way moves death (0.2% to 0.0%) and
+little else when pooled. Sex: within the noise when pooled, as before.
 
 ## What this does not show
 

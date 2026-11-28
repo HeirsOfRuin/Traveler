@@ -45,7 +45,7 @@ Must pass before every commit.
 | `npm run transcript` | Scripted playthroughs as Markdown, in `docs/playthroughs/` |
 | `npm run bot -- --runs 200` | Does every hero reach an ending? |
 | `npm run smoke` | Does the real page work at 390px? |
-| `npm run gate` | The Gate B tables (the numbers model, not the game) |
+| `npm run gate` | The Gate B tables, measured on the game's four years (`-- --switches` for each rule switched off) |
 
 ## Layout
 
@@ -55,7 +55,8 @@ src/content/          schema (Zod) and the compiled bundle
 src/game/             this game's rules: creation, the module, saves
 src/ui/               Preact screens and the four era designs (eras.css)
 packages/engine/      the story engine, copied from Game-Workshop, not edited here
-prototypes/killgate/  the Gate B numbers model
+sim/                  Gate B on the game: policies, tables, invariants, the equivalence proof
+prototypes/killgate/  the retired Gate B model (the Stage 2 record)
 tools/, tests/        build, bot, smoke, validators; Vitest
 docs/                 SPEC, STATUS, DESIGN, GATE-A, KILLGATE, HISTORY, playthroughs
 ```

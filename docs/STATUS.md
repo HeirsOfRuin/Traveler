@@ -10,10 +10,10 @@ waiting on whom.
 | 0 Backlog | Done. The entry is in Game-Workshop on branch `ccr-00d0968c-uoowum`, not yet on `main` |
 | 1 Spec | Approved 2026-11-22; amended since (`SPEC.md`, decisions table) |
 | 2 Gate A, the read | Third draft accepted as usable for the prototype. The fourth, rewritten on everything decided since, **is the prototype's text and has not been read** (`GATE-A.md`) |
-| 2 Gate B, the numbers | Six rounds. The claims hold at 16 seasons; three things open (`KILLGATE.md`) |
+| 2 Gate B, the numbers | Seven rounds; since the seventh it measures the game itself, and the model is retired. The claims hold at 16 seasons; three things open (`KILLGATE.md`) |
 | 3 Phase 0 design | Written with the prototype (`DESIGN.md`) |
 | 4 Engine and instruments | The kit, character creation, this game's module |
-| **5 to 6 Calibration and slice** | **The whole Norway visit plays. The author's playtest is the next thing** (`DESIGN.md` section 7) |
+| **5 to 6 Calibration and slice** | **The whole Norway visit plays, and the four years can be tried as a sandbox. The author's playtest is the next thing** (`DESIGN.md` section 7) |
 | 7 to 8 | Not started |
 
 ## What exists
@@ -21,6 +21,9 @@ waiting on whom.
 - **A prototype of the whole Norway visit:** title, character creation, the
   shed, and three days in Norway up to the door. 20 scenes, 10 choices of
   three roads, 12 drawn clues, 7,168 heroes, about forty minutes.
+- **The four years, as rules** (`src/game/life.ts`, `content/season.yaml`):
+  playable from the door as a sandbox, in words, with no story. The deck is
+  laid. Save version 2.
 - **The story** (`STORY.md`): the whole arc and what each mechanic is for.
   Decided by the author, 2026-11-24.
 - **Clues, drawn** (`content/clues.yaml`): six, kept in the Journal.
@@ -52,6 +55,8 @@ have no passage; the deck is not laid.
 1. **The new voice.** Every scene was rewritten on 2026-11-25 to flow and to
    stop telling the player their thoughts. It needs his read before anything
    more is written in it.
+1. **Try the four years** from the door: does a season feel like a decision?
+   And `DESIGN.md` section 9, questions 5 and 6.
 1. **Play the prototype** on a phone and say: the voice, the two choices, the
    creation screen, the four designs. (`DESIGN.md` section 9 has four
    questions with defaults.)

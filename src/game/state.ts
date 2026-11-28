@@ -1,5 +1,7 @@
 // Traveler's state: the engine's CoreState plus this game's own. Plain JSON; the engine clones it.
 import type { CoreState } from '@engine/state';
+import type { Life } from './life';
+import type { Spent } from './deck';
 
 /** How a modern thing was presented (docs/DESIGN.md section 4): the game's standing decision. */
 export type Presentation = 'craft' | 'open' | 'explain';
@@ -21,6 +23,10 @@ export interface GameState extends CoreState {
   shown: Record<Presentation, number>;
   /** which road was taken at each remembered choice (content/roads.yaml): `road.day == boat` in content */
   roads: Record<string, string>;
+  /** authored lines already used, by deck (src/game/deck.ts): nothing is shown twice in a playthrough */
+  spent: Spent;
+  /** the four years, once begun (src/game/life.ts, years.ts) */
+  life?: Life;
 }
 
 export const HERO_ID = 'hero';

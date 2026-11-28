@@ -8,10 +8,11 @@ import { useEffect, useState } from 'preact/hooks';
 import type { ContentBundle, EraId } from '../content/schema';
 import { ERA_IDS, CLUE_MARK } from '../content/schema';
 import { Clue } from './Clue';
-import { newGame, view, choose, startsOf, describe, heroOf, eraOf, standing, cluesFound, type GameState, type SceneView, type HeroChoice } from '../game/index';
+import { newGame, view, choose, startsOf, describe, heroOf, eraOf, standing, cluesFound, canBegin, beginLife, type GameState, type SceneView, type HeroChoice } from '../game/index';
 import { toSave, fromSave, encodeSaveCode, decodeSaveCode, SAVE_KEY } from '../game/save';
 import { STORAGE_OK, lsGet, lsSet } from './storage.js';
 import { Creation } from './Creation';
+import { Years } from './Years';
 
 function load(content: ContentBundle): GameState | null {
   const raw = lsGet(SAVE_KEY);
@@ -88,6 +89,8 @@ export function App({ content }: { content: ContentBundle }) {
     );
   }
 
+  if (state.life) return <Years content={content} state={state} onChange={commit} onQuit={() => setState(null)} />;
+
   const v: SceneView = view(content, state);
   const pages = v.text.split(/^\s*\[break\]\s*$/m).map((t) => t.trim()).filter(Boolean);
   const last = page >= pages.length - 1;
@@ -110,7 +113,8 @@ export function App({ content }: { content: ContentBundle }) {
           {v.ended
             ? <>{end && <section class="card"><h2>{end.label}</h2><p>{end.description}</p></section>}
                 <h2>Where it leaves you</h2><You content={content} state={state} />
-                <div class="stack"><button class="primary" data-act="new" onClick={() => setState(null)}>Play it another way</button></div></>
+                <div class="stack">{canBegin(content, state) && <button class="primary" data-act="years" onClick={() => commit(beginLife(content, state))}>{content.season.screen.begin}</button>}
+                  <button data-act="new" onClick={() => setState(null)}>Play it another way</button></div></>
             : !last
               ? <div class="stack"><button class="primary" data-action="continue" onClick={() => turn(page + 1)}>Continue</button><p class="hint">{page + 1} of {pages.length}</p></div>
               : v.choices.length === 1

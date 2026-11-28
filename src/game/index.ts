@@ -17,6 +17,8 @@ export { describeDate } from '@engine/calendar';
 export { heroOf } from '@engine/character';
 export type { GameState, Kit, Presentation } from './state';
 export { eraOf, standing } from './module';
+export { canBegin, beginLife, seasonTurn, words } from './years';
+export { FOCI, lovesOf, partnerOf, lastYear, type Life, type SeasonInput, type Focus, type Know } from './life';
 import { found as foundIn } from './module';
 import { test as holds } from '@engine/conditions';
 import type { GameState as GS } from './state';
@@ -62,6 +64,7 @@ export function newGame(content: ContentBundle, opts: NewGameOptions): GameState
     kit: '',
     shown: { craft: 0, open: 0, explain: 0 },
     roads: {},
+    spent: {},
     chapter: scene.chapter,
     scene: scene.id,
     returnStack: [],

@@ -1,0 +1,397 @@
+{
+ "format": "traveler-save",
+ "saveVersion": 2,
+ "contentHash": "7bf20247d0c6",
+ "state": {
+  "version": 1,
+  "contentHash": "7bf20247d0c6",
+  "seed": 12345,
+  "rng": [
+   194968149,
+   4048065787,
+   4205630669,
+   2397394848
+  ],
+  "characters": {
+   "hero": {
+    "name": "Fixture",
+    "sex": "male",
+    "born": -120,
+    "alive": true,
+    "attributes": {
+     "wits": 3
+    },
+    "skills": {
+     "craft": 0
+    },
+    "health": 8,
+    "traits": [
+     "welder",
+     "rider",
+     "charm",
+     "tall",
+     "blunt"
+    ],
+    "injuries": [],
+    "items": [],
+    "station": "stranger"
+   }
+  },
+  "hero": "hero",
+  "start": "door",
+  "courts": "women",
+  "picks": {
+   "occupation": [
+    "welder"
+   ],
+   "traits": [
+    "rider",
+    "charm"
+   ],
+   "looks": [
+    "tall"
+   ],
+   "manner": [
+    "blunt"
+   ]
+  },
+  "kit": "bag",
+  "shown": {
+   "craft": 2,
+   "open": 0,
+   "explain": 0
+  },
+  "roads": {
+   "first": "hold",
+   "day": "boat",
+   "verse": "truth",
+   "counsel": "useful",
+   "kol": "far",
+   "surety": "kit"
+  },
+  "spent": {},
+  "chapter": "norway",
+  "scene": "e_door",
+  "returnStack": [],
+  "time": 0,
+  "rep": {},
+  "res": {
+   "coin": 0
+  },
+  "favors": {},
+  "flags": {
+   "hrapp_owes": true
+  },
+  "counters": {
+   "place": 3,
+   "talk": 1
+  },
+  "npcs": {
+   "walter": {
+    "met": false,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "kol": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "thorgrim": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "aud": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "hrapp": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "hild": {
+    "met": false,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "finn": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "eyvind": {
+    "met": true,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   },
+   "ulfar": {
+    "met": false,
+    "alive": true,
+    "affection": 0,
+    "respect": 0,
+    "loyalty": 0,
+    "grudges": []
+   }
+  },
+  "aliases": {},
+  "queue": [],
+  "seen": {
+   "p_shed": 0,
+   "n_hill": 0,
+   "n_hall": 0,
+   "n_choke": 0,
+   "n_hold": 0,
+   "n_night": 0,
+   "n_morning": 0,
+   "n_keel": 0,
+   "n_boat": 0,
+   "n_skald": 0,
+   "n_counsel": 0,
+   "n_last_night": 0,
+   "n_stone": 0,
+   "n_surety": 0,
+   "n_goodbye": 0,
+   "e_door": 0
+  },
+  "journal": [
+   {
+    "at": 0,
+    "scene": "p_shed",
+    "sceneTitle": "The shed",
+    "choice": "Fetch your work bag from the truck.",
+    "outcome": "The bag is on the passenger seat under a coat, heavy and familiar, and its strap finds the groove it wore in your shoulder years ago.\n\nThe brass thing hooks over your ear and sits there warm, as though it had only just come off somebody else's. The note goes into your jacket pocket. Your phone and your lighter are in your jeans already.\n\nBehind you the radio is still murmuring prices. The draught from the frame touches your face, cool and salt, and you step through it as if over a garden hose, with your one hand full.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_hill",
+    "sceneTitle": "The hill",
+    "choice": "Go down to the hall.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_hall",
+    "sceneTitle": "Unkel's water",
+    "choice": "Eat.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_choke",
+    "sceneTitle": "The smith's throat",
+    "choice": "Tell him it is a hold your people use for a bone in the throat.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_hold",
+    "sceneTitle": "A hold",
+    "choice": "Find somewhere to sleep.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_night",
+    "sceneTitle": "The first night",
+    "choice": "Sleep.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_morning",
+    "sceneTitle": "Unkel's kin",
+    "choice": "Go down to the shore.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_keel",
+    "sceneTitle": "The ship that is not there",
+    "choice": "Stay in the boat shed.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_boat",
+    "sceneTitle": "The fifth plank",
+    "choice": "Tell him your people bore a hole at the end of a crack, to give it somewhere to stop.",
+    "outcome": "\"Where I come from, we bore a hole at the end of a crack,\" you say. \"Just past it. It gives it somewhere to stop.\"\n\nFinn looks at the split, and then at you, for a long moment. Then he reaches up for the auger himself. He sets the point a thumb's width beyond the end of the crack and turns it through, the shavings spiralling out, and when he puts his weight on the plank again the split creeps forward into the hole, and stays there.\n\n\"Somewhere to stop,\" he says, and then again, more slowly, trying the words out for his father before his father is there to hear them. By the time the rivets are clenched he has it worked out to his own satisfaction: the hole blinds the crack, so that it cannot see which way to run. He tells you this kindly, as a thing you may not have known.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_skald",
+    "sceneTitle": "The skald",
+    "choice": "Tell him the truth: a shed, a door, a letter.",
+    "outcome": "So you tell him. A shed, two days' ride from any sea. A door standing in the middle of the floor with no wall round it. A letter. He does not interrupt once. When it is finished he sits looking at the fire, and his lips are moving.\n\n\"A door in a stone,\" he says at last. \"With no house to it. A man goes in at one side and does not come out at the other.\" He is counting something off on his fingers. \"Nobody will believe a word. It scans, though.\" He is already humming. Somewhere along this coast, for years to come, children are going to be asked it as a riddle.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_counsel",
+    "sceneTitle": "The king's tenth",
+    "choice": "Tell them to count it: the tenth against the ship.",
+    "outcome": "\"They count it,\" you say. \"What the tenth costs you, every year, for as long as there is a king. What the ship costs you, once. Then they look at the two heaps.\"\n\nIt is a small thing to say. But it is the first thing anybody has said all evening that a person can do with their hands, and Bjorn is already sweeping a space clear on the bench and reaching for a pouch of gaming pebbles. One heap grows, and then another. Voices rise over whether sheep go in as sheep or as wool. And at the head of the fire Thorgrim has stopped looking into the flames, and is leaning forward with his elbows on his knees, looking at the heaps.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_last_night",
+    "sceneTitle": "The well",
+    "choice": "Sleep, if you can.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_stone",
+    "sceneTitle": "The white stone",
+    "choice": "Tell him it goes to a country a very long way off.",
+    "outcome": "\"A country a long way off,\" you say. \"Further than the ships go.\"\n\n\"Further than the empty land?\"\n\n\"A good deal further.\"\n\nHe is quiet for a time. The edge of the world, for him, has always been somewhere just past the islands, and now he is picking it up and carrying it further off. \"Then the smell is that country,\" he says. He leans in and fills his chest with the air of your uncle's heater, and lets it out again, satisfied. Before you are back in the yard three people have been told that the white stone goes to the country beyond the empty land. One of them sets off up the hill at once, to smell it.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_surety",
+    "sceneTitle": "What you leave",
+    "choice": "Leave him what you carried.",
+    "outcome": "The bag goes down on the packed earth in front of him, and its weight leaves your shoulder. Everything you know how to do is in it. Thorgrim looks at it without touching it. \"That is a real thing,\" he says. \"Unkel would not have left his.\" Aud carries it into the hall herself, to the far end where the locked chests are, and a key turns.",
+    "changes": []
+   },
+   {
+    "at": 0,
+    "scene": "n_goodbye",
+    "sceneTitle": "The yard",
+    "choice": "Go up the hill.",
+    "changes": []
+   }
+  ],
+  "checkpoint": "n_stone",
+  "lastOutcome": {
+   "changes": []
+  },
+  "ended": {
+   "ending": "the_door"
+  },
+  "life": {
+   "seed": 12345,
+   "sex": "male",
+   "kit": "bag",
+   "job": "welder",
+   "traits": [
+    "rider",
+    "charm"
+   ],
+   "courts": "women",
+   "season": 3,
+   "place": 15.406538842975213,
+   "skill": 29.246153846153845,
+   "strange": 7.938662774316594,
+   "bond": [
+    0,
+    0
+   ],
+   "told": [
+    0,
+    0
+   ],
+   "trail": 27,
+   "travelled": 0,
+   "idle": 2,
+   "skip": 0,
+   "giftsLeft": 0,
+   "setbacks": 0,
+   "hurts": 0,
+   "pressed": 0,
+   "used": [
+    1,
+    2,
+    0,
+    0
+   ],
+   "needsMet": 0,
+   "needsLeft": 1,
+   "peakPlace": 16.960727272727276,
+   "ending": null,
+   "need": false,
+   "seen": 32.182341281992,
+   "log": [
+    {
+     "t": 0,
+     "focus": "work",
+     "know": 1,
+     "need": true,
+     "place": 17,
+     "strange": 16.9,
+     "tol": 37.4,
+     "bond": [
+      0,
+      0
+     ],
+     "trail": 0,
+     "press": false,
+     "line": null
+    },
+    {
+     "t": 1,
+     "focus": "train",
+     "know": 0,
+     "need": true,
+     "place": 16.6,
+     "strange": 9.4,
+     "tol": 37.3,
+     "bond": [
+      0,
+      0
+     ],
+     "trail": 0,
+     "press": false,
+     "line": null
+    },
+    {
+     "t": 2,
+     "focus": "trail",
+     "know": 1,
+     "need": false,
+     "place": 15.4,
+     "strange": 7.9,
+     "tol": 37.1,
+     "bond": [
+      0,
+      0
+     ],
+     "trail": 27,
+     "press": false,
+     "line": null
+    }
+   ]
+  }
+ }
+}
