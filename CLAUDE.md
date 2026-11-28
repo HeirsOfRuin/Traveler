@@ -101,7 +101,7 @@
 - Nothing authored is shown twice in one playthrough. Every authored line has
   an id in a deck and the spent list is in the save; a dry deck leaves the
   prose out. New content systems use the deck from their first commit. (The
-  deck is Divine Mismanagement's `src/engine/deck.js`; it is not laid here yet.)
+  deck is `src/game/deck.ts`, ported from Divine Mismanagement on 2026-11-28.)
 - A woman's route is its own route where the era demands it, not the man's
   with the pronouns changed. Every scene written for one sex of hero is read
   against the other before it is committed.
